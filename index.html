@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixel & Deploy — Beautiful Websites, Zero Hosting Fees</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f6f2ec;
+    --accent: #e8552e;
+    --accent-light: #fceee9;
+    --muted: #8a8578;
+    --border: #ddd5c9;
+    --card-bg: #fffcf7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    backdrop-filter: blur(16px);
+    background: rgba(246, 242, 236, 0.85);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav a {
+    text-decoration: none; color: var(--ink);
+    font-size: 0.9rem; font-weight: 500;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--accent); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,85,46,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-content { max-width: 720px; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.8rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+    position: relative;
+  }
+  .hero h1 em::after {
+    content: '';
+    position: absolute; bottom: 4px; left: 0;
+    width: 100%; height: 8px;
+    background: rgba(232,85,46,0.15);
+    border-radius: 4px;
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem; font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer; border: none;
+  }
+  .btn-primary {
+    background: var(--ink); color: var(--paper);
+  }
+  .btn-primary:hover {
+    background: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232,85,46,0.25);
+  }
+  .btn-outline {
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--border);
+  }
+  .btn-outline:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  /* ─── PROOF BAR ─── */
+  .proof-bar {
+    padding: 2.5rem 3rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+    text-align: center;
+  }
+  .proof-item strong {
+    display: block;
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--accent);
+  }
+  .proof-item span {
+    font-size: 0.85rem; color: var(--muted); font-weight: 500;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 6rem 3rem; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+  }
+  .section-subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin-bottom: 3rem;
+  }
+
+  /* ─── PORTFOLIO ─── */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .portfolio-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  .portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  }
+  .card-preview {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-preview-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    transition: transform 0.5s ease;
+  }
+  .portfolio-card:hover .card-preview-inner { transform: scale(1.05); }
+
+  .preview-1 {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    color: #e8e8e8;
+  }
+  .preview-2 {
+    background: linear-gradient(135deg, #fef9ef, #f7ead5, #e8d5b7);
+    color: #3e2c1a;
+  }
+  .preview-3 {
+    background: linear-gradient(135deg, #0d1b0e, #1a3c1e, #2d5a30);
+    color: #a8e6a3;
+  }
+
+  .card-mock {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.7rem;
+    text-align: left;
+    padding: 1.5rem;
+  }
+  .mock-nav {
+    display: flex; gap: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+  }
+  .mock-h {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.5px;
+  }
+  .mock-line {
+    height: 3px; width: 60%;
+    border-radius: 2px;
+    opacity: 0.15;
+    background: currentColor;
+    margin-bottom: 0.25rem;
+  }
+  .mock-line.short { width: 40%; }
+
+  .card-info { padding: 1.2rem 1.5rem 1.5rem; }
+  .card-type {
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .card-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+  }
+  .card-desc {
+    font-size: 0.85rem; color: var(--muted);
+  }
+
+  /* ─── PACKAGES ─── */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .package-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  .package-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+  }
+  .package-card.featured {
+    border: 2px solid var(--accent);
+    background: var(--accent-light);
+  }
+  .package-badge {
+    position: absolute; top: -12px; right: 20px;
+    background: var(--accent); color: white;
+    font-size: 0.7rem; font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .package-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .package-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+  .package-price {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+  .package-price span {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .package-includes {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .package-includes li {
+    font-size: 0.9rem;
+    padding: 0.45rem 0;
+    padding-left: 1.4rem;
+    position: relative;
+  }
+  .package-includes li::before {
+    content: '✓';
+    position: absolute; left: 0;
+    color: var(--accent); font-weight: 700;
+  }
+
+  /* ─── PROCESS ─── */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .step {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .step-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .step h3 {
+    font-size: 1.1rem; font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .step p {
+    font-size: 0.85rem; color: var(--muted);
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    text-align: center;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 24px;
+    padding: 5rem 3rem;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(232,85,46,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .cta-section .section-label { color: var(--accent); }
+  .cta-section .section-title { color: var(--paper); }
+  .cta-section p {
+    color: rgba(246,242,236,0.6);
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+  }
+  .btn-accent {
+    background: var(--accent); color: white;
+  }
+  .btn-accent:hover {
+    background: #d44a27;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232,85,46,0.35);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { gap: 1rem; }
+    nav a { font-size: 0.8rem; }
+    section, .hero { padding: 4rem 1.5rem; }
+    .proof-bar { gap: 1.5rem; padding: 2rem 1.5rem; }
+    .cta-section { margin: 0 1rem 3rem; padding: 3rem 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">pixel<span>&</span>deploy</div>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Web Design &middot; GitHub Hosted &middot; Zero Fees</div>
+    <h1>I build <em>beautiful</em> websites with zero hosting costs.</h1>
+    <p>Clean, fast, stunning websites — deployed on GitHub Pages. You get a professional online presence without monthly bills eating into your business.</p>
+    <div class="hero-cta">
+      <a href="#packages" class="btn btn-primary">See Packages</a>
+      <a href="#work" class="btn btn-outline">View My Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-item">
+    <strong>20+</strong>
+    <span>Sites Delivered</span>
+  </div>
+  <div class="proof-item">
+    <strong>$0</strong>
+    <span>Monthly Hosting</span>
+  </div>
+  <div class="proof-item">
+    <strong>100%</strong>
+    <span>Client Satisfaction</span>
+  </div>
+  <div class="proof-item">
+    <strong>&lt;48h</strong>
+    <span>Turnaround Time</span>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<section id="work">
+  <div class="section-label reveal">Selected Work</div>
+  <h2 class="section-title reveal">Sites that speak for themselves.</h2>
+  <p class="section-subtitle reveal">Each project is hand-crafted and hosted on GitHub Pages — fast, reliable, and free to run.</p>
+
+  <div class="portfolio-grid">
+    <div class="portfolio-card reveal">
+      <div class="card-preview">
+        <div class="card-preview-inner preview-1">
+          <div class="card-mock">
+            <div class="mock-nav"><span>Home</span><span>About</span><span>Work</span><span>Contact</span></div>
+            <div class="mock-h">Design Studio</div>
+            <div class="mock-line"></div>
+            <div class="mock-line short"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="card-type">Portfolio</div>
+        <div class="card-name">Studio Meridian</div>
+        <div class="card-desc">Minimal portfolio for a design studio</div>
+      </div>
+    </div>
+
+    <div class="portfolio-card reveal">
+      <div class="card-preview">
+        <div class="card-preview-inner preview-2">
+          <div class="card-mock">
+            <div class="mock-nav"><span>Shop</span><span>About</span><span>Journal</span></div>
+            <div class="mock-h">Artisan Goods</div>
+            <div class="mock-line"></div>
+            <div class="mock-line short"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="card-type">Business</div>
+        <div class="card-name">The Craft Table</div>
+        <div class="card-desc">Warm landing page for a local artisan brand</div>
+      </div>
+    </div>
+
+    <div class="portfolio-card reveal">
+      <div class="card-preview">
+        <div class="card-preview-inner preview-3">
+          <div class="card-mock">
+            <div class="mock-nav"><span>Programs</span><span>Team</span><span>Donate</span></div>
+            <div class="mock-h">Green Future</div>
+            <div class="mock-line"></div>
+            <div class="mock-line short"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="card-type">Non-Profit</div>
+        <div class="card-name">Evergreen Initiative</div>
+        <div class="card-desc">Clean site for an environmental non-profit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages" style="background: rgba(0,0,0,0.015);">
+  <div class="section-label reveal">Pricing</div>
+  <h2 class="section-title reveal">Simple, honest packages.</h2>
+  <p class="section-subtitle reveal">No hidden fees. No monthly hosting costs. You own everything.</p>
+
+  <div class="packages-grid">
+    <div class="package-card reveal">
+      <div class="package-name">Starter</div>
+      <div class="package-desc">A single, polished page to put you on the map.</div>
+      <div class="package-price">$299 <span>one-time</span></div>
+      <ul class="package-includes">
+        <li>One-page responsive design</li>
+        <li>Mobile-friendly layout</li>
+        <li>Contact form setup</li>
+        <li>GitHub Pages deployment</li>
+        <li>Custom domain hookup</li>
+      </ul>
+      <a href="#contact" class="btn btn-outline" style="width:100%;text-align:center;">Get Started</a>
+    </div>
+
+    <div class="package-card featured reveal">
+      <div class="package-badge">Most Popular</div>
+      <div class="package-name">Professional</div>
+      <div class="package-desc">A full multi-page site that means business.</div>
+      <div class="package-price">$749 <span>one-time</span></div>
+      <ul class="package-includes">
+        <li>Up to 5 custom pages</li>
+        <li>Animations &amp; interactions</li>
+        <li>SEO basics included</li>
+        <li>Google Analytics setup</li>
+        <li>2 rounds of revisions</li>
+        <li>GitHub Pages deployment</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;">Get Started</a>
+    </div>
+
+    <div class="package-card reveal">
+      <div class="package-name">Premium</div>
+      <div class="package-desc">The full experience — design, build, maintain.</div>
+      <div class="package-price">$1,299 <span>one-time</span></div>
+      <ul class="package-includes">
+        <li>Unlimited pages</li>
+        <li>Advanced animations</li>
+        <li>Blog / content section</li>
+        <li>Performance optimization</li>
+        <li>3 months of free updates</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="#contact" class="btn btn-outline" style="width:100%;text-align:center;">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-label reveal">How It Works</div>
+  <h2 class="section-title reveal">Four steps. That's it.</h2>
+  <p class="section-subtitle reveal">No complicated onboarding. No jargon. Just results.</p>
+
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-number">01</div>
+      <h3>Chat</h3>
+      <p>Tell me about your brand, your goals, and what you like. A quick call or message is all it takes.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-number">02</div>
+      <h3>Design</h3>
+      <p>I create a custom mockup based on your vision. You give feedback — we refine it together.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-number">03</div>
+      <h3>Build</h3>
+      <p>I code your site by hand — clean, fast, and responsive on every device.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-number">04</div>
+      <h3>Deploy</h3>
+      <p>Your site goes live on GitHub Pages. I connect your custom domain and you're done.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="cta-section reveal">
+    <div class="section-label">Ready?</div>
+    <h2 class="section-title">Let's build something beautiful.</h2>
+    <p>Send me a message and I'll get back to you within 24 hours with a plan and a quote.</p>
+    <a href="mailto:you@youremail.com" class="btn btn-accent">Get In Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Made with care by <a href="#">pixel&deploy</a> &middot; Hosted on GitHub Pages &middot; &copy; 2026</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
