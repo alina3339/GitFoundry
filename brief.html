@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Your Project - GitFoundry</title>
+<meta name="description" content="Tell us about your website vision. We'll come back with a plan within 24 hours.">
+<meta name="theme-color" content="#111">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
+<style>
+  :root {
+    --black: #111;
+    --grey-700: #555;
+    --grey-500: #888;
+    --grey-300: #c8c8c8;
+    --grey-200: #e2e2e2;
+    --grey-100: #f0f0f0;
+    --white: #fafafa;
+    --paper: #fdfdfd;
+    --rule: #ddd;
+    --error: #c0392b;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  /* ═══ ACCESSIBILITY ═══ */
+  *:focus-visible {
+    outline: 2px solid var(--black);
+    outline-offset: 2px;
+  }
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background: var(--black);
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    z-index: 999;
+    text-decoration: none;
+  }
+  .skip-link:focus { top: 0.5rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .step { animation: none; }
+  }
+
+  /* ═══ PERFORMANCE ═══ */
+  .step {
+    will-change: opacity, transform;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::selection { background: var(--black); color: var(--white); }
+
+  /* ═══ HEADER ═══ */
+  header {
+    padding: 1.6rem 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .wordmark em { font-style: italic; font-weight: 300; }
+  .back-link {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-500);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--black); }
+
+  /* ═══ MAIN ═══ */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ═══ PROGRESS ═══ */
+  .progress-bar {
+    padding: 1.5rem 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .progress-track {
+    flex: 1;
+    height: 1px;
+    background: var(--grey-200);
+    position: relative;
+  }
+  .progress-fill {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    background: var(--black);
+    transition: width 0.5s ease;
+  }
+  .progress-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey-500);
+    white-space: nowrap;
+  }
+
+  /* ═══ FORM CONTAINER ═══ */
+  .form-area {
+    flex: 1;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 4rem 2.5rem;
+  }
+
+  /* ═══ STEP ═══ */
+  .step {
+    display: none;
+    animation: stepIn 0.5s ease;
+  }
+  .step.active { display: block; }
+
+  @keyframes stepIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-num {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--grey-500);
+    margin-bottom: 1rem;
+  }
+  .step h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+  }
+  .step h2 i { font-weight: 400; }
+  .step .step-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--grey-500);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  /* ═══ FORM ELEMENTS ═══ */
+  .field {
+    margin-bottom: 1.8rem;
+  }
+  .field label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-500);
+    margin-bottom: 0.5rem;
+  }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="url"],
+  .field input[type="tel"],
+  .field textarea {
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--black);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--grey-300);
+    padding: 0.7rem 0;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .field input:focus,
+  .field textarea:focus {
+    border-color: var(--black);
+  }
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: var(--grey-300);
+    font-weight: 300;
+  }
+  .field textarea {
+    min-height: 100px;
+    resize: vertical;
+    border: 1px solid var(--grey-300);
+    padding: 0.8rem;
+    margin-top: 0.3rem;
+  }
+  .field textarea:focus { border-color: var(--black); }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  /* ═══ OPTION CARDS ═══ */
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .options-grid.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .option-card {
+    border: 1px solid var(--grey-200);
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    text-align: left;
+  }
+  .option-card:hover {
+    border-color: var(--grey-500);
+    background: var(--grey-100);
+  }
+  .option-card.selected {
+    border-color: var(--black);
+    background: var(--black);
+    color: var(--white);
+  }
+  .option-card.selected .option-sub { color: rgba(255,255,255,0.5); }
+  .option-card input { display: none; }
+  .option-label {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 0.1rem;
+  }
+  .option-sub {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-500);
+  }
+
+  /* ═══ MULTI-SELECT CHIPS ═══ */
+  .chips-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .chip {
+    border: 1px solid var(--grey-200);
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+  }
+  .chip:hover { border-color: var(--grey-500); }
+  .chip.selected {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
+
+  /* ═══ STYLE CARDS - visual ═══ */
+  .style-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .style-card {
+    border: 1px solid var(--grey-200);
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+  }
+  .style-card:hover { border-color: var(--grey-500); }
+  .style-card.selected { border-color: var(--black); border-width: 2px; }
+  .style-swatch {
+    height: 50px;
+    margin-bottom: 0.8rem;
+    border-radius: 2px;
+  }
+  .swatch-minimal { background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); border: 1px solid #ddd; }
+  .swatch-bold { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); }
+  .swatch-warm { background: linear-gradient(135deg, #f5efe0 0%, #e8d5b5 100%); border: 1px solid #ddd; }
+  .swatch-vibrant { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+  .style-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.1rem;
+  }
+  .style-desc {
+    font-size: 0.7rem;
+    color: var(--grey-500);
+  }
+
+  /* ═══ BUTTONS ═══ */
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .btn {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    cursor: pointer;
+    transition: all 0.35s;
+    border: none;
+    text-decoration: none;
+  }
+  .btn-next {
+    background: var(--black);
+    color: var(--white);
+  }
+  .btn-next:hover { background: var(--grey-700); transform: translateY(-1px); }
+  .btn-next:disabled { background: var(--grey-300); cursor: not-allowed; transform: none; }
+  .btn-back {
+    background: none;
+    color: var(--grey-500);
+    padding: 0.9rem 0;
+    border-bottom: 1px solid transparent;
+  }
+  .btn-back:hover { color: var(--black); border-color: var(--black); }
+  .btn-submit {
+    background: var(--black);
+    color: var(--white);
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 0.75rem;
+  }
+  .btn-submit:hover { background: var(--grey-700); transform: translateY(-1px); }
+
+  .error-msg {
+    font-size: 0.75rem;
+    color: var(--error);
+    margin-top: 0.4rem;
+    display: none;
+  }
+
+  /* ═══ SUCCESS ═══ */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 6rem 2rem;
+  }
+  .success-screen.active { display: block; }
+  .success-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  .success-screen h2 {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 300;
+    margin-bottom: 0.8rem;
+  }
+  .success-screen h2 i { font-weight: 400; }
+  .success-screen p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--grey-500);
+    max-width: 400px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .success-screen .btn {
+    display: inline-block;
+  }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .footer-left {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  .footer-left a { color: var(--black); text-decoration: none; }
+  .footer-right {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-500);
+  }
+
+  .footer-right a {
+    color: var(--grey-500); text-decoration: none;
+    border-bottom: 1px solid transparent; transition: all 0.3s;
+  }
+  .footer-right a:hover { color: var(--black); border-color: var(--black); }
+
+  /* ═══ COOKIE BANNER ═══ */
+  .cookie-banner {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--black); color: var(--white);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    display: flex; align-items: center;
+    justify-content: center; gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .cookie-banner.visible { transform: translateY(0); }
+  .cookie-text {
+    font-size: 0.75rem; font-weight: 300;
+    color: rgba(255,255,255,0.6); line-height: 1.5;
+  }
+  .cookie-text a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: underline; text-underline-offset: 2px;
+  }
+  .cookie-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+  .cookie-btn {
+    font-family: var(--mono); font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.5rem 1rem; border: none; cursor: pointer;
+    transition: all 0.3s;
+  }
+  .cookie-accept { background: var(--white); color: var(--black); }
+  .cookie-accept:hover { background: var(--grey-200); }
+  .cookie-decline {
+    background: transparent; color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .cookie-decline:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 900px) {
+    .form-area { padding: 3rem 2rem; }
+  }
+  @media (max-width: 700px) {
+    header, .progress-bar, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .form-area { padding: 3rem 1.5rem; }
+    .options-grid, .style-grid, .options-grid.three-col { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .form-area { padding: 2rem 1rem; }
+    .step h2 { font-size: 1.6rem; }
+    .progress-bar { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#formArea" class="skip-link">Skip to form</a>
+<header>
+  <a href="index.html" class="wordmark" aria-label="GitFoundry home">Git<em>Foundry</em></a>
+  <a href="index.html" class="back-link" aria-label="Back to main site">&larr; Back to site</a>
+</header>
+
+<!-- PROGRESS -->
+<div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" aria-label="Form progress">
+  <span class="progress-label" id="progressLabel">Step 1 of 5</span>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill" style="width: 20%"></div>
+  </div>
+</div>
+
+<main id="main">
+  <div class="form-area" id="formArea" role="form" aria-label="Project brief">
+
+    <!-- ═══ STEP 1: About You ═══ -->
+    <div class="step active" data-step="1">
+      <div class="step-num">01 - About You</div>
+      <h2>Let's start with <i>the basics</i></h2>
+      <p class="step-desc">Who are you and what does your business do? This helps me understand the context before we talk design.</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Jane Smith" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="jane@example.co.uk" required autocomplete="email" inputmode="email">
+        </div>
+      </div>
+      <div class="field">
+        <label for="business">Business or Brand Name</label>
+        <input type="text" id="business" placeholder="e.g. Smith Photography" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label>What best describes you?</label>
+        <div class="options-grid" data-field="businessType" role="group" aria-label="Business type">
+          <div class="option-card" data-value="researcher">
+            <span class="option-label">Researcher or Scientist</span>
+            <span class="option-sub">Lab, papers, findings</span>
+          </div>
+          <div class="option-card" data-value="phd-msc">
+            <span class="option-label">PhD or MSc Student</span>
+            <span class="option-sub">Thesis, publications, profile</span>
+          </div>
+          <div class="option-card" data-value="knowledge-worker">
+            <span class="option-label">Knowledge Worker</span>
+            <span class="option-sub">Consultant, analyst, strategist</span>
+          </div>
+          <div class="option-card" data-value="fund-manager">
+            <span class="option-label">Fund Manager or Finance</span>
+            <span class="option-sub">Fund, advisory, practice</span>
+          </div>
+          <div class="option-card" data-value="developer">
+            <span class="option-label">Software Developer</span>
+            <span class="option-sub">Portfolio, repos, projects</span>
+          </div>
+          <div class="option-card" data-value="writer">
+            <span class="option-label">Writer or Thought Leader</span>
+            <span class="option-sub">Essays, talks, books</span>
+          </div>
+          <div class="option-card" data-value="nonprofit">
+            <span class="option-label">Non-Profit or Foundation</span>
+            <span class="option-sub">Mission, impact, cause</span>
+          </div>
+          <div class="option-card" data-value="creative">
+            <span class="option-label">Creative or Freelancer</span>
+            <span class="option-sub">Photography, design, craft</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div></div>
+        <button class="btn btn-next" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 2: Your Vision ═══ -->
+    <div class="step" data-step="2">
+      <div class="step-num">02 - Your Vision</div>
+      <h2>What should your site <i>achieve?</i></h2>
+      <p class="step-desc">Understanding your goals helps me design something that actually works for your business - not just looks good.</p>
+
+      <div class="field">
+        <label>What's the main purpose of your site?</label>
+        <div class="options-grid" data-field="purpose" role="group" aria-label="Site purpose">
+          <div class="option-card" data-value="portfolio">
+            <span class="option-label">Showcase Work</span>
+            <span class="option-sub">Portfolio or gallery</span>
+          </div>
+          <div class="option-card" data-value="generate-leads">
+            <span class="option-label">Get Enquiries</span>
+            <span class="option-sub">Generate leads</span>
+          </div>
+          <div class="option-card" data-value="credibility">
+            <span class="option-label">Build Trust</span>
+            <span class="option-sub">Professional presence</span>
+          </div>
+          <div class="option-card" data-value="sell">
+            <span class="option-label">Sell Something</span>
+            <span class="option-sub">Products or services</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>What pages do you need? (Select all that apply)</label>
+        <div class="chips-grid" data-field="pages" role="group" aria-label="Pages needed">
+          <div class="chip" data-value="home">Home</div>
+          <div class="chip" data-value="about">About</div>
+          <div class="chip" data-value="services">Services</div>
+          <div class="chip" data-value="portfolio">Portfolio</div>
+          <div class="chip" data-value="blog">Blog</div>
+          <div class="chip" data-value="contact">Contact</div>
+          <div class="chip" data-value="pricing">Pricing</div>
+          <div class="chip" data-value="testimonials">Testimonials</div>
+          <div class="chip" data-value="faq">FAQ</div>
+          <div class="chip" data-value="booking">Booking</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="audience">Who is your ideal visitor?</label>
+        <input type="text" id="audience" placeholder="e.g. Small business owners in London looking for a photographer">
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-back" onclick="prevStep()">← Back</button>
+        <button class="btn btn-next" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 3: Style Preferences ═══ -->
+    <div class="step" data-step="3">
+      <div class="step-num">03 - Look & Feel</div>
+      <h2>How should it <i>feel?</i></h2>
+      <p class="step-desc">Don't worry about getting this perfect. It gives me a starting direction - we'll refine together.</p>
+
+      <div class="field">
+        <label>Which aesthetic resonates most?</label>
+        <div class="style-grid" data-field="aesthetic" role="group" aria-label="Design aesthetic">
+          <div class="style-card" data-value="clean-minimal">
+            <div class="style-swatch swatch-minimal"></div>
+            <div class="style-name">Clean & Minimal</div>
+            <div class="style-desc">Whitespace, simple, elegant</div>
+          </div>
+          <div class="style-card" data-value="dark-modern">
+            <div class="style-swatch swatch-bold"></div>
+            <div class="style-name">Dark & Modern</div>
+            <div class="style-desc">Bold, techy, sophisticated</div>
+          </div>
+          <div class="style-card" data-value="warm-natural">
+            <div class="style-swatch swatch-warm"></div>
+            <div class="style-name">Warm & Natural</div>
+            <div class="style-desc">Earthy, organic, approachable</div>
+          </div>
+          <div class="style-card" data-value="vibrant-creative">
+            <div class="style-swatch swatch-vibrant"></div>
+            <div class="style-name">Vibrant & Creative</div>
+            <div class="style-desc">Colourful, energetic, playful</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>What words describe your brand? (Select a few)</label>
+        <div class="chips-grid" data-field="brandWords" role="group" aria-label="Brand words">
+          <div class="chip" data-value="professional">Professional</div>
+          <div class="chip" data-value="friendly">Friendly</div>
+          <div class="chip" data-value="luxurious">Luxurious</div>
+          <div class="chip" data-value="playful">Playful</div>
+          <div class="chip" data-value="trustworthy">Trustworthy</div>
+          <div class="chip" data-value="innovative">Innovative</div>
+          <div class="chip" data-value="calm">Calm</div>
+          <div class="chip" data-value="bold">Bold</div>
+          <div class="chip" data-value="approachable">Approachable</div>
+          <div class="chip" data-value="sophisticated">Sophisticated</div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="inspiration">Any websites you admire? (Paste URLs or describe)</label>
+        <textarea id="inspiration" placeholder="e.g. I love the simplicity of apple.com and the warmth of gormleyandgamble.com"></textarea>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-back" onclick="prevStep()">← Back</button>
+        <button class="btn btn-next" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 4: Timeline ═══ -->
+    <div class="step" data-step="4">
+      <div class="step-num">04 - Timeline</div>
+      <h2>When do you need to <i>go live?</i></h2>
+      <p class="step-desc">Our introductory offer is £99 for a complete hand-coded website with up to 5 pages. Just let us know your timeline.</p>
+
+      <div class="field">
+        <label>When do you need the site live?</label>
+        <div class="options-grid three-col" data-field="timeline" role="group" aria-label="Timeline">
+          <div class="option-card" data-value="asap">
+            <span class="option-label">ASAP</span>
+            <span class="option-sub">This week</span>
+          </div>
+          <div class="option-card" data-value="this-month">
+            <span class="option-label">This Month</span>
+            <span class="option-sub">Within 30 days</span>
+          </div>
+          <div class="option-card" data-value="flexible">
+            <span class="option-label">Flexible</span>
+            <span class="option-sub">No rush</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Do you already have a domain?</label>
+        <div class="options-grid" data-field="hasDomain" role="group" aria-label="Domain ownership">
+          <div class="option-card" data-value="yes">
+            <span class="option-label">Yes</span>
+            <span class="option-sub">I own a domain</span>
+          </div>
+          <div class="option-card" data-value="no">
+            <span class="option-label">Not Yet</span>
+            <span class="option-sub">I'll need one</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="field" id="domainField" style="display:none;">
+        <label for="domain">What's your domain?</label>
+        <input type="text" id="domain" placeholder="e.g. mysite.co.uk" inputmode="url" autocomplete="url">
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-back" onclick="prevStep()">← Back</button>
+        <button class="btn btn-next" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ═══ STEP 5: Final Details ═══ -->
+    <div class="step" data-step="5">
+      <div class="step-num">05 - Anything Else</div>
+      <h2>Last thoughts <i>before we begin</i></h2>
+      <p class="step-desc">Anything I should know? Existing branding, specific features, concerns - nothing is too small.</p>
+
+      <div class="field">
+        <label for="extras">Additional notes (optional)</label>
+        <textarea id="extras" placeholder="e.g. I have a logo already. I need a booking calendar. I want the site to match my Instagram aesthetic."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone number (optional)</label>
+        <input type="tel" id="phone" placeholder="+44 7700 900000" autocomplete="tel" inputmode="tel">
+      </div>
+
+      <div class="field">
+        <label>How would you prefer to communicate?</label>
+        <div class="options-grid three-col" data-field="contactPref" role="group" aria-label="Contact preference">
+          <div class="option-card" data-value="email">
+            <span class="option-label">Email</span>
+          </div>
+          <div class="option-card" data-value="phone">
+            <span class="option-label">Phone</span>
+          </div>
+          <div class="option-card" data-value="whatsapp">
+            <span class="option-label">WhatsApp</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions" style="border-top: none; padding-top: 0;">
+        <button class="btn btn-back" onclick="prevStep()">← Back</button>
+        <div></div>
+      </div>
+      <button class="btn btn-submit" onclick="submitForm()">Submit Your Brief</button>
+      <p style="text-align:center; margin-top:0.8rem; font-family:var(--mono); font-size:0.58rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--grey-500);">I'll reply within 24 hours with a plan and next steps</p>
+    </div>
+  </div>
+
+  <!-- ═══ SUCCESS ═══ -->
+  <div class="form-area success-screen" id="successScreen">
+    <div class="success-icon">✓</div>
+    <h2>Brief <i>received</i></h2>
+    <p>Thank you. I'll review your brief and get back to you within 24 hours with a tailored plan and quote.</p>
+    <a href="index.html" class="btn btn-next" style="display:inline-block;">Back to GitFoundry</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-left"><a href="index.html">Git<em>Foundry</em></a></div>
+  <div class="footer-right"><a href="legal.html">Privacy</a> · <a href="legal.html#terms">Terms</a> · <a href="legal.html#gdpr">Your Rights</a></div>
+</footer>
+
+<!-- COOKIE CONSENT -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <div class="cookie-text">This site uses no tracking cookies. We load fonts from Google Fonts. <a href="legal.html#cookies">Cookie policy</a></div>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Understood</button>
+    <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+  </div>
+</div>
+
+<script>
+  // ═══ STATE ═══
+  let currentStep = 1;
+  const totalSteps = 5;
+  const formData = {
+    name: '', email: '', business: '',
+    businessType: '', purpose: '', pages: [],
+    audience: '', aesthetic: '', brandWords: [],
+    inspiration: '', package: 'Launch Offer \u2014 \u00a399', timeline: '',
+    hasDomain: '', domain: '', extras: '',
+    phone: '', contactPref: ''
+  };
+
+  // ═══ KEYBOARD + CLICK SUPPORT ═══
+  function handleSelect(el, handler) {
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('role', 'button');
+    el.addEventListener('click', handler);
+    el.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
+    });
+  }
+
+  // ═══ OPTION CARD SELECTION (single) ═══
+  document.querySelectorAll('.options-grid .option-card, .style-grid .style-card').forEach(function(card) {
+    handleSelect(card, function() {
+      var parent = card.parentElement;
+      var field = parent.dataset.field;
+      var value = card.dataset.value;
+
+      parent.querySelectorAll('.option-card, .style-card').forEach(function(c) {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      card.classList.add('selected');
+      card.setAttribute('aria-pressed', 'true');
+      formData[field] = value;
+
+      if (field === 'hasDomain') {
+        document.getElementById('domainField').style.display = value === 'yes' ? 'block' : 'none';
+      }
+    });
+  });
+
+  // ═══ CHIPS (multi-select) ═══
+  document.querySelectorAll('.chips-grid .chip').forEach(function(chip) {
+    handleSelect(chip, function() {
+      chip.classList.toggle('selected');
+      var isSelected = chip.classList.contains('selected');
+      chip.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+      var field = chip.parentElement.dataset.field;
+      var value = chip.dataset.value;
+      if (isSelected) {
+        if (!formData[field].includes(value)) formData[field].push(value);
+      } else {
+        formData[field] = formData[field].filter(function(v) { return v !== value; });
+      }
+    });
+  });
+
+  // ═══ NAVIGATION ═══
+  function updateProgress() {
+    var pct = Math.round(currentStep / totalSteps * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = 'Step ' + currentStep + ' of ' + totalSteps;
+    var bar = document.querySelector('.progress-bar');
+    if (bar) bar.setAttribute('aria-valuenow', pct);
+  }
+
+  function showStep(n) {
+    document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+    var target = document.querySelector('[data-step="' + n + '"]');
+    if (target) {
+      target.classList.remove('active');
+      void target.offsetWidth;
+      target.classList.add('active');
+    }
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function getVal(id) {
+    var el = document.getElementById(id);
+    return el ? el.value : '';
+  }
+
+  function collectInputs() {
+    formData.name = getVal('name') || formData.name;
+    formData.email = getVal('email') || formData.email;
+    formData.business = getVal('business') || formData.business;
+    formData.audience = getVal('audience') || formData.audience;
+    formData.inspiration = getVal('inspiration') || formData.inspiration;
+    formData.domain = getVal('domain') || formData.domain;
+    formData.extras = getVal('extras') || formData.extras;
+    formData.phone = getVal('phone') || formData.phone;
+  }
+
+  function validateStep() {
+    collectInputs();
+    if (currentStep === 1) {
+      if (!formData.name.trim() || !formData.email.trim()) {
+        alert('Please enter your name and email to continue.');
+        return false;
+      }
+      if (!formData.email.includes('@')) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function nextStep() {
+    if (!validateStep()) return;
+    if (currentStep < totalSteps) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  }
+
+  function prevStep() {
+    collectInputs();
+    if (currentStep > 1) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  }
+
+  // ═══ SUBMIT ═══
+  function submitForm() {
+    collectInputs();
+
+    if (!formData.name.trim() || !formData.email.trim()) {
+      alert('Please go back and fill in your name and email.');
+      return;
+    }
+
+    var d = formData;
+    var sep = '════════════════════════════════════════';
+    var nl = '\n';
+    var subject = encodeURIComponent('New Brief: ' + (d.business || d.name));
+    var lines = [
+      'NEW PROJECT BRIEF - GitFoundry',
+      sep, '',
+      'NAME: ' + d.name,
+      'EMAIL: ' + d.email,
+      'BUSINESS: ' + (d.business || '-'),
+      'TYPE: ' + (d.businessType || '-'),
+      'PHONE: ' + (d.phone || '-'),
+      'PREFERRED CONTACT: ' + (d.contactPref || '-'),
+      '',
+      'PURPOSE: ' + (d.purpose || '-'),
+      'PAGES NEEDED: ' + (d.pages.length ? d.pages.join(', ') : '-'),
+      'TARGET AUDIENCE: ' + (d.audience || '-'),
+      '',
+      'AESTHETIC: ' + (d.aesthetic || '-'),
+      'BRAND WORDS: ' + (d.brandWords.length ? d.brandWords.join(', ') : '-'),
+      'INSPIRATION: ' + (d.inspiration || '-'),
+      '',
+      'PACKAGE: ' + (d.package || '-'),
+      'TIMELINE: ' + (d.timeline || '-'),
+      'HAS DOMAIN: ' + (d.hasDomain || '-'),
+      'DOMAIN: ' + (d.domain || '-'),
+      '',
+      'ADDITIONAL NOTES:',
+      (d.extras || '-'),
+      '',
+      sep,
+      'Sent from GitFoundry.co.uk brief form'
+    ];
+    var body = encodeURIComponent(lines.join(nl));
+
+    window.location.href = 'mailto:hello@gitfoundry.co.uk?subject=' + subject + '&body=' + body;
+
+    document.getElementById('formArea').style.display = 'none';
+    document.getElementById('successScreen').classList.add('active');
+    document.querySelector('.progress-bar').style.display = 'none';
+  }
+
+  // ═══ COOKIE CONSENT ═══
+  function getCookieConsent(){try{return sessionStorage.getItem('gf_cookie_consent')}catch(e){return null}}
+  function setCookieConsent(v){try{sessionStorage.setItem('gf_cookie_consent',v)}catch(e){}}
+  function acceptCookies(){setCookieConsent('accepted');document.getElementById('cookieBanner').classList.remove('visible')}
+  function declineCookies(){setCookieConsent('declined');document.getElementById('cookieBanner').classList.remove('visible')}
+  if(!getCookieConsent()){setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible')},1500)}
+</script>
+
+</body>
+</html>
