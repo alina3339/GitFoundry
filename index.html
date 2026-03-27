@@ -6,10 +6,19 @@
 <title>GitFoundry · Hand-coded Websites, Zero Hosting Fees</title>
 <meta name="description" content="Premium, hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
 <meta name="theme-color" content="#0a0f1a">
+<link rel="canonical" href="https://gitfoundry.co.uk/">
+<meta property="og:title" content="GitFoundry — Hand-coded Websites, Zero Hosting Fees">
+<meta property="og:description" content="Premium, hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
+<meta property="og:url" content="https://gitfoundry.co.uk/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitFoundry — Hand-coded Websites, Zero Hosting Fees">
+<meta name="twitter:description" content="Premium, hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" as="style" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -366,7 +375,7 @@ body {
 }
 .audience-entry:first-child { border-top: 1px solid var(--border-subtle); }
 .audience-entry:hover { padding-left: 0.8rem; }
-.audience-entry h4 {
+.audience-entry h3 {
   font-family: var(--serif);
   font-size: 1.2rem;
   font-weight: 400;
@@ -848,14 +857,14 @@ body {
       </div>
       <div class="audience-list a-reveal"
         x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="audience-entry"><h4>Researchers &amp; Scientists</h4><span>Labs, papers, findings</span></div>
-        <div class="audience-entry"><h4>PhD &amp; MSc Students</h4><span>Student to professor</span></div>
-        <div class="audience-entry"><h4>Knowledge Workers</h4><span>Beyond LinkedIn</span></div>
-        <div class="audience-entry"><h4>Fund Managers &amp; Finance</h4><span>Understated credibility</span></div>
-        <div class="audience-entry"><h4>Software Developers</h4><span>Repos to portfolio</span></div>
-        <div class="audience-entry"><h4>Writers &amp; Thinkers</h4><span>Own the narrative</span></div>
-        <div class="audience-entry"><h4>Non-Profits &amp; Foundations</h4><span>Budget for the mission</span></div>
-        <div class="audience-entry"><h4>Creatives &amp; Freelancers</h4><span>Pay once, create always</span></div>
+        <div class="audience-entry"><h3>Researchers &amp; Scientists</h3><span>Labs, papers, findings</span></div>
+        <div class="audience-entry"><h3>PhD &amp; MSc Students</h3><span>Student to professor</span></div>
+        <div class="audience-entry"><h3>Knowledge Workers</h3><span>Beyond LinkedIn</span></div>
+        <div class="audience-entry"><h3>Fund Managers &amp; Finance</h3><span>Understated credibility</span></div>
+        <div class="audience-entry"><h3>Software Developers</h3><span>Repos to portfolio</span></div>
+        <div class="audience-entry"><h3>Writers &amp; Thinkers</h3><span>Own the narrative</span></div>
+        <div class="audience-entry"><h3>Non-Profits &amp; Foundations</h3><span>Budget for the mission</span></div>
+        <div class="audience-entry"><h3>Creatives &amp; Freelancers</h3><span>Pay once, create always</span></div>
       </div>
     </div>
   </section>
