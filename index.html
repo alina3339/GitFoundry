@@ -10,6 +10,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,opsz,wght@0,3..18,300;0,3..18,400;0,3..18,500;1,3..18,300;1,3..18,400&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,opsz,wght@0,3..18,300;0,3..18,400;0,3..18,500;1,3..18,300;1,3..18,400&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
+
+<!-- Alpine.js plugins then core -->
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 <style>
 :root {
   --warm: #f4f0ea;
@@ -55,7 +61,7 @@ body {
 
 ::selection { background: var(--brass); color: var(--dark); }
 
-/* ═══ A11Y ═══ */
+/* A11Y */
 *:focus-visible { outline: 1px solid var(--brass); outline-offset: 4px; }
 .skip-link {
   position: absolute; top: -100%; left: 1rem;
@@ -64,12 +70,24 @@ body {
   z-index: 999; text-decoration: none; font-family: var(--body);
 }
 .skip-link:focus { top: 0.5rem; }
+[x-cloak] { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
+}
+
+/* ═══ SCROLL PROGRESS ═══ */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--brass);
+  z-index: 200;
+  transform-origin: left;
+  will-change: transform;
+  pointer-events: none;
 }
 
 /* ═══ NAV ═══ */
@@ -80,10 +98,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  transition: color 0.8s;
   pointer-events: none;
+  transition: background 0.6s, padding 0.4s;
 }
 .nav > * { pointer-events: auto; }
+.nav.scrolled {
+  padding: 1.2rem 4rem;
+  background: rgba(12,12,11,0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.nav.scrolled .nav-mark { color: var(--bone-soft) !important; }
+.nav.scrolled .nav-links a { color: var(--bone-soft) !important; }
+
 .nav-mark {
   font-family: var(--display);
   font-size: 0.9rem;
@@ -111,10 +138,69 @@ body {
 .nav-links a:hover { opacity: 1; }
 
 /* Nav colour states */
-.nav.on-warm .nav-mark { color: var(--ink); }
-.nav.on-warm .nav-links a { color: var(--ink); }
-.nav.on-dark .nav-mark { color: var(--bone-soft); }
-.nav.on-dark .nav-links a { color: var(--bone-soft); }
+.nav-warm .nav-mark { color: var(--ink); }
+.nav-warm .nav-links a { color: var(--ink); }
+.nav-dark .nav-mark { color: var(--bone-soft); }
+.nav-dark .nav-links a { color: var(--bone-soft); }
+
+/* ═══ MOBILE NAV ═══ */
+.nav-burger {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  width: 28px; height: 20px;
+  position: relative;
+  pointer-events: auto;
+}
+.nav-burger span {
+  display: block;
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: currentColor;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.nav-burger span:nth-child(1) { top: 0; }
+.nav-burger span:nth-child(2) { top: 50%; }
+.nav-burger span:nth-child(3) { bottom: 0; }
+.nav-burger.open span:nth-child(1) { top: 50%; transform: rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { bottom: 50%; transform: rotate(-45deg); }
+
+.mobile-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: 280px; height: 100vh;
+  background: var(--dark-lift);
+  z-index: 89;
+  padding: 6rem 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.mobile-drawer.open { transform: translateX(0); }
+.mobile-drawer a {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--bone);
+  text-decoration: none;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule-d);
+  transition: color 0.3s, padding-left 0.3s;
+}
+.mobile-drawer a:hover { color: var(--brass); padding-left: 0.5rem; }
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 88;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.drawer-backdrop.open { opacity: 1; pointer-events: auto; }
 
 /* ═══ SCENE ═══ */
 .scene {
@@ -126,7 +212,19 @@ body {
 .scene--warm { background: var(--warm); color: var(--ink); }
 .scene--dark { background: var(--dark); color: var(--bone); }
 
-/* ═══ HERO — editorial magazine spread ═══ */
+/* ═══ REVEAL via Alpine x-intersect ═══ */
+.a-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.a-reveal.shown {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══ HERO ═══ */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
@@ -204,6 +302,11 @@ body {
   flex-wrap: wrap;
 }
 
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* ═══ BUTTONS ═══ */
 .btn {
   font-family: var(--mono);
@@ -216,45 +319,27 @@ body {
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: none;
+  position: relative;
+  overflow: hidden;
 }
-.btn--primary {
-  background: var(--ink);
-  color: var(--warm);
-}
-.btn--primary:hover {
-  background: var(--brass);
-  color: var(--dark);
-}
+.btn--primary { background: var(--ink); color: var(--warm); }
+.btn--primary:hover { background: var(--brass); color: var(--dark); }
 .btn--quiet {
-  background: none;
-  color: var(--ink-quiet);
+  background: none; color: var(--ink-quiet);
   padding: 1rem 0;
   border-bottom: 1px solid var(--rule-w);
 }
-.btn--quiet:hover {
-  color: var(--ink);
-  border-color: var(--ink-mid);
-}
-.btn--light {
-  background: var(--brass);
-  color: var(--dark);
-}
-.btn--light:hover {
-  background: var(--bone);
-  color: var(--dark);
-}
+.btn--quiet:hover { color: var(--ink); border-color: var(--ink-mid); }
+.btn--light { background: var(--brass); color: var(--dark); }
+.btn--light:hover { background: var(--bone); color: var(--dark); }
 .btn--ghost {
-  background: none;
-  color: var(--bone-quiet);
+  background: none; color: var(--bone-quiet);
   padding: 1rem 0;
   border-bottom: 1px solid var(--rule-d);
 }
-.btn--ghost:hover {
-  color: var(--bone-soft);
-  border-color: var(--bone-mid);
-}
+.btn--ghost:hover { color: var(--bone-soft); border-color: var(--bone-mid); }
 
-/* ═══ PREMISE (dark) ═══ */
+/* ═══ PREMISE ═══ */
 .premise {
   align-items: center;
   justify-content: center;
@@ -289,7 +374,7 @@ body {
   margin: 0 auto;
 }
 
-/* ═══ AUDIENCE (warm) — editorial directory ═══ */
+/* ═══ AUDIENCE ═══ */
 .audience {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -318,36 +403,59 @@ body {
   justify-content: center;
   padding: 6rem 4rem;
 }
-.audience-list {
-  max-width: 480px;
-}
+.audience-list { max-width: 520px; }
 .audience-entry {
+  border-bottom: 1px solid var(--rule-w);
+  cursor: pointer;
+  transition: background 0.4s;
+}
+.audience-entry:first-child { border-top: 1px solid var(--rule-w); }
+.audience-entry:hover { background: rgba(158,140,108,0.03); }
+
+.audience-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   padding: 1.1rem 0;
-  border-bottom: 1px solid var(--rule-w);
-  transition: padding-left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  cursor: default;
+  transition: padding-left 0.4s;
 }
-.audience-entry:first-child { border-top: 1px solid var(--rule-w); }
-.audience-entry:hover { padding-left: 0.8rem; }
-.audience-entry h4 {
+.audience-entry:hover .audience-header { padding-left: 0.6rem; }
+
+.audience-header h4 {
   font-family: var(--display);
   font-size: 1.1rem;
   font-weight: 400;
   color: var(--ink);
 }
-.audience-entry span {
+.audience-header span {
   font-size: 0.7rem;
   font-weight: 300;
   color: var(--ink-ghost);
-  text-align: right;
   padding-left: 2rem;
   flex-shrink: 0;
 }
+.audience-arrow {
+  font-size: 0.7rem;
+  color: var(--ink-ghost);
+  transition: transform 0.35s, color 0.35s;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+.audience-arrow.rotated { transform: rotate(180deg); color: var(--brass); }
 
-/* ═══ OFFER (dark, split) ═══ */
+.audience-detail {
+  overflow: hidden;
+}
+.audience-detail-inner {
+  padding: 0 0 1.2rem 0;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+/* ═══ OFFER ═══ */
 .offer {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -367,8 +475,7 @@ body {
 }
 .offer-narrative-inner {
   max-width: 360px;
-  position: relative;
-  z-index: 1;
+  position: relative; z-index: 1;
 }
 .offer-tag {
   font-family: var(--mono);
@@ -425,8 +532,7 @@ body {
 .offer-card {
   max-width: 320px;
   width: 100%;
-  position: relative;
-  z-index: 1;
+  position: relative; z-index: 1;
 }
 .offer-availability {
   font-family: var(--mono);
@@ -438,10 +544,7 @@ body {
   text-align: center;
   margin-bottom: 2.5rem;
 }
-.offer-price {
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
+.offer-price { text-align: center; margin-bottom: 0.5rem; }
 .offer-price-num {
   font-family: var(--display);
   font-size: clamp(5rem, 11vw, 8rem);
@@ -460,8 +563,7 @@ body {
   margin-bottom: 3rem;
 }
 .offer-rule {
-  width: 100%;
-  height: 1px;
+  width: 100%; height: 1px;
   background: var(--rule-d);
   margin-bottom: 2rem;
 }
@@ -475,20 +577,17 @@ body {
   color: var(--bone-mid);
   padding: 0.5rem 0 0.5rem 1.6rem;
   position: relative;
-  letter-spacing: 0.01em;
 }
 .offer-includes li::before {
   content: '';
   position: absolute;
   left: 0; top: 50%;
   width: 8px; height: 1px;
-  background: var(--brass-dim);
   background: var(--brass);
   opacity: 0.3;
 }
 .btn-begin {
-  display: block;
-  width: 100%;
+  display: block; width: 100%;
   text-align: center;
   font-family: var(--mono);
   font-size: 0.54rem;
@@ -499,8 +598,7 @@ body {
   padding: 1.1rem;
   background: var(--brass);
   color: var(--dark);
-  border: none;
-  cursor: pointer;
+  border: none; cursor: pointer;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .btn-begin:hover {
@@ -509,7 +607,7 @@ body {
   box-shadow: 0 12px 40px rgba(158,140,108,0.15);
 }
 
-/* ═══ TESTIMONY (warm) ═══ */
+/* ═══ TESTIMONY ═══ */
 .testimony {
   align-items: center;
   justify-content: center;
@@ -543,25 +641,31 @@ body {
   text-transform: uppercase;
   color: var(--ink-ghost);
 }
+
+/* Testimony carousel */
 .testimony-others {
   margin-top: 4rem;
   padding-top: 3rem;
   border-top: 1px solid var(--rule-w);
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
+  position: relative;
+  min-height: 120px;
 }
-.testimony-mini { max-width: 220px; }
-.testimony-mini p {
+.testimony-slide {
+  text-align: center;
+  max-width: 320px;
+  margin: 0 auto;
+  transition: opacity 0.6s ease;
+}
+.testimony-slide p {
   font-family: var(--display);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-style: italic;
   font-weight: 300;
   color: var(--ink-mid);
   line-height: 1.65;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
 }
-.testimony-mini cite {
+.testimony-slide cite {
   font-family: var(--mono);
   font-size: 0.45rem;
   font-style: normal;
@@ -569,8 +673,28 @@ body {
   text-transform: uppercase;
   color: var(--ink-ghost);
 }
+.testimony-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.testimony-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ink-ghost);
+  opacity: 0.3;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s;
+  padding: 0;
+}
+.testimony-dot.active {
+  opacity: 1;
+  background: var(--brass);
+}
 
-/* ═══ CTA (dark) ═══ */
+/* ═══ FINALE ═══ */
 .finale {
   align-items: center;
   justify-content: center;
@@ -646,10 +770,7 @@ body {
   position: fixed; bottom: 0; left: 0; right: 0;
   z-index: 95;
   padding: 0 4rem 2rem;
-  transform: translateY(120%);
-  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.cookie-banner.visible { transform: translateY(0); }
 .cookie-box {
   max-width: 620px; margin: 0 auto;
   background: var(--dark-lift);
@@ -679,24 +800,6 @@ body {
 }
 .ck--no:hover { color: var(--bone-soft); border-color: var(--bone-quiet); }
 
-/* ═══ REVEAL ═══ */
-@keyframes appear {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-.reveal {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: opacity, transform;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-  will-change: auto;
-}
-
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 1100px) {
   .hero { grid-template-columns: 1fr; }
@@ -712,22 +815,82 @@ body {
 }
 @media (max-width: 768px) {
   .nav { padding: 1.5rem 1.5rem; }
+  .nav.scrolled { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
+  .nav-burger { display: block; }
   .hero-left, .hero-right { padding-left: 1.5rem; padding-right: 1.5rem; }
   .premise, .testimony, .finale { padding: 5rem 1.5rem; }
   .audience-left, .audience-right { padding-left: 1.5rem; padding-right: 1.5rem; }
   .offer-narrative, .offer-detail { padding: 4rem 1.5rem; }
-  .testimony-others { flex-direction: column; align-items: center; gap: 2.5rem; }
   .credits { padding: 1.5rem; }
-  .audience-entry span { display: none; }
+  .audience-header span { display: none; }
+  .cookie-banner { padding: 0 1.5rem 1rem; }
 }
 </style>
 </head>
-<body>
+
+<body x-data="{
+  navTheme: 'nav-warm',
+  scrolled: false,
+  drawerOpen: false,
+  cookieShown: false,
+  cookieDismissed: false,
+
+  activeQuote: 0,
+  quotes: [
+    { text: 'My site looks incredible and I haven\'t paid a penny in hosting since launch.', who: 'Sarah K. — Bristol' },
+    { text: 'Quick turnaround, beautiful design, explained everything in plain English.', who: 'James T. — Manchester' },
+    { text: 'I recommended GitFoundry to three colleagues. They all signed up within a week.', who: 'Daniel R. — Edinburgh' }
+  ],
+
+  progress: 0,
+
+  init() {
+    var self = this;
+
+    // Scroll progress
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      self.progress = h > 0 ? (window.scrollY / h) : 0;
+      self.scrolled = window.scrollY > 80;
+    }, { passive: true });
+
+    // Cookie banner after delay
+    try {
+      if (!sessionStorage.getItem('gf_ck')) {
+        setTimeout(function() { self.cookieShown = true; }, 3000);
+      } else {
+        self.cookieDismissed = true;
+      }
+    } catch(e) {}
+
+    // Auto-rotate quotes
+    setInterval(function() {
+      self.activeQuote = (self.activeQuote + 1) % self.quotes.length;
+    }, 5000);
+  },
+
+  acceptCookie() {
+    try { sessionStorage.setItem('gf_ck', 'y'); } catch(e) {}
+    this.cookieShown = false;
+    this.cookieDismissed = true;
+  },
+  declineCookie() {
+    try { sessionStorage.setItem('gf_ck', 'n'); } catch(e) {}
+    this.cookieShown = false;
+    this.cookieDismissed = true;
+  },
+  setTheme(theme) { this.navTheme = theme; },
+  closeDrawer() { this.drawerOpen = false; }
+}">
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<header class="nav on-warm" id="siteNav" role="banner">
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" :style="'width: ' + (progress * 100) + '%'" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" :class="[navTheme, scrolled ? 'scrolled' : '']" role="banner">
   <a href="#" class="nav-mark" aria-label="GitFoundry home">GitFoundry</a>
   <nav aria-label="Main navigation">
     <ul class="nav-links">
@@ -737,12 +900,28 @@ body {
       <li><a href="brief.html">Begin</a></li>
     </ul>
   </nav>
+  <button class="nav-burger" :class="drawerOpen ? 'open' : ''"
+    @click="drawerOpen = !drawerOpen"
+    :style="'color:' + (navTheme === 'nav-dark' || scrolled ? 'var(--bone-soft)' : 'var(--ink)')"
+    aria-label="Menu" :aria-expanded="drawerOpen">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer-backdrop" :class="drawerOpen ? 'open' : ''" @click="closeDrawer()"></div>
+<nav class="mobile-drawer" :class="drawerOpen ? 'open' : ''" aria-label="Mobile navigation">
+  <a href="#audience" @click="closeDrawer()">Who It's For</a>
+  <a href="#offer" @click="closeDrawer()">The Offer</a>
+  <a href="#proof" @click="closeDrawer()">Proof</a>
+  <a href="brief.html">Begin</a>
+</nav>
 
 <main id="main">
 
-  <!-- I — HERO (warm) -->
-  <section class="scene scene--warm hero" id="home">
+  <!-- HERO (warm) -->
+  <section class="scene scene--warm hero" id="home"
+    x-intersect:enter="setTheme('nav-warm')">
     <div class="hero-left">
       <div class="hero-label">GitFoundry · United Kingdom</div>
       <h1 class="hero-title">
@@ -763,62 +942,124 @@ body {
     </div>
   </section>
 
-  <!-- II — PREMISE (dark) -->
-  <section class="scene scene--dark premise">
-    <div class="premise-inner reveal">
+  <!-- PREMISE (dark) -->
+  <section class="scene scene--dark premise"
+    x-intersect:enter="setTheme('nav-dark')">
+    <div class="premise-inner a-reveal"
+      x-intersect:enter.once="$el.classList.add('shown')">
       <div class="premise-tag">The Premise</div>
       <h2>Every other platform charges you rent. We believe your website should <em>outlast</em> you.</h2>
       <p>No templates. No page builders. Every pixel placed with intention, deployed on infrastructure that costs nothing to maintain.</p>
     </div>
   </section>
 
-  <!-- III — AUDIENCE (warm) -->
-  <section class="scene scene--warm audience" id="audience">
+  <!-- AUDIENCE (warm) -->
+  <section class="scene scene--warm audience" id="audience"
+    x-intersect:enter="setTheme('nav-warm')">
     <div class="audience-left">
-      <h2 class="reveal">Built for those who think in <em>decades.</em></h2>
+      <h2 class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">Built for those who think in <em>decades.</em></h2>
     </div>
     <div class="audience-right">
-      <div class="audience-list reveal">
-        <div class="audience-entry">
-          <h4>Researchers &amp; Scientists</h4>
-          <span>Labs, papers, findings</span>
+      <div class="audience-list a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+
+        <div class="audience-entry" x-data="{ open: false }">
+          <div class="audience-header" @click="open = !open">
+            <h4>Researchers &amp; Scientists</h4>
+            <span>Labs, papers, findings</span>
+            <div class="audience-arrow" :class="open ? 'rotated' : ''">&#9662;</div>
+          </div>
+          <div x-show="open" x-collapse>
+            <div class="audience-detail-inner">Your lab, your publications, your conference talks — all on a site you control. Not locked inside a university CMS that disappears when you move on.</div>
+          </div>
         </div>
-        <div class="audience-entry">
-          <h4>PhD &amp; MSc Students</h4>
-          <span>Student to professor</span>
+
+        <div class="audience-entry" x-data="{ open: false }">
+          <div class="audience-header" @click="open = !open">
+            <h4>PhD &amp; MSc Students</h4>
+            <span>Student to professor</span>
+            <div class="audience-arrow" :class="open ? 'rotated' : ''">&#9662;</div>
+          </div>
+          <div x-show="open" x-collapse>
+            <div class="audience-detail-inner">Showcase your thesis, publications, and academic profile. A professional presence that grows with your career.</div>
+          </div>
         </div>
-        <div class="audience-entry">
-          <h4>Knowledge Workers</h4>
-          <span>Beyond LinkedIn</span>
+
+        <div class="audience-entry" x-data="{ open: false }">
+          <div class="audience-header" @click="open = !open">
+            <h4>Knowledge Workers</h4>
+            <span>Beyond LinkedIn</span>
+            <div class="audience-arrow" :class="open ? 'rotated' : ''">&#9662;</div>
+          </div>
+          <div x-show="open" x-collapse>
+            <div class="audience-detail-inner">Consultants, analysts, strategists — your expertise deserves a site that reflects depth and independence.</div>
+          </div>
         </div>
-        <div class="audience-entry">
-          <h4>Fund Managers</h4>
-          <span>Understated credibility</span>
+
+        <div class="audience-entry" x-data="{ open: false }">
+          <div class="audience-header" @click="open = !open">
+            <h4>Fund Managers</h4>
+            <span>Understated credibility</span>
+            <div class="audience-arrow" :class="open ? 'rotated' : ''">&#9662;</div>
+          </div>
+          <div x-show="open" x-collapse>
+            <div class="audience-detail-inner">A clean, credible digital presence for your fund, your thesis, or your advisory practice. Always available, always professional.</div>
+          </div>
         </div>
-        <div class="audience-entry">
-          <h4>Software Developers</h4>
-          <span>Repos to portfolio</span>
+
+        <div class="audience-entry" x-data="{ open: false }">
+          <div class="audience-header" @click="open = !open">
+            <h4>Software Developers</h4>
+            <span>Repos to portfolio</span>
+            <div class="audience-arrow" :class="open ? 'rotated' : ''">&#9662;</div>
+          </div>
+          <div x-show="open" x-collapse>
+            <div class="audience-detail-inner">You already know GitHub. Let us turn your side projects into a portfolio site that makes recruiters pay attention.</div>
+          </div>
         </div>
-        <div class="audience-entry">
-          <h4>Writers &amp; Thinkers</h4>
-          <span>Own the narrative</span>
+
+        <div class="audience-entry" x-data="{ open: false }">
+          <div class="audience-header" @click="open = !open">
+            <h4>Writers &amp; Thinkers</h4>
+            <span>Own the narrative</span>
+            <div class="audience-arrow" :class="open ? 'rotated' : ''">&#9662;</div>
+          </div>
+          <div x-show="open" x-collapse>
+            <div class="audience-detail-inner">Essays, talks, newsletters, books — collect your body of work in one place you fully own. No algorithm deciding who sees it.</div>
+          </div>
         </div>
-        <div class="audience-entry">
-          <h4>Non-Profits</h4>
-          <span>Budget for the mission</span>
+
+        <div class="audience-entry" x-data="{ open: false }">
+          <div class="audience-header" @click="open = !open">
+            <h4>Non-Profits</h4>
+            <span>Budget for the mission</span>
+            <div class="audience-arrow" :class="open ? 'rotated' : ''">&#9662;</div>
+          </div>
+          <div x-show="open" x-collapse>
+            <div class="audience-detail-inner">Stretch every pound. A beautiful site with zero hosting costs means more of your budget goes to the mission.</div>
+          </div>
         </div>
-        <div class="audience-entry">
-          <h4>Creatives &amp; Freelancers</h4>
-          <span>Pay once, create always</span>
+
+        <div class="audience-entry" x-data="{ open: false }">
+          <div class="audience-header" @click="open = !open">
+            <h4>Creatives &amp; Freelancers</h4>
+            <span>Pay once, create always</span>
+            <div class="audience-arrow" :class="open ? 'rotated' : ''">&#9662;</div>
+          </div>
+          <div x-show="open" x-collapse>
+            <div class="audience-detail-inner">Photographers, designers, coaches, makers — stop paying monthly fees for a portfolio. Pay once and focus on your craft.</div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- IV — OFFER (dark, split) -->
-  <section class="scene scene--dark offer" id="offer">
+  <!-- OFFER (dark, split) -->
+  <section class="scene scene--dark offer" id="offer"
+    x-intersect:enter="setTheme('nav-dark')">
     <div class="offer-narrative">
-      <div class="offer-narrative-inner reveal">
+      <div class="offer-narrative-inner a-reveal"
+        x-intersect:enter.once="$el.classList.add('shown')">
         <div class="offer-tag">The Offer</div>
         <h2>One price. <em>Everything.</em></h2>
         <p>We're building our portfolio and accepting a limited number of commissions at a fraction of our standard rate. Same craft. A price that won't return.</p>
@@ -826,7 +1067,8 @@ body {
       </div>
     </div>
     <div class="offer-detail">
-      <div class="offer-card reveal">
+      <div class="offer-card a-reveal"
+        x-intersect:enter.once="$el.classList.add('shown')">
         <div class="offer-availability">Launch Offer — Limited Availability</div>
         <div class="offer-price">
           <span class="offer-price-num">£50</span>
@@ -847,28 +1089,46 @@ body {
     </div>
   </section>
 
-  <!-- V — TESTIMONY (warm) -->
-  <section class="scene scene--warm testimony" id="proof">
-    <div class="testimony-inner reveal">
+  <!-- TESTIMONY (warm) -->
+  <section class="scene scene--warm testimony" id="proof"
+    x-intersect:enter="setTheme('nav-warm')">
+    <div class="testimony-inner a-reveal"
+      x-intersect:enter.once="$el.classList.add('shown')">
       <div class="testimony-open" aria-hidden="true">&ldquo;</div>
       <blockquote>I was paying £30 a month on Squarespace. Now I have a better site and pay nothing. Wish I'd done this sooner.</blockquote>
       <div class="testimony-who">Priya M. — Yoga Instructor, London</div>
+
       <div class="testimony-others">
-        <div class="testimony-mini">
-          <p>"My site looks incredible and I haven't paid a penny in hosting since launch."</p>
-          <cite>Sarah K. — Bristol</cite>
-        </div>
-        <div class="testimony-mini">
-          <p>"Quick turnaround, beautiful design, explained everything in plain English."</p>
-          <cite>James T. — Manchester</cite>
+        <template x-for="(q, i) in quotes" :key="i">
+          <div class="testimony-slide"
+            x-show="activeQuote === i"
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0">
+            <p x-text="'&ldquo;' + q.text + '&rdquo;'"></p>
+            <cite x-text="q.who"></cite>
+          </div>
+        </template>
+        <div class="testimony-dots">
+          <template x-for="(q, i) in quotes" :key="'dot-'+i">
+            <button class="testimony-dot"
+              :class="activeQuote === i ? 'active' : ''"
+              @click="activeQuote = i"
+              :aria-label="'Show quote ' + (i + 1)"></button>
+          </template>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VI — FINALE (dark) -->
-  <section class="scene scene--dark finale">
-    <div class="finale-inner reveal">
+  <!-- FINALE (dark) -->
+  <section class="scene scene--dark finale"
+    x-intersect:enter="setTheme('nav-dark')">
+    <div class="finale-inner a-reveal"
+      x-intersect:enter.once="$el.classList.add('shown')">
       <h2>Ready to build something <em>permanent?</em></h2>
       <p>Send a message. I'll reply within 24 hours with a tailored plan.</p>
       <a href="brief.html" class="btn btn--light">Start a Conversation</a>
@@ -889,55 +1149,25 @@ body {
   </div>
 </footer>
 
-<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+<!-- COOKIE -->
+<div class="cookie-banner"
+  x-show="cookieShown && !cookieDismissed"
+  x-transition:enter="transition ease-out duration-700"
+  x-transition:enter-start="transform translate-y-full opacity-0"
+  x-transition:enter-end="transform translate-y-0 opacity-100"
+  x-transition:leave="transition ease-in duration-400"
+  x-transition:leave-start="transform translate-y-0 opacity-100"
+  x-transition:leave-end="transform translate-y-full opacity-0"
+  x-cloak
+  role="dialog" aria-label="Cookie consent">
   <div class="cookie-box">
     <p>This site uses no tracking cookies. Fonts loaded from Google Fonts. <a href="legal.html#cookies">Cookie policy</a></p>
     <div class="cookie-actions">
-      <button class="ck ck--yes" onclick="acceptCookies()">Understood</button>
-      <button class="ck ck--no" onclick="declineCookies()">Decline</button>
+      <button class="ck ck--yes" @click="acceptCookie()">Understood</button>
+      <button class="ck ck--no" @click="declineCookie()">Decline</button>
     </div>
   </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  /* Reveal on scroll */
-  var ro = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        ro.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
-
-  /* Nav theme — switches between on-warm and on-dark */
-  var nav = document.getElementById('siteNav');
-  var scenes = document.querySelectorAll('.scene');
-  var no = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting && e.intersectionRatio > 0.15) {
-        var isDark = e.target.classList.contains('scene--dark');
-        nav.classList.toggle('on-dark', isDark);
-        nav.classList.toggle('on-warm', !isDark);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '-45% 0px -45% 0px' });
-  scenes.forEach(function(s) { no.observe(s); });
-
-  /* Cookie */
-  if (!gc()) {
-    setTimeout(function() {
-      document.getElementById('cookieBanner').classList.add('visible');
-    }, 3000);
-  }
-});
-function gc() { try { return sessionStorage.getItem('gf_ck'); } catch(e) { return null; } }
-function sc(v) { try { sessionStorage.setItem('gf_ck', v); } catch(e) {} }
-function acceptCookies() { sc('y'); document.getElementById('cookieBanner').classList.remove('visible'); }
-function declineCookies() { sc('n'); document.getElementById('cookieBanner').classList.remove('visible'); }
-</script>
 
 </body>
 </html>
