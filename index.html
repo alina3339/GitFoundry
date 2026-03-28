@@ -28,9 +28,9 @@
   --surface: #0f1520;
   --surface-lift: #141a28;
   --text: #eef3ff;
-  --text-soft: #c0c8d8;
-  --text-muted: #8d9bb0;
-  --text-quiet: #8a94a8;
+  --text-soft: #d0d8e8;
+  --text-muted: #a8b4c8;
+  --text-quiet: #98a4b8;
   --accent: #c7a252;
   --accent-dim: rgba(199,162,82,0.12);
   --accent-glow: rgba(199,162,82,0.04);
@@ -66,7 +66,7 @@ body {
   position: absolute; top: -100%; left: 1rem;
   background: var(--accent); color: var(--bg);
   padding: 0.6rem 1.2rem;
-  font-size: 0.85rem; font-weight: 500;
+  font-size: 0.95rem; font-weight: 500;
   z-index: 999; text-decoration: none;
   font-family: var(--sans);
 }
@@ -122,16 +122,15 @@ body {
 }
 .site-nav a {
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
   text-decoration: none;
-  opacity: 0.5;
-  transition: opacity 0.4s;
+  transition: color 0.4s;
 }
-.site-nav a:hover { opacity: 1; }
+.site-nav a:hover { color: var(--text); }
 
 /* Mobile burger */
 .nav-burger {
@@ -218,7 +217,7 @@ body {
 }
 .hero-label {
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -276,7 +275,7 @@ body {
 /* ═══ BUTTONS ═══ */
 .btn {
   font-family: var(--sans);
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -317,7 +316,7 @@ body {
 }
 .premise-tag {
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -382,7 +381,7 @@ body {
   color: var(--text);
 }
 .audience-entry span {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   font-weight: 300;
   color: var(--text-quiet);
   padding-left: 2rem;
@@ -412,7 +411,7 @@ body {
 }
 .offer-label {
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -468,7 +467,7 @@ body {
 }
 .offer-availability {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-weight: 300;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -487,7 +486,7 @@ body {
 }
 .offer-price-sub {
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.08em;
   color: var(--text-quiet);
@@ -521,7 +520,7 @@ body {
   display: block; width: 100%;
   text-align: center;
   font-family: var(--sans);
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -566,7 +565,7 @@ body {
 }
 .testimony-who {
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -595,7 +594,7 @@ body {
 }
 .carousel-slide cite {
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.95rem;
   font-style: normal;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -643,7 +642,7 @@ body {
 }
 .finale-sub {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -662,13 +661,13 @@ body {
 }
 .footer-left {
   display: flex; gap: 1.5rem;
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   font-weight: 300;
   color: var(--text-quiet);
 }
 .footer-right {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-weight: 300;
   letter-spacing: 0.06em;
   color: var(--text-quiet);
@@ -700,14 +699,14 @@ body {
   max-width: 700px; width: 100%;
 }
 .cookie-inner p {
-  font-size: 0.85rem; font-weight: 300;
+  font-size: 0.95rem; font-weight: 300;
   color: var(--text-muted);
 }
 .cookie-inner a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .cookie-actions { display: flex; gap: 0.5rem; }
 .cookie-btn {
   font-family: var(--mono);
-  font-size: 0.75rem; font-weight: 300;
+  font-size: 0.95rem; font-weight: 300;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.45rem 1rem;
