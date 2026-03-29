@@ -11,13 +11,14 @@
 <meta property="og:description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees.">
 <meta property="og:url" content="https://gitfoundry.co.uk/">
 <meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
+/* === GLOBAL === */
 :root {
   --font: 'Inter', -apple-system, system-ui, sans-serif;
   --bg: #0c0c0c;
@@ -47,13 +48,9 @@
   --accent: #1a1a1a;
   --btn-bg: rgba(0,0,0,0.08);
   --btn-hover: rgba(0,0,0,0.14);
-  --gradient-start: #6b8ea0;
-  --gradient-mid: #9aabb5;
-  --gradient-end: #c8ccc5;
   --nav-bg: rgba(245,245,243,0.85);
   --feature-label: rgba(26,26,26,0.4);
 }
-
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -62,8 +59,7 @@ body {
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
-  overflow-x: hidden;
-  transition: background 0.5s, color 0.5s;
+  transition: background 0.3s, color 0.3s;
 }
 ::selection { background: rgba(107,142,160,0.3); }
 [x-cloak] { display: none !important; }
@@ -78,7 +74,7 @@ body {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-/* ═══ TOP BAR ═══ */
+/* === TOP BAR === */
 .top-bar {
   text-align: center;
   padding: 0.6rem 1rem;
@@ -86,17 +82,14 @@ body {
   color: var(--text-muted);
   background: var(--surface);
   border-bottom: 1px solid var(--card-border);
-  transition: background 0.5s, border-color 0.5s;
 }
 
-/* ═══ NAV — sticky, tatem-style ═══ */
+/* === NAVIGATION === */
 .nav {
   position: sticky; top: 0; z-index: 100;
   padding: 1rem 0;
   background: var(--nav-bg);
-  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  transition: background 0.5s;
 }
 .nav-inner {
   max-width: 1200px; margin: 0 auto;
@@ -111,7 +104,6 @@ body {
   color: var(--text);
   text-decoration: none;
   letter-spacing: -0.02em;
-  transition: color 0.5s;
 }
 .nav-right {
   display: flex; align-items: center; gap: 1.8rem;
@@ -129,17 +121,14 @@ body {
   color: var(--text) !important;
   padding: 0.5rem 1.2rem;
   border-radius: 8px;
-  transition: background 0.3s, color 0.3s !important;
 }
 .nav-cta:hover { background: var(--btn-hover); }
 .theme-btn {
   background: none; border: none; cursor: pointer;
   font-family: var(--font); font-size: 0.85rem;
   color: var(--text-muted); padding: 0;
-  transition: color 0.3s;
 }
 .theme-btn:hover { color: var(--text); }
-
 .nav-burger {
   display: none; background: none; border: none;
   cursor: pointer; color: var(--text); font-size: 1.4rem; padding: 0;
@@ -151,7 +140,7 @@ body {
   z-index: 200; padding: 4rem 2rem;
   display: flex; flex-direction: column; gap: 0.5rem;
   transform: translateX(100%);
-  transition: transform 0.35s ease, background 0.5s;
+  transition: transform 0.35s ease;
 }
 .mobile-drawer.open { transform: translateX(0); }
 .mobile-drawer a {
@@ -159,7 +148,6 @@ body {
   color: var(--text); text-decoration: none;
   padding: 0.8rem 0;
   border-bottom: 1px solid var(--card-border);
-  transition: color 0.3s;
 }
 .mobile-drawer a:hover { color: var(--text-muted); }
 .drawer-bg {
@@ -168,7 +156,7 @@ body {
 }
 .drawer-bg.open { opacity: 1; pointer-events: auto; }
 
-/* ═══ HERO — gradient like tatem ═══ */
+/* === HERO === */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -209,7 +197,7 @@ body {
   background: #fff;
   padding: 0.75rem 1.8rem;
   border-radius: 10px;
-  text-decoration: none; border: none; cursor: pointer;
+  text-decoration: none;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .btn-hero:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
@@ -217,74 +205,44 @@ body {
   font-size: 0.9rem; color: rgba(255,255,255,0.5);
   display: flex; align-items: center; gap: 0.4rem;
 }
-
-/* Floating mockup placeholder */
 .hero-mockup {
   position: absolute;
   right: -5%; top: 15%;
   width: 55%; max-width: 700px;
-  aspect-ratio: 4/3;
-  background: rgba(255,255,255,0.08);
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.1);
-  transform: perspective(1200px) rotateY(-15deg) rotateX(5deg);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
   opacity: 0; animation: mockupIn 1.2s 0.5s ease forwards;
-  overflow: hidden;
 }
-.mockup-bar {
-  padding: 0.8rem 1rem;
-  background: rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  display: flex; gap: 0.4rem;
-}
-.mockup-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-}
-.mockup-content {
-  padding: 1.5rem;
-}
-.mockup-line {
-  height: 8px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 4px;
-  margin-bottom: 0.6rem;
-}
-.mockup-line:nth-child(1) { width: 70%; }
-.mockup-line:nth-child(2) { width: 45%; }
-.mockup-line:nth-child(3) { width: 85%; margin-bottom: 1.2rem; }
-.mockup-line:nth-child(4) { width: 60%; }
-.mockup-line:nth-child(5) { width: 30%; }
-
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes mockupIn {
-  from { opacity: 0; transform: perspective(1200px) rotateY(-15deg) rotateX(5deg) translateY(30px); }
-  to { opacity: 1; transform: perspective(1200px) rotateY(-15deg) rotateX(5deg) translateY(0); }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 900px) {
+  .hero-mockup { display: none; }
+  .hero { min-height: 80vh; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 0 1.5rem 4rem; }
 }
 
-/* ═══ SCROLL CTA — "See what makes us different" ═══ */
+/* === SCROLL CTA === */
 .scroll-cta {
   text-align: center;
   padding: 3rem 2rem;
   font-size: 0.9rem;
   color: var(--text-muted);
   cursor: pointer;
+  display: block;
+  text-decoration: none;
   transition: color 0.3s;
 }
 .scroll-cta:hover { color: var(--text); }
 .scroll-cta span { display: block; margin-top: 0.3rem; font-size: 1.2rem; }
 
-/* ═══ FEATURE SECTIONS — tatem's signature pattern ═══ */
-.features {
-  background: var(--bg);
-  transition: background 0.5s;
-}
+/* === FEATURE SECTIONS === */
+.features { background: var(--bg); }
 .feature-block {
   padding: 6rem 2.5rem;
   max-width: 1200px;
@@ -304,15 +262,8 @@ body {
   line-height: 1.45;
   max-width: 650px;
 }
-.feature-text strong {
-  font-weight: 600;
-  color: var(--text);
-}
-.feature-text span {
-  color: var(--text-muted);
-}
-
-/* Feature card — rounded dark container */
+.feature-text strong { font-weight: 600; color: var(--text); }
+.feature-text span { color: var(--text-muted); }
 .feature-card {
   max-width: 1200px;
   margin: 0 auto 2rem;
@@ -327,7 +278,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.5s, border-color 0.5s;
 }
 .card-grid {
   display: grid;
@@ -335,9 +285,7 @@ body {
   gap: 1.2rem;
   width: 100%;
 }
-.card-stat {
-  text-align: center;
-}
+.card-stat { text-align: center; }
 .card-stat-num {
   font-size: 2rem;
   font-weight: 300;
@@ -349,8 +297,6 @@ body {
   color: var(--text-muted);
   margin-top: 0.2rem;
 }
-
-/* Feature list — for services */
 .feature-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -367,12 +313,7 @@ body {
   color: var(--text-muted);
   line-height: 1.6;
 }
-
-/* Offer card inside feature */
-.offer-inner {
-  text-align: center;
-  max-width: 380px;
-}
+.offer-inner { text-align: center; max-width: 380px; }
 .offer-price {
   font-size: 4rem;
   font-weight: 300;
@@ -405,16 +346,11 @@ body {
   padding: 0.75rem;
   background: var(--text);
   color: var(--bg);
-  border: none; border-radius: 10px;
-  cursor: pointer;
+  border-radius: 10px;
   transition: opacity 0.3s, transform 0.2s;
 }
 .btn-offer:hover { opacity: 0.85; transform: translateY(-1px); }
-
-/* Savings table inside card */
-.savings-grid {
-  width: 100%;
-}
+.savings-grid { width: 100%; }
 .savings-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -444,17 +380,13 @@ body {
   margin-bottom: 0.1rem;
   letter-spacing: -0.02em;
 }
-
-/* Process steps inside card */
 .process-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   width: 100%;
 }
-.p-step {
-  text-align: center;
-}
+.p-step { text-align: center; }
 .p-step-num {
   font-size: 0.72rem;
   font-weight: 600;
@@ -473,8 +405,21 @@ body {
   color: var(--text-muted);
   line-height: 1.5;
 }
+@media (max-width: 900px) {
+  .feature-list, .process-steps { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .savings-row { grid-template-columns: 1fr; gap: 1rem; }
+  .savings-head { display: none; }
+}
+@media (max-width: 600px) {
+  .feature-block { padding: 4rem 1.5rem; }
+  .feature-card { padding: 0 1rem; }
+  .feature-card-inner { padding: 2rem 1.5rem; }
+  .card-grid { grid-template-columns: 1fr 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+}
 
-/* ═══ CTA — centered like tatem ═══ */
+/* === CTA === */
 .cta {
   padding: 10rem 2rem;
   text-align: center;
@@ -500,16 +445,14 @@ body {
   background: var(--btn-bg);
   color: var(--text);
   border-radius: 10px;
-  border: none; cursor: pointer;
   transition: background 0.3s, transform 0.2s;
 }
 .btn-cta:hover { background: var(--btn-hover); transform: translateY(-1px); }
 
-/* ═══ FOOTER — tatem columns ═══ */
+/* === FOOTER === */
 footer {
   border-top: 1px solid var(--card-border);
   padding: 4rem 2.5rem 3rem;
-  transition: border-color 0.5s;
 }
 .footer-inner {
   max-width: 1200px; margin: 0 auto;
@@ -528,29 +471,22 @@ footer {
   color: var(--text-muted);
   text-decoration: none;
   padding: 0.25rem 0;
-  transition: color 0.3s;
 }
 .footer-col a:hover { color: var(--text); }
-.footer-meta {
-  text-align: right;
-  display: flex; flex-direction: column;
-  justify-content: space-between;
+.footer-meta { text-align: right; display: flex; flex-direction: column; justify-content: space-between; }
+.footer-meta .tagline { font-size: 0.88rem; font-weight: 500; }
+.footer-meta .legal { font-size: 0.78rem; color: var(--text-quiet); }
+.footer-meta .legal a { color: var(--text-muted); text-decoration: none; margin-left: 0.8rem; }
+@media (max-width: 900px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .footer-meta { text-align: left; margin-top: 1rem; }
 }
-.footer-meta .tagline {
-  font-size: 0.88rem;
-  font-weight: 500;
-}
-.footer-meta .legal {
-  font-size: 0.78rem;
-  color: var(--text-quiet);
-}
-.footer-meta .legal a {
-  color: var(--text-muted);
-  text-decoration: none;
-  margin-left: 0.8rem;
+@media (max-width: 600px) {
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-meta { text-align: left; }
 }
 
-/* ═══ COOKIE ═══ */
+/* === COOKIE BANNER === */
 .cookie-banner {
   position: fixed; bottom: 1rem; left: 50%;
   transform: translateX(-50%);
@@ -562,7 +498,6 @@ footer {
   display: flex; align-items: center;
   gap: 1rem; flex-wrap: wrap;
   max-width: 600px;
-  transition: background 0.5s, border-color 0.5s;
 }
 .cookie-banner p {
   font-size: 0.82rem; color: var(--text-muted); flex: 1; min-width: 200px;
@@ -572,40 +507,17 @@ footer {
 .c-btn {
   font-family: var(--font); font-size: 0.78rem; font-weight: 500;
   padding: 0.4rem 1rem; border-radius: 6px;
-  border: none; cursor: pointer; transition: all 0.3s;
+  border: none; cursor: pointer;
 }
 .c-accept { background: var(--text); color: var(--bg); }
 .c-decline { background: var(--btn-bg); color: var(--text-muted); }
 
-/* ═══ REVEAL ═══ */
+/* === REVEAL ANIMATION === */
 .a-reveal {
   opacity: 0; transform: translateY(15px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .a-reveal.shown { opacity: 1; transform: translateY(0); }
-
-/* ═══ RESPONSIVE ═══ */
-@media (max-width: 900px) {
-  .hero-mockup { display: none; }
-  .hero { min-height: 80vh; }
-  .feature-list, .process-steps { grid-template-columns: 1fr; }
-  .card-grid { grid-template-columns: repeat(2, 1fr); }
-  .savings-row { grid-template-columns: 1fr; gap: 1rem; }
-  .savings-head { display: none; }
-  .footer-inner { grid-template-columns: 1fr 1fr; }
-  .footer-meta { text-align: left; margin-top: 1rem; }
-}
-@media (max-width: 600px) {
-  .nav-right a:not(.nav-cta) { display: none; }
-  .nav-burger { display: block; }
-  .hero { padding: 0 1.5rem 4rem; }
-  .feature-block { padding: 4rem 1.5rem; }
-  .feature-card { padding: 0 1rem; }
-  .feature-card-inner { padding: 2rem 1.5rem; }
-  .card-grid { grid-template-columns: 1fr 1fr; }
-  .process-steps { grid-template-columns: 1fr 1fr; }
-  .footer-inner { grid-template-columns: 1fr; }
-}
 </style>
 </head>
 
@@ -614,274 +526,212 @@ footer {
   drawerOpen: false,
   cookieShown: false,
   cookieDismissed: false,
-  init: function() {
-    var self = this;
+  init() {
+    // read saved theme
     try {
-      if (!sessionStorage.getItem('gf_ck')) {
-        setTimeout(function() { self.cookieShown = true; }, 1500);
-      } else { self.cookieDismissed = true; }
       if (localStorage.getItem('gf_theme') === 'day') {
-        self.dark = false;
+        this.dark = false;
         document.documentElement.classList.add('day');
       }
     } catch(e) {}
+    // cookie consent
+    try {
+      if (!sessionStorage.getItem('gf_ck')) {
+        setTimeout(() => { this.cookieShown = true; }, 1500);
+      } else {
+        this.cookieDismissed = true;
+      }
+    } catch(e) {}
   },
-  toggle: function() {
+  toggle() {
     this.dark = !this.dark;
     document.documentElement.classList.toggle('day', !this.dark);
     try { localStorage.setItem('gf_theme', this.dark ? 'night' : 'day'); } catch(e) {}
   },
-  ok: function() {
+  accept() {
     try { sessionStorage.setItem('gf_ck', 'y'); } catch(e) {}
-    this.cookieShown = false; this.cookieDismissed = true;
+    this.cookieShown = false;
+    this.cookieDismissed = true;
   },
-  no: function() {
+  decline() {
     try { sessionStorage.setItem('gf_ck', 'n'); } catch(e) {}
-    this.cookieShown = false; this.cookieDismissed = true;
+    this.cookieShown = false;
+    this.cookieDismissed = true;
   },
-  close: function() { this.drawerOpen = false; }
+  closeDrawer() { this.drawerOpen = false; }
 }">
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<div class="top-bar">Beautifully crafted websites. Zero hosting fees. UK-based.</div>
+<div class="top-bar">Beautifully crafted websites. Zero hosting fees. UK‑based.</div>
 
-<nav class="nav" role="banner">
+<nav class="nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="#" class="wordmark">GitFoundry</a>
+    <a href="/" class="wordmark">GitFoundry</a>
     <div class="nav-right">
       <a href="#services">Services</a>
       <a href="#offer">Pricing</a>
-      <button class="theme-btn" @click="toggle()" x-text="dark ? 'Light' : 'Dark'" :aria-label="dark ? 'Light mode' : 'Dark mode'"></button>
+      <button class="theme-btn" @click="toggle()" x-text="dark ? 'Light' : 'Dark'" aria-label="Switch theme"></button>
       <a href="brief.html" class="nav-cta">Get started</a>
     </div>
-    <button class="nav-burger" @click="drawerOpen = !drawerOpen" x-text="drawerOpen ? '✕' : '☰'" aria-label="Menu" :aria-expanded="drawerOpen" style="display:none"></button>
+    <button class="nav-burger" @click="drawerOpen = !drawerOpen" x-text="drawerOpen ? '✕' : '☰'" aria-label="Menu" :aria-expanded="drawerOpen"></button>
   </div>
 </nav>
 
-<div class="drawer-bg" :class="drawerOpen ? 'open' : ''" @click="close()"></div>
-<div class="mobile-drawer" :class="drawerOpen ? 'open' : ''">
-  <a href="#services" @click="close()">Services</a>
-  <a href="#offer" @click="close()">Pricing</a>
-  <a href="brief.html">Get started</a>
+<div class="drawer-bg" :class="drawerOpen ? 'open' : ''" @click="closeDrawer()" aria-hidden="true"></div>
+<div class="mobile-drawer" :class="drawerOpen ? 'open' : ''" aria-label="Mobile menu">
+  <a href="#services" @click="closeDrawer()">Services</a>
+  <a href="#offer" @click="closeDrawer()">Pricing</a>
+  <a href="brief.html" @click="closeDrawer()">Get started</a>
 </div>
 
 <main id="main">
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-mockup" aria-hidden="true">
-    <div class="mockup-bar">
-      <div class="mockup-dot"></div>
-      <div class="mockup-dot"></div>
-      <div class="mockup-dot"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-mockup" aria-hidden="true">
+      <svg width="100%" height="100%" viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="500" height="350" rx="16" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect x="20" y="20" width="460" height="24" rx="6" fill="rgba(255,255,255,0.08)"/>
+        <rect x="20" y="56" width="200" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+        <rect x="20" y="72" width="300" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+        <rect x="20" y="88" width="260" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+        <rect x="20" y="110" width="100" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+        <rect x="20" y="130" width="180" height="8" rx="4" fill="rgba(255,255,255,0.05)"/>
+        <rect x="20" y="150" width="120" height="8" rx="4" fill="rgba(255,255,255,0.05)"/>
+        <circle cx="40" cy="180" r="16" fill="rgba(255,255,255,0.05)"/>
+        <rect x="70" y="172" width="100" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+        <rect x="70" y="188" width="140" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+      </svg>
     </div>
-    <div class="mockup-content">
-      <div class="mockup-line"></div>
-      <div class="mockup-line"></div>
-      <div class="mockup-line"></div>
-      <div class="mockup-line"></div>
-      <div class="mockup-line"></div>
+    <div class="hero-inner">
+      <div class="hero-sup">Now accepting commissions.</div>
+      <h1>The web presence you've been waiting for.</h1>
+      <div class="hero-actions">
+        <a href="brief.html" class="btn-hero">Get started</a>
+        <span class="hero-arrow">← Built once. Yours forever.</span>
+      </div>
     </div>
-  </div>
-  <div class="hero-inner">
-    <div class="hero-sup">Now accepting commissions.</div>
-    <h1>The web presence you've been waiting for.</h1>
-    <div class="hero-actions">
-      <a href="brief.html" class="btn-hero">Get started</a>
-      <span class="hero-arrow">&larr; Built once. Yours forever.</span>
+  </section>
+
+  <a href="#services" class="scroll-cta">
+    See what makes GitFoundry different.<span>↓</span>
+  </a>
+
+  <!-- FEATURE SECTIONS -->
+  <div class="features">
+    <!-- STATS -->
+    <div class="feature-card">
+      <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="card-grid">
+          <div class="card-stat"><div class="card-stat-num">£0</div><div class="card-stat-label">Monthly hosting</div></div>
+          <div class="card-stat"><div class="card-stat-num">100%</div><div class="card-stat-label">Code ownership</div></div>
+          <div class="card-stat"><div class="card-stat-num">&lt;48h</div><div class="card-stat-label">Response time</div></div>
+          <div class="card-stat"><div class="card-stat-num">∞</div><div class="card-stat-label">Uptime</div></div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<a href="#services" class="scroll-cta" aria-label="Scroll down">
-  See what makes GitFoundry different.<span>&darr;</span>
-</a>
+    <!-- HAND‑CODED -->
+    <div class="feature-block a-reveal" x-intersect:enter.once="$el.classList.add('shown')" id="services">
+      <div class="feature-label">Hand‑Coded</div>
+      <p class="feature-text"><strong>Every pixel placed with intention.</strong> <span>No templates. No page builders. No bloated frameworks. Just clean HTML, CSS, and JavaScript — deployed on infrastructure that costs nothing to maintain.</span></p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="feature-list">
+          <div class="feature-list-item"><h3>Design</h3><p>Custom layouts built around your brand. We design for trust, clarity, and professionalism.</p></div>
+          <div class="feature-list-item"><h3>Development</h3><p>Hand-coded for speed, accessibility, and search engine performance. No shortcuts.</p></div>
+          <div class="feature-list-item"><h3>Deployment</h3><p>Live on GitHub Pages with a custom domain. Fast, secure, backed by Microsoft.</p></div>
+          <div class="feature-list-item"><h3>Support</h3><p>GDPR compliance, analytics, and optional maintenance. We're here after launch.</p></div>
+        </div>
+      </div>
+    </div>
 
-<!-- FEATURES -->
-<div class="features">
+    <!-- OWNERSHIP -->
+    <div class="feature-block a-reveal" x-intersect:enter.once="$el.classList.add('shown')" id="offer">
+      <div class="feature-label">Ownership</div>
+      <p class="feature-text"><strong>Every other platform charges you rent.</strong> <span>We hand you the keys. One payment, and your site is yours — the code, the design, the domain. No monthly invoices. No platform pulling the plug.</span></p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="offer-inner">
+          <div class="feature-label" style="text-align:center">Launch Offer — Limited Availability</div>
+          <div class="offer-price">£50</div>
+          <div class="offer-sub">One‑time payment · No monthly fees ever</div>
+          <ul class="offer-list">
+            <li>Custom, hand‑coded design</li><li>Up to 5 responsive pages</li><li>Contact form &amp; GDPR notice</li>
+            <li>GitHub Pages deployment</li><li>Custom domain hookup</li><li>SEO &amp; Google Analytics</li>
+            <li>2 revision rounds</li><li>You own the code — completely</li>
+          </ul>
+          <a href="brief.html" class="btn-offer">Start your project</a>
+        </div>
+      </div>
+    </div>
 
-  <!-- STATS -->
-  <div class="feature-card">
-    <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <div class="card-grid">
-        <div class="card-stat">
-          <div class="card-stat-num">&pound;0</div>
-          <div class="card-stat-label">Monthly hosting</div>
+    <!-- SAVINGS -->
+    <div class="feature-block a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+      <div class="feature-label">The Maths</div>
+      <p class="feature-text"><strong>Over three years, the numbers speak for themselves.</strong> <span>Traditional platforms charge monthly. We charge £50 once. Your hosting is free forever — backed by Microsoft's GitHub infrastructure.</span></p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="savings-grid">
+          <div class="savings-row savings-head"><span>Squarespace</span><span>GitFoundry</span><span>You Save</span></div>
+          <div class="savings-row savings-body">
+            <span><span class="val">£1,296</span>£36/mo × 36</span>
+            <span><span class="val">£50</span>One‑time</span>
+            <span><span class="val">£1,246</span>+ a better site</span>
+          </div>
         </div>
-        <div class="card-stat">
-          <div class="card-stat-num">100%</div>
-          <div class="card-stat-label">Code ownership</div>
-        </div>
-        <div class="card-stat">
-          <div class="card-stat-num">&lt;48h</div>
-          <div class="card-stat-label">Response time</div>
-        </div>
-        <div class="card-stat">
-          <div class="card-stat-num">&infin;</div>
-          <div class="card-stat-label">Uptime</div>
+      </div>
+    </div>
+
+    <!-- PROCESS -->
+    <div class="feature-block a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+      <div class="feature-label">Process</div>
+      <p class="feature-text"><strong>Four steps. That's it.</strong> <span>No complicated onboarding. No jargon. Just a clear path from idea to launch.</span></p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="process-steps">
+          <div class="p-step"><div class="p-step-num">Step 1</div><h4>Conversation</h4><p>Tell us about your brand and goals. A quick message is all it takes.</p></div>
+          <div class="p-step"><div class="p-step-num">Step 2</div><h4>Design</h4><p>We create a custom mockup. You give feedback — we refine together.</p></div>
+          <div class="p-step"><div class="p-step-num">Step 3</div><h4>Build</h4><p>Hand‑coded. Clean, fast, responsive on every device.</p></div>
+          <div class="p-step"><div class="p-step-num">Step 4</div><h4>Launch</h4><p>Live on GitHub Pages. Domain connected, keys handed over.</p></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- HAND-CODED -->
-  <div class="feature-block a-reveal" x-intersect:enter.once="$el.classList.add('shown')" id="services">
-    <div class="feature-label">Hand-Coded</div>
-    <p class="feature-text"><strong>Every pixel placed with intention.</strong> <span>No templates. No page builders. No bloated frameworks. Just clean HTML, CSS, and JavaScript — deployed on infrastructure that costs nothing to maintain.</span></p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <div class="feature-list">
-        <div class="feature-list-item">
-          <h3>Design</h3>
-          <p>Custom layouts built around your brand. We design for trust, clarity, and professionalism.</p>
-        </div>
-        <div class="feature-list-item">
-          <h3>Development</h3>
-          <p>Hand-coded for speed, accessibility, and search engine performance. No shortcuts.</p>
-        </div>
-        <div class="feature-list-item">
-          <h3>Deployment</h3>
-          <p>Live on GitHub Pages with a custom domain. Fast, secure, backed by Microsoft.</p>
-        </div>
-        <div class="feature-list-item">
-          <h3>Support</h3>
-          <p>GDPR compliance, analytics, and optional maintenance. We're here after launch.</p>
-        </div>
-      </div>
+  <!-- FINAL CTA -->
+  <section class="cta">
+    <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+      <h2>Start building today.</h2>
+      <p>Send a message and we'll reply within 24 hours with a tailored plan.</p>
+      <a href="brief.html" class="btn-cta">Get started</a>
     </div>
-  </div>
-
-  <!-- OWNERSHIP -->
-  <div class="feature-block a-reveal" x-intersect:enter.once="$el.classList.add('shown')" id="offer">
-    <div class="feature-label">Ownership</div>
-    <p class="feature-text"><strong>Every other platform charges you rent.</strong> <span>We hand you the keys. One payment, and your site is yours — the code, the design, the domain. No monthly invoices. No platform pulling the plug.</span></p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <div class="offer-inner">
-        <div class="feature-label" style="text-align:center">Launch Offer — Limited Availability</div>
-        <div class="offer-price">&pound;50</div>
-        <div class="offer-sub">One-time payment · No monthly fees ever</div>
-        <ul class="offer-list">
-          <li>Custom, hand-coded design</li>
-          <li>Up to 5 responsive pages</li>
-          <li>Contact form &amp; GDPR notice</li>
-          <li>GitHub Pages deployment</li>
-          <li>Custom domain hookup</li>
-          <li>SEO &amp; Google Analytics</li>
-          <li>2 revision rounds</li>
-          <li>You own the code — completely</li>
-        </ul>
-        <a href="brief.html" class="btn-offer">Start your project</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- SAVINGS -->
-  <div class="feature-block a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-    <div class="feature-label">The Maths</div>
-    <p class="feature-text"><strong>Over three years, the numbers speak for themselves.</strong> <span>Traditional platforms charge monthly. We charge &pound;50 once. Your hosting is free forever — backed by Microsoft's GitHub infrastructure.</span></p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <div class="savings-grid">
-        <div class="savings-row savings-head">
-          <span>Squarespace</span>
-          <span>GitFoundry</span>
-          <span>You Save</span>
-        </div>
-        <div class="savings-row savings-body">
-          <span><span class="val">&pound;1,296</span>&pound;36/mo &times; 36</span>
-          <span><span class="val">&pound;50</span>One-time</span>
-          <span><span class="val">&pound;1,246</span>+ a better site</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROCESS -->
-  <div class="feature-block a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-    <div class="feature-label">Process</div>
-    <p class="feature-text"><strong>Four steps. That's it.</strong> <span>No complicated onboarding. No jargon. Just a clear path from idea to launch.</span></p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-card-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <div class="process-steps">
-        <div class="p-step">
-          <div class="p-step-num">Step 1</div>
-          <h4>Conversation</h4>
-          <p>Tell us about your brand and goals. A quick message is all it takes.</p>
-        </div>
-        <div class="p-step">
-          <div class="p-step-num">Step 2</div>
-          <h4>Design</h4>
-          <p>We create a custom mockup. You give feedback — we refine together.</p>
-        </div>
-        <div class="p-step">
-          <div class="p-step-num">Step 3</div>
-          <h4>Build</h4>
-          <p>Hand-coded. Clean, fast, responsive on every device.</p>
-        </div>
-        <div class="p-step">
-          <div class="p-step-num">Step 4</div>
-          <h4>Launch</h4>
-          <p>Live on GitHub Pages. Domain connected, keys handed over.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-    <h2>Start building today.</h2>
-    <p>Send a message and we'll reply within 24 hours with a tailored plan.</p>
-    <a href="brief.html" class="btn-cta">Get started</a>
-  </div>
-</section>
-
+  </section>
 </main>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="#">About</a>
-      <a href="brief.html">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="legal.html">Privacy</a>
-      <a href="legal.html#terms">Terms</a>
-      <a href="legal.html#cookies">Cookies</a>
-    </div>
-    <div class="footer-col">
-      <h4>Resources</h4>
-      <a href="brief.html">Start a project</a>
-    </div>
+    <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="brief.html">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="legal.html">Privacy</a><a href="legal.html#terms">Terms</a><a href="legal.html#cookies">Cookies</a></div>
+    <div class="footer-col"><h4>Resources</h4><a href="brief.html">Start a project</a></div>
     <div class="footer-meta">
       <div class="tagline">Designed and built by GitFoundry in the UK</div>
-      <div class="legal">
-        <a href="legal.html#terms">Terms</a>
-        <a href="legal.html">Privacy</a>
-        &copy; 2026 GitFoundry
-      </div>
+      <div class="legal"><a href="legal.html#terms">Terms</a> <a href="legal.html">Privacy</a> © 2026 GitFoundry</div>
     </div>
   </div>
 </footer>
 
-<!-- COOKIE -->
-<div class="cookie-banner" x-show="cookieShown && !cookieDismissed" x-transition x-cloak
-  role="dialog" aria-label="Cookie consent">
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" x-show="cookieShown && !cookieDismissed" x-transition x-cloak role="dialog" aria-label="Cookie consent">
   <p>No tracking cookies. Fonts from Google. <a href="legal.html#cookies">Policy</a></p>
   <div class="cookie-actions">
-    <button class="c-btn c-accept" @click="ok()">OK</button>
-    <button class="c-btn c-decline" @click="no()">Decline</button>
+    <button class="c-btn c-accept" @click="accept()">OK</button>
+    <button class="c-btn c-decline" @click="decline()">Decline</button>
   </div>
 </div>
 
