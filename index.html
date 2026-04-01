@@ -10,7 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ───────── DESIGN SYSTEM ───────── */
 :root {
   --black: #111;
   --white: #fafafa;
@@ -32,20 +31,22 @@
   --font-mono: 'JetBrains Mono', monospace;
   --transition: 0.3s ease;
 }
+
+/* GLOBAL */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: var(--font-sans); line-height:1.6; color:var(--black); background:var(--white); }
+body { font-family: var(--font-sans); line-height:1.6; color:var(--black); background:var(--white); overflow-x:hidden; }
 a { text-decoration:none; color:inherit; }
 .container { max-width: var(--max-width); margin:0 auto; padding:0 var(--spacing-4); }
 
-/* ───────── NAVBAR ───────── */
-.nav { display:flex; justify-content:space-between; align-items:center; padding:var(--spacing-4) 0; }
+/* NAVBAR */
+.nav { display:flex; justify-content:space-between; align-items:center; padding:var(--spacing-4) 0; position:sticky; top:0; background:var(--white); z-index:100; box-shadow:0 2px 5px rgba(0,0,0,0.05);}
 .nav .logo { font-family:var(--font-serif); font-size:1.5rem; font-weight:400; }
 .nav .links { display:flex; gap:var(--spacing-4); }
 .nav .links a { font-weight:500; text-transform:uppercase; font-size:0.75rem; transition:color var(--transition); }
 .nav .links a:hover { color:var(--green); }
 
-/* ───────── HERO ───────── */
-.hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding:var(--spacing-6) 0; background:var(--grey-100); }
+/* HERO */
+.hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding:var(--spacing-6) 0; background:var(--grey-100); opacity:0; transform:translateY(50px); transition:all 1s ease; }
 .hero h1 { font-family:var(--font-serif); font-size:clamp(2rem, 5vw, 3rem); font-weight:300; margin-bottom:var(--spacing-2); }
 .hero p { font-size:1.1rem; color:var(--grey-700); margin-bottom:var(--spacing-4); max-width:600px; }
 .hero .cta { display:flex; gap:var(--spacing-2); flex-wrap:wrap; }
@@ -55,35 +56,39 @@ a { text-decoration:none; color:inherit; }
 .btn-secondary { border:1px solid var(--black); color:var(--black); }
 .btn-secondary:hover { background:var(--black); color:var(--white); }
 
-/* ───────── FEATURES ───────── */
+/* FEATURES */
 .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--spacing-6); margin:var(--spacing-6) 0; }
-.feature-card { border:1px solid var(--grey-300); border-radius:var(--radius); padding:var(--spacing-4); text-align:center; transition:transform var(--transition); }
-.feature-card:hover { transform:translateY(-5px); }
+.feature-card { border:1px solid var(--grey-300); border-radius:var(--radius); padding:var(--spacing-4); text-align:center; transition:transform var(--transition), box-shadow var(--transition); opacity:0; transform:translateY(30px); }
+.feature-card:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.1); }
 .feature-card h3 { font-family:var(--font-serif); margin-bottom:var(--spacing-2); }
 .feature-card p { color:var(--grey-700); font-size:0.95rem; }
 
-/* ───────── SOCIAL PROOF / PORTFOLIO ───────── */
-.portfolio { text-align:center; padding:var(--spacing-6) 0; }
+/* PORTFOLIO */
+.portfolio { text-align:center; padding:var(--spacing-6) 0; opacity:0; transform:translateY(50px); transition:all 1s ease; }
 .portfolio h2 { font-family:var(--font-serif); font-weight:300; margin-bottom:var(--spacing-3); }
 .portfolio-items { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--spacing-4); margin-top:var(--spacing-4); }
-.portfolio-item { border-radius:var(--radius); overflow:hidden; border:1px solid var(--grey-300); transition:transform var(--transition); }
+.portfolio-item { border-radius:var(--radius); overflow:hidden; border:1px solid var(--grey-300); transition:transform var(--transition), box-shadow var(--transition); }
 .portfolio-item img { width:100%; display:block; }
-.portfolio-item:hover { transform:scale(1.02); }
+.portfolio-item:hover { transform:scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
 
-/* ───────── CTA SECTION ───────── */
-.cta-section { background:var(--black); color:var(--white); text-align:center; padding:var(--spacing-6) 0; border-radius:var(--radius); margin:var(--spacing-6) 0; }
+/* CTA SECTION */
+.cta-section { background:var(--black); color:var(--white); text-align:center; padding:var(--spacing-6) 0; border-radius:var(--radius); margin:var(--spacing-6) 0; opacity:0; transform:translateY(50px); transition:all 1s ease; }
 .cta-section h2 { font-family:var(--font-serif); font-size:2rem; font-weight:300; margin-bottom:var(--spacing-2); }
 .cta-section p { margin-bottom:var(--spacing-3); color:var(--grey-100); font-size:1.05rem; }
 .cta-section .btn { font-size:0.9rem; }
 
-/* ───────── FOOTER ───────── */
+/* FOOTER */
 .footer { text-align:center; padding:var(--spacing-4) 0; border-top:1px solid var(--grey-300); font-size:0.75rem; color:var(--grey-500); }
 
-/* ───────── RESPONSIVE ───────── */
+/* RESPONSIVE */
 @media(max-width:768px){ .hero h1{font-size:2rem;} .features{grid-template-columns:1fr;} .portfolio-items{grid-template-columns:1fr;} .nav .links{flex-direction:column; gap:var(--spacing-2);} }
+
+/* ANIMATION CLASSES */
+.fade-in { opacity:1 !important; transform:translateY(0px) !important; }
 </style>
 </head>
 <body>
+
 <nav class="container nav">
   <div class="logo">GitFoundry</div>
   <div class="links">
@@ -140,5 +145,20 @@ a { text-decoration:none; color:inherit; }
 <footer class="footer container">
   &copy; 2026 GitFoundry. Built for creators. Free forever hosting.
 </footer>
+
+<script>
+// ───────── SCROLL REVEAL ─────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('fade-in');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.hero, .feature-card, .portfolio, .cta-section').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
