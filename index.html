@@ -1,201 +1,86 @@
-<!DOCTYPE html><html lang="en-GB">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitFoundry — Zero Hosting Fees</title>
-<meta name="description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees.">
-<meta name="theme-color" content="#111"><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"><script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script><style>
-:root {
-  --black:#111;
-  --white:#fff;
-  --bg-main:#fdfdfd;
-  --bg-elevated:#fff;
-  --bg-subtle:#f7f7f7;
-  --border-soft:rgba(0,0,0,0.06);
-  --shadow-soft:0 10px 30px rgba(0,0,0,0.04);
-  --serif:'Cormorant Garamond', serif;
-  --sans:'Inter', sans-serif;
-  --mono:'JetBrains Mono', monospace;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:var(--sans);
-  background:var(--bg-main);
-  color:var(--black);
-  line-height:1.6;
-}
-
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background-image:url('https://grainy-gradients.vercel.app/noise.svg');
-  opacity:.04;
-  pointer-events:none;
-}
-
-.container{max-width:1100px;margin:auto;padding:0 2rem}
-
-.top-nav{
-  position:sticky;top:0;z-index:100;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1rem 2rem;
-  backdrop-filter:blur(10px);
-  background:rgba(253,253,253,0.85);
-  border-bottom:1px solid var(--border-soft);
-}
-
-.nav-scrolled{box-shadow:0 6px 20px rgba(0,0,0,.05)}
-
-.wordmark{font-family:var(--serif);font-size:1.4rem;text-decoration:none;color:var(--black)}
-
-.hero{position:relative;text-align:center;padding:6rem 0}
-.hero::before{
-  content:'';
-  position:absolute;
-  top:-20%;left:50%;transform:translateX(-50%);
-  width:800px;height:800px;
-  background:radial-gradient(circle,rgba(0,0,0,.04),transparent 70%);
-}
-.hero-inner{position:relative;z-index:1;max-width:720px;margin:auto}
-
-h1{
-  font-family:var(--serif);
-  font-size:clamp(2.5rem,5vw,4rem);
-  font-weight:300;
-  letter-spacing:-.02em;
-  margin-bottom:1rem;
-}
-
-.hero p{color:#666;margin-bottom:2rem}
-
-.btn{
-  display:inline-block;
-  padding:.9rem 2rem;
-  text-transform:uppercase;
-  font-size:.8rem;
-  letter-spacing:.08em;
-  text-decoration:none;
-  cursor:pointer;
-}
-
-.btn-primary{
-  background:var(--black);
-  color:#fff;
-  border-radius:6px;
-  position:relative;
-  overflow:hidden;
-}
-
-.btn-primary::after{
-  content:'';
-  position:absolute;inset:0;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,.2),transparent);
-  opacity:0;transition:.4s;
-}
-
-.btn-primary:hover::after{opacity:1}
-
-.section{padding:5rem 0;border-bottom:1px solid var(--border-soft)}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:1rem;
-}
-
-.card{
-  padding:1.5rem;
-  background:var(--bg-elevated);
-  border:1px solid var(--border-soft);
-  transition:.3s;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-soft);
-}
-
-.offer{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  border:1px solid var(--border-soft);
-  box-shadow:var(--shadow-soft);
-}
-
-.offer-left{padding:3rem}
-.offer-right{
-  padding:3rem;
-  background:linear-gradient(135deg,#111,#1a1a1a);
-  color:#fff;
-}
-
-.price{font-size:5rem;font-family:var(--serif)}
-
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1rem;
-}
-
-.metric{
-  text-align:center;
-  padding:2rem;
-  background:var(--bg-subtle);
-}
-
-footer{
-  padding:2rem;
-  text-align:center;
-  font-size:.8rem;
-  color:#777;
-}
-
-@media(max-width:800px){
-  .offer{grid-template-columns:1fr}
-  .metrics{grid-template-columns:1fr 1fr}
-}
-</style></head><body x-data="{scrolled:false}" x-init="window.addEventListener('scroll',()=>scrolled=window.scrollY>10)"><header class="top-nav" :class="scrolled ? 'nav-scrolled' : ''">
-  <a href="#" class="wordmark">GitFoundry</a>
-</header><main class="container"><section class="hero">
-  <div class="hero-inner">
-    <h1>Websites that cost <i>nothing</i> to host</h1>
-    <p>One-time payment. Deployed on GitHub Pages. Live forever.</p>
-    <a href="#" class="btn btn-primary">Get Started</a>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitFoundry — Build Faster. Ship Smarter.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background:#0b0f19; color:#e5e7eb; }
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.04); }
+    .gradient { background: linear-gradient(135deg,#6366f1,#22d3ee); }
+  </style>
+</head>
+<body><!-- NAV --><header class="flex justify-between items-center px-6 py-5 max-w-7xl mx-auto">
+  <div class="text-lg font-semibold">GitFoundry</div>
+  <a href="#cta" class="px-4 py-2 text-sm rounded-lg bg-white text-black font-medium hover:opacity-90">Get Started</a>
+</header><!-- HERO --><section class="text-center px-6 pt-16 pb-20 max-w-4xl mx-auto">
+  <div class="inline-block px-3 py-1 text-xs rounded-full glass mb-6">AI-powered development workflows</div>
+  <h1 class="text-4xl md:text-6xl font-semibold leading-tight mb-6">
+    Build production-grade systems
+    <br/> without slowing down
+  </h1>
+  <p class="text-lg text-gray-400 mb-8">
+    GitFoundry helps teams design, automate and scale software delivery using AI-first workflows — from idea to deployment.
+  </p>  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="#cta" class="gradient px-6 py-3 rounded-lg font-medium text-black">Start Free</a>
+    <a href="#how" class="px-6 py-3 rounded-lg border border-gray-700 hover:bg-white/5">See How It Works</a>
+  </div>  <div class="mt-10 text-sm text-gray-500">No credit card required • Setup in minutes</div>
+</section><!-- SOCIAL PROOF --><section class="text-center py-12 border-t border-gray-800">
+  <p class="text-gray-500 text-sm mb-6">Trusted by engineers building modern systems</p>
+  <div class="flex justify-center gap-10 text-gray-600 text-sm">
+    <span>Startups</span>
+    <span>SaaS Teams</span>
+    <span>Consultants</span>
+    <span>Builders</span>
   </div>
-</section><section class="section">
-  <h2>Who it's for</h2>
-  <div class="cards">
-    <div class="card">Researchers</div>
-    <div class="card">Developers</div>
-    <div class="card">Writers</div>
-    <div class="card">Freelancers</div>
-  </div>
-</section><section class="section">
-  <div class="offer">
-    <div class="offer-left">
-      <h2>One price. Everything included.</h2>
-      <p>No subscriptions. No surprises.</p>
+</section><!-- PROBLEM / AGITATION --><section class="max-w-5xl mx-auto px-6 py-20 text-center">
+  <h2 class="text-3xl font-semibold mb-6">Shipping software shouldn’t feel fragmented</h2>
+  <p class="text-gray-400 max-w-2xl mx-auto mb-10">
+    Teams struggle with disconnected tools, manual workflows, and slow iteration cycles. The result — delays, technical debt, and lost momentum.
+  </p>  <div class="grid md:grid-cols-3 gap-6">
+    <div class="glass p-6 rounded-xl">
+      <h3 class="font-medium mb-2">Too many tools</h3>
+      <p class="text-sm text-gray-400">Context switching kills productivity</p>
     </div>
-    <div class="offer-right">
-      <div class="price">£50</div>
-      <p>Limited launch pricing</p>
-      <a href="#" class="btn btn-primary">Start Project</a>
+    <div class="glass p-6 rounded-xl">
+      <h3 class="font-medium mb-2">Manual processes</h3>
+      <p class="text-sm text-gray-400">Repetitive tasks slow delivery</p>
+    </div>
+    <div class="glass p-6 rounded-xl">
+      <h3 class="font-medium mb-2">Lack of clarity</h3>
+      <p class="text-sm text-gray-400">No clear path from idea to release</p>
     </div>
   </div>
-</section><section class="section">
-  <h2>Performance</h2>
-  <div class="metrics">
-    <div class="metric">100<br>Performance</div>
-    <div class="metric">100<br>Accessibility</div>
-    <div class="metric">100<br>SEO</div>
-    <div class="metric">100<br>Best Practices</div>
+</section><!-- SOLUTION --><section id="how" class="max-w-6xl mx-auto px-6 py-20">
+  <h2 class="text-3xl font-semibold text-center mb-12">A streamlined system for modern development</h2>  <div class="grid md:grid-cols-3 gap-8">
+    <div class="p-6 rounded-xl border border-gray-800">
+      <h3 class="font-medium mb-3">1. Structure your ideas</h3>
+      <p class="text-sm text-gray-400">Turn concepts into clear, actionable system designs instantly.</p>
+    </div>
+    <div class="p-6 rounded-xl border border-gray-800">
+      <h3 class="font-medium mb-3">2. Automate workflows</h3>
+      <p class="text-sm text-gray-400">Eliminate repetitive work with AI-driven execution layers.</p>
+    </div>
+    <div class="p-6 rounded-xl border border-gray-800">
+      <h3 class="font-medium mb-3">3. Ship faster</h3>
+      <p class="text-sm text-gray-400">Deploy with confidence using optimized pipelines.</p>
+    </div>
   </div>
-</section></main><footer>
-  © GitFoundry · No tracking · GDPR ready
+</section><!-- BENEFITS --><section class="max-w-5xl mx-auto px-6 py-20 text-center">
+  <h2 class="text-3xl font-semibold mb-10">What you get</h2>  <div class="grid md:grid-cols-2 gap-6 text-left">
+    <div class="glass p-6 rounded-xl">Faster development cycles</div>
+    <div class="glass p-6 rounded-xl">Reduced operational overhead</div>
+    <div class="glass p-6 rounded-xl">Clear system architecture</div>
+    <div class="glass p-6 rounded-xl">Scalable foundations</div>
+  </div>
+</section><!-- CTA SECTION --><section id="cta" class="text-center py-20 px-6 border-t border-gray-800">
+  <h2 class="text-3xl font-semibold mb-6">Start building smarter today</h2>
+  <p class="text-gray-400 mb-8">Join developers who are accelerating delivery with AI-powered workflows.</p>  <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg bg-black border border-gray-700 focus:outline-none" />
+    <button class="gradient px-6 py-3 rounded-lg text-black font-medium">Get Access</button>
+  </form>  <div class="mt-4 text-xs text-gray-500">No spam. Cancel anytime.</div>
+</section><!-- FOOTER --><footer class="text-center text-sm text-gray-600 py-10">
+  © 2026 GitFoundry. All rights reserved.
 </footer></body>
 </html>
