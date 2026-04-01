@@ -3,206 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Hosting Forever - GitFoundry - Showcase Your Work</title>
-<meta name="description" content="Bring your vision to life with a beautiful website hosted free forever on GitHub Pages. No monthly fees. Share your work with the world.">
+<title>GitFoundry - Free Hosting Forever for Your Portfolio</title>
+<meta name="description" content="Bring your vision to life with GitFoundry. Free hosting forever once built. Share your portfolio with the world.">
+<meta name="theme-color" content="#111">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Alpine.js for interactivity -->
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 <style>
-/* ── DESIGN SYSTEM ── */
+/* ═══ DESIGN TOKENS ═══ */
 :root {
   --black: #111;
   --white: #fafafa;
-  --grey-700: #555;
-  --grey-500: #888;
-  --grey-300: #c8c8c8;
-  --grey-200: #e2e2e2;
   --grey-100: #f0f0f0;
-  --paper: #fdfdfd;
-  --rule: #ddd;
-
-  --spacing-0: 0;
-  --spacing-1: 0.5rem;
-  --spacing-2: 1rem;
-  --spacing-3: 1.5rem;
-  --spacing-4: 2rem;
-  --spacing-5: 3rem;
-  --spacing-6: 4rem;
-  --radius: 0.4rem;
-  --transition: 0.3s ease;
-
+  --grey-200: #e2e2e2;
+  --grey-300: #c8c8c8;
+  --grey-500: #888;
+  --grey-700: #555;
+  --primary: #0cce6b;
   --max-width: 1120px;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 5rem;
+
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* ── GLOBAL RESET ── */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: var(--font-sans); line-height:1.6; background: var(--paper); color: var(--black); -webkit-font-smoothing: antialiased; overflow-x:hidden; scroll-behavior: smooth; }
-a { text-decoration:none; color: inherit; }
-img { max-width:100%; display:block; }
-.container { max-width: var(--max-width); margin:0 auto; padding:0 var(--spacing-4); }
+/* ═══ GLOBAL RESET ═══ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-sans); color: var(--black); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; }
+img { max-width: 100%; display: block; }
 
-/* ── TYPOGRAPHY ── */
-h1,h2,h3,h4,h5 { font-family: var(--font-serif); font-weight: 300; line-height:1.2; }
-h1 { font-size: clamp(2.5rem,5vw,4rem); }
-h2 { font-size: clamp(1.8rem,3vw,2.5rem); }
-p { font-size: 1rem; color: var(--grey-700); }
+/* ═══ CONTAINER ═══ */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-md); }
 
-/* ── BUTTONS ── */
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width: 160px;
-  padding: var(--spacing-2) var(--spacing-6);
-  font-family: var(--font-sans);
-  font-weight:500;
-  text-transform:uppercase;
-  border:none;
-  border-radius: var(--radius);
-  cursor:pointer;
-  transition: all var(--transition);
-  will-change: transform, background-color;
-}
-.btn-primary { background: var(--black); color: var(--white); }
-.btn-primary:hover { background: var(--grey-700); transform: translateY(-3px) scale(1.02); }
-.btn-secondary { background: none; border:2px solid var(--black); color: var(--black); }
-.btn-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-3px) scale(1.02); }
+/* ═══ TYPOGRAPHY ═══ */
+h1, h2, h3, h4 { font-family: var(--font-serif); }
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1.2; }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; margin-bottom: var(--spacing-sm); }
+p { font-size: 1rem; color: var(--grey-700); margin-bottom: var(--spacing-md); }
 
-/* ── HEADER / NAV ── */
-header { background: var(--paper); padding: var(--spacing-2) var(--spacing-4); border-bottom:1px solid var(--rule); display:flex; justify-content:space-between; align-items:center; position: sticky; top:0; z-index: 1000; }
-.wordmark { font-family: var(--font-serif); font-size:1.5rem; font-weight:400; color: var(--black); }
-.nav-links { display:flex; gap: var(--spacing-4); flex-wrap:wrap; }
-.nav-links a { font-size:0.85rem; font-weight:500; text-transform:uppercase; color: var(--grey-500); border-bottom:2px solid transparent; transition: all var(--transition); }
-.nav-links a:hover { color: var(--black); border-color: var(--black); }
+/* ═══ NAVIGATION ═══ */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-md) 0; position: sticky; top: 0; background: var(--white); z-index: 100; border-bottom: 1px solid var(--grey-200); }
+.navbar .logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; }
+.navbar .links { display: flex; gap: var(--spacing-lg); }
+.navbar .links a { font-size: 0.85rem; font-weight: 500; color: var(--grey-500); text-transform: uppercase; transition: color 0.3s; }
+.navbar .links a:hover { color: var(--black); }
 
-/* ── HERO ── */
-.hero { text-align:center; padding: var(--spacing-6) 0; position: relative; overflow:hidden; }
-.hero-label { font-family: var(--font-mono); font-size:0.8rem; color: var(--grey-500); margin-bottom: var(--spacing-2); display:inline-block; letter-spacing:0.1em; text-transform:uppercase; }
-.hero h1 { margin-bottom: var(--spacing-2); opacity:0; transform: translateY(20px); animation: fadeInUp 1s forwards; }
-.hero-sub { max-width:560px; margin:0 auto var(--spacing-4); font-weight:300; color: var(--grey-700); opacity:0; transform: translateY(20px); animation: fadeInUp 1s 0.3s forwards; }
-.hero .cta { display:flex; gap: var(--spacing-3); justify-content:center; flex-wrap:wrap; margin-top: var(--spacing-4); }
+/* ═══ HERO ═══ */
+.hero { text-align: center; padding: var(--spacing-xl) 0; display: flex; flex-direction: column; gap: var(--spacing-md); }
+.hero p { font-size: 1.2rem; }
+.hero h1 { margin-bottom: var(--spacing-sm); }
+.hero .cta { display: flex; justify-content: center; gap: var(--spacing-sm); flex-wrap: wrap; }
+.button { padding: 0.85rem 2rem; border: none; cursor: pointer; font-weight: 500; text-transform: uppercase; font-family: var(--font-sans); transition: all 0.3s; }
+.button-primary { background: var(--black); color: var(--white); }
+.button-primary:hover { background: var(--grey-700); transform: translateY(-2px); }
+.button-secondary { background: transparent; color: var(--black); border: 2px solid var(--black); }
+.button-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
 
-/* ── FEATURES ── */
-.features { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap: var(--spacing-4); margin: var(--spacing-6) 0; }
-.feature-card { background: var(--white); border:1px solid var(--rule); padding: var(--spacing-4); border-radius: var(--radius); text-align:center; transition: transform var(--transition), box-shadow var(--transition); opacity:0; transform: translateY(20px); }
-.feature-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-.feature-card.in-view { opacity:1; transform: translateY(0); transition: all 0.6s ease-out; }
-.feature-card h3 { margin-bottom: var(--spacing-2); }
-.feature-card p { color: var(--grey-500); }
+/* ═══ FEATURES ═══ */
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); padding: var(--spacing-xl) 0; text-align: center; }
+.feature { padding: var(--spacing-md); border: 1px solid var(--grey-200); border-radius: 8px; transition: transform 0.3s; }
+.feature:hover { transform: translateY(-5px); }
+.feature h3 { margin-bottom: var(--spacing-xs); }
+.feature p { color: var(--grey-700); }
 
-/* ── OFFER ── */
-.offer { display:grid; grid-template-columns:1fr 1fr; max-width: var(--max-width); margin: var(--spacing-6) auto; border:1px solid var(--rule); border-radius: var(--radius); overflow:hidden; }
-.offer-left, .offer-right { padding: var(--spacing-6); display:flex; flex-direction:column; justify-content:center; }
-.offer-left { border-right:1px solid var(--rule); }
-.offer-right { background: var(--black); color: var(--white); text-align:center; }
-.offer-price { font-size:4rem; margin: var(--spacing-2) 0; font-weight:300; }
-.offer-list { list-style:none; padding:0; margin-bottom: var(--spacing-4); }
-.offer-list li { margin:0.5rem 0; }
+/* ═══ PORTFOLIO CTA FORM ═══ */
+.form-section { padding: var(--spacing-xl) 0; background: var(--grey-100); text-align: center; border-radius: 8px; }
+.form-section input, .form-section textarea { width: 100%; padding: var(--spacing-sm); margin-bottom: var(--spacing-sm); border: 1px solid var(--grey-300); border-radius: 4px; font-family: var(--font-sans); }
+.form-section button { width: 100%; max-width: 320px; margin: 0 auto; display: block; }
 
-/* ── CTA / FOOTER ── */
-.cta-section { text-align:center; padding: var(--spacing-6) 0; }
-.cta-section h2 { opacity:0; transform: translateY(20px); animation: fadeInUp 1s 0.2s forwards; }
-.cta-section p { opacity:0; transform: translateY(20px); animation: fadeInUp 1s 0.4s forwards; }
-footer { background: var(--paper); padding: var(--spacing-4); text-align:center; font-family: var(--font-mono); font-size:0.75rem; color: var(--grey-500); }
+/* ═══ TRUST SECTION ═══ */
+.trust { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--spacing-lg); margin: var(--spacing-xl) 0; text-align: center; }
+.trust-item { font-family: var(--font-mono); font-size: 0.75rem; color: var(--grey-500); }
 
-/* ── SCROLL PROGRESS ── */
-#progress-bar { position: fixed; top:0; left:0; height:4px; background:#111; width:0%; z-index:1001; transition: width 0.2s ease; }
+/* ═══ FOOTER ═══ */
+footer { text-align: center; padding: var(--spacing-lg) 0; border-top: 1px solid var(--grey-200); font-family: var(--font-mono); font-size: 0.75rem; color: var(--grey-500); }
 
-/* ── RESPONSIVE ── */
-@media (max-width:860px) {
-  .offer { grid-template-columns:1fr; }
-  .offer-left { border-right:none; border-bottom:1px solid var(--rule); }
-  .hero .cta { flex-direction:column; gap: var(--spacing-2); }
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeInUp {
-  0% { opacity:0; transform: translateY(20px); }
-  100% { opacity:1; transform: translateY(0); }
+/* ═══ RESPONSIVE ═══ */
+@media(max-width: 768px) {
+  .navbar .links { flex-direction: column; gap: var(--spacing-sm); }
 }
 </style>
 </head>
-<body>
+<body x-data="{ showForm: false }">
 
-<div id="progress-bar"></div>
-
-<header>
-  <a href="#" class="wordmark">GitFoundry</a>
-  <nav class="nav-links">
+<!-- NAVIGATION -->
+<nav class="navbar container">
+  <div class="logo">GitFoundry</div>
+  <div class="links">
     <a href="#features">Features</a>
-    <a href="#offer">Pricing</a>
-    <a href="#cta">Get Started</a>
-  </nav>
-</header>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Get Started</a>
+  </div>
+</nav>
 
-<section class="hero">
-  <span class="hero-label">Showcase & Share</span>
-  <h1>Your Website, <i>Free Forever</i></h1>
-  <p class="hero-sub">Bring your vision to life. We host it free forever on GitHub Pages. Share your portfolio, project, or idea with the world.</p>
+<!-- HERO -->
+<section class="hero container">
+  <h1>Free Hosting Forever for Your Portfolio</h1>
+  <p>Bring your vision to life. Once built, it stays online forever. Share it with the world.</p>
   <div class="cta">
-    <a href="#offer" class="btn btn-primary">Start Free</a>
-    <a href="#features" class="btn btn-secondary">See Features</a>
+    <button class="button button-primary" @click="showForm = true">Build My Portfolio</button>
+    <a href="#features" class="button button-secondary">Learn More</a>
   </div>
 </section>
 
-<section id="features" class="container features">
-  <div class="feature-card"> <h3>Free Hosting Forever</h3> <p>Your website stays online with zero hosting fees. Share your work anytime.</p> </div>
-  <div class="feature-card"> <h3>Custom Design</h3> <p>Bring your own vision or portfolio. We make it beautiful and functional.</p> </div>
-  <div class="feature-card"> <h3>Easy to Share</h3> <p>Your site is ready to share with anyone, anywhere, instantly.</p> </div>
-  <div class="feature-card"> <h3>GitHub Integration</h3> <p>Seamless deployment with GitHub Pages. No complex setup required.</p> </div>
-</section>
-
-<section id="offer" class="offer">
-  <div class="offer-left">
-    <h2>Bring Your Vision to Life</h2>
-    <p>Create a website with your content, portfolio, or project. Free hosting forever.</p>
-    <ul class="offer-list">
-      <li>Custom layouts & design</li>
-      <li>Mobile-friendly & responsive</li>
-      <li>Shareable URL</li>
-      <li>No monthly fees</li>
-    </ul>
+<!-- FEATURES -->
+<section class="features container" id="features">
+  <div class="feature">
+    <h3>Free Forever</h3>
+    <p>No monthly fees, no hosting worries. Once it’s live, it’s yours to keep forever.</p>
   </div>
-  <div class="offer-right">
-    <span class="offer-price">£0</span>
-    <p>Forever hosting included</p>
-    <a href="#cta" class="btn btn-primary btn-offer">Get Started Free</a>
+  <div class="feature">
+    <h3>Fully Custom</h3>
+    <p>Bring your vision or portfolio, we’ll make it live exactly the way you want.</p>
+  </div>
+  <div class="feature">
+    <h3>Share Everywhere</h3>
+    <p>Show your work, CV, or projects to anyone, anywhere with a simple URL.</p>
+  </div>
+  <div class="feature">
+    <h3>Performance Optimized</h3>
+    <p>Fast, smooth, responsive design with modern UX and full mobile support.</p>
   </div>
 </section>
 
-<section id="cta" class="cta-section">
-  <h2>Start Your Free Website Today</h2>
-  <p>No credit card. No hosting fees. Just share your work with the world.</p>
-  <a href="#offer" class="btn btn-primary">Start Free</a>
+<!-- PORTFOLIO CTA FORM -->
+<section class="form-section container" id="portfolio" x-show="showForm" x-transition>
+  <h2>Get Your Portfolio Live</h2>
+  <p>Fill in your details and we’ll make your portfolio live for free.</p>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Portfolio URL or Vision" rows="4" required></textarea>
+    <button class="button button-primary">Launch My Portfolio</button>
+  </form>
 </section>
 
+<!-- TRUST -->
+<section class="trust container">
+  <div class="trust-item">Trusted by Freelancers</div>
+  <div class="trust-item">Trusted by Agencies</div>
+  <div class="trust-item">Trusted by Startups</div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   &copy; 2026 GitFoundry. All rights reserved.
 </footer>
-
-<script>
-// Scroll Progress Bar
-window.addEventListener('scroll', () => {
-  const docHeight = document.body.scrollHeight - window.innerHeight;
-  const scrollTop = window.scrollY;
-  const progress = (scrollTop / docHeight) * 100;
-  document.getElementById('progress-bar').style.width = progress + '%';
-});
-
-// Intersection Observer for feature cards
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-    }
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll('.feature-card').forEach(card => observer.observe(card));
-</script>
 
 </body>
 </html>
