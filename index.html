@@ -1,154 +1,144 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GitFoundry — Build Faster. Ship Smarter.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">  <!-- DESIGN SYSTEM LAYER -->  <style>
-    :root {
-      /* COLORS */
-      --color-bg: #0b0f19;
-      --color-surface: rgba(255,255,255,0.04);
-      --color-border: #1f2937;
-      --color-text: #e5e7eb;
-      --color-muted: #9ca3af;
-      --color-primary: #6366f1;
-      --color-accent: #22d3ee;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Forever Hosting - GitFoundry</title>
+<meta name="description" content="Bring your vision to life with hand-coded websites hosted free forever on GitHub Pages. One-time build, no monthly fees. Showcase and share instantly.">
+<meta name="theme-color" content="#111">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ───────── DESIGN SYSTEM ───────── */
+:root {
+  --black: #111;
+  --white: #fafafa;
+  --grey-100: #f0f0f0;
+  --grey-300: #c8c8c8;
+  --grey-500: #888;
+  --grey-700: #555;
+  --green: #0cce6b;
+  --radius: 8px;
+  --spacing-1: 0.5rem;
+  --spacing-2: 1rem;
+  --spacing-3: 1.5rem;
+  --spacing-4: 2rem;
+  --spacing-5: 3rem;
+  --spacing-6: 4rem;
+  --max-width: 1120px;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --transition: 0.3s ease;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: var(--font-sans); line-height:1.6; color:var(--black); background:var(--white); }
+a { text-decoration:none; color:inherit; }
+.container { max-width: var(--max-width); margin:0 auto; padding:0 var(--spacing-4); }
 
-      /* SPACING SCALE (8pt system) */
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 20px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-10: 40px;
-      --space-12: 48px;
-      --space-16: 64px;
-      --space-20: 80px;
+/* ───────── NAVBAR ───────── */
+.nav { display:flex; justify-content:space-between; align-items:center; padding:var(--spacing-4) 0; }
+.nav .logo { font-family:var(--font-serif); font-size:1.5rem; font-weight:400; }
+.nav .links { display:flex; gap:var(--spacing-4); }
+.nav .links a { font-weight:500; text-transform:uppercase; font-size:0.75rem; transition:color var(--transition); }
+.nav .links a:hover { color:var(--green); }
 
-      /* TYPOGRAPHY */
-      --text-sm: 0.875rem;
-      --text-base: 1rem;
-      --text-lg: 1.125rem;
-      --text-xl: 1.25rem;
-      --text-2xl: 1.5rem;
-      --text-4xl: 2.25rem;
-      --text-6xl: 3.5rem;
+/* ───────── HERO ───────── */
+.hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding:var(--spacing-6) 0; background:var(--grey-100); }
+.hero h1 { font-family:var(--font-serif); font-size:clamp(2rem, 5vw, 3rem); font-weight:300; margin-bottom:var(--spacing-2); }
+.hero p { font-size:1.1rem; color:var(--grey-700); margin-bottom:var(--spacing-4); max-width:600px; }
+.hero .cta { display:flex; gap:var(--spacing-2); flex-wrap:wrap; }
+.btn { padding:var(--spacing-2) var(--spacing-5); border-radius:var(--radius); font-weight:500; text-transform:uppercase; cursor:pointer; transition:all var(--transition); }
+.btn-primary { background:var(--black); color:var(--white); }
+.btn-primary:hover { background:var(--green); }
+.btn-secondary { border:1px solid var(--black); color:var(--black); }
+.btn-secondary:hover { background:var(--black); color:var(--white); }
 
-      /* RADIUS */
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 14px;
+/* ───────── FEATURES ───────── */
+.features { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:var(--spacing-6); margin:var(--spacing-6) 0; }
+.feature-card { border:1px solid var(--grey-300); border-radius:var(--radius); padding:var(--spacing-4); text-align:center; transition:transform var(--transition); }
+.feature-card:hover { transform:translateY(-5px); }
+.feature-card h3 { font-family:var(--font-serif); margin-bottom:var(--spacing-2); }
+.feature-card p { color:var(--grey-700); font-size:0.95rem; }
 
-      /* SHADOW */
-      --shadow-soft: 0 10px 30px rgba(0,0,0,0.25);
-    }
+/* ───────── SOCIAL PROOF / PORTFOLIO ───────── */
+.portfolio { text-align:center; padding:var(--spacing-6) 0; }
+.portfolio h2 { font-family:var(--font-serif); font-weight:300; margin-bottom:var(--spacing-3); }
+.portfolio-items { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:var(--spacing-4); margin-top:var(--spacing-4); }
+.portfolio-item { border-radius:var(--radius); overflow:hidden; border:1px solid var(--grey-300); transition:transform var(--transition); }
+.portfolio-item img { width:100%; display:block; }
+.portfolio-item:hover { transform:scale(1.02); }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--color-bg);
-      color: var(--color-text);
-    }
+/* ───────── CTA SECTION ───────── */
+.cta-section { background:var(--black); color:var(--white); text-align:center; padding:var(--spacing-6) 0; border-radius:var(--radius); margin:var(--spacing-6) 0; }
+.cta-section h2 { font-family:var(--font-serif); font-size:2rem; font-weight:300; margin-bottom:var(--spacing-2); }
+.cta-section p { margin-bottom:var(--spacing-3); color:var(--grey-100); font-size:1.05rem; }
+.cta-section .btn { font-size:0.9rem; }
 
-    /* UTILITIES */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
-    .section { padding: var(--space-20) 0; }
-    .section-sm { padding: var(--space-12) 0; }
+/* ───────── FOOTER ───────── */
+.footer { text-align:center; padding:var(--spacing-4) 0; border-top:1px solid var(--grey-300); font-size:0.75rem; color:var(--grey-500); }
 
-    .text-muted { color: var(--color-muted); }
-
-    /* COMPONENTS */
-    .btn {
-      padding: var(--space-3) var(--space-6);
-      border-radius: var(--radius-md);
-      font-size: var(--text-base);
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg,var(--color-primary),var(--color-accent));
-      color: black;
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--color-border);
-    }
-
-    .card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-6);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .input {
-      padding: var(--space-3) var(--space-4);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-border);
-      background: black;
-      width: 100%;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg,var(--color-primary),var(--color-accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  </style></head><body><!-- NAV --><header class="container flex justify-between items-center py-5">
-  <div class="font-semibold">GitFoundry</div>
-  <a href="#cta" class="btn btn-primary">Get Started</a>
-</header><!-- HERO --><section class="section text-center">
-  <div class="container max-w-3xl">
-    <div class="text-sm text-muted mb-6">AI-powered development workflows</div><h1 style="font-size: var(--text-6xl); line-height:1.1;" class="mb-6">
-  Build production-grade systems
-  <br/> without slowing down
-</h1>
-
-<p class="text-lg text-muted mb-8">
-  Design, automate and scale software delivery using AI-first workflows.
-</p>
-
-<div class="flex flex-col sm:flex-row gap-4 justify-center">
-  <a href="#cta" class="btn btn-primary">Start Free</a>
-  <a href="#how" class="btn btn-secondary">See How It Works</a>
-</div>
-
-<div class="mt-6 text-sm text-muted">No credit card required</div>
-
+/* ───────── RESPONSIVE ───────── */
+@media(max-width:768px){ .hero h1{font-size:2rem;} .features{grid-template-columns:1fr;} .portfolio-items{grid-template-columns:1fr;} .nav .links{flex-direction:column; gap:var(--spacing-2);} }
+</style>
+</head>
+<body>
+<nav class="container nav">
+  <div class="logo">GitFoundry</div>
+  <div class="links">
+    <a href="#features">Features</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#get-started">Get Started</a>
   </div>
-</section><!-- PROBLEM --><section class="section-sm">
-  <div class="container text-center max-w-4xl">
-    <h2 style="font-size: var(--text-2xl);" class="mb-6">Shipping software shouldn’t feel fragmented</h2>
-    <p class="text-muted mb-10">Disconnected tools and manual workflows slow everything down.</p><div class="grid md:grid-cols-3 gap-6">
-  <div class="card">Too many tools</div>
-  <div class="card">Manual processes</div>
-  <div class="card">No clear workflow</div>
-</div>
+</nav>
 
+<section class="hero container">
+  <h1>Free Forever Hosting for Your Vision</h1>
+  <p>Bring your portfolio, project, or business online instantly. One-time build. No monthly fees. Share your work with anyone, anywhere.</p>
+  <div class="cta">
+    <a href="#get-started" class="btn btn-primary">Start Free Now</a>
+    <a href="#features" class="btn btn-secondary">See Features</a>
   </div>
-</section><!-- SOLUTION --><section id="how" class="section">
-  <div class="container">
-    <h2 class="text-center mb-12" style="font-size: var(--text-2xl);">A better way to build</h2><div class="grid md:grid-cols-3 gap-8">
-  <div class="card">Structure ideas instantly</div>
-  <div class="card">Automate execution</div>
-  <div class="card">Ship faster</div>
-</div>
+</section>
 
+<section id="features" class="container features">
+  <div class="feature-card">
+    <h3>Free Forever Hosting</h3>
+    <p>Your site lives online permanently via GitHub Pages. No hidden costs, no monthly fees.</p>
   </div>
-</section><!-- CTA --><section id="cta" class="section text-center">
-  <div class="container max-w-xl">
-    <h2 class="mb-6" style="font-size: var(--text-2xl);">Start building smarter</h2>
-    <p class="text-muted mb-8">Get early access to GitFoundry</p><div class="flex flex-col sm:flex-row gap-4">
-  <input class="input" placeholder="Enter your email" />
-  <button class="btn btn-primary">Get Access</button>
-</div>
+  <div class="feature-card">
+    <h3>Hand-Coded Websites</h3>
+    <p>Custom-coded websites that are fast, clean, and SEO-friendly.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Instant Sharing</h3>
+    <p>Once built, your site is shareable immediately. Show it to clients, friends, or employers.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Portfolio Ready</h3>
+    <p>Perfect for creators, developers, and designers. Showcase your vision professionally.</p>
+  </div>
+</section>
 
+<section id="portfolio" class="container portfolio">
+  <h2>Examples of Sites Built</h2>
+  <div class="portfolio-items">
+    <div class="portfolio-item"><img src="https://via.placeholder.com/400x250?text=Project+1" alt="Project 1"></div>
+    <div class="portfolio-item"><img src="https://via.placeholder.com/400x250?text=Project+2" alt="Project 2"></div>
+    <div class="portfolio-item"><img src="https://via.placeholder.com/400x250?text=Project+3" alt="Project 3"></div>
+    <div class="portfolio-item"><img src="https://via.placeholder.com/400x250?text=Project+4" alt="Project 4"></div>
   </div>
-</section><!-- FOOTER --><footer class="text-center text-sm text-muted py-10">
-  © 2026 GitFoundry
-</footer></body>
+</section>
+
+<section id="get-started" class="container cta-section">
+  <h2>Bring Your Vision Online Today</h2>
+  <p>Get a fully hosted, shareable website that stays online forever. No subscription. No hassle.</p>
+  <a href="#" class="btn btn-primary">Start My Free Site</a>
+</section>
+
+<footer class="footer container">
+  &copy; 2026 GitFoundry. Built for creators. Free forever hosting.
+</footer>
+</body>
 </html>
