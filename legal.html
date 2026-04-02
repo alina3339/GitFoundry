@@ -25,176 +25,141 @@
     --sans: 'Inter', -apple-system, sans-serif;
     --mono: 'JetBrains Mono', monospace;
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   *:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; }
-  @media (prefers-reduced-motion: reduce) {
-    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-  }
-  body { font-family: var(--sans); background: var(--paper); color: var(--black); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
   ::selection { background: var(--black); color: var(--white); }
 
-  .skip-link { position: absolute; top: -100%; left: 1rem; background: var(--black); color: var(--white); padding: 0.6rem 1.2rem; font-size: 0.75rem; font-weight: 500; z-index: 999; text-decoration: none; }
-  .skip-link:focus { top: 0.5rem; }
+  a { text-decoration: none; color: inherit; }
+  a:hover { color: var(--black); }
 
   header { padding: 1.6rem 2.5rem; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: baseline; }
-  .wordmark { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--black); text-decoration: none; }
+  .wordmark { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--black); }
   .wordmark em { font-style: italic; font-weight: 300; }
-  .back-link { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-500); text-decoration: none; transition: color 0.3s; }
+  .back-link { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-500); }
   .back-link:hover { color: var(--black); }
 
   .container { max-width: 720px; margin: 0 auto; padding: 0 2.5rem; }
 
-  .hero { padding: 5rem 0 3rem; border-bottom: 1px solid var(--rule); }
-  .hero-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 1.5rem; }
+  .hero { padding: 3rem 0; border-bottom: 1px solid var(--rule); }
+  .hero-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 1rem; }
   .hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1rem; }
   .hero h1 i { font-weight: 400; }
   .hero p { font-size: 0.9rem; font-weight: 300; color: var(--grey-700); line-height: 1.7; }
 
-  .toc { padding: 2.5rem 0; border-bottom: 1px solid var(--rule); }
-  .toc-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 1rem; }
-  .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-  .toc-list a { font-family: var(--serif); font-size: 1.05rem; color: var(--black); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
-  .toc-list a:hover { border-color: var(--black); }
-  .toc-list .toc-num { font-family: var(--mono); font-size: 0.6rem; color: var(--grey-300); margin-right: 0.5rem; }
+  /* Tabbed interface */
+  .tabs { margin-top: 3rem; }
+  .tabs input[type="radio"] { display: none; }
+  .tabs label { display: inline-block; padding: 0.8rem 1.2rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; background: var(--grey-200); cursor: pointer; margin-right: 0.4rem; border-top-left-radius: 4px; border-top-right-radius: 4px; }
+  .tabs label:hover { background: var(--grey-300); }
+  .tab-panels section { display: none; padding: 2rem 0; border-top: 1px solid var(--rule); }
+  #tab-privacy:checked ~ label[for="tab-privacy"] { background: var(--white); border-bottom: none; }
+  #tab-cookies:checked ~ label[for="tab-cookies"] { background: var(--white); border-bottom: none; }
+  #tab-terms:checked ~ label[for="tab-terms"] { background: var(--white); border-bottom: none; }
+  #tab-privacy:checked ~ .tab-panels #privacy,
+  #tab-cookies:checked ~ .tab-panels #cookies,
+  #tab-terms:checked ~ .tab-panels #terms { display: block; }
 
-  .legal-section { padding: 3.5rem 0; border-bottom: 1px solid var(--rule); content-visibility: auto; contain-intrinsic-size: auto 400px; }
-  .legal-section:last-of-type { border-bottom: none; }
-  .section-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.8rem; }
-  .legal-section h2 { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; line-height: 1.2; margin-bottom: 1.5rem; }
-  .legal-section h2 i { font-weight: 400; }
-  .legal-section h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin: 2rem 0 0.6rem; }
-  .legal-section p { font-size: 0.88rem; font-weight: 300; color: var(--grey-700); line-height: 1.8; margin-bottom: 1rem; }
-  .legal-section p strong { font-weight: 500; color: var(--black); }
-  .legal-list { list-style: none; margin: 0.5rem 0 1.5rem; }
-  .legal-list li { font-size: 0.86rem; font-weight: 300; color: var(--grey-700); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.2rem; position: relative; }
-  .legal-list li::before { content: '-'; position: absolute; left: 0; color: var(--grey-300); }
+  h2 { font-family: var(--serif); font-weight: 300; margin-bottom: 1rem; }
+  h3 { font-family: var(--serif); font-weight: 400; margin: 1.5rem 0 0.5rem; }
+  p { font-size: 0.88rem; font-weight: 300; color: var(--grey-700); line-height: 1.8; margin-bottom: 1rem; }
+  ul { list-style: none; margin: 0.5rem 0 1.5rem; padding-left: 1.2rem; }
+  ul li { position: relative; padding-left: 1rem; margin-bottom: 0.3rem; }
+  ul li::before { content: '-'; position: absolute; left: 0; color: var(--grey-300); }
 
-  .info-box { border-left: 2px solid var(--grey-200); padding: 1rem 0 1rem 1.5rem; margin: 1.5rem 0; }
-  .info-box p { font-style: italic; color: var(--grey-500); margin: 0; }
+  footer { border-top: 1px solid var(--rule); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; font-family: var(--mono); font-size: 0.55rem; color: var(--grey-500); }
 
-  .badge-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 2rem 0; }
-  .trust-badge { display: flex; align-items: center; gap: 0.5rem; border: 1px solid var(--grey-200); padding: 0.6rem 1rem; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-700); transition: border-color 0.3s; }
-  .trust-badge:hover { border-color: var(--black); }
-  .badge-icon { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; }
-  .badge-icon svg { width: 16px; height: 16px; aria-hidden: true; }
-
-  .contact-box { background: var(--grey-100); padding: 2rem; margin: 2rem 0; }
-  .contact-box h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.6rem; }
-  .contact-box p { font-size: 0.85rem; margin-bottom: 0.4rem; }
-
-  footer { border-top: 1px solid var(--rule); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
-  .footer-left { font-family: var(--serif); font-size: 0.9rem; }
-  .footer-left a { color: var(--black); text-decoration: none; }
-  .footer-right { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-500); }
-
-  @media (max-width: 600px) { .container { padding: 0 1.5rem; } header, footer { padding-left: 1.5rem; padding-right: 1.5rem; } .toc-list { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .container { padding: 0 1.5rem; } header, footer { padding-left: 1.5rem; padding-right: 1.5rem; } .tabs label { display: block; margin-bottom: 0.3rem; } }
 </style>
 </head>
 <body>
 
-<a href="#main" class="skip-link">Skip to content</a>
-
 <header>
   <a href="index.html" class="wordmark" aria-label="GitFoundry home">Git<em>Foundry</em></a>
-  <a href="index.html" class="back-link" aria-label="Back to main site">&larr; Back to site</a>
+  <a href="index.html" class="back-link">&larr; Back to site</a>
 </header>
 
-<main id="main">
-<div class="container">
-
-  <!-- HERO -->
+<main class="container">
   <div class="hero">
-    <div class="hero-label">Legal &amp; Privacy</div>
+    <div class="hero-label">Legal & Privacy</div>
     <h1>Your data, your <i>rights</i></h1>
-    <p>GitFoundry is committed to protecting your privacy and handling your data with care. This page outlines how we collect, use, and protect your information in compliance with UK GDPR, the Data Protection Act 2018, and the Data (Use and Access) Act 2025.</p>
+    <p>GitFoundry is committed to protecting your privacy and handling your data with care. All content here complies with UK GDPR, the Data Protection Act 2018, and the Data (Use and Access) Act 2025.</p>
+  </div>
 
-    <div class="badge-row">
-      <div class="trust-badge"><div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>UK GDPR Compliant</div>
-      <div class="trust-badge"><div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>SSL Encrypted</div>
-      <div class="trust-badge"><div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>No Tracking Cookies</div>
-      <div class="trust-badge"><div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>ICO Principles</div>
+  <div class="tabs">
+    <input type="radio" name="tabset" id="tab-privacy" checked>
+    <label for="tab-privacy">Privacy Policy</label>
+
+    <input type="radio" name="tabset" id="tab-cookies">
+    <label for="tab-cookies">Cookie Policy</label>
+
+    <input type="radio" name="tabset" id="tab-terms">
+    <label for="tab-terms">Terms of Service</label>
+
+    <div class="tab-panels">
+      <section id="privacy">
+        <h2>Privacy Policy</h2>
+        <p><strong>Last updated:</strong> March 2026</p>
+        <p><strong>Data controller:</strong> GitFoundry, United Kingdom</p>
+        <p><strong>Contact:</strong> <a href="mailto:info@gitfoundry.co.uk">info@gitfoundry.co.uk</a></p>
+
+        <h3>What we collect</h3>
+        <ul>
+          <li>Your name and email address</li>
+          <li>Business or brand name</li>
+          <li>Phone number (optional)</li>
+          <li>Website vision, style preferences, project requirements</li>
+          <li>Domain name (if you have one)</li>
+        </ul>
+
+        <h3>How we use your data</h3>
+        <ul>
+          <li>Respond to your enquiry and provide a quote</li>
+          <li>Deliver web design and development services</li>
+          <li>Communicate about your project</li>
+          <li>Comply with legal obligations</li>
+        </ul>
+
+        <h3>Who we share data with</h3>
+        <ul>
+          <li>Email providers (for communication)</li>
+          <li>GitHub (deployment only, no personal data stored)</li>
+          <li>Domain registrars (if you request domain registration)</li>
+        </ul>
+
+        <h3>Data retention</h3>
+        <p>Project data is kept for the duration of our relationship and up to 24 months after completion. Brief form data is retained for 12 months. Deletion can be requested anytime.</p>
+      </section>
+
+      <section id="cookies">
+        <h2>Cookie Policy</h2>
+        <p>We use no tracking cookies or analytics by default. GitHub Pages may use strictly necessary technical cookies for site delivery. Fonts from Google may log your IP per their policy.</p>
+      </section>
+
+      <section id="terms">
+        <h2>Terms of Service</h2>
+        <h3>Services</h3>
+        <p>GitFoundry provides custom web design, development, and deployment services. All work is agreed in writing.</p>
+        <h3>Payment</h3>
+        <p>50% upfront, 50% upon completion. Prices in GBP, exclusive of VAT unless stated.</p>
+        <h3>Intellectual property</h3>
+        <p>After full payment, you own all rights. We may display work in our portfolio unless requested otherwise.</p>
+        <h3>Hosting & domain</h3>
+        <p>Sites hosted on GitHub Pages. Domain registration through third-party registrars.</p>
+        <h3>Limitation of liability</h3>
+        <p>Our total liability is limited to the fees paid. We are not liable for indirect or consequential damages.</p>
+        <h3>Governing law</h3>
+        <p>English law governs these terms; disputes are under English courts.</p>
+      </section>
     </div>
   </div>
+</main>
 
-  <!-- TABLE OF CONTENTS -->
-  <div class="toc">
-    <div class="toc-label">Contents</div>
-    <ul class="toc-list">
-      <li><span class="toc-num">01</span><a href="#privacy">Privacy Policy</a></li>
-      <li><span class="toc-num">02</span><a href="#cookies">Cookie Policy</a></li>
-      <li><span class="toc-num">03</span><a href="#terms">Terms of Service</a></li>
-      <li><span class="toc-num">04</span><a href="#gdpr">Your GDPR Rights</a></li>
-      <li><span class="toc-num">05</span><a href="#data-security">Data Security</a></li>
-      <li><span class="toc-num">06</span><a href="#complaints">Complaints Procedure</a></li>
-    </ul>
-  </div>
+<footer>
+  &copy; 2026 GitFoundry. All rights reserved.
+</footer>
 
-  <!-- PRIVACY POLICY -->
-  <section class="legal-section" id="privacy">
-    <div class="section-label">01 - Privacy Policy</div>
-    <h2>How we handle <i>your data</i></h2>
-    <p><strong>Last updated:</strong> March 2026</p>
-    <p><strong>Data controller:</strong> GitFoundry, United Kingdom</p>
-    <p><strong>Contact:</strong> <a href="mailto:contact@gitfoundry.co.uk">contact@gitfoundry.co.uk</a></p>
-    <h3>What we collect</h3>
-    <p>When you use our brief form or contact us, we may collect:</p>
-    <ul class="legal-list">
-      <li>Name and email address</li>
-      <li>Business or brand name</li>
-      <li>Phone number (if provided)</li>
-      <li>Your website vision, style preferences, and project requirements</li>
-      <li>Domain name (if you have one)</li>
-    </ul>
-    <h3>How we use your data</h3>
-    <ul class="legal-list">
-      <li>Respond to enquiries and provide project quotes</li>
-      <li>Deliver web design and development services</li>
-      <li>Communicate with you about your project</li>
-      <li>Comply with legal obligations</li>
-    </ul>
-    <h3>Lawful basis for processing</h3>
-    <ul class="legal-list">
-      <li><strong>Legitimate interest:</strong> responding to enquiries and delivering services</li>
-      <li><strong>Contract:</strong> processing data to fulfil service agreements</li>
-      <li><strong>Consent:</strong> voluntary submission through forms</li>
-    </ul>
-    <h3>Who we share data with</h3>
-    <ul class="legal-list">
-      <li>Email service providers</li>
-      <li>GitHub (for deployment, no personal data stored)</li>
-      <li>Domain registrars (if requested)</li>
-    </ul>
-    <h3>Data retention</h3>
-    <p>Project data is retained for the duration of our relationship and up to 24 months after completion. Enquiry data is retained for 12 months. You may request deletion at any time.</p>
-    <h3>International transfers</h3>
-    <p>Data is primarily processed in the UK. Third-party services outside the UK, such as GitHub (US), have appropriate safeguards in place.</p>
-  </section>
-
-  <!-- COOKIE POLICY -->
-  <section class="legal-section" id="cookies">
-    <div class="section-label">02 - Cookie Policy</div>
-    <h2>Cookies and <i>tracking</i></h2>
-    <div class="info-box"><p>No analytics cookies, tracking pixels, or ads are used by default. GitHub Pages may set strictly necessary technical cookies.</p></div>
-    <h3>Third-party services</h3>
-    <p>Google Fonts may log IP addresses as part of their service delivery. No other third-party scripts are loaded.</p>
-    <h3>Cookies on client sites</h3>
-    <p>If you request Google Analytics or other integrations, appropriate consent mechanisms are implemented.</p>
-  </section>
-
-  <!-- TERMS OF SERVICE -->
-  <section class="legal-section" id="terms">
-    <div class="section-label">03 - Terms of Service</div>
-    <h2>Working <i>together</i></h2>
-    <h3>Services</h3>
-    <p>Custom web design, development, and deployment services as agreed in writing before work begins.</p>
-    <h3>Payment</h3>
-    <p>50% upfront, 50% on completion. Prices quoted in GBP, exclusive of VAT unless stated.</p>
-    <h3>Intellectual property</h3>
-    <p>Full rights transferred upon payment. GitFoundry may showcase the work unless requested otherwise.</p>
-    <h3>Revisions</h3>
-    <p>Package includes specified revision rounds. Extra rounds £25 per set.</p>
-    <h3>Hosting and domain</h3>
-    <p>Sites hosted on GitHub Pages. Domain registration via third-party registrars if requested.</p>
-    <h3>Limitation of liability</h3>
-    <p>Liability limited to fees paid. No
+</body>
+</html>
