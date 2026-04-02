@@ -3,165 +3,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitFoundry - Free Hosting Forever for Your Portfolio</title>
-<meta name="description" content="Bring your vision to life with GitFoundry. Free hosting forever once built. Share your portfolio with the world.">
+<title>GitFoundry - Your Portfolio, Online</title>
+<meta name="description" content="GitFoundry: Build your professional portfolio with free hosting forever. Share your vision, style, and work online.">
 <meta name="theme-color" content="#111">
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<!-- Alpine.js for interactivity -->
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
 <style>
-/* ═══ DESIGN TOKENS ═══ */
-:root {
-  --black: #111;
-  --white: #fafafa;
-  --grey-100: #f0f0f0;
-  --grey-200: #e2e2e2;
-  --grey-300: #c8c8c8;
-  --grey-500: #888;
-  --grey-700: #555;
-  --primary: #0cce6b;
-  --max-width: 1120px;
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 3rem;
-  --spacing-xl: 5rem;
+  :root {
+    --black: #111;
+    --grey-700: #555;
+    --grey-500: #888;
+    --grey-300: #c8c8c8;
+    --grey-200: #e2e2e2;
+    --grey-100: #f0f0f0;
+    --white: #fafafa;
+    --paper: #fdfdfd;
+    --rule: #ddd;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  *:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
 
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-}
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  ::selection { background: var(--black); color: var(--white); }
 
-/* ═══ GLOBAL RESET ═══ */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-sans); color: var(--black); background: var(--white); line-height: 1.6; overflow-x: hidden; }
-a { text-decoration: none; }
-img { max-width: 100%; display: block; }
+  .skip-link {
+    position: absolute; top: -100%; left: 1rem;
+    background: var(--black); color: var(--white);
+    padding: 0.6rem 1.2rem; font-size: 0.75rem; font-weight: 500;
+    z-index: 999; text-decoration: none;
+  }
+  .skip-link:focus { top: 0.5rem; }
 
-/* ═══ CONTAINER ═══ */
-.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--spacing-md); }
+  header {
+    padding: 1.6rem 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .wordmark {
+    font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+    color: var(--black); text-decoration: none;
+  }
+  .wordmark em { font-style: italic; font-weight: 300; }
+  .back-link {
+    font-family: var(--mono); font-size: 0.65rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--grey-500); text-decoration: none; transition: color 0.3s;
+  }
+  .back-link:hover { color: var(--black); }
 
-/* ═══ TYPOGRAPHY ═══ */
-h1, h2, h3, h4 { font-family: var(--font-serif); }
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1.2; }
-h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; margin-bottom: var(--spacing-sm); }
-p { font-size: 1rem; color: var(--grey-700); margin-bottom: var(--spacing-md); }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 2.5rem; }
 
-/* ═══ NAVIGATION ═══ */
-.navbar { display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-md) 0; position: sticky; top: 0; background: var(--white); z-index: 100; border-bottom: 1px solid var(--grey-200); }
-.navbar .logo { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; }
-.navbar .links { display: flex; gap: var(--spacing-lg); }
-.navbar .links a { font-size: 0.85rem; font-weight: 500; color: var(--grey-500); text-transform: uppercase; transition: color 0.3s; }
-.navbar .links a:hover { color: var(--black); }
+  .hero {
+    padding: 5rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  .hero-label {
+    font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--grey-500); margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300; line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .hero h1 i { font-weight: 400; }
+  .hero p {
+    font-size: 0.9rem; font-weight: 300;
+    color: var(--grey-700); line-height: 1.7;
+  }
+  .cta-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.9rem 1.8rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 4px;
+    transition: background 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+  }
+  .cta-button:hover {
+    background-color: var(--grey-700);
+    color: var(--white);
+  }
 
-/* ═══ HERO ═══ */
-.hero { text-align: center; padding: var(--spacing-xl) 0; display: flex; flex-direction: column; gap: var(--spacing-md); }
-.hero p { font-size: 1.2rem; }
-.hero h1 { margin-bottom: var(--spacing-sm); }
-.hero .cta { display: flex; justify-content: center; gap: var(--spacing-sm); flex-wrap: wrap; }
-.button { padding: 0.85rem 2rem; border: none; cursor: pointer; font-weight: 500; text-transform: uppercase; font-family: var(--font-sans); transition: all 0.3s; }
-.button-primary { background: var(--black); color: var(--white); }
-.button-primary:hover { background: var(--grey-700); transform: translateY(-2px); }
-.button-secondary { background: transparent; color: var(--black); border: 2px solid var(--black); }
-.button-secondary:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
+  .badge-row {
+    display: flex; flex-wrap: wrap; gap: 0.8rem;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  .trust-badge {
+    display: flex; align-items: center; gap: 0.5rem;
+    border: 1px solid var(--grey-200);
+    padding: 0.6rem 1rem;
+    font-family: var(--mono); font-size: 0.58rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--grey-700);
+    transition: border-color 0.3s;
+  }
+  .trust-badge:hover { border-color: var(--black); }
+  .badge-icon {
+    width: 18px; height: 18px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .badge-icon svg { width: 16px; height: 16px; }
 
-/* ═══ FEATURES ═══ */
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-lg); padding: var(--spacing-xl) 0; text-align: center; }
-.feature { padding: var(--spacing-md); border: 1px solid var(--grey-200); border-radius: 8px; transition: transform 0.3s; }
-.feature:hover { transform: translateY(-5px); }
-.feature h3 { margin-bottom: var(--spacing-xs); }
-.feature p { color: var(--grey-700); }
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 2.5rem;
+    display: flex; justify-content: space-between;
+    align-items: baseline; flex-wrap: wrap; gap: 0.5rem;
+    text-align: center;
+  }
+  .footer-left { font-family: var(--serif); font-size: 0.9rem; }
+  .footer-left a { color: var(--black); text-decoration: none; }
+  .footer-right {
+    font-family: var(--mono); font-size: 0.55rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--grey-500);
+  }
 
-/* ═══ PORTFOLIO CTA FORM ═══ */
-.form-section { padding: var(--spacing-xl) 0; background: var(--grey-100); text-align: center; border-radius: 8px; }
-.form-section input, .form-section textarea { width: 100%; padding: var(--spacing-sm); margin-bottom: var(--spacing-sm); border: 1px solid var(--grey-300); border-radius: 4px; font-family: var(--font-sans); }
-.form-section button { width: 100%; max-width: 320px; margin: 0 auto; display: block; }
-
-/* ═══ TRUST SECTION ═══ */
-.trust { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--spacing-lg); margin: var(--spacing-xl) 0; text-align: center; }
-.trust-item { font-family: var(--font-mono); font-size: 0.75rem; color: var(--grey-500); }
-
-/* ═══ FOOTER ═══ */
-footer { text-align: center; padding: var(--spacing-lg) 0; border-top: 1px solid var(--grey-200); font-family: var(--font-mono); font-size: 0.75rem; color: var(--grey-500); }
-
-/* ═══ RESPONSIVE ═══ */
-@media(max-width: 768px) {
-  .navbar .links { flex-direction: column; gap: var(--spacing-sm); }
-}
+  @media (max-width: 600px) {
+    .container { padding: 0 1.5rem; }
+    header, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .badge-row { flex-direction: column; align-items: center; }
+  }
 </style>
 </head>
-<body x-data="{ showForm: false }">
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
 
-<!-- NAVIGATION -->
-<nav class="navbar container">
-  <div class="logo">GitFoundry</div>
-  <div class="links">
-    <a href="#features">Features</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Get Started</a>
-  </div>
-</nav>
+<header>
+  <a href="index.html" class="wordmark" aria-label="GitFoundry home">Git<em>Foundry</em></a>
+  <a href="index.html" class="back-link" aria-label="Back to main site">&larr; Back to site</a>
+</header>
 
-<!-- HERO -->
-<section class="hero container">
-  <h1>Free Hosting Forever for Your Portfolio</h1>
-  <p>Bring your vision to life. Once built, it stays online forever. Share it with the world.</p>
-  <div class="cta">
-    <button class="button button-primary" @click="showForm = true">Build My Portfolio</button>
-    <a href="#features" class="button button-secondary">Learn More</a>
+<main id="main" class="container">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">Launch Your Portfolio</div>
+    <h1>Bring your work <i>online</i></h1>
+    <p>Create a professional portfolio that stays on the web forever, hosted for free. Showcase your vision, style, and projects to the world with ease.</p>
+    <a href="brief.html" class="cta-button">Build my portfolio</a>
+    <div class="badge-row">
+      <div class="trust-badge">
+        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        Free Forever Hosting
+      </div>
+      <div class="trust-badge">
+        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        No Tracking Cookies
+      </div>
+      <div class="trust-badge">
+        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        Fully Responsive
+      </div>
+    </div>
   </div>
-</section>
+</main>
 
-<!-- FEATURES -->
-<section class="features container" id="features">
-  <div class="feature">
-    <h3>Free Forever</h3>
-    <p>No monthly fees, no hosting worries. Once it’s live, it’s yours to keep forever.</p>
-  </div>
-  <div class="feature">
-    <h3>Fully Custom</h3>
-    <p>Bring your vision or portfolio, we’ll make it live exactly the way you want.</p>
-  </div>
-  <div class="feature">
-    <h3>Share Everywhere</h3>
-    <p>Show your work, CV, or projects to anyone, anywhere with a simple URL.</p>
-  </div>
-  <div class="feature">
-    <h3>Performance Optimized</h3>
-    <p>Fast, smooth, responsive design with modern UX and full mobile support.</p>
-  </div>
-</section>
-
-<!-- PORTFOLIO CTA FORM -->
-<section class="form-section container" id="portfolio" x-show="showForm" x-transition>
-  <h2>Get Your Portfolio Live</h2>
-  <p>Fill in your details and we’ll make your portfolio live for free.</p>
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Portfolio URL or Vision" rows="4" required></textarea>
-    <button class="button button-primary">Launch My Portfolio</button>
-  </form>
-</section>
-
-<!-- TRUST -->
-<section class="trust container">
-  <div class="trust-item">Trusted by Freelancers</div>
-  <div class="trust-item">Trusted by Agencies</div>
-  <div class="trust-item">Trusted by Startups</div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  &copy; 2026 GitFoundry. All rights reserved.
+  <div class="footer-left">
+    &copy; 2026 <a href="index.html">GitFoundry</a>. All rights reserved.
+  </div>
+  <div class="footer-right">
+    Built with ❤️ and HTML/CSS
+  </div>
 </footer>
-
 </body>
 </html>
