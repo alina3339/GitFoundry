@@ -12,605 +12,87 @@
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
-/* ---------- RESET & VARIABLES (same as index) ---------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --bg: #0c0c0c;
-  --surface: #161616;
-  --card: #1c1c1e;
-  --card-border: rgba(255,255,255,0.06);
-  --text: #f5f5f7;
-  --text-muted: rgba(245,245,247,0.5);
-  --text-quiet: rgba(245,245,247,0.3);
-  --accent: #f5f5f7;
-  --btn-bg: rgba(255,255,255,0.12);
-  --btn-hover: rgba(255,255,255,0.18);
-  --gradient-start: #6b8ea0;
-  --gradient-mid: #9aabb5;
-  --gradient-end: #c8ccc5;
-  --nav-bg: rgba(12,12,12,0.8);
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --space-1: 0.5rem;
-  --space-2: 1rem;
-  --space-3: 1.5rem;
-  --space-4: 2rem;
-  --space-5: 3rem;
-  --space-6: 4rem;
-  --font-xs: 0.75rem;
-  --font-sm: 0.875rem;
-  --font-base: 1rem;
-  --font-md: 1.25rem;
-  --font-lg: 1.5rem;
-  --font-xl: 2rem;
-  --font-2xl: 2.5rem;
-  --font-3xl: 3rem;
-  --error: #e06c6c;
-}
-
-.day {
-  --bg: #f5f5f3;
-  --surface: #eeeee8;
-  --card: #e4e4dc;
-  --card-border: rgba(0,0,0,0.06);
-  --text: #1a1a1a;
-  --text-muted: rgba(26,26,26,0.5);
-  --text-quiet: rgba(26,26,26,0.25);
-  --accent: #1a1a1a;
-  --btn-bg: rgba(0,0,0,0.08);
-  --btn-hover: rgba(0,0,0,0.14);
-  --nav-bg: rgba(245,245,243,0.85);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  font-size: var(--font-base);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  transition: background 0.3s, color 0.3s;
-  overflow-x: hidden;
-}
-
-::selection {
-  background: rgba(107,142,160,0.3);
-}
-
-[x-cloak] { display: none !important; }
-
-*:focus-visible {
-  outline: 2px solid var(--gradient-start);
-  outline-offset: 3px;
-}
-
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: var(--space-2);
-  background: var(--text);
-  color: var(--bg);
-  padding: var(--space-1) var(--space-2);
-  font-size: var(--font-xs);
-  z-index: 999;
-  text-decoration: none;
-}
-.skip-link:focus { top: var(--space-1); }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* ---------- TOP BAR ---------- */
-.top-bar {
-  text-align: center;
-  padding: var(--space-1) var(--space-2);
-  font-size: var(--font-xs);
-  color: var(--text-muted);
-  background: var(--surface);
-  border-bottom: 1px solid var(--card-border);
-}
-
-/* ---------- NAVIGATION (sticky, same as index) ---------- */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: var(--space-2) 0;
-  background: var(--nav-bg);
-  backdrop-filter: blur(20px);
-}
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.wordmark {
-  font-size: var(--font-md);
-  font-weight: 600;
-  color: var(--text);
-  text-decoration: none;
-  letter-spacing: -0.02em;
-}
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-.nav-right a {
-  font-size: var(--font-sm);
-  font-weight: 400;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-right a:hover { color: var(--text); }
-.theme-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: var(--font-sm);
-  color: var(--text-muted);
-  padding: 0;
-}
-.theme-btn:hover { color: var(--text); }
-.nav-burger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text);
-  font-size: var(--font-lg);
-  padding: 0;
-}
-.mobile-drawer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 280px;
-  height: 100vh;
-  background: var(--bg);
-  border-left: 1px solid var(--card-border);
-  z-index: 200;
-  padding: var(--space-6) var(--space-4);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  transform: translateX(100%);
-  transition: transform 0.35s ease;
-}
-.mobile-drawer.open { transform: translateX(0); }
-.mobile-drawer a {
-  font-size: var(--font-md);
-  font-weight: 400;
-  color: var(--text);
-  text-decoration: none;
-  padding: var(--space-1) 0;
-  border-bottom: 1px solid var(--card-border);
-}
-.mobile-drawer a:hover { color: var(--text-muted); }
-.drawer-bg {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 199;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-.drawer-bg.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-@media (max-width: 600px) {
-  .nav-right a:not(.nav-cta) { display: none; }
-  .nav-burger { display: block; }
-}
-
-/* ---------- HERO SECTION (simpler for form page) ---------- */
-.form-hero {
-  padding: var(--space-5) var(--space-4) var(--space-4);
-  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 60%, var(--bg) 100%);
-}
-.hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.hero-sup {
-  font-size: var(--font-sm);
-  color: rgba(255,255,255,0.6);
-  margin-bottom: var(--space-2);
-}
-.hero-content h1 {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin-bottom: var(--space-2);
-  max-width: 700px;
-}
-.hero-content p {
-  font-size: var(--font-md);
-  color: rgba(255,255,255,0.7);
-  max-width: 600px;
-}
-
-/* ---------- FORM PROGRESS ---------- */
-.progress-bar {
-  max-width: 640px;
-  margin: var(--space-4) auto 0;
-  padding: 0 var(--space-4);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-.progress-track {
-  flex: 1;
-  height: 2px;
-  background: var(--card-border);
-  position: relative;
-}
-.progress-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: var(--text);
-  transition: width 0.4s ease;
-}
-.progress-label {
-  font-size: var(--font-xs);
-  font-weight: 500;
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-
-/* ---------- FORM CONTAINER ---------- */
-.form-area {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: var(--space-4) var(--space-4) var(--space-6);
-}
-
-/* ---------- STEP STYLES ---------- */
-.step {
-  display: none;
-  animation: fadeStep 0.4s ease;
-}
-.step.active { display: block; }
-@keyframes fadeStep {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.step-header {
-  margin-bottom: var(--space-4);
-}
-.step-num {
-  font-size: var(--font-xs);
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: var(--space-1);
-}
-.step h2 {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  margin-bottom: var(--space-1);
-}
-.step-desc {
-  font-size: var(--font-sm);
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ---------- FORM FIELDS ---------- */
-.field {
-  margin-bottom: var(--space-4);
-}
-.field label {
-  display: block;
-  font-size: var(--font-xs);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-  margin-bottom: var(--space-1);
-}
-.field input[type="text"],
-.field input[type="email"],
-.field input[type="url"],
-.field input[type="tel"],
-.field textarea {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--card-border);
-  padding: var(--space-2) 0;
-  font-family: inherit;
-  font-size: var(--font-base);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.2s;
-}
-.field input:focus,
-.field textarea:focus {
-  border-color: var(--text);
-}
-.field textarea {
-  border: 1px solid var(--card-border);
-  padding: var(--space-2);
-  border-radius: var(--radius-sm);
-  resize: vertical;
-  min-height: 100px;
-}
-.field textarea:focus {
-  border-color: var(--text);
-}
-.field-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3);
-}
-
-/* Option cards (grid) */
-.options-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: var(--space-2);
-  margin-top: var(--space-1);
-}
-.option-card, .style-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-2) var(--space-3);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.option-card:hover, .style-card:hover {
-  border-color: var(--text-muted);
-  transform: translateY(-2px);
-}
-.option-card.selected, .style-card.selected {
-  border-color: var(--text);
-  background: var(--btn-bg);
-}
-.option-label {
-  font-weight: 500;
-  display: block;
-  margin-bottom: var(--space-1);
-}
-.option-sub {
-  font-size: var(--font-xs);
-  color: var(--text-muted);
-}
-.style-swatch {
-  height: 50px;
-  border-radius: var(--radius-sm);
-  margin-bottom: var(--space-2);
-}
-.swatch-minimal { background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%); border: 1px solid rgba(0,0,0,0.1); }
-.swatch-dark { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); }
-.swatch-warm { background: linear-gradient(135deg, #f5efe0 0%, #e8d5b5 100%); border: 1px solid rgba(0,0,0,0.1); }
-.swatch-vibrant { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.style-name { font-weight: 500; margin-bottom: var(--space-1); }
-.style-desc { font-size: var(--font-xs); color: var(--text-muted); }
-
-/* Chips (multi‑select) */
-.chips-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-1);
-}
-.chip {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 40px;
-  padding: var(--space-1) var(--space-3);
-  font-size: var(--font-sm);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.chip:hover {
-  border-color: var(--text-muted);
-}
-.chip.selected {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-
-/* Actions (buttons) */
-.actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: var(--space-5);
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--card-border);
-}
-.btn {
-  font-family: inherit;
-  font-size: var(--font-sm);
-  font-weight: 500;
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all 0.2s;
-  border: none;
-  background: none;
-}
-.btn-next, .btn-submit {
-  background: var(--text);
-  color: var(--bg);
-}
-.btn-next:hover, .btn-submit:hover {
-  background: var(--text-muted);
-  transform: translateY(-2px);
-}
-.btn-back {
-  color: var(--text-muted);
-  border: 1px solid var(--card-border);
-}
-.btn-back:hover {
-  color: var(--text);
-  border-color: var(--text);
-}
-.btn-submit {
-  width: 100%;
-  margin-top: var(--space-3);
-}
-.form-note {
-  text-align: center;
-  margin-top: var(--space-2);
-  font-size: var(--font-xs);
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-}
-
-/* Success screen */
-.success-screen {
-  display: none;
-  text-align: center;
-  padding: var(--space-6) var(--space-4);
-}
-.success-screen.active { display: block; }
-.success-icon {
-  font-size: var(--font-3xl);
-  margin-bottom: var(--space-3);
-}
-.success-screen h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 500;
-  margin-bottom: var(--space-2);
-}
-.success-screen p {
-  color: var(--text-muted);
-  max-width: 400px;
-  margin: 0 auto var(--space-4);
-}
-
-/* Footer (same as index) */
-footer {
-  border-top: 1px solid var(--card-border);
-  padding: var(--space-4) var(--space-4);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  font-size: var(--font-xs);
-  color: var(--text-muted);
-}
-footer a {
-  color: var(--text-muted);
-  text-decoration: none;
-  margin-left: var(--space-2);
-}
-footer a:hover {
-  color: var(--text);
-}
-.cookie-banner {
-  position: fixed;
-  bottom: var(--space-2);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-2) var(--space-4);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  flex-wrap: wrap;
-  max-width: 600px;
-  width: calc(100% - var(--space-4));
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
-}
-.cookie-banner.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.cookie-banner p {
-  font-size: var(--font-xs);
-  color: var(--text-muted);
-  flex: 1;
-}
-.cookie-banner a {
-  color: var(--text);
-  text-decoration: underline;
-}
-.cookie-actions {
-  display: flex;
-  gap: var(--space-1);
-}
-.cookie-btn {
-  font-family: inherit;
-  font-size: var(--font-xs);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-sm);
-  border: none;
-  cursor: pointer;
-}
-.cookie-accept {
-  background: var(--text);
-  color: var(--bg);
-}
-.cookie-decline {
-  background: var(--btn-bg);
-  color: var(--text-muted);
-}
-
-@media (max-width: 700px) {
-  .form-area { padding: var(--space-3) var(--space-3) var(--space-5); }
-  .options-grid { grid-template-columns: 1fr; }
-  .field-row { grid-template-columns: 1fr; }
-  .hero-content h1 { font-size: 1.8rem; }
-}
+/* ---------- RESET & VARIABLES ---------- */
+* { margin:0; padding:0; box-sizing:border-box; }
+:root { 
+  --bg:#0c0c0c; --surface:#161616; --card:#1c1c1e; --card-border:rgba(255,255,255,0.06);
+  --text:#f5f5f7; --text-muted:rgba(245,245,247,0.5); --accent:#f5f5f7;
+  --btn-bg:rgba(255,255,255,0.12); --btn-hover:rgba(255,255,255,0.18);
+  --gradient-start:#6b8ea0; --gradient-mid:#9aabb5; --gradient-end:#c8ccc5;
+  --radius-sm:8px; --radius-md:12px; --radius-lg:20px;
+  --space-1:0.5rem; --space-2:1rem; --space-3:1.5rem; --space-4:2rem; --space-5:3rem; --space-6:4rem;
+  --font-xs:0.75rem; --font-sm:0.875rem; --font-base:1rem; --font-md:1.25rem; --font-lg:1.5rem; --font-xl:2rem; --font-2xl:2.5rem; --font-3xl:3rem;
+  --error:#e06c6c;
+}
+.day { --bg:#f5f5f3; --surface:#eeeee8; --card:#e4e4dc; --card-border:rgba(0,0,0,0.06);
+  --text:#1a1a1a; --text-muted:rgba(26,26,26,0.5); --btn-bg:rgba(0,0,0,0.08); --btn-hover:rgba(0,0,0,0.14); --nav-bg:rgba(245,245,243,0.85);
+}
+body { font-family:'Inter', system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--text); font-size:var(--font-base); line-height:1.5; transition: background 0.3s, color 0.3s; }
+input, textarea { font-family:inherit; color:var(--text); background:transparent; border:none; border-bottom:1px solid var(--card-border); padding:var(--space-2) 0; width:100%; }
+input:focus, textarea:focus { border-color:var(--text); outline:none; }
+textarea { min-height:100px; border-radius:var(--radius-sm); resize:vertical; }
+button { font-family:inherit; cursor:pointer; border:none; transition:all 0.2s; }
+.btn-next, .btn-submit { background:var(--text); color:var(--bg); padding:var(--space-2) var(--space-4); border-radius:var(--radius-md); }
+.btn-next:hover, .btn-submit:hover { background:var(--text-muted); transform:translateY(-2px); }
+.btn-back { color:var(--text-muted); border:1px solid var(--card-border); padding:var(--space-2) var(--space-4); border-radius:var(--radius-md); }
+.btn-back:hover { color:var(--text); border-color:var(--text); transform:translateY(-1px); }
+.step { display:none; animation:fadeStep 0.4s ease; }
+.step.active { display:block; }
+@keyframes fadeStep { from { opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);} }
+.progress-bar { max-width:640px; margin:var(--space-4) auto; display:flex; align-items:center; gap:var(--space-2); }
+.progress-track { flex:1; height:2px; background:var(--card-border); position:relative; }
+.progress-fill { position:absolute; top:0; left:0; height:100%; background:var(--text); width:0%; transition:width 0.4s ease; }
+.option-card { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius-md); padding:var(--space-2) var(--space-3); cursor:pointer; transition:all 0.2s; }
+.option-card.selected { border-color:var(--text); background:var(--btn-bg); }
+.chip { background:var(--card); border:1px solid var(--card-border); border-radius:40px; padding:var(--space-1) var(--space-3); cursor:pointer; transition:all 0.2s; display:inline-block; margin:var(--space-1) var(--space-1) 0 0; }
+.chip.selected { background:var(--text); color:var(--bg); border-color:var(--text); }
+.success-screen { display:none; text-align:center; padding:var(--space-6) var(--space-4); }
+.success-screen.active { display:block; }
 </style>
 </head>
-<body x-data="{
-  dark: true,
-  drawerOpen: false,
-  init() {
-    try {
-      if (localStorage.getItem('gf_theme') === 'day') {
-        this.dark = false;
-        document.documentElement.classList.add('day');
-      }
-    } catch(e) {}
-  },
-  toggle() {
-    this.dark = !this.dark;
-    document.documentElement.classList.toggle('day', !this.dark);
-    try { localStorage.setItem('gf_theme', this.dark ? 'night' : 'day'); } catch(e) {}
-  },
-  closeDrawer() { this.drawerOpen = false; }
-}">
+<body x-data="projectForm()">
 
-<a href="#form-start" class="skip-link">Skip to form</a>
+<script>
+function projectForm() {
+  return {
+    dark: true,
+    drawerOpen: false,
+    currentStep: 1,
+    totalSteps: 3,
+    formData: {
+      name:'', email:'', website:'', style:'', features:[]
+    },
+    init() {
+      if(localStorage.getItem('gf_theme')==='day'){this.dark=false; document.documentElement.classList.add('day');}
+    },
+    toggle() { this.dark = !this.dark; document.documentElement.classList.toggle('day', !this.dark); localStorage.setItem('gf_theme', this.dark?'night':'day'); },
+    closeDrawer(){ this.drawerOpen=false; },
+    nextStep() {
+      if(this.validateStep()) {
+        if(this.currentStep < this.totalSteps){ this.currentStep++; this.updateProgress(); }
+      }
+    },
+    prevStep(){ if(this.currentStep>1){ this.currentStep--; this.updateProgress(); } },
+    updateProgress() {
+      document.querySelector('.progress-fill').style.width = (this.currentStep-1)/(this.totalSteps-1)*100+'%';
+    },
+    toggleFeature(feature){
+      if(this.formData.features.includes(feature)){ this.formData.features = this.formData.features.filter(f=>f!==feature);}
+      else { this.formData.features.push(feature);}
+    },
+    selectStyle(style){ this.formData.style = style; },
+    validateStep() {
+      if(this.currentStep===1 && (!this.formData.name || !this.formData.email)) { alert('Please enter name and email'); return false; }
+      return true;
+    },
+    submitForm() {
+      console.log('Form submitted:', this.formData);
+      document.querySelector('.form-area').style.display='none';
+      document.querySelector('.success-screen').classList.add('active');
+    }
+  }
+}
+</script>
 
 <div class="top-bar">Beautifully crafted websites. Zero hosting fees. UK‑based.</div>
 
@@ -618,406 +100,93 @@ footer a:hover {
   <div class="nav-inner">
     <a href="index.html" class="wordmark">GitFoundry</a>
     <div class="nav-right">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#offer">Pricing</a>
-      <button class="theme-btn" @click="toggle()" x-text="dark ? 'Light' : 'Dark'" aria-label="Switch theme"></button>
-      <a href="brief.html" class="nav-cta" style="background: var(--btn-bg); padding: var(--space-1) var(--space-3); border-radius: var(--radius-md);">Start a project</a>
+      <button class="theme-btn" @click="toggle()" x-text="dark ? 'Light' : 'Dark'"></button>
     </div>
-    <button class="nav-burger" @click="drawerOpen = !drawerOpen" x-text="drawerOpen ? '✕' : '☰'" aria-label="Menu" :aria-expanded="drawerOpen"></button>
   </div>
 </nav>
-
-<div class="drawer-bg" :class="drawerOpen ? 'open' : ''" @click="closeDrawer()" aria-hidden="true"></div>
-<div class="mobile-drawer" :class="drawerOpen ? 'open' : ''" aria-label="Mobile menu">
-  <a href="index.html#services" @click="closeDrawer()">Services</a>
-  <a href="index.html#offer" @click="closeDrawer()">Pricing</a>
-  <a href="brief.html" @click="closeDrawer()">Get started</a>
-</div>
 
 <div class="form-hero">
   <div class="hero-content">
     <div class="hero-sup">Start your project</div>
-    <h1>Tell us about your vision.</h1>
-    <p>I'll review your brief and get back to you within 24 hours with a tailored plan and quote.</p>
+    <h1>Your project brief, in 3 simple steps</h1>
+    <p>Fill in your vision, style preferences and features. We'll prepare a plan within 24 hours.</p>
   </div>
 </div>
 
-<div class="progress-bar" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-track">
-    <div class="progress-fill" id="progressFill" style="width: 20%"></div>
-  </div>
-  <span class="progress-label" id="progressLabel">Step 1 of 5</span>
+<div class="progress-bar">
+  <div class="progress-label" x-text="'Step '+currentStep+' of '+totalSteps"></div>
+  <div class="progress-track"><div class="progress-fill"></div></div>
 </div>
 
-<main id="form-start">
-  <div class="form-area" id="formArea">
-    <!-- STEP 1 -->
-    <div class="step active" data-step="1">
-      <div class="step-header">
-        <div class="step-num">01 - About you</div>
-        <h2>Let's start with the basics.</h2>
-        <p class="step-desc">Who are you and what does your business do?</p>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="name">Your name</label>
-          <input type="text" id="name" placeholder="Jane Smith" autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="email">Email address</label>
-          <input type="email" id="email" placeholder="jane@example.co.uk" autocomplete="email">
-        </div>
-      </div>
-      <div class="field">
-        <label for="business">Business or brand name</label>
-        <input type="text" id="business" placeholder="Smith Photography" autocomplete="organization">
-      </div>
-      <div class="field">
-        <label>What best describes you?</label>
-        <div class="options-grid" data-field="businessType">
-          <div class="option-card" data-value="researcher">Researcher / Scientist</div>
-          <div class="option-card" data-value="phd-msc">PhD / MSc Student</div>
-          <div class="option-card" data-value="knowledge-worker">Knowledge worker</div>
-          <div class="option-card" data-value="fund-manager">Fund manager / Finance</div>
-          <div class="option-card" data-value="developer">Software developer</div>
-          <div class="option-card" data-value="writer">Writer / Thought leader</div>
-          <div class="option-card" data-value="nonprofit">Non‑profit / Foundation</div>
-          <div class="option-card" data-value="creative">Creative / Freelancer</div>
-        </div>
-      </div>
-      <div class="actions">
-        <div></div>
-        <button class="btn btn-next" onclick="nextStep()">Continue →</button>
-      </div>
+<div class="form-area" id="form-start">
+  <!-- STEP 1 -->
+  <div class="step" :class="{ 'active': currentStep===1 }">
+    <div class="step-header">
+      <div class="step-num">Step 1</div>
+      <h2>Tell us about you</h2>
+      <p class="step-desc">Enter your basic information so we can reach out.</p>
     </div>
-
-    <!-- STEP 2 -->
-    <div class="step" data-step="2">
-      <div class="step-header">
-        <div class="step-num">02 - Your vision</div>
-        <h2>What should your site achieve?</h2>
-        <p class="step-desc">Understanding your goals helps me design something that truly works.</p>
-      </div>
-      <div class="field">
-        <label>Main purpose</label>
-        <div class="options-grid" data-field="purpose">
-          <div class="option-card" data-value="portfolio">Showcase work</div>
-          <div class="option-card" data-value="generate-leads">Get enquiries</div>
-          <div class="option-card" data-value="credibility">Build trust</div>
-          <div class="option-card" data-value="sell">Sell something</div>
-        </div>
-      </div>
-      <div class="field">
-        <label>Pages you need (select all that apply)</label>
-        <div class="chips-grid" data-field="pages">
-          <div class="chip" data-value="home">Home</div>
-          <div class="chip" data-value="about">About</div>
-          <div class="chip" data-value="services">Services</div>
-          <div class="chip" data-value="portfolio">Portfolio</div>
-          <div class="chip" data-value="blog">Blog</div>
-          <div class="chip" data-value="contact">Contact</div>
-          <div class="chip" data-value="pricing">Pricing</div>
-          <div class="chip" data-value="testimonials">Testimonials</div>
-        </div>
-      </div>
-      <div class="field">
-        <label for="audience">Who is your ideal visitor?</label>
-        <input type="text" id="audience" placeholder="e.g. Small business owners in London">
-      </div>
-      <div class="actions">
-        <button class="btn btn-back" onclick="prevStep()">← Back</button>
-        <button class="btn btn-next" onclick="nextStep()">Continue →</button>
-      </div>
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" x-model="formData.name" required>
     </div>
-
-    <!-- STEP 3 – Style -->
-    <div class="step" data-step="3">
-      <div class="step-header">
-        <div class="step-num">03 - Look & feel</div>
-        <h2>How should it feel?</h2>
-        <p class="step-desc">Don't overthink - just pick what resonates.</p>
-      </div>
-      <div class="field">
-        <label>Which aesthetic resonates most?</label>
-        <div class="options-grid style-grid" data-field="aesthetic">
-          <div class="style-card" data-value="clean-minimal">
-            <div class="style-swatch swatch-minimal"></div>
-            <div class="style-name">Clean & Minimal</div>
-            <div class="style-desc">Whitespace, elegant</div>
-          </div>
-          <div class="style-card" data-value="dark-modern">
-            <div class="style-swatch swatch-dark"></div>
-            <div class="style-name">Dark & Modern</div>
-            <div class="style-desc">Bold, sophisticated</div>
-          </div>
-          <div class="style-card" data-value="warm-natural">
-            <div class="style-swatch swatch-warm"></div>
-            <div class="style-name">Warm & Natural</div>
-            <div class="style-desc">Earthy, approachable</div>
-          </div>
-          <div class="style-card" data-value="vibrant-creative">
-            <div class="style-swatch swatch-vibrant"></div>
-            <div class="style-name">Vibrant & Creative</div>
-            <div class="style-desc">Colourful, energetic</div>
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <label>Brand words (select a few)</label>
-        <div class="chips-grid" data-field="brandWords">
-          <div class="chip" data-value="professional">Professional</div>
-          <div class="chip" data-value="friendly">Friendly</div>
-          <div class="chip" data-value="luxurious">Luxurious</div>
-          <div class="chip" data-value="playful">Playful</div>
-          <div class="chip" data-value="trustworthy">Trustworthy</div>
-          <div class="chip" data-value="innovative">Innovative</div>
-          <div class="chip" data-value="calm">Calm</div>
-          <div class="chip" data-value="bold">Bold</div>
-        </div>
-      </div>
-      <div class="field">
-        <label for="inspiration">Any websites you admire? (URLs or description)</label>
-        <textarea id="inspiration" rows="2" placeholder="e.g. I love the simplicity of stripe.com"></textarea>
-      </div>
-      <div class="actions">
-        <button class="btn btn-back" onclick="prevStep()">← Back</button>
-        <button class="btn btn-next" onclick="nextStep()">Continue →</button>
-      </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" x-model="formData.email" required>
     </div>
-
-    <!-- STEP 4 – Timeline & domain -->
-    <div class="step" data-step="4">
-      <div class="step-header">
-        <div class="step-num">04 - Timeline & domain</div>
-        <h2>When do you need to go live?</h2>
-        <p class="step-desc">Our launch offer is £50 for a complete hand‑coded website (up to 5 pages).</p>
-      </div>
-      <div class="field">
-        <label>Timeline</label>
-        <div class="options-grid three-col" data-field="timeline">
-          <div class="option-card" data-value="asap">ASAP (this week)</div>
-          <div class="option-card" data-value="this-month">This month</div>
-          <div class="option-card" data-value="flexible">Flexible</div>
-        </div>
-      </div>
-      <div class="field">
-        <label>Do you already have a domain?</label>
-        <div class="options-grid" data-field="hasDomain">
-          <div class="option-card" data-value="yes">Yes, I own a domain</div>
-          <div class="option-card" data-value="no">Not yet, I need one</div>
-        </div>
-      </div>
-      <div class="field" id="domainField" style="display:none;">
-        <label for="domain">Your domain name</label>
-        <input type="text" id="domain" placeholder="example.co.uk">
-      </div>
-      <div class="actions">
-        <button class="btn btn-back" onclick="prevStep()">← Back</button>
-        <button class="btn btn-next" onclick="nextStep()">Continue →</button>
-      </div>
+    <div class="field">
+      <label for="website">Website (optional)</label>
+      <input type="url" id="website" x-model="formData.website">
     </div>
-
-    <!-- STEP 5 – final notes -->
-    <div class="step" data-step="5">
-      <div class="step-header">
-        <div class="step-num">05 - Anything else?</div>
-        <h2>Last thoughts before we begin</h2>
-        <p class="step-desc">Existing branding, specific features, concerns – nothing is too small.</p>
-      </div>
-      <div class="field">
-        <label for="extras">Additional notes (optional)</label>
-        <textarea id="extras" rows="3" placeholder="e.g. I have a logo already. I need a booking calendar."></textarea>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="phone">Phone number (optional)</label>
-          <input type="tel" id="phone" placeholder="+44 7700 900000">
-        </div>
-        <div class="field">
-          <label>Preferred contact method</label>
-          <div class="options-grid three-col" data-field="contactPref">
-            <div class="option-card" data-value="email">Email</div>
-            <div class="option-card" data-value="phone">Phone</div>
-            <div class="option-card" data-value="whatsapp">WhatsApp</div>
-          </div>
-        </div>
-      </div>
-      <div class="actions" style="border-top: none; margin-top: var(--space-3);">
-        <button class="btn btn-back" onclick="prevStep()">← Back</button>
-        <div></div>
-      </div>
-      <button class="btn btn-submit" onclick="submitForm()">Submit your brief</button>
-      <div class="form-note">I'll reply within 24 hours with a tailored plan.</div>
+    <div class="actions">
+      <button type="button" class="btn-next" @click="nextStep()">Next</button>
     </div>
   </div>
 
-  <!-- SUCCESS SCREEN -->
-  <div class="form-area success-screen" id="successScreen">
-    <div class="success-icon">✓</div>
-    <h2>Brief received</h2>
-    <p>Thank you. I'll review your brief and get back to you within 24 hours with a tailored plan and quote.</p>
-    <a href="index.html" class="btn btn-next" style="display:inline-block;">Back to GitFoundry</a>
+  <!-- STEP 2 -->
+  <div class="step" :class="{ 'active': currentStep===2 }">
+    <div class="step-header">
+      <div class="step-num">Step 2</div>
+      <h2>Pick a style</h2>
+      <p class="step-desc">Select a style that matches your vision.</p>
+    </div>
+    <div class="options-grid">
+      <div class="option-card" :class="{ 'selected': formData.style==='Minimal' }" @click="selectStyle('Minimal')">Minimal</div>
+      <div class="option-card" :class="{ 'selected': formData.style==='Dark' }" @click="selectStyle('Dark')">Dark</div>
+      <div class="option-card" :class="{ 'selected': formData.style==='Warm' }" @click="selectStyle('Warm')">Warm</div>
+      <div class="option-card" :class="{ 'selected': formData.style==='Vibrant' }" @click="selectStyle('Vibrant')">Vibrant</div>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn-back" @click="prevStep()">Back</button>
+      <button type="button" class="btn-next" @click="nextStep()">Next</button>
+    </div>
   </div>
-</main>
 
-<footer>
-  <div>© 2026 GitFoundry</div>
-  <div>
-    <a href="legal.html">Privacy</a>
-    <a href="legal.html#terms">Terms</a>
-    <a href="legal.html#cookies">Cookies</a>
-  </div>
-</footer>
-
-<div class="cookie-banner" id="cookieBanner">
-  <p>No tracking cookies. Fonts from Google. <a href="legal.html#cookies">Policy</a></p>
-  <div class="cookie-actions">
-    <button class="cookie-btn cookie-accept" onclick="acceptCookies()">OK</button>
-    <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+  <!-- STEP 3 -->
+  <div class="step" :class="{ 'active': currentStep===3 }">
+    <div class="step-header">
+      <div class="step-num">Step 3</div>
+      <h2>Features</h2>
+      <p class="step-desc">Select the features you want on your website.</p>
+    </div>
+    <div class="chips-grid">
+      <div class="chip" :class="{ 'selected': formData.features.includes('E-commerce') }" @click="toggleFeature('E-commerce')">E-commerce</div>
+      <div class="chip" :class="{ 'selected': formData.features.includes('Blog') }" @click="toggleFeature('Blog')">Blog</div>
+      <div class="chip" :class="{ 'selected': formData.features.includes('Portfolio') }" @click="toggleFeature('Portfolio')">Portfolio</div>
+      <div class="chip" :class="{ 'selected': formData.features.includes('Booking') }" @click="toggleFeature('Booking')">Booking</div>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn-back" @click="prevStep()">Back</button>
+      <button type="button" class="btn-submit" @click="submitForm()">Submit</button>
+    </div>
   </div>
 </div>
 
-<script>
-  let currentStep = 1;
-  const totalSteps = 5;
-  const formData = {
-    name: '', email: '', business: '', businessType: '',
-    purpose: '', pages: [], audience: '', aesthetic: '',
-    brandWords: [], inspiration: '', timeline: '', hasDomain: '',
-    domain: '', extras: '', phone: '', contactPref: ''
-  };
+<div class="success-screen">
+  <div class="success-icon">✔️</div>
+  <h2>Thank you!</h2>
+  <p>Your project brief has been submitted. We’ll get back to you within 24 hours with a plan.</p>
+</div>
 
-  // helper functions for form
-  function updateProgress() {
-    let pct = (currentStep / totalSteps) * 100;
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressLabel').innerText = `Step ${currentStep} of ${totalSteps}`;
-  }
-  function showStep(n) {
-    document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
-    document.querySelector(`.step[data-step="${n}"]`).classList.add('active');
-    updateProgress();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  function collectCurrentInputs() {
-    formData.name = document.getElementById('name')?.value || '';
-    formData.email = document.getElementById('email')?.value || '';
-    formData.business = document.getElementById('business')?.value || '';
-    formData.audience = document.getElementById('audience')?.value || '';
-    formData.inspiration = document.getElementById('inspiration')?.value || '';
-    formData.domain = document.getElementById('domain')?.value || '';
-    formData.extras = document.getElementById('extras')?.value || '';
-    formData.phone = document.getElementById('phone')?.value || '';
-  }
-  function validateStep() {
-    collectCurrentInputs();
-    if (currentStep === 1) {
-      if (!formData.name.trim() || !formData.email.trim()) {
-        alert('Please enter your name and email.');
-        return false;
-      }
-      if (!formData.email.includes('@')) {
-        alert('Please enter a valid email address.');
-        return false;
-      }
-    }
-    return true;
-  }
-  function nextStep() {
-    if (!validateStep()) return;
-    if (currentStep < totalSteps) {
-      currentStep++;
-      showStep(currentStep);
-    }
-  }
-  function prevStep() {
-    collectCurrentInputs();
-    if (currentStep > 1) {
-      currentStep--;
-      showStep(currentStep);
-    }
-  }
-
-  // Submit via mailto
-  function submitForm() {
-    collectCurrentInputs();
-    if (!formData.name.trim() || !formData.email.trim()) {
-      alert('Please fill in your name and email (step 1) before submitting.');
-      return;
-    }
-    let subject = encodeURIComponent(`New Brief: ${formData.business || formData.name}`);
-    let body = [];
-    body.push('NEW PROJECT BRIEF - GitFoundry');
-    body.push('────────────────────────────────');
-    body.push(`NAME: ${formData.name}`);
-    body.push(`EMAIL: ${formData.email}`);
-    body.push(`BUSINESS: ${formData.business || '-'}`);
-    body.push(`TYPE: ${formData.businessType || '-'}`);
-    body.push(`PHONE: ${formData.phone || '-'}`);
-    body.push(`PREFERRED CONTACT: ${formData.contactPref || '-'}`);
-    body.push('');
-    body.push(`PURPOSE: ${formData.purpose || '-'}`);
-    body.push(`PAGES: ${formData.pages.length ? formData.pages.join(', ') : '-'}`);
-    body.push(`AUDIENCE: ${formData.audience || '-'}`);
-    body.push('');
-    body.push(`AESTHETIC: ${formData.aesthetic || '-'}`);
-    body.push(`BRAND WORDS: ${formData.brandWords.length ? formData.brandWords.join(', ') : '-'}`);
-    body.push(`INSPIRATION: ${formData.inspiration || '-'}`);
-    body.push('');
-    body.push(`TIMELINE: ${formData.timeline || '-'}`);
-    body.push(`HAS DOMAIN: ${formData.hasDomain || '-'}`);
-    body.push(`DOMAIN: ${formData.domain || '-'}`);
-    body.push('');
-    body.push(`NOTES: ${formData.extras || '-'}`);
-    body.push('────────────────────────────────');
-    body.push('Sent from GitFoundry brief form');
-    let bodyEncoded = encodeURIComponent(body.join('\n'));
-    window.location.href = `mailto:info@gitfoundry.co.uk?subject=${subject}&body=${bodyEncoded}`;
-    document.getElementById('formArea').style.display = 'none';
-    document.getElementById('successScreen').classList.add('active');
-    document.getElementById('progressBar').style.display = 'none';
-  }
-
-  // UI selection handlers
-  function attachOptionListeners() {
-    document.querySelectorAll('.option-card, .style-card').forEach(el => {
-      el.addEventListener('click', function(e) {
-        let parent = this.closest('.options-grid');
-        let field = parent?.dataset.field;
-        if (field) {
-          parent.querySelectorAll('.option-card, .style-card').forEach(c => c.classList.remove('selected'));
-          this.classList.add('selected');
-          formData[field] = this.dataset.value;
-          if (field === 'hasDomain') {
-            document.getElementById('domainField').style.display = this.dataset.value === 'yes' ? 'block' : 'none';
-          }
-        }
-      });
-    });
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', function() {
-        this.classList.toggle('selected');
-        let field = this.closest('.chips-grid')?.dataset.field;
-        let value = this.dataset.value;
-        if (field) {
-          if (!formData[field]) formData[field] = [];
-          if (this.classList.contains('selected')) {
-            if (!formData[field].includes(value)) formData[field].push(value);
-          } else {
-            formData[field] = formData[field].filter(v => v !== value);
-          }
-        }
-      });
-    });
-  }
-  attachOptionListeners();
-
-  // cookie consent
-  function getCookieConsent() { try { return sessionStorage.getItem('gf_cookie_consent'); } catch(e) { return null; } }
-  function setCookieConsent(v) { try { sessionStorage.setItem('gf_cookie_consent', v); } catch(e) {} }
-  function acceptCookies() { setCookieConsent('accepted'); document.getElementById('cookieBanner').classList.remove('visible'); }
-  function declineCookies() { setCookieConsent('declined'); document.getElementById('cookieBanner').classList.remove('visible'); }
-  if (!getCookieConsent()) setTimeout(() => { document.getElementById('cookieBanner').classList.add('visible'); }, 1500);
-</script>
 </body>
 </html>
