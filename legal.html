@@ -31,204 +31,64 @@
   @media (prefers-reduced-motion: reduce) {
     * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
-
-  body {
-    font-family: var(--sans);
-    background: var(--paper);
-    color: var(--black);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.6;
-  }
+  body { font-family: var(--sans); background: var(--paper); color: var(--black); -webkit-font-smoothing: antialiased; line-height: 1.6; }
   ::selection { background: var(--black); color: var(--white); }
 
-  .skip-link {
-    position: absolute; top: -100%; left: 1rem;
-    background: var(--black); color: var(--white);
-    padding: 0.6rem 1.2rem; font-size: 0.75rem; font-weight: 500;
-    z-index: 999; text-decoration: none;
-  }
+  .skip-link { position: absolute; top: -100%; left: 1rem; background: var(--black); color: var(--white); padding: 0.6rem 1.2rem; font-size: 0.75rem; font-weight: 500; z-index: 999; text-decoration: none; }
   .skip-link:focus { top: 0.5rem; }
 
-  header {
-    padding: 1.6rem 2.5rem;
-    border-bottom: 1px solid var(--rule);
-    display: flex; justify-content: space-between; align-items: baseline;
-  }
-  .wordmark {
-    font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
-    color: var(--black); text-decoration: none;
-  }
+  header { padding: 1.6rem 2.5rem; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: baseline; }
+  .wordmark { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--black); text-decoration: none; }
   .wordmark em { font-style: italic; font-weight: 300; }
-  .back-link {
-    font-family: var(--mono); font-size: 0.65rem;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--grey-500); text-decoration: none; transition: color 0.3s;
-  }
+  .back-link { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-500); text-decoration: none; transition: color 0.3s; }
   .back-link:hover { color: var(--black); }
 
   .container { max-width: 720px; margin: 0 auto; padding: 0 2.5rem; }
 
-  .hero {
-    padding: 5rem 0 3rem;
-    border-bottom: 1px solid var(--rule);
-  }
-  .hero-label {
-    font-family: var(--mono); font-size: 0.62rem;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--grey-500); margin-bottom: 1.5rem;
-  }
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300; line-height: 1.15;
-    margin-bottom: 1rem;
-  }
+  .hero { padding: 5rem 0 3rem; border-bottom: 1px solid var(--rule); }
+  .hero-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 1.5rem; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1rem; }
   .hero h1 i { font-weight: 400; }
-  .hero p {
-    font-size: 0.9rem; font-weight: 300;
-    color: var(--grey-700); line-height: 1.7;
-  }
+  .hero p { font-size: 0.9rem; font-weight: 300; color: var(--grey-700); line-height: 1.7; }
 
-  /* TOC */
-  .toc {
-    padding: 2.5rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .toc-label {
-    font-family: var(--mono); font-size: 0.58rem;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--grey-500); margin-bottom: 1rem;
-  }
-  .toc-list {
-    list-style: none;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
-  }
-  .toc-list a {
-    font-family: var(--serif); font-size: 1.05rem;
-    color: var(--black); text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s;
-  }
+  .toc { padding: 2.5rem 0; border-bottom: 1px solid var(--rule); }
+  .toc-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 1rem; }
+  .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .toc-list a { font-family: var(--serif); font-size: 1.05rem; color: var(--black); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.3s; }
   .toc-list a:hover { border-color: var(--black); }
-  .toc-list .toc-num {
-    font-family: var(--mono); font-size: 0.6rem;
-    color: var(--grey-300); margin-right: 0.5rem;
-  }
+  .toc-list .toc-num { font-family: var(--mono); font-size: 0.6rem; color: var(--grey-300); margin-right: 0.5rem; }
 
-  /* SECTIONS */
-  .legal-section {
-    padding: 3.5rem 0;
-    border-bottom: 1px solid var(--rule);
-    content-visibility: auto;
-    contain-intrinsic-size: auto 400px;
-  }
+  .legal-section { padding: 3.5rem 0; border-bottom: 1px solid var(--rule); content-visibility: auto; contain-intrinsic-size: auto 400px; }
   .legal-section:last-of-type { border-bottom: none; }
-
-  .section-label {
-    font-family: var(--mono); font-size: 0.58rem;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--grey-500); margin-bottom: 0.8rem;
-  }
-  .legal-section h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 300; line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
+  .section-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 0.8rem; }
+  .legal-section h2 { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; line-height: 1.2; margin-bottom: 1.5rem; }
   .legal-section h2 i { font-weight: 400; }
+  .legal-section h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin: 2rem 0 0.6rem; }
+  .legal-section p { font-size: 0.88rem; font-weight: 300; color: var(--grey-700); line-height: 1.8; margin-bottom: 1rem; }
+  .legal-section p strong { font-weight: 500; color: var(--black); }
+  .legal-list { list-style: none; margin: 0.5rem 0 1.5rem; }
+  .legal-list li { font-size: 0.86rem; font-weight: 300; color: var(--grey-700); line-height: 1.7; padding: 0.2rem 0 0.2rem 1.2rem; position: relative; }
+  .legal-list li::before { content: '-'; position: absolute; left: 0; color: var(--grey-300); }
 
-  .legal-section h3 {
-    font-family: var(--serif);
-    font-size: 1.2rem; font-weight: 400;
-    margin: 2rem 0 0.6rem;
-  }
-  .legal-section p {
-    font-size: 0.88rem; font-weight: 300;
-    color: var(--grey-700); line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-  .legal-section p strong {
-    font-weight: 500; color: var(--black);
-  }
-  .legal-list {
-    list-style: none;
-    margin: 0.5rem 0 1.5rem;
-  }
-  .legal-list li {
-    font-size: 0.86rem; font-weight: 300;
-    color: var(--grey-700); line-height: 1.7;
-    padding: 0.2rem 0 0.2rem 1.2rem;
-    position: relative;
-  }
-  .legal-list li::before {
-    content: '-'; position: absolute; left: 0;
-    color: var(--grey-300);
-  }
+  .info-box { border-left: 2px solid var(--grey-200); padding: 1rem 0 1rem 1.5rem; margin: 1.5rem 0; }
+  .info-box p { font-style: italic; color: var(--grey-500); margin: 0; }
 
-  .info-box {
-    border-left: 2px solid var(--grey-200);
-    padding: 1rem 0 1rem 1.5rem;
-    margin: 1.5rem 0;
-  }
-  .info-box p {
-    font-style: italic;
-    color: var(--grey-500);
-    margin: 0;
-  }
-
-  .badge-row {
-    display: flex; flex-wrap: wrap; gap: 0.8rem;
-    margin: 2rem 0;
-  }
-  .trust-badge {
-    display: flex; align-items: center; gap: 0.5rem;
-    border: 1px solid var(--grey-200);
-    padding: 0.6rem 1rem;
-    font-family: var(--mono); font-size: 0.58rem;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--grey-700);
-    transition: border-color 0.3s;
-  }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 2rem 0; }
+  .trust-badge { display: flex; align-items: center; gap: 0.5rem; border: 1px solid var(--grey-200); padding: 0.6rem 1rem; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-700); transition: border-color 0.3s; }
   .trust-badge:hover { border-color: var(--black); }
-  .badge-icon {
-    width: 18px; height: 18px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .badge-icon svg { width: 16px; height: 16px; }
+  .badge-icon { width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; }
+  .badge-icon svg { width: 16px; height: 16px; aria-hidden: true; }
 
-  /* CONTACT BOX */
-  .contact-box {
-    background: var(--grey-100);
-    padding: 2rem;
-    margin: 2rem 0;
-  }
-  .contact-box h4 {
-    font-family: var(--serif); font-size: 1.1rem;
-    font-weight: 400; margin-bottom: 0.6rem;
-  }
-  .contact-box p {
-    font-size: 0.85rem; margin-bottom: 0.4rem;
-  }
+  .contact-box { background: var(--grey-100); padding: 2rem; margin: 2rem 0; }
+  .contact-box h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.6rem; }
+  .contact-box p { font-size: 0.85rem; margin-bottom: 0.4rem; }
 
-  footer {
-    border-top: 1px solid var(--rule);
-    padding: 2rem 2.5rem;
-    display: flex; justify-content: space-between;
-    align-items: baseline; flex-wrap: wrap; gap: 0.5rem;
-  }
+  footer { border-top: 1px solid var(--rule); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
   .footer-left { font-family: var(--serif); font-size: 0.9rem; }
   .footer-left a { color: var(--black); text-decoration: none; }
-  .footer-right {
-    font-family: var(--mono); font-size: 0.55rem;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--grey-500);
-  }
+  .footer-right { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-500); }
 
-  @media (max-width: 600px) {
-    .container { padding: 0 1.5rem; }
-    header, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .toc-list { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 600px) { .container { padding: 0 1.5rem; } header, footer { padding-left: 1.5rem; padding-right: 1.5rem; } .toc-list { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -250,22 +110,10 @@
     <p>GitFoundry is committed to protecting your privacy and handling your data with care. This page outlines how we collect, use, and protect your information in compliance with UK GDPR, the Data Protection Act 2018, and the Data (Use and Access) Act 2025.</p>
 
     <div class="badge-row">
-      <div class="trust-badge">
-        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        UK GDPR Compliant
-      </div>
-      <div class="trust-badge">
-        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-        SSL Encrypted
-      </div>
-      <div class="trust-badge">
-        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
-        No Tracking Cookies
-      </div>
-      <div class="trust-badge">
-        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
-        ICO Principles
-      </div>
+      <div class="trust-badge"><div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>UK GDPR Compliant</div>
+      <div class="trust-badge"><div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>SSL Encrypted</div>
+      <div class="trust-badge"><div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>No Tracking Cookies</div>
+      <div class="trust-badge"><div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>ICO Principles</div>
     </div>
   </div>
 
@@ -282,180 +130,71 @@
     </ul>
   </div>
 
-  <!-- 01 PRIVACY POLICY -->
+  <!-- PRIVACY POLICY -->
   <section class="legal-section" id="privacy">
     <div class="section-label">01 - Privacy Policy</div>
     <h2>How we handle <i>your data</i></h2>
     <p><strong>Last updated:</strong> March 2026</p>
     <p><strong>Data controller:</strong> GitFoundry, United Kingdom</p>
-    <p><strong>Contact:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6e060b0202012e09071a08011b000a1c17400d01401b05">[email&#160;protected]</a></p>
-
+    <p><strong>Contact:</strong> <a href="mailto:contact@gitfoundry.co.uk">contact@gitfoundry.co.uk</a></p>
     <h3>What we collect</h3>
-    <p>When you use our brief form or contact us, we may collect the following personal data:</p>
+    <p>When you use our brief form or contact us, we may collect:</p>
     <ul class="legal-list">
-      <li>Your name and email address</li>
+      <li>Name and email address</li>
       <li>Business or brand name</li>
-      <li>Phone number (if provided voluntarily)</li>
+      <li>Phone number (if provided)</li>
       <li>Your website vision, style preferences, and project requirements</li>
       <li>Domain name (if you have one)</li>
     </ul>
-    <p>We do not collect payment information through this website. Payments are handled separately through secure, third-party payment processors.</p>
-
     <h3>How we use your data</h3>
-    <p>We use your personal data for the following purposes:</p>
     <ul class="legal-list">
-      <li>To respond to your enquiry and provide a project quote</li>
-      <li>To deliver web design and development services you have requested</li>
-      <li>To communicate with you about your project</li>
-      <li>To comply with legal obligations</li>
+      <li>Respond to enquiries and provide project quotes</li>
+      <li>Deliver web design and development services</li>
+      <li>Communicate with you about your project</li>
+      <li>Comply with legal obligations</li>
     </ul>
-
     <h3>Lawful basis for processing</h3>
-    <p>Under UK GDPR, we process your data on the following bases:</p>
     <ul class="legal-list">
-      <li><strong>Legitimate interest:</strong> responding to enquiries and delivering services you have requested</li>
-      <li><strong>Contract:</strong> processing data necessary to fulfil a service agreement</li>
-      <li><strong>Consent:</strong> where you voluntarily submit information through our brief form</li>
+      <li><strong>Legitimate interest:</strong> responding to enquiries and delivering services</li>
+      <li><strong>Contract:</strong> processing data to fulfil service agreements</li>
+      <li><strong>Consent:</strong> voluntary submission through forms</li>
     </ul>
-
     <h3>Who we share data with</h3>
-    <p>We do not sell, trade, or rent your personal data. We may share your information only with:</p>
     <ul class="legal-list">
-      <li>Email service providers (for communication purposes only)</li>
-      <li>GitHub (for website deployment - no personal data is stored on GitHub)</li>
-      <li>Domain registrars (only if you request domain registration as an add-on)</li>
+      <li>Email service providers</li>
+      <li>GitHub (for deployment, no personal data stored)</li>
+      <li>Domain registrars (if requested)</li>
     </ul>
-
-    <h3>How long we keep your data</h3>
-    <p>We retain your project data for the duration of our working relationship and for up to 24 months after project completion for support purposes. Enquiry data from the brief form is retained for 12 months. You may request deletion at any time.</p>
-
+    <h3>Data retention</h3>
+    <p>Project data is retained for the duration of our relationship and up to 24 months after completion. Enquiry data is retained for 12 months. You may request deletion at any time.</p>
     <h3>International transfers</h3>
-    <p>Your data is primarily processed within the United Kingdom. Where data is processed by services based outside the UK (such as GitHub, which operates from the United States), we ensure appropriate safeguards are in place, including adequacy decisions and standard contractual clauses.</p>
+    <p>Data is primarily processed in the UK. Third-party services outside the UK, such as GitHub (US), have appropriate safeguards in place.</p>
   </section>
 
-  <!-- 02 COOKIE POLICY -->
+  <!-- COOKIE POLICY -->
   <section class="legal-section" id="cookies">
     <div class="section-label">02 - Cookie Policy</div>
     <h2>Cookies and <i>tracking</i></h2>
-
-    <div class="info-box">
-      <p>GitFoundry.co.uk is a static website hosted on GitHub Pages. We use no analytics cookies, no tracking pixels, and no third-party advertising scripts by default.</p>
-    </div>
-
-    <h3>What cookies does this site use?</h3>
-    <p>This website does not set any cookies by default. GitHub Pages may use strictly necessary technical cookies to deliver the site, but these do not track you or collect personal data.</p>
-
+    <div class="info-box"><p>No analytics cookies, tracking pixels, or ads are used by default. GitHub Pages may set strictly necessary technical cookies.</p></div>
     <h3>Third-party services</h3>
-    <p>We load fonts from Google Fonts, which may log your IP address as part of their standard service delivery. Google's privacy policy governs this data. No other third-party scripts are loaded on this site.</p>
-
-    <h3>Cookies on sites we build for you</h3>
-    <p>If you request Google Analytics or other third-party integrations on your own website, we will implement appropriate cookie consent mechanisms in compliance with UK PECR and GDPR requirements, including equal-prominence accept and reject options.</p>
+    <p>Google Fonts may log IP addresses as part of their service delivery. No other third-party scripts are loaded.</p>
+    <h3>Cookies on client sites</h3>
+    <p>If you request Google Analytics or other integrations, appropriate consent mechanisms are implemented.</p>
   </section>
 
-  <!-- 03 TERMS OF SERVICE -->
+  <!-- TERMS OF SERVICE -->
   <section class="legal-section" id="terms">
     <div class="section-label">03 - Terms of Service</div>
     <h2>Working <i>together</i></h2>
-
     <h3>Services</h3>
-    <p>GitFoundry provides custom web design, development, and deployment services. All work is agreed upon in writing before commencement. Project scope, deliverables, timeline, and pricing are confirmed via email or a formal proposal.</p>
-
+    <p>Custom web design, development, and deployment services as agreed in writing before work begins.</p>
     <h3>Payment</h3>
-    <p>Payment terms are agreed per project. Typically, 50% is due before work begins and 50% upon completion. All prices are quoted in GBP and are exclusive of VAT unless stated otherwise.</p>
-
+    <p>50% upfront, 50% on completion. Prices quoted in GBP, exclusive of VAT unless stated.</p>
     <h3>Intellectual property</h3>
-    <p>Upon full payment, you own all rights to the website design, code, and content created for your project. You are free to modify, distribute, or transfer your website without restriction. We retain the right to display the work in our portfolio unless you request otherwise in writing.</p>
-
+    <p>Full rights transferred upon payment. GitFoundry may showcase the work unless requested otherwise.</p>
     <h3>Revisions</h3>
-    <p>Each package includes a specified number of revision rounds. Additional revisions beyond the included allowance are available at £25 per round. A revision round consists of a single set of consolidated feedback.</p>
-
+    <p>Package includes specified revision rounds. Extra rounds £25 per set.</p>
     <h3>Hosting and domain</h3>
-    <p>Websites are deployed on GitHub Pages, which is a free hosting service provided by GitHub (Microsoft). GitFoundry is not responsible for GitHub's uptime, terms of service, or policy changes. Domain registration, if requested, is handled through a third-party registrar and subject to their terms.</p>
-
+    <p>Sites hosted on GitHub Pages. Domain registration via third-party registrars if requested.</p>
     <h3>Limitation of liability</h3>
-    <p>GitFoundry's total liability for any claim arising from our services is limited to the total fees paid for the relevant project. We are not liable for indirect, consequential, or incidental damages. This limitation does not affect your statutory rights.</p>
-
-    <h3>Governing law</h3>
-    <p>These terms are governed by the laws of England and Wales. Any disputes will be subject to the exclusive jurisdiction of the English courts.</p>
-  </section>
-
-  <!-- 04 GDPR RIGHTS -->
-  <section class="legal-section" id="gdpr">
-    <div class="section-label">04 - Your GDPR Rights</div>
-    <h2>Your rights under <i>UK data protection law</i></h2>
-
-    <p>Under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018, as amended by the Data (Use and Access) Act 2025, you have the following rights:</p>
-
-    <ul class="legal-list">
-      <li><strong>Right of access:</strong> you can request a copy of the personal data we hold about you</li>
-      <li><strong>Right to rectification:</strong> you can ask us to correct inaccurate or incomplete data</li>
-      <li><strong>Right to erasure:</strong> you can ask us to delete your personal data (the "right to be forgotten")</li>
-      <li><strong>Right to restrict processing:</strong> you can ask us to limit how we use your data</li>
-      <li><strong>Right to data portability:</strong> you can request your data in a structured, commonly used format</li>
-      <li><strong>Right to object:</strong> you can object to processing based on legitimate interests</li>
-      <li><strong>Rights related to automated decision-making:</strong> we do not use automated decision-making or profiling</li>
-    </ul>
-
-    <p>To exercise any of these rights, contact us at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b7dfd2dbdbd8f7d0dec3d1d8c2d9d3c5ce99d4d899c2dc">[email&#160;protected]</a></strong>. We will respond within one calendar month, in accordance with UK GDPR requirements.</p>
-
-    <div class="info-box">
-      <p>We will never ask you to verify your identity beyond what is reasonably necessary to confirm your request. We will never charge a fee for a standard data subject access request.</p>
-    </div>
-  </section>
-
-  <!-- 05 DATA SECURITY -->
-  <section class="legal-section" id="data-security">
-    <div class="section-label">05 - Data Security</div>
-    <h2>How we protect <i>your information</i></h2>
-
-    <p>We take the security of your data seriously and implement the following measures:</p>
-
-    <ul class="legal-list">
-      <li><strong>Encryption in transit:</strong> this website is served over HTTPS (SSL/TLS) via GitHub Pages, ensuring all data transmitted between your browser and our site is encrypted</li>
-      <li><strong>No server-side storage:</strong> as a static site, we do not operate databases, servers, or backend systems that store personal data. Brief form submissions are delivered directly to our email</li>
-      <li><strong>Minimal data collection:</strong> we only collect data that is necessary for the purpose stated. We do not collect sensitive personal data (health, biometric, political, religious, or genetic data)</li>
-      <li><strong>Access control:</strong> personal data is accessible only to GitFoundry and is not shared with unauthorised third parties</li>
-      <li><strong>Retention limits:</strong> data is retained only for as long as necessary and is securely deleted when no longer required</li>
-    </ul>
-
-    <div class="badge-row">
-      <div class="trust-badge">
-        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-        HTTPS / TLS Encrypted
-      </div>
-      <div class="trust-badge">
-        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        No Databases
-      </div>
-      <div class="trust-badge">
-        <div class="badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
-        No Third-Party Trackers
-      </div>
-    </div>
-  </section>
-
-  <!-- 06 COMPLAINTS -->
-  <section class="legal-section" id="complaints">
-    <div class="section-label">06 - Complaints Procedure</div>
-    <h2>If something <i>isn't right</i></h2>
-
-    <p>If you believe we have not handled your personal data correctly, or if you wish to make a complaint about how your data has been processed, please follow these steps:</p>
-
-    <ul class="legal-list">
-      <li><strong>Step 1:</strong> Contact us directly at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c6aea3aaaaa986a1afb2a0a9b3a8a2b4bfe8a5a9e8b3ad">[email&#160;protected]</a> with a description of your concern. We will acknowledge your complaint within 5 working days and aim to resolve it within 30 calendar days.</li>
-      <li><strong>Step 2:</strong> If you are not satisfied with our response, you have the right to lodge a complaint with the Information Commissioner's Office (ICO), the UK's independent body for data protection.</li>
-    </ul>
-
-    <div class="contact-box">
-      <h4>Information Commissioner's Office</h4>
-      <p>Website: ico.org.uk</p>
-      <p>Telephone: 0303 123 1113</p>
-      <p>Post: Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF</p>
-    </div>
-
-    <p>We take all complaints seriously and view them as an opportunity to improve our practices. This complaints procedure is published in compliance with the requirements of the Data (Use and Access) Act 2025, which mandates a formal, accessible complaints process for all data controllers by June 2026.</p>
-  </section>
-
-  <!-- LAST UPDATED -->
-  <div style="padding: 2.5rem 0; text-align: center;">
-    <p style="font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase
+    <p>Liability limited to fees paid. No
