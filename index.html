@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GitFoundry - Beautiful Websites, Zero Hosting Fees</title>
-<meta name="description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees. Based in the UK.">
+<meta name="description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees.">
 <meta name="theme-color" content="#111">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,29 +24,29 @@
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Inter', -apple-system, sans-serif;
     --mono: 'JetBrains Mono', monospace;
-    
+
     /* Golden ratio typography scale (1.618) */
     --golden: 1.618;
     --font-base: 1rem;      /* 16px */
     --font-xs: calc(var(--font-base) / var(--golden));     /* ~0.618rem ≈ 9.9px */
-    --font-sm: calc(var(--font-base) / 1.333);              /* ~0.75rem = 12px (comfortable) */
+    --font-sm: calc(var(--font-base) / 1.333);              /* ~0.75rem = 12px */
     --font-md: var(--font-base);                            /* 1rem = 16px */
     --font-lg: calc(var(--font-base) * var(--golden));      /* ~1.618rem ≈ 25.9px */
     --font-xl: calc(var(--font-base) * var(--golden) * var(--golden)); /* ~2.618rem ≈ 41.9px */
     --font-2xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden)); /* ~4.236rem ≈ 67.8px */
     --font-3xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden) * var(--golden)); /* ~6.854rem ≈ 109.7px */
-    
+
     /* Line heights based on golden ratio */
     --line-height-tight: 1.2;
     --line-height-normal: 1.5;
     --line-height-loose: 1.618;
-    
+
     /* Spacing scale (golden) */
-    --space-xs: calc(var(--font-base) / var(--golden));     /* ~0.618rem */
-    --space-sm: var(--font-base);                           /* 1rem */
-    --space-md: calc(var(--font-base) * var(--golden));     /* ~1.618rem */
-    --space-lg: calc(var(--font-base) * var(--golden) * var(--golden)); /* ~2.618rem */
-    --space-xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden)); /* ~4.236rem */
+    --space-xs: calc(var(--font-base) / var(--golden));
+    --space-sm: var(--font-base);
+    --space-md: calc(var(--font-base) * var(--golden));
+    --space-lg: calc(var(--font-base) * var(--golden) * var(--golden));
+    --space-xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden));
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -66,8 +66,8 @@
     margin: 0 auto;
     padding: 0 2.5rem;
   }
-  /* Typography base */
-  h1, h2, h3, h4, .hero h1, .section-title, .pkg-name, .pkg-price, .stat-number {
+  /* Typography base - golden ratio applied */
+  h1, h2, h3, h4, .hero h1, .section-title, .pkg-name, .pkg-price, .stat-number, .savings-text h3 {
     font-family: var(--serif);
     font-weight: 300;
     line-height: var(--line-height-tight);
@@ -77,13 +77,13 @@
   h2, .section-title { font-size: var(--font-2xl); }
   h3, .service-item h3, .process-step h4, .audience-card h4 { font-size: var(--font-lg); }
   h4 { font-size: var(--font-md); font-weight: 400; }
-  .hero-body p, .section-intro, .service-item p, .pkg-list li, .savings-text p, .process-step p, .audience-card p {
+  .hero-body p, .section-intro, .service-item p, .pkg-list li, .savings-text p, .process-step p, .audience-card p, .hero-body .hero-actions .btn-text {
     font-size: var(--font-md);
     line-height: var(--line-height-loose);
     font-weight: 300;
     color: var(--grey-700);
   }
-  .hero-label, .section-num, .pkg-label, .pkg-note, .stat-label, .quote-author, .cta-meta, .footer-right, .nav-links a {
+  .hero-label, .section-num, .pkg-label, .pkg-note, .stat-label, .quote-author, .cta-meta, .footer-right, .nav-links a, .savings-row.head .savings-cell {
     font-family: var(--mono);
     font-size: var(--font-xs);
     letter-spacing: 0.12em;
@@ -94,13 +94,14 @@
     font-family: var(--sans);
     font-size: var(--font-xs);
     letter-spacing: 0.1em;
+    font-weight: 500;
   }
   .stat-number { font-size: var(--font-2xl); }
   .pkg-price { font-size: var(--font-2xl); }
   .pkg-name { font-size: var(--font-xl); }
-  .btn, .btn-pkg { font-weight: 500; }
-  
-  /* Layout adjustments using golden spacing */
+  .audience-tagline { font-size: var(--font-lg); }
+
+  /* Layout spacing using golden ratio */
   header { padding: var(--space-md) 0; }
   .hero { padding: var(--space-xl) 0 var(--space-lg); }
   .section { padding: var(--space-xl) 0; }
@@ -119,8 +120,13 @@
   .cta-section { padding: var(--space-xl) 0; }
   .cta-section p { margin-bottom: var(--space-lg); }
   footer { padding: var(--space-md) 0; }
-  
-  /* Additional refinements */
+  .hero-actions { gap: var(--space-md); }
+  .audience-tagline { margin-top: var(--space-lg); padding-left: var(--space-md); }
+  .savings-text h3 { margin-bottom: var(--space-md); }
+  .savings-cell { padding: var(--space-md) var(--space-sm); }
+  .step-num { margin-bottom: var(--space-md); }
+
+  /* Component styles (preserved from original, with spacing adjustments) */
   .rule { height: 1px; background: var(--rule); }
   .nav-inner { display: flex; justify-content: space-between; align-items: baseline; }
   .wordmark {
@@ -135,20 +141,21 @@
   .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
   .nav-links a:hover { color: var(--black); }
   .hero-inner { max-width: 800px; }
-  .hero-actions { display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap; }
   .btn {
     background: none;
     padding: var(--space-sm) var(--space-lg);
     transition: all 0.35s ease;
     cursor: pointer;
     border: none;
+    text-decoration: none;
+    display: inline-block;
   }
   .btn-primary { background: var(--black); color: var(--white); }
   .btn-primary:hover { background: var(--grey-700); transform: translateY(-1px); }
   .btn-text { border-bottom: 1px solid var(--grey-300); padding: var(--space-sm) 0; }
   .btn-text:hover { color: var(--black); border-color: var(--black); }
-  
-  /* Packages visual fix: centered, button not full width */
+
+  /* Packages - centered, button not full width */
   .packages-wrapper { margin-top: var(--space-lg); display: flex; justify-content: center; }
   .pkg-card {
     border: 1px solid var(--rule);
@@ -184,20 +191,17 @@
     cursor: pointer;
   }
   .btn-pkg:hover { background: var(--grey-700); transform: translateY(-1px); }
-  
+
   /* Audience section */
   .audience-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--space-xl); }
   .audience-text .section-title { margin-bottom: var(--space-md); }
   .audience-text .section-intro { margin-top: 0; }
   .audience-tagline {
     font-family: var(--serif);
-    font-size: var(--font-lg);
     font-style: italic;
     color: var(--grey-700);
-    margin-top: var(--space-lg);
     line-height: var(--line-height-loose);
     border-left: 2px solid var(--grey-200);
-    padding-left: var(--space-md);
   }
   .audience-grid { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
   .audience-card {
@@ -215,49 +219,48 @@
     font-weight: 300;
     color: var(--grey-300);
   }
-  
+
   /* Savings table */
   .savings-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-xl); align-items: center; }
-  .savings-text h3 { font-size: var(--font-xl); line-height: var(--line-height-tight); margin-bottom: var(--space-md); }
+  .savings-text h3 { line-height: var(--line-height-tight); }
   .savings-text p { line-height: var(--line-height-loose); }
   .savings-table { border: 1px solid var(--rule); }
   .savings-row { display: grid; grid-template-columns: 1fr 1fr 1fr; }
   .savings-row.head { background: var(--black); color: var(--white); }
-  .savings-cell { padding: var(--space-md) var(--space-sm); text-align: center; border-right: 1px solid var(--rule); }
+  .savings-cell { text-align: center; border-right: 1px solid var(--rule); }
   .savings-cell:last-child { border-right: none; }
-  .savings-row.head .savings-cell { border-color: rgba(255,255,255,0.1); font-family: var(--mono); font-size: var(--font-xs); }
+  .savings-row.head .savings-cell { border-color: rgba(255,255,255,0.1); }
   .savings-cell .big { display: block; font-family: var(--serif); font-size: var(--font-xl); line-height: 1; margin-bottom: 0.2rem; }
   .savings-cell .small { font-family: var(--mono); font-size: var(--font-xs); color: var(--grey-500); }
-  
+
   /* Process grid */
   .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--rule); }
   .process-step { border-right: 1px solid var(--rule); transition: background 0.3s; }
   .process-step:last-child { border-right: none; }
   .process-step:hover { background: var(--grey-100); }
-  .step-num { font-family: var(--serif); font-size: var(--font-2xl); font-weight: 300; color: var(--grey-200); margin-bottom: var(--space-md); line-height: 1; }
-  .process-step h4 { margin-bottom: var(--space-xs); }
-  
+  .step-num { font-family: var(--serif); font-size: var(--font-2xl); font-weight: 300; color: var(--grey-200); line-height: 1; }
+
   /* CTA */
   .cta-section { text-align: center; }
-  .cta-section h2 { font-size: var(--font-2xl); margin-bottom: var(--space-sm); }
+  .cta-section h2 { margin-bottom: var(--space-sm); }
   .cta-section p { max-width: 400px; margin-left: auto; margin-right: auto; }
   .cta-meta { margin-top: var(--space-md); }
-  
+
   /* Footer */
   .footer-inner { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: var(--space-md); }
   .footer-left { font-family: var(--serif); font-size: var(--font-md); }
   .footer-left a { color: var(--black); text-decoration: none; }
-  
+
   /* Animations */
   @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; will-change: opacity, transform; }
   .reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
-  
-  /* Responsive adjustments for golden ratio */
+
+  /* Responsive: mobile and tablet */
   @media (max-width: 900px) {
     :root {
-      --font-3xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden)); /* ~4.236rem still fine */
-      --font-2xl: calc(var(--font-base) * var(--golden) * var(--golden)); /* ~2.618rem */
+      --font-3xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden));
+      --font-2xl: calc(var(--font-base) * var(--golden) * var(--golden));
     }
     .services-layout, .audience-layout, .savings-layout { grid-template-columns: 1fr; }
     .audience-card { grid-template-columns: 2.5rem 1fr; gap: var(--space-sm); }
@@ -272,9 +275,9 @@
   }
   @media (max-width: 600px) {
     :root {
-      --font-3xl: calc(var(--font-base) * var(--golden) * var(--golden)); /* ~2.618rem */
-      --font-2xl: calc(var(--font-base) * var(--golden)); /* ~1.618rem */
-      --font-xl: calc(var(--font-base) * var(--golden)); /* ~1.618rem */
+      --font-3xl: calc(var(--font-base) * var(--golden) * var(--golden));
+      --font-2xl: calc(var(--font-base) * var(--golden));
+      --font-xl: calc(var(--font-base) * var(--golden));
     }
     .process-grid { grid-template-columns: 1fr; }
     .process-step { border-right: none; border-bottom: 1px solid var(--rule); }
@@ -284,22 +287,21 @@
     .savings-cell:last-child { border-bottom: none; }
     .btn-pkg { min-width: 140px; padding: var(--space-sm) var(--space-md); }
     .pkg-card { padding: var(--space-md); }
-    body { font-size: var(--font-md); line-height: var(--line-height-loose); }
+    body { font-size: var(--font-md); }
     .hero h1 { font-size: var(--font-2xl); }
     .section-title { font-size: var(--font-xl); }
   }
-  /* Large screens (above 1440px) - scale slightly for comfort */
+  /* Large screens (1440px and up) - scale base font for comfort */
   @media (min-width: 1440px) {
     :root {
-      --font-base: 1.125rem; /* 18px base for large screens */
+      --font-base: 1.125rem; /* 18px */
     }
     .container { max-width: 1280px; }
     .hero-inner { max-width: 900px; }
-    .section-header .section-title { max-width: 700px; }
   }
   @media (min-width: 1920px) {
     :root {
-      --font-base: 1.25rem; /* 20px base for ultra-wide */
+      --font-base: 1.25rem; /* 20px */
     }
     .container { max-width: 1440px; }
     .hero-inner { max-width: 1000px; }
@@ -343,13 +345,24 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="section-num">Services</span>
-      <p class="section-intro">No templates. No page builders. Every pixel is placed with intention.</p>
     </div>
     <div class="services-layout">
-      <div class="service-item reveal"><h3>Design</h3><p>Custom layouts built around your brand identity. We start with your goals and design a site that communicates trust, clarity, and professionalism.</p></div>
-      <div class="service-item reveal"><h3>Development</h3><p>Clean HTML, CSS and JavaScript. Hand-coded for speed, accessibility, and search engine performance. No bloated frameworks.</p></div>
-      <div class="service-item reveal"><h3>Deployment</h3><p>Your site goes live on GitHub Pages with a custom domain. Fast, secure, and backed by Microsoft infrastructure - at no cost.</p></div>
-      <div class="service-item reveal"><h3>Support</h3><p>GDPR compliance, analytics setup, and optional monthly maintenance. We're here after launch, not just before it.</p></div>
+      <div class="service-item reveal">
+        <h3>Design</h3>
+        <p>Custom layouts built around your brand identity. We start with your goals and design a site that communicates trust, clarity, and professionalism.</p>
+      </div>
+      <div class="service-item reveal">
+        <h3>Development</h3>
+        <p>Clean HTML, CSS and JavaScript. Hand-coded for speed, accessibility, and search engine performance. No bloated frameworks.</p>
+      </div>
+      <div class="service-item reveal">
+        <h3>Deployment</h3>
+        <p>Your site goes live on GitHub Pages with a custom domain. Fast, secure, and backed by Microsoft infrastructure - at no cost.</p>
+      </div>
+      <div class="service-item reveal">
+        <h3>Support</h3>
+        <p>GDPR compliance, analytics setup, and optional monthly maintenance. We're here after launch, not just before it.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -391,7 +404,7 @@
         <div class="pkg-tagline">A polished page/s to get you online.</div>
         <div class="pkg-price">£50</div>
         <div class="pkg-note">One-time · 3-day delivery</div>
-        <div class="pkg-save">Saves £180+/yr vs Squarespace</div>
+        <div class="pkg-save">Saves £1246+/yr vs Squarespace</div>
         <ul class="pkg-list">
           <li>Custom responsive design</li>
           <li>Contact form setup</li>
@@ -399,6 +412,7 @@
           <li>Custom domain hookup</li>
           <li>GDPR cookie notice</li>
           <li>1 revision round</li>
+          <li>One of the fastest loading websites in the world</li>
         </ul>
         <a href="brief.html" class="btn-pkg">Get Started</a>
       </div>
@@ -422,8 +436,8 @@
         </div>
         <div class="savings-row">
           <div class="savings-cell"><span class="big">£1,296</span><span class="small">£36/mo × 36 months</span></div>
-          <div class="savings-cell"><span class="big">£599</span><span class="small">One-time, forever</span></div>
-          <div class="savings-cell"><span class="big">£697</span><span class="small">Plus a better site</span></div>
+          <div class="savings-cell"><span class="big">£50</span><span class="small">One-time, forever</span></div>
+          <div class="savings-cell"><span class="big">£1246</span><span class="small">Plus a better site</span></div>
         </div>
       </div>
     </div>
@@ -435,7 +449,6 @@
     <div class="section-header reveal">
       <span class="section-num">Process</span>
       <h2 class="section-title">Four steps. <i>That's it.</i></h2>
-      <p class="section-intro">No complicated onboarding. No jargon. Just results.</p>
     </div>
     <div class="process-grid reveal">
       <div class="process-step"><div class="step-num">01</div><h4>Conversation</h4><p>Tell me about your brand, your goals, and what you like. A quick call or message is all it takes.</p></div>
