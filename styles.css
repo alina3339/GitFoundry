@@ -17,17 +17,17 @@
   --blue-dk:    #1a38d4;
   --white:      #ffffff;
   --off-white:  #f2ede5;
-  --muted:      rgba(255, 255, 255, 0.46);
-  --muted-dk:   rgba(255, 255, 255, 0.22);
-  --rule:       rgba(255, 255, 255, 0.08);
-  --rule-light: rgba(0, 0, 0, 0.1);
-  --max:        1120px;
-  --pad:        clamp(1.5rem, 5vw, 4.5rem);
+  --muted:      rgba(255, 255, 255, 0.5);
+  --muted-dk:   rgba(255, 255, 255, 0.25);
+  --rule:       rgba(255, 255, 255, 0.09);
+  --rule-light: rgba(0, 0, 0, 0.12);
 
-  /* Type scale */
-  --display:    'Bebas Neue', sans-serif;
-  --sans:       'Inter', sans-serif;
-  --mono:       'JetBrains Mono', monospace;
+  --max:   1120px;
+  --pad:   clamp(1.5rem, 5vw, 4.5rem);
+
+  --display: 'Bebas Neue', sans-serif;
+  --sans:    'Inter', sans-serif;
+  --mono:    'JetBrains Mono', monospace;
 }
 
 /* === REDUCED MOTION === */
@@ -46,6 +46,7 @@ body {
   background: var(--black);
   color: var(--white);
   font-family: var(--sans);
+  font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -53,11 +54,8 @@ body {
 }
 
 img { max-width: 100%; height: auto; display: block; }
-
 a { color: inherit; }
-
 h1, h2, h3 { text-wrap: balance; }
-
 p { text-wrap: pretty; }
 
 /* === SKIP LINK === */
@@ -68,18 +66,17 @@ p { text-wrap: pretty; }
   background: var(--blue);
   color: #fff;
   padding: .6rem 1.2rem;
-  font-family: var(--sans);
-  font-size: .75rem;
-  letter-spacing: .06em;
+  font-size: .875rem;
+  letter-spacing: .04em;
   text-decoration: none;
   z-index: 9999;
 }
 .skip-link:focus { top: 1rem; }
 
-/* === FOCUS VISIBLE === */
+/* === FOCUS === */
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 
-/* === SCREEN READER ONLY === */
+/* === SR ONLY === */
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
@@ -90,89 +87,76 @@ p { text-wrap: pretty; }
   border: 0;
 }
 
-/* === CONTAINER === */
-.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+/* === CONTAINER ===
+   Single max-width + padding applied uniformly everywhere.
+   No section has a different container rule.
+   ========================================================== */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
 
 /* === SHARED ATOMS === */
 .accent { color: var(--blue); }
 
+/* Section labels — minimum 0.8rem so they are actually legible */
 .label {
   font-family: var(--mono);
-  font-size: .65rem;
+  font-size: .8rem;
   font-weight: 500;
-  letter-spacing: .2em;
+  letter-spacing: .16em;
   color: var(--muted);
   text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
 }
 
+/* Horizontal rule — consistent margin everywhere */
 .rule {
   border: none;
   border-top: 1px solid var(--rule);
-  margin: 2rem 0 3rem;
+  margin-bottom: 3rem;
 }
 
+/* Arrow suffix on buttons */
 .arr {
   font-family: var(--mono);
-  font-size: .8em;
+  font-size: .85em;
   letter-spacing: .04em;
-  opacity: .7;
+  opacity: .65;
 }
 
 
 /* ============================================================
    BUTTONS
+   All buttons: minimum 0.9rem, consistent padding, uppercase
    ============================================================ */
 
-.btn-fill {
-  display: inline-flex;
-  align-items: center;
-  gap: .9rem;
-  background: var(--blue);
-  color: #fff;
-  text-decoration: none;
-  font-family: var(--sans);
-  font-size: .78rem;
-  font-weight: 500;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: .95rem 1.75rem;
-  transition: background .2s ease;
-}
-.btn-fill:hover { background: var(--blue-dk); }
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: .9rem;
-  border: 1px solid var(--rule-light);
-  color: var(--black);
-  text-decoration: none;
-  font-family: var(--sans);
-  font-size: .78rem;
-  font-weight: 500;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: .95rem 1.75rem;
-  transition: border-color .2s, background .2s;
-}
-.btn-ghost:hover { border-color: rgba(0,0,0,.3); background: rgba(0,0,0,.04); }
-
+.btn-fill,
+.btn-ghost,
 .btn-dark {
   display: inline-flex;
   align-items: center;
-  gap: .9rem;
-  background: var(--black);
-  color: #fff;
-  text-decoration: none;
+  gap: 1rem;
   font-family: var(--sans);
-  font-size: .78rem;
+  font-size: .9rem;
   font-weight: 500;
-  letter-spacing: .1em;
+  letter-spacing: .08em;
   text-transform: uppercase;
-  padding: .95rem 1.75rem;
-  transition: background .2s;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  transition: background .2s, border-color .2s;
+  white-space: nowrap;
 }
-.btn-dark:hover { background: var(--deep); }
+
+.btn-fill  { background: var(--blue);  color: #fff; }
+.btn-ghost { background: transparent;  color: var(--black); border: 1px solid var(--rule-light); }
+.btn-dark  { background: var(--black); color: #fff; }
+
+.btn-fill:hover  { background: var(--blue-dk); }
+.btn-ghost:hover { border-color: rgba(0,0,0,.3); background: rgba(0,0,0,.05); }
+.btn-dark:hover  { background: var(--deep); }
 
 
 /* ============================================================
@@ -198,7 +182,7 @@ p { text-wrap: pretty; }
 
 .nav-logo {
   font-family: var(--mono);
-  font-size: .85rem;
+  font-size: .9rem;
   font-weight: 500;
   letter-spacing: .12em;
   color: var(--white);
@@ -206,23 +190,25 @@ p { text-wrap: pretty; }
   flex: 1;
   transition: opacity .2s;
 }
-.nav-logo:hover { opacity: .65; }
+.nav-logo:hover { opacity: .6; }
 
+/* CTA pill — bumped to .8rem minimum */
 .nav-cta {
   font-family: var(--sans);
-  font-size: .65rem;
+  font-size: .8rem;
   font-weight: 500;
-  letter-spacing: .14em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--white);
   text-decoration: none;
-  border: 1px solid rgba(255,255,255,.28);
-  padding: .5rem 1.1rem;
-  transition: border-color .2s;
+  border: 1px solid rgba(255,255,255,.3);
+  padding: .55rem 1.1rem;
   white-space: nowrap;
+  transition: border-color .2s;
 }
-.nav-cta:hover { border-color: rgba(255,255,255,.7); }
+.nav-cta:hover { border-color: rgba(255,255,255,.75); }
 
+/* Burger */
 .nav-burger {
   background: none;
   border: none;
@@ -238,13 +224,14 @@ p { text-wrap: pretty; }
   width: 22px;
   height: 1.5px;
   background: var(--white);
-  transition: transform .25s ease, opacity .2s ease;
+  transition: transform .25s, opacity .2s;
   transform-origin: center;
 }
 .nav-burger.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-burger.active span:nth-child(2) { opacity: 0; }
 .nav-burger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+/* Drawer */
 .nav-drawer {
   max-height: 0;
   overflow: hidden;
@@ -256,15 +243,16 @@ p { text-wrap: pretty; }
   border-top-color: var(--rule);
 }
 
+/* Nav links — bumped to .95rem */
 .nav-link {
   display: block;
   padding: 1.1rem var(--pad);
   color: var(--muted);
   text-decoration: none;
-  font-size: .82rem;
-  letter-spacing: .05em;
+  font-size: .95rem;
+  letter-spacing: .04em;
   border-bottom: 1px solid var(--rule);
-  transition: color .2s, padding-left .2s ease;
+  transition: color .2s, padding-left .2s;
 }
 .nav-link:hover { color: var(--white); padding-left: calc(var(--pad) + .5rem); }
 
@@ -276,68 +264,64 @@ p { text-wrap: pretty; }
 .hero {
   position: relative;
   min-height: 100vh;
-  display: flex;
-  align-items: flex-end;
   background: var(--black);
-  padding-top: 5rem; /* nav height */
   overflow: hidden;
+  padding-top: 4rem; /* nav offset */
 }
 
-/* Subtle dot-grid texture — zero performance cost */
+/* Dot-grid texture */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image:
-    radial-gradient(rgba(255,255,255,.028) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none;
 }
 
-/* Vignette at top */
+/* Blue top vignette */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,78,255,.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(43,78,255,.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
+/* Hero layout: eyebrow pinned top, title in middle, foot at bottom */
 .hero-inner {
   position: relative;
   max-width: var(--max);
   width: 100%;
   margin: 0 auto;
-  padding: 5rem var(--pad) 6rem;
+  padding: 4rem var(--pad) 5rem;
+  min-height: calc(100vh - 4rem);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: calc(100vh - 5rem);
 }
 
+/* Eyebrow — readable at .8rem minimum */
 .hero-eyebrow {
   font-family: var(--mono);
-  font-size: .62rem;
-  letter-spacing: .2em;
+  font-size: .8rem;
+  letter-spacing: .18em;
   color: var(--muted);
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: auto; /* pushes title down toward centre */
 }
 
+/* Massive display headline */
 .hero-title {
   font-family: var(--display);
-  font-size: clamp(5.5rem, 16vw, 13.5rem);
+  font-size: clamp(5rem, 16vw, 13rem);
   line-height: .9;
   letter-spacing: .01em;
   text-transform: uppercase;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
+/* Footer block: rule, subtext, CTA — all left-aligned */
 .hero-foot {
-  margin-top: 3rem;
+  margin-top: auto;
 }
 
 .hero-rule {
@@ -346,12 +330,13 @@ p { text-wrap: pretty; }
   margin-bottom: 2rem;
 }
 
+/* Sub text — must be comfortably readable */
 .hero-sub {
-  font-size: clamp(.9rem, 1.6vw, 1.05rem);
+  font-size: 1.05rem;
   color: var(--muted);
-  max-width: 42ch;
+  max-width: 44ch;
   line-height: 1.8;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 
@@ -365,39 +350,52 @@ p { text-wrap: pretty; }
   padding: 7rem 0;
 }
 
+/* Two-column on desktop: narrow label left, content right.
+   Both columns share the same container left edge — no extra offsets. */
 .premise-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
 @media (min-width: 768px) {
-  .premise-grid { grid-template-columns: 200px 1fr; gap: 5rem; align-items: start; }
-  .premise-label { padding-top: .35rem; }
+  .premise-grid {
+    grid-template-columns: 180px 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
 }
+
+/* Override label colour for light background */
+.premise .label { color: rgba(0,0,0,.4); }
 
 .premise-body h2 {
   font-family: var(--sans);
-  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  font-size: clamp(1.5rem, 3vw, 2.35rem);
   font-weight: 700;
   letter-spacing: -.025em;
   line-height: 1.15;
   margin-bottom: 1.5rem;
 }
 
+/* Body copy — 1rem minimum */
 .premise-body p {
   font-size: 1rem;
-  color: rgba(0,0,0,.58);
-  line-height: 1.9;
+  color: rgba(0,0,0,.6);
+  line-height: 1.85;
   margin-bottom: 2.25rem;
-  max-width: 60ch;
+  max-width: 58ch;
 }
-
-.premise .label { color: rgba(0,0,0,.4); }
 
 
 /* ============================================================
    SERVICES
+
+   Alignment principle:
+   - Section heading starts at container left edge (0 indent)
+   - Each service row is a 2-column grid: content (1fr) | meta (auto)
+   - Service number sits ABOVE the service name, inside the content column
+   - This ensures heading, number, title, description all share the same left edge
    ============================================================ */
 
 .services {
@@ -405,106 +403,111 @@ p { text-wrap: pretty; }
   padding: 7rem 0;
 }
 
+/* Header row: same 2-col grid on desktop, flush left on both sides */
 .services-header {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
-  .services-header { grid-template-columns: 200px 1fr; align-items: end; }
+  .services-header {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+  }
 }
 
 .services h2 {
   font-family: var(--sans);
-  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  font-size: clamp(1.5rem, 3vw, 2.35rem);
   font-weight: 700;
   letter-spacing: -.025em;
   line-height: 1.1;
 }
 
-/* Editorial service rows — no boxy cards */
+/* Rows */
 .service-rows { border-top: 1px solid var(--rule); }
 
 .service-row {
   display: grid;
-  grid-template-columns: 3rem 1fr;
-  gap: 2rem 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   padding: 3rem 0;
   border-bottom: 1px solid var(--rule);
   transition: background .2s;
 }
-
-.service-row:hover { background: rgba(255,255,255,.02); }
+.service-row:hover { background: rgba(255,255,255,.018); }
 
 @media (min-width: 640px) {
   .service-row {
-    grid-template-columns: 3rem 1fr auto;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
     align-items: start;
   }
 }
 
+/* Number — small, above the title, same left edge as heading */
 .service-num {
   font-family: var(--mono);
-  font-size: .65rem;
-  letter-spacing: .1em;
+  font-size: .8rem;           /* ← was .65rem — now readable */
+  letter-spacing: .12em;
   color: var(--muted-dk);
-  padding-top: .35rem;
+  display: block;
+  margin-bottom: .75rem;
 }
 
+/* Service title — same left edge as .services h2 */
 .service-name {
   font-family: var(--sans);
   font-size: clamp(1.15rem, 2vw, 1.5rem);
   font-weight: 700;
   letter-spacing: -.02em;
-  margin-bottom: .85rem;
+  margin-bottom: .9rem;
 }
 
+/* Description — 1rem minimum */
 .service-desc {
-  font-size: .9rem;
+  font-size: 1rem;            /* ← was .9rem */
   color: var(--muted);
-  line-height: 1.75;
-  max-width: 54ch;
-  margin-bottom: 1.25rem;
+  line-height: 1.8;
+  max-width: 52ch;
+  margin-bottom: 1.5rem;
 }
 
-.service-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-}
+/* Tags */
+.service-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
 
 .tag {
   font-family: var(--mono);
-  font-size: .58rem;
-  letter-spacing: .12em;
+  font-size: .78rem;          /* ← was .58rem — was illegibly small */
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--muted);
   border: 1px solid var(--rule);
-  padding: .28rem .65rem;
+  padding: .3rem .7rem;
 }
 
+/* Meta: price + arrow — right side on desktop */
 .service-meta {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  padding-top: .2rem;
-  grid-column: 2 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 @media (min-width: 640px) {
   .service-meta {
-    grid-column: auto;
+    flex-direction: column;
     align-items: flex-end;
     text-align: right;
+    padding-top: .3rem;
   }
 }
 
 .service-price {
   font-family: var(--mono);
-  font-size: .85rem;
+  font-size: 1rem;            /* ← was .85rem */
   font-weight: 500;
   letter-spacing: .04em;
   color: var(--white);
@@ -521,6 +524,7 @@ p { text-wrap: pretty; }
   color: var(--muted);
   text-decoration: none;
   font-size: 1rem;
+  flex-shrink: 0;
   transition: border-color .2s, color .2s;
 }
 .service-arrow:hover { border-color: var(--blue); color: var(--blue); }
@@ -564,6 +568,12 @@ p { text-wrap: pretty; }
 
 /* ============================================================
    PERFORMANCE
+
+   Alignment principle:
+   - Section label sits at container left edge
+   - Rule goes full container width
+   - Grid cells use padding: 2.5rem — but the LEFT edge of the first cell
+     is flush with the container edge (no extra left padding on the grid itself)
    ============================================================ */
 
 .perf {
@@ -571,14 +581,12 @@ p { text-wrap: pretty; }
   padding: 7rem 0 5rem;
 }
 
-.perf-header { margin-bottom: 0; }
-
 .perf-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border-left: 1px solid var(--rule);
   border-top: 1px solid var(--rule);
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 @media (min-width: 640px) {
@@ -600,19 +608,21 @@ p { text-wrap: pretty; }
   margin-bottom: .5rem;
 }
 
+/* Performance label — .8rem minimum */
 .perf-name {
   font-family: var(--mono);
-  font-size: .6rem;
-  letter-spacing: .16em;
+  font-size: .8rem;           /* ← was .6rem */
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
+/* Note — .95rem for comfortable reading */
 .perf-note {
-  font-size: .82rem;
+  font-size: .95rem;          /* ← was .82rem */
   color: var(--muted-dk);
-  line-height: 1.7;
-  max-width: 58ch;
+  line-height: 1.75;
+  max-width: 60ch;
   border-left: 2px solid var(--blue);
   padding-left: 1.25rem;
 }
@@ -620,6 +630,12 @@ p { text-wrap: pretty; }
 
 /* ============================================================
    WHY
+
+   Alignment principle:
+   - Label, rule, statement, and list all start at container left edge (0)
+   - List bullet is absolutely positioned, padding-left creates the indent
+   - The indent (1.75rem) is consistent across all list items
+   - No extra offset on strong vs body text within each item
    ============================================================ */
 
 .why {
@@ -627,9 +643,10 @@ p { text-wrap: pretty; }
   padding: 7rem 0;
 }
 
+/* Opening statement — prominent but not display scale */
 .why-statement {
   font-size: clamp(1.05rem, 2vw, 1.35rem);
-  color: rgba(255,255,255,.78);
+  color: rgba(255,255,255,.8);
   line-height: 1.75;
   max-width: 66ch;
   margin-bottom: 3.5rem;
@@ -639,9 +656,9 @@ p { text-wrap: pretty; }
 
 .why-list li {
   position: relative;
-  padding: 2rem 0 2rem 1.75rem;
+  padding: 2rem 0 2rem 2rem;  /* consistent 2rem indent on all items */
   border-bottom: 1px solid var(--rule);
-  font-size: .9rem;
+  font-size: 1rem;             /* ← was .9rem */
   color: var(--muted);
   line-height: 1.8;
 }
@@ -650,25 +667,26 @@ p { text-wrap: pretty; }
   content: '';
   position: absolute;
   left: 0;
-  top: 2.5rem;
+  top: 2.6rem;
   width: 5px;
   height: 5px;
   border-radius: 50%;
   background: var(--blue);
 }
 
+/* Strong and body text share the same left edge within the 2rem indent */
 .why-list li strong {
   display: block;
   color: var(--white);
   font-weight: 600;
-  font-size: .95rem;
+  font-size: 1.05rem;          /* ← was .95rem */
   letter-spacing: -.01em;
-  margin-bottom: .4rem;
+  margin-bottom: .45rem;
 }
 
 
 /* ============================================================
-   ENQUIRE — Full-width editorial CTA
+   ENQUIRE — full-width editorial link-section
    ============================================================ */
 
 .enquire { background: var(--blue); }
@@ -696,10 +714,11 @@ p { text-wrap: pretty; }
   }
 }
 
+/* Eyebrow — .8rem minimum */
 .enquire-eyebrow {
   font-family: var(--mono);
-  font-size: .62rem;
-  letter-spacing: .2em;
+  font-size: .8rem;            /* ← was .62rem */
+  letter-spacing: .18em;
   text-transform: uppercase;
   opacity: .75;
   white-space: nowrap;
@@ -715,6 +734,12 @@ p { text-wrap: pretty; }
 
 /* ============================================================
    FOOTER
+
+   Alignment principle:
+   - 3-column grid on desktop: brand (2fr) | nav (1fr) | address (1fr)
+   - All three columns start at consistent vertical rhythm
+   - Footer nav links at 1rem; address at .95rem
+   - Legal bar text at .78rem — acceptable for fine print
    ============================================================ */
 
 .footer {
@@ -739,23 +764,22 @@ p { text-wrap: pretty; }
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: .12em;
-  margin-bottom: .4rem;
+  margin-bottom: .5rem;
 }
 
+/* Tagline — .78rem is acceptable for a decorative sub-brand label */
 .footer-tagline {
-  font-size: .62rem;
+  font-size: .78rem;           /* ← was .62rem */
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  gap: .9rem;
-}
+.footer-nav { display: flex; flex-direction: column; gap: 1rem; }
+
+/* Footer nav — 1rem for comfortable scanning */
 .footer-nav a {
-  font-size: .9rem;
+  font-size: 1rem;             /* ← was .9rem */
   color: var(--muted);
   text-decoration: none;
   transition: color .2s;
@@ -763,20 +787,20 @@ p { text-wrap: pretty; }
 .footer-nav a:hover { color: var(--white); }
 
 .footer-address { font-style: normal; }
-.footer-address p {
-  font-size: .85rem;
-  color: var(--muted);
-  line-height: 1.65;
-  margin-bottom: .6rem;
-}
+
+/* Address — .95rem */
+.footer-address p,
 .footer-address a {
-  font-size: .85rem;
+  font-size: .95rem;           /* ← was .85rem */
   color: var(--muted);
+  line-height: 1.7;
   text-decoration: none;
   transition: color .2s;
 }
+.footer-address p { margin-bottom: .65rem; }
 .footer-address a:hover { color: var(--white); }
 
+/* Legal bar */
 .footer-base {
   border-top: 1px solid var(--rule);
   padding: 1.5rem 0;
@@ -790,20 +814,19 @@ p { text-wrap: pretty; }
   gap: 1rem;
 }
 
+/* Legal text — .78rem acceptable for legal fine print */
 .footer-base-inner > p {
-  font-size: .62rem;
-  letter-spacing: .1em;
+  font-size: .78rem;           /* ← was .62rem */
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--muted-dk);
 }
 
-.footer-legal {
-  display: flex;
-  gap: 2rem;
-}
+.footer-legal { display: flex; gap: 2rem; }
+
 .footer-legal a {
-  font-size: .62rem;
-  letter-spacing: .1em;
+  font-size: .78rem;           /* ← was .62rem */
+  letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--muted-dk);
   text-decoration: none;
