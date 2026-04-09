@@ -17,10 +17,9 @@
   <!-- GTM -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P72JB657');</script>
 
-  <!-- Fonts: Bebas Neue (display) + Inter (body) + JetBrains Mono (labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -30,242 +29,247 @@
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- =========================================================
-       NAV
-  ========================================================= -->
+  <!-- ==========================================================
+       NAV — wordmark left · links right · no pill buttons
+  ========================================================== -->
   <header class="nav" role="banner">
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="GitFoundry home">GITFOUNDRY</a>
-      <a href="brief.html" class="nav-cta">Start a project</a>
-      <button class="nav-burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-drawer">
+
+      <a href="/" class="nav-logo" aria-label="GitFoundry home">
+        GITFOUNDRY
+      </a>
+
+      <!-- Desktop links -->
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Mobile burger -->
+      <button class="nav-burger" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-mobile">
         <span></span><span></span><span></span>
       </button>
+
     </div>
-    <nav id="nav-drawer" class="nav-drawer" aria-hidden="true" aria-label="Main navigation">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="pricing.html" class="nav-link">Pricing</a>
-      <a href="portfolio.html" class="nav-link">Portfolio</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+
+    <!-- Mobile drawer -->
+    <nav id="nav-mobile" class="nav-mobile" aria-hidden="true" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main id="main">
 
-    <!-- =========================================================
-         HERO
-    ========================================================= -->
+    <!-- ==========================================================
+         HERO — terminal visual + statement (Mia's crossword moment)
+    ========================================================== -->
     <section class="hero" aria-label="Introduction">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <p class="hero-eyebrow">— Web Design Studio &middot; Stoke-on-Trent</p>
-        <h1 class="hero-title">
-          Built<br>
-          <span class="accent">Once.</span><br>
-          Yours<br>
-          Forever.
-        </h1>
-        <div class="hero-foot">
-          <hr class="hero-rule" aria-hidden="true">
-          <p class="hero-sub">GitHub Pages websites that cost nothing to host and belong entirely to you.</p>
-          <a href="brief.html" class="btn-fill">Start your project <span class="arr">···→</span></a>
-        </div>
-      </div>
-    </section>
+      <div class="container hero-inner">
 
-    <!-- =========================================================
-         PREMISE
-    ========================================================= -->
-    <section class="premise" aria-labelledby="premise-h">
-      <div class="container">
-        <div class="premise-grid">
-          <p class="label premise-label">— The Idea</p>
-          <div class="premise-body">
-            <h2 id="premise-h">Every other platform charges you rent. We hand you the keys.</h2>
-            <p>Squarespace, Wix, Webflow — remove the direct debit and your site disappears. GitFoundry builds on GitHub Pages: infrastructure trusted by millions of developers, zero hosting cost, permanent ownership. You receive the full source code on delivery. The domain is yours. Nothing can be taken away.</p>
-            <a href="services.html" class="btn-ghost">See what we build <span class="arr">···→</span></a>
+        <!-- Left: statement text -->
+        <div class="hero-text">
+          <p class="hero-location">Stoke-on-Trent, Staffordshire</p>
+          <p class="hero-statement">
+            A web design studio specialising in GitHub Pages websites — built with precision, owned outright, and running at zero hosting cost.
+          </p>
+          <p class="hero-price">Starting from £149.</p>
+          <a href="brief.html" class="text-cta">Start your project <span class="arr">→</span></a>
+        </div>
+
+        <!-- Right: terminal visual (GitFoundry's creative signature) -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="t-dot t-red"></span>
+              <span class="t-dot t-yellow"></span>
+              <span class="t-dot t-green"></span>
+              <span class="t-title">terminal</span>
+            </div>
+            <div class="terminal-body">
+              <p class="t-line"><span class="t-prompt">$</span> git init client-project</p>
+              <p class="t-line"><span class="t-prompt">$</span> git commit -m "Built once."</p>
+              <p class="t-line"><span class="t-prompt">$</span> git push origin main</p>
+              <p class="t-blank">&nbsp;</p>
+              <p class="t-line t-ok">✓ Deployed to GitHub Pages</p>
+              <p class="t-line t-ok">✓ Hosting cost: £0.00 / month</p>
+              <p class="t-line t-ok">✓ Source code: delivered</p>
+              <p class="t-line t-ok">✓ Ownership: permanent</p>
+              <p class="t-cursor">_</p>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- =========================================================
-         SERVICES
-    ========================================================= -->
-    <section class="services" aria-labelledby="services-h">
-      <div class="container">
+    <!-- ==========================================================
+         FEATURED WORK — Mia-style project cards for each service
+    ========================================================== -->
+    <section class="work" aria-labelledby="work-heading">
+      <div class="container work-header">
+        <h2 id="work-heading" class="work-label">WHAT WE BUILD</h2>
+      </div>
 
-        <div class="services-header">
-          <p class="label">— What We Build</p>
-          <h2 id="services-h">Three tiers.<br>One principle.</h2>
+      <!-- ── Service 01: Landing Page ── -->
+      <article class="work-item">
+        <a href="services.html#landing" class="work-visual work-visual--landing" tabindex="-1" aria-hidden="true">
+          <div class="work-visual-frame">
+            <div class="wf-bar"></div>
+            <div class="wf-body">
+              <div class="wf-hero-block"></div>
+              <div class="wf-text-lines">
+                <span></span><span></span><span class="short"></span>
+              </div>
+              <div class="wf-cta-block"></div>
+            </div>
+          </div>
+        </a>
+        <div class="container work-content">
+          <p class="work-tags">Single page &middot; Full ownership &middot; Fast delivery</p>
+          <h3 class="work-title">LANDING PAGE</h3>
+          <p class="work-desc">A single, focused page built with precision. Ideal for individuals, researchers, fund managers, and creatives who need a clear, permanent presence without complexity or recurring costs.</p>
+          <a href="brief.html" class="text-cta work-cta">Start this project — from £149 <span class="arr">→</span></a>
         </div>
+      </article>
 
-        <div class="service-rows">
-
-          <article class="service-row">
-            <div class="service-body">
-              <span class="service-num">01</span>
-              <h3 class="service-name">Landing Page</h3>
-              <p class="service-desc">A single, focused page built with precision. Ideal for individuals, researchers, and creatives who need a clear, permanent presence without complexity.</p>
-              <div class="service-tags">
-                <span class="tag">Single page</span>
-                <span class="tag">Fast delivery</span>
-                <span class="tag">Full ownership</span>
+      <!-- ── Service 02: Professional Site ── -->
+      <article class="work-item">
+        <a href="services.html#professional" class="work-visual work-visual--professional" tabindex="-1" aria-hidden="true">
+          <div class="work-visual-frame">
+            <div class="wf-bar"></div>
+            <div class="wf-body wf-body--cols">
+              <div class="wf-sidebar">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="wf-main-col">
+                <div class="wf-hero-block"></div>
+                <div class="wf-text-lines">
+                  <span></span><span></span><span class="short"></span>
+                </div>
               </div>
             </div>
-            <div class="service-meta">
-              <p class="service-price">From £149</p>
-              <a href="services.html#landing" class="service-arrow" aria-label="Landing Page details">→</a>
-            </div>
-          </article>
+          </div>
+        </a>
+        <div class="container work-content">
+          <p class="work-tags">Multi-page &middot; SEO optimised &middot; Mobile-first</p>
+          <h3 class="work-title">PROFESSIONAL SITE</h3>
+          <p class="work-desc">A complete multi-page web presence — home, about, services, contact. For businesses and professionals who need structure, substance, and a site built not just for today, but permanently.</p>
+          <a href="brief.html" class="text-cta work-cta">Start this project — from £349 <span class="arr">→</span></a>
+        </div>
+      </article>
 
-          <article class="service-row">
-            <div class="service-body">
-              <span class="service-num">02</span>
-              <h3 class="service-name">Professional Site</h3>
-              <p class="service-desc">A full multi-page presence — home, about, services, contact. For businesses and professionals who need structure, substance, and a site built to last.</p>
-              <div class="service-tags">
-                <span class="tag">Multi-page</span>
-                <span class="tag">SEO optimised</span>
-                <span class="tag">Mobile-first</span>
+      <!-- ── Service 03: Bespoke ── -->
+      <article class="work-item">
+        <a href="services.html#bespoke" class="work-visual work-visual--bespoke" tabindex="-1" aria-hidden="true">
+          <div class="work-visual-frame">
+            <div class="wf-bar"></div>
+            <div class="wf-body">
+              <div class="wf-grid">
+                <span></span><span></span>
+                <span></span><span></span>
+                <span></span><span></span>
               </div>
             </div>
-            <div class="service-meta">
-              <p class="service-price">From £349</p>
-              <a href="services.html#professional" class="service-arrow" aria-label="Professional Site details">→</a>
-            </div>
-          </article>
+          </div>
+        </a>
+        <div class="container work-content">
+          <p class="work-tags">Custom scope &middot; Fixed quote &middot; Tailored brief</p>
+          <h3 class="work-title">BESPOKE</h3>
+          <p class="work-desc">Custom scope, your vision exactly. For requirements that fall outside standard tiers — we brief, scope, and build to your precise specification. Non-profits, data projects, interactive tools: nothing is beyond scope.</p>
+          <a href="brief.html" class="text-cta work-cta">Discuss this project — from £749 <span class="arr">→</span></a>
+        </div>
+      </article>
 
-          <article class="service-row">
-            <div class="service-body">
-              <span class="service-num">03</span>
-              <h3 class="service-name">Bespoke</h3>
-              <p class="service-desc">Custom scope, your vision exactly. For requirements that fall outside standard tiers — scoped, priced, and built to your precise specification.</p>
-              <div class="service-tags">
-                <span class="tag">Custom scope</span>
-                <span class="tag">Fixed quote</span>
-                <span class="tag">Tailored brief</span>
-              </div>
-            </div>
-            <div class="service-meta">
-              <p class="service-price">From £749</p>
-              <a href="services.html#bespoke" class="service-arrow" aria-label="Bespoke details">→</a>
-            </div>
-          </article>
+    </section>
 
+    <!-- ==========================================================
+         ABOUT — short positioning statement (like Mia's about line)
+    ========================================================== -->
+    <section class="about" aria-labelledby="about-heading">
+      <div class="container about-inner">
+        <p class="about-label">About</p>
+        <div class="about-body">
+          <h2 id="about-heading">Every other platform charges you rent. We hand you the keys.</h2>
+          <p>Squarespace, Wix, Webflow — remove the direct debit and your site disappears. GitFoundry builds on GitHub Pages: infrastructure trusted by millions of developers, zero hosting cost, permanent ownership. You receive the full source code on delivery. Nothing can be taken away.</p>
+          <a href="services.html" class="text-cta">See how it works <span class="arr">→</span></a>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         CTA STRIP
-    ========================================================= -->
-    <section class="cta-strip" aria-label="Call to action">
-      <div class="container cta-strip-inner">
-        <h2 class="cta-strip-title">Zero hosting fees.<br><em>Permanent ownership.</em></h2>
-        <a href="brief.html" class="btn-dark">Discuss your project <span class="arr">···→</span></a>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         PERFORMANCE
-    ========================================================= -->
-    <section class="perf" aria-labelledby="perf-label">
+    <!-- ==========================================================
+         WHY — bullet list, clean and tight
+    ========================================================== -->
+    <section class="why" aria-labelledby="why-heading">
       <div class="container">
-        <p class="label" id="perf-label">— By the Numbers</p>
-        <hr class="rule" aria-hidden="true">
-        <div class="perf-grid">
-          <div class="perf-item">
-            <p class="perf-stat">100</p>
-            <p class="perf-name">Performance</p>
-          </div>
-          <div class="perf-item">
-            <p class="perf-stat">100</p>
-            <p class="perf-name">Accessibility</p>
-          </div>
-          <div class="perf-item">
-            <p class="perf-stat">100</p>
-            <p class="perf-name">Best Practices</p>
-          </div>
-          <div class="perf-item">
-            <p class="perf-stat">100</p>
-            <p class="perf-name">SEO</p>
-          </div>
-        </div>
-        <p class="perf-note">Lighthouse scores measured on our own site. Every project is tested against the same standard before handover.</p>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         WHY
-    ========================================================= -->
-    <section class="why" aria-labelledby="why-h">
-      <div class="container">
-        <p class="label">— Why GitFoundry</p>
-        <hr class="rule" aria-hidden="true">
-        <p class="why-statement" id="why-h">We build on GitHub Pages and give you everything: the source code, the deployment, the domain guidance. You leave with an asset — not a subscription.</p>
+        <h2 id="why-heading" class="work-label">WHY GITFOUNDRY</h2>
         <ul class="why-list">
           <li>
             <strong>No monthly fees. Ever.</strong>
-            GitHub Pages hosting costs nothing, permanently. Your only running cost is a domain — roughly £12 per year.
+            GitHub Pages costs nothing to host, permanently. Your only outgoing is a domain name — roughly £12 per year.
           </li>
           <li>
             <strong>Full code ownership</strong>
-            Every file delivered on completion. Take the code anywhere, anytime. No export fees, no lock-in.
+            Every file delivered on completion. Take the code anywhere, any time. No export fees, no lock-in.
           </li>
           <li>
-            <strong>Built for performance</strong>
-            Static sites load fast by nature. No databases, no server lag, no bloated plugins. Pure, measurable speed.
+            <strong>Performance by design</strong>
+            Static sites load fast by nature. No databases, no server lag, no bloated plugins. Every site we deliver scores 100 across all Lighthouse metrics.
           </li>
           <li>
             <strong>Precision over volume</strong>
-            A limited number of projects at any time. Every site receives focused attention from brief to delivery.
+            We take on a limited number of projects at any time. Every site receives focused attention from brief to delivery.
           </li>
           <li>
             <strong>GDPR compliant by design</strong>
             No third-party data collection baked in. Privacy is a starting point, not an afterthought.
           </li>
-          <li>
-            <strong>Nothing is impossible</strong>
-            Static does not mean simple. Portfolios, interactive tools, data reports — scoped to your ambition.
-          </li>
         </ul>
       </div>
     </section>
 
-    <!-- =========================================================
-         ENQUIRE
-    ========================================================= -->
-    <section class="enquire" aria-label="Enquire">
-      <a href="contact.html" class="enquire-link">
-        <span class="enquire-eyebrow">— Ready to begin?</span>
-        <span class="enquire-title">Enquire now <span class="arr">···→</span></span>
-      </a>
+    <!-- ==========================================================
+         CONTACT CTA — simple, text-forward (no button)
+    ========================================================== -->
+    <section class="contact-cta" aria-label="Get in touch">
+      <div class="container">
+        <h2 class="cta-heading">Ready to begin?</h2>
+        <a href="contact.html" class="text-cta cta-link">Get in touch <span class="arr">→</span></a>
+      </div>
     </section>
 
   </main>
 
-  <!-- =========================================================
-       FOOTER
-  ========================================================= -->
+  <!-- ==========================================================
+       FOOTER — dark, white logo (mirrors Mia's dark footer)
+  ========================================================== -->
   <footer class="footer" role="contentinfo">
-    <div class="container footer-grid">
+    <div class="container footer-inner">
+
       <div class="footer-brand">
         <p class="footer-logo">GITFOUNDRY</p>
         <p class="footer-tagline">Built once. Yours forever.</p>
       </div>
+
       <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="pricing.html">Pricing</a>
         <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
         <a href="contact.html">Contact</a>
       </nav>
+
       <address class="footer-address">
-        <p>Stoke-on-Trent, Staffordshire</p>
+        <p>Stoke-on-Trent<br>Staffordshire</p>
         <a href="mailto:hello@gitfoundry.co.uk">hello@gitfoundry.co.uk</a>
       </address>
+
     </div>
+
     <div class="footer-base">
       <div class="container footer-base-inner">
         <p>© GitFoundry. All rights reserved.</p>
@@ -278,32 +282,32 @@
   </footer>
 
   <script>
-    // Nav burger
+    // Mobile nav
     const burger = document.querySelector('.nav-burger');
-    const drawer = document.getElementById('nav-drawer');
+    const mobile = document.getElementById('nav-mobile');
 
     burger.addEventListener('click', () => {
       const open = burger.getAttribute('aria-expanded') === 'true';
       burger.setAttribute('aria-expanded', String(!open));
-      drawer.setAttribute('aria-hidden', String(open));
-      drawer.classList.toggle('open');
+      mobile.setAttribute('aria-hidden', String(open));
+      mobile.classList.toggle('open');
       burger.classList.toggle('active');
     });
 
-    drawer.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
+    mobile.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
         burger.setAttribute('aria-expanded', 'false');
-        drawer.setAttribute('aria-hidden', 'true');
-        drawer.classList.remove('open');
+        mobile.setAttribute('aria-hidden', 'true');
+        mobile.classList.remove('open');
         burger.classList.remove('active');
       });
     });
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      if (e.key === 'Escape' && mobile.classList.contains('open')) {
         burger.setAttribute('aria-expanded', 'false');
-        drawer.setAttribute('aria-hidden', 'true');
-        drawer.classList.remove('open');
+        mobile.setAttribute('aria-hidden', 'true');
+        mobile.classList.remove('open');
         burger.classList.remove('active');
         burger.focus();
       }
