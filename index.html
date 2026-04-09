@@ -1,494 +1,290 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitFoundry - Beautiful Websites, Zero Hosting Fees</title>
-<meta name="description" content="Hand-coded websites hosted free on GitHub Pages. One-time payment, no monthly fees.">
-<meta name="theme-color" content="#111">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
-<style>
-  :root {
-    --black: #111;
-    --grey-700: #555;
-    --grey-500: #888;
-    --grey-300: #c8c8c8;
-    --grey-200: #e2e2e2;
-    --grey-100: #f0f0f0;
-    --white: #fafafa;
-    --paper: #fdfdfd;
-    --rule: #ddd;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Inter', -apple-system, sans-serif;
-    --mono: 'JetBrains Mono', monospace;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitFoundry — Built Once. Yours Forever.</title>
+  <meta name="description" content="GitHub Pages websites that cost nothing to host and belong entirely to you. Stoke-on-Trent web design studio. Starting from £149.">
 
-    /* Golden ratio typography scale (1.618) */
-    --golden: 1.618;
-    --font-base: 1rem;      /* 16px */
-    --font-xs: calc(var(--font-base) / var(--golden));     /* ~0.618rem ≈ 9.9px */
-    --font-sm: calc(var(--font-base) / 1.333);              /* ~0.75rem = 12px */
-    --font-md: var(--font-base);                            /* 1rem = 16px */
-    --font-lg: calc(var(--font-base) * var(--golden));      /* ~1.618rem ≈ 25.9px */
-    --font-xl: calc(var(--font-base) * var(--golden) * var(--golden)); /* ~2.618rem ≈ 41.9px */
-    --font-2xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden)); /* ~4.236rem ≈ 67.8px */
-    --font-3xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden) * var(--golden)); /* ~6.854rem ≈ 109.7px */
+  <!-- Open Graph -->
+  <meta property="og:title" content="GitFoundry — Built Once. Yours Forever.">
+  <meta property="og:description" content="GitHub Pages websites that cost nothing to host and belong entirely to you. Starting from £149.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gitfoundry.co.uk">
+  <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
 
-    /* Line heights based on golden ratio */
-    --line-height-tight: 1.2;
-    --line-height-normal: 1.5;
-    --line-height-loose: 1.618;
+  <!-- GTM -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P72JB657');</script>
 
-    /* Spacing scale (golden) */
-    --space-xs: calc(var(--font-base) / var(--golden));
-    --space-sm: var(--font-base);
-    --space-md: calc(var(--font-base) * var(--golden));
-    --space-lg: calc(var(--font-base) * var(--golden) * var(--golden));
-    --space-xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden));
-  }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; font-size: 16px; }
-  body {
-    font-family: var(--sans);
-    background: var(--paper);
-    color: var(--black);
-    -webkit-font-smoothing: antialiased;
-    font-size: var(--font-md);
-    line-height: var(--line-height-loose);
-    font-weight: 400;
-  }
-  ::selection { background: var(--black); color: var(--white); }
-  .container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 2.5rem;
-  }
-  /* Typography base - golden ratio applied */
-  h1, h2, h3, h4, .hero h1, .section-title, .pkg-name, .pkg-price, .stat-number, .savings-text h3 {
-    font-family: var(--serif);
-    font-weight: 300;
-    line-height: var(--line-height-tight);
-    letter-spacing: -0.01em;
-  }
-  h1, .hero h1 { font-size: var(--font-3xl); }
-  h2, .section-title { font-size: var(--font-2xl); }
-  h3, .service-item h3, .process-step h4, .audience-card h4 { font-size: var(--font-lg); }
-  h4 { font-size: var(--font-md); font-weight: 400; }
-  .hero-body p, .section-intro, .service-item p, .pkg-list li, .savings-text p, .process-step p, .audience-card p, .hero-body .hero-actions .btn-text {
-    font-size: var(--font-md);
-    line-height: var(--line-height-loose);
-    font-weight: 300;
-    color: var(--grey-700);
-  }
-  .hero-label, .section-num, .pkg-label, .pkg-note, .stat-label, .quote-author, .cta-meta, .footer-right, .nav-links a, .savings-row.head .savings-cell {
-    font-family: var(--mono);
-    font-size: var(--font-xs);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--grey-500);
-  }
-  .pkg-save, .btn, .btn-pkg {
-    font-family: var(--sans);
-    font-size: var(--font-xs);
-    letter-spacing: 0.1em;
-    font-weight: 500;
-  }
-  .stat-number { font-size: var(--font-2xl); }
-  .pkg-price { font-size: var(--font-2xl); }
-  .pkg-name { font-size: var(--font-xl); }
-  .audience-tagline { font-size: var(--font-lg); }
-
-  /* Layout spacing using golden ratio */
-  header { padding: var(--space-md) 0; }
-  .hero { padding: var(--space-xl) 0 var(--space-lg); }
-  .section { padding: var(--space-xl) 0; }
-  .section-header { margin-bottom: var(--space-lg); }
-  .hero-label { margin-bottom: var(--space-md); }
-  .hero h1 { margin-bottom: var(--space-md); }
-  .hero-body p { margin-bottom: var(--space-lg); }
-  .services-layout { gap: var(--space-lg); }
-  .service-item { padding: var(--space-md) 0; }
-  .audience-card { padding: var(--space-md) 0; gap: var(--space-md); }
-  .process-step { padding: var(--space-lg) var(--space-md); }
-  .pkg-card { padding: var(--space-lg) var(--space-md); }
-  .pkg-list { margin-bottom: var(--space-lg); }
-  .pkg-list li { padding: 0.3rem 0 0.3rem var(--space-md); }
-  .btn-pkg { margin-top: var(--space-sm); padding: var(--space-sm) var(--space-lg); min-width: 180px; }
-  .cta-section { padding: var(--space-xl) 0; }
-  .cta-section p { margin-bottom: var(--space-lg); }
-  footer { padding: var(--space-md) 0; }
-  .hero-actions { gap: var(--space-md); }
-  .audience-tagline { margin-top: var(--space-lg); padding-left: var(--space-md); }
-  .savings-text h3 { margin-bottom: var(--space-md); }
-  .savings-cell { padding: var(--space-md) var(--space-sm); }
-  .step-num { margin-bottom: var(--space-md); }
-
-  /* Component styles (preserved from original, with spacing adjustments) */
-  .rule { height: 1px; background: var(--rule); }
-  .nav-inner { display: flex; justify-content: space-between; align-items: baseline; }
-  .wordmark {
-    font-family: var(--serif);
-    font-size: var(--font-lg);
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    color: var(--black);
-    text-decoration: none;
-  }
-  .wordmark em { font-style: italic; font-weight: 300; }
-  .nav-links { display: flex; gap: var(--space-lg); list-style: none; }
-  .nav-links a:hover { color: var(--black); }
-  .hero-inner { max-width: 800px; }
-  .btn {
-    background: none;
-    padding: var(--space-sm) var(--space-lg);
-    transition: all 0.35s ease;
-    cursor: pointer;
-    border: none;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .btn-primary { background: var(--black); color: var(--white); }
-  .btn-primary:hover { background: var(--grey-700); transform: translateY(-1px); }
-  .btn-text { border-bottom: 1px solid var(--grey-300); padding: var(--space-sm) 0; }
-  .btn-text:hover { color: var(--black); border-color: var(--black); }
-
-  /* Packages - centered, button not full width */
-  .packages-wrapper { margin-top: var(--space-lg); display: flex; justify-content: center; }
-  .pkg-card {
-    border: 1px solid var(--rule);
-    max-width: 560px;
-    width: 100%;
-    background: var(--white);
-    transition: background 0.3s, box-shadow 0.2s;
-  }
-  .pkg-card:hover { background: var(--grey-100); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-  .pkg-label { margin-bottom: var(--space-xs); }
-  .pkg-name { margin-bottom: 0.2rem; }
-  .pkg-tagline { font-size: var(--font-sm); margin-bottom: var(--space-md); color: var(--grey-500); }
-  .pkg-price { line-height: 1; margin-bottom: 0.2rem; }
-  .pkg-note { margin-bottom: var(--space-xs); }
-  .pkg-save {
-    display: inline-block;
-    background: var(--grey-100);
-    color: var(--grey-700);
-    padding: 0.25rem 0.6rem;
-    margin-bottom: var(--space-lg);
-    font-size: var(--font-xs);
-  }
-  .pkg-list li::before { content: '-'; position: absolute; left: 0; color: var(--grey-300); }
-  .btn-pkg {
-    display: inline-block;
-    width: auto;
-    text-align: center;
-    text-decoration: none;
-    background: var(--black);
-    color: var(--white);
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
-  }
-  .btn-pkg:hover { background: var(--grey-700); transform: translateY(-1px); }
-
-  /* Audience section */
-  .audience-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--space-xl); }
-  .audience-text .section-title { margin-bottom: var(--space-md); }
-  .audience-text .section-intro { margin-top: 0; }
-  .audience-tagline {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--grey-700);
-    line-height: var(--line-height-loose);
-    border-left: 2px solid var(--grey-200);
-  }
-  .audience-grid { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
-  .audience-card {
-    display: grid;
-    grid-template-columns: 3rem 1fr 2fr;
-    align-items: baseline;
-    border-bottom: 1px solid var(--rule);
-    transition: padding-left 0.3s;
-  }
-  .audience-card:hover { padding-left: var(--space-sm); }
-  .audience-num {
-    font-family: var(--serif);
-    font-size: var(--font-md);
-    font-style: italic;
-    font-weight: 300;
-    color: var(--grey-300);
-  }
-
-  /* Savings table */
-  .savings-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-xl); align-items: center; }
-  .savings-text h3 { line-height: var(--line-height-tight); }
-  .savings-text p { line-height: var(--line-height-loose); }
-  .savings-table { border: 1px solid var(--rule); }
-  .savings-row { display: grid; grid-template-columns: 1fr 1fr 1fr; }
-  .savings-row.head { background: var(--black); color: var(--white); }
-  .savings-cell { text-align: center; border-right: 1px solid var(--rule); }
-  .savings-cell:last-child { border-right: none; }
-  .savings-row.head .savings-cell { border-color: rgba(255,255,255,0.1); }
-  .savings-cell .big { display: block; font-family: var(--serif); font-size: var(--font-xl); line-height: 1; margin-bottom: 0.2rem; }
-  .savings-cell .small { font-family: var(--mono); font-size: var(--font-xs); color: var(--grey-500); }
-
-  /* Process grid */
-  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--rule); }
-  .process-step { border-right: 1px solid var(--rule); transition: background 0.3s; }
-  .process-step:last-child { border-right: none; }
-  .process-step:hover { background: var(--grey-100); }
-  .step-num { font-family: var(--serif); font-size: var(--font-2xl); font-weight: 300; color: var(--grey-200); line-height: 1; }
-
-  /* CTA */
-  .cta-section { text-align: center; }
-  .cta-section h2 { margin-bottom: var(--space-sm); }
-  .cta-section p { max-width: 400px; margin-left: auto; margin-right: auto; }
-  .cta-meta { margin-top: var(--space-md); }
-
-  /* Footer */
-  .footer-inner { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: var(--space-md); }
-  .footer-left { font-family: var(--serif); font-size: var(--font-md); }
-  .footer-left a { color: var(--black); text-decoration: none; }
-
-  /* Animations */
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; will-change: opacity, transform; }
-  .reveal.visible { opacity: 1; transform: translateY(0); will-change: auto; }
-
-  /* Responsive: mobile and tablet */
-  @media (max-width: 900px) {
-    :root {
-      --font-3xl: calc(var(--font-base) * var(--golden) * var(--golden) * var(--golden));
-      --font-2xl: calc(var(--font-base) * var(--golden) * var(--golden));
-    }
-    .services-layout, .audience-layout, .savings-layout { grid-template-columns: 1fr; }
-    .audience-card { grid-template-columns: 2.5rem 1fr; gap: var(--space-sm); }
-    .audience-card p { grid-column: 1 / -1; }
-    .process-grid { grid-template-columns: repeat(2, 1fr); }
-    .process-step:nth-child(2) { border-right: none; }
-    .hero { padding: var(--space-lg) 0 var(--space-lg); }
-    .section { padding: var(--space-lg) 0; }
-    .nav-links { display: none; }
-    .pkg-card { max-width: 90%; margin: 0 auto; }
-    .container { padding: 0 1.5rem; }
-  }
-  @media (max-width: 600px) {
-    :root {
-      --font-3xl: calc(var(--font-base) * var(--golden) * var(--golden));
-      --font-2xl: calc(var(--font-base) * var(--golden));
-      --font-xl: calc(var(--font-base) * var(--golden));
-    }
-    .process-grid { grid-template-columns: 1fr; }
-    .process-step { border-right: none; border-bottom: 1px solid var(--rule); }
-    .process-step:last-child { border-bottom: none; }
-    .savings-row { grid-template-columns: 1fr; }
-    .savings-cell { border-right: none; border-bottom: 1px solid var(--rule); }
-    .savings-cell:last-child { border-bottom: none; }
-    .btn-pkg { min-width: 140px; padding: var(--space-sm) var(--space-md); }
-    .pkg-card { padding: var(--space-md); }
-    body { font-size: var(--font-md); }
-    .hero h1 { font-size: var(--font-2xl); }
-    .section-title { font-size: var(--font-xl); }
-  }
-  /* Large screens (1440px and up) - scale base font for comfort */
-  @media (min-width: 1440px) {
-    :root {
-      --font-base: 1.125rem; /* 18px */
-    }
-    .container { max-width: 1280px; }
-    .hero-inner { max-width: 900px; }
-  }
-  @media (min-width: 1920px) {
-    :root {
-      --font-base: 1.25rem; /* 20px */
-    }
-    .container { max-width: 1440px; }
-    .hero-inner { max-width: 1000px; }
-  }
-</style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-  <div class="container">
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- Skip link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" role="banner">
     <div class="nav-inner">
-      <a href="#" class="wordmark">Git<em>Foundry</em></a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#audience">Who It's For</a></li>
-        <li><a href="#packages">Packages</a></li>
-        <li><a href="#proof">Clients</a></li>
-        <li><a href="brief.html">Contact</a></li>
-      </ul>
+      <a href="/" class="nav-logo" aria-label="GitFoundry home">GITFOUNDRY</a>
+      <a href="brief.html" class="nav-project-btn">START A PROJECT</a>
+      <button class="nav-burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-  </div>
-</header>
+    <!-- Drawer -->
+    <nav id="nav-drawer" class="nav-drawer" aria-hidden="true" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-drawer-link">Home</a>
+      <a href="services.html" class="nav-drawer-link">Services</a>
+      <a href="pricing.html" class="nav-drawer-link">Pricing</a>
+      <a href="portfolio.html" class="nav-drawer-link">Portfolio</a>
+      <a href="contact.html" class="nav-drawer-link">Contact</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-label">Web Design Studio</div>
-      <h1>We craft websites that cost <i>nothing</i> to host.</h1>
-      <div class="hero-body">
-        <p>Beautifully designed websites deployed on GitHub Pages. You pay once. Your site stays live forever - with zero monthly fees.</p>
-        <div class="hero-actions">
-          <a href="#packages" class="btn btn-primary">View Packages</a>
-          <a href="brief.html" class="btn btn-text">Start a conversation</a>
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-inner">
+        <h1 class="hero-title">
+          BUILT ONCE.<br>
+          <span class="accent">YOURS</span><br>
+          FOREVER.
+        </h1>
+        <p class="hero-sub">GitHub Pages websites that cost nothing to host and belong entirely to you. Starting from £149.</p>
+        <a href="brief.html" class="btn-fill">Start your project <span class="arrow">···→</span></a>
+      </div>
+    </section>
+
+    <!-- ============ INTRO ============ -->
+    <section class="intro" aria-labelledby="intro-h">
+      <div class="container">
+        <h2 id="intro-h">The permanent alternative to renting the web.</h2>
+        <p>Every platform — Squarespace, Wix, Webflow — charges you monthly to exist online. Remove the card, lose the site. GitFoundry builds on GitHub Pages: free hosting, permanently. You receive the full source code. The domain is yours. Nothing can be taken away.</p>
+        <a href="services.html" class="btn-outline-light">See what we build <span class="arrow">···→</span></a>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" aria-labelledby="services-h">
+      <div class="container">
+        <p class="label">— WHAT WE BUILD</p>
+        <h2 id="services-h">Three tiers. One principle.</h2>
+        <p class="lead">No subscriptions. No lock-in. Every site is written from scratch and delivered as code you own outright.</p>
+
+        <div class="service-list">
+
+          <div class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="12" width="32" height="26" rx="2" stroke="#2d4eff" stroke-width="1.5"/>
+                <path d="M8 19h32" stroke="#2d4eff" stroke-width="1.5"/>
+                <path d="M15 26h12" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M15 31h8" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="12" cy="15.5" r="1" fill="#2d4eff"/>
+                <circle cx="16" cy="15.5" r="1" fill="#2d4eff"/>
+                <circle cx="20" cy="15.5" r="1" fill="#2d4eff"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Landing Page</h3>
+            <p class="service-body">A single, focused page built with precision. Ideal for individuals, researchers, and creatives who need a clear online presence without complexity. Starting from £149.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="8" width="36" height="28" rx="2" stroke="#2d4eff" stroke-width="1.5"/>
+                <path d="M6 16h36" stroke="#2d4eff" stroke-width="1.5"/>
+                <path d="M17 8v28" stroke="#2d4eff" stroke-width="1.5"/>
+                <path d="M22 23h13" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M22 28h9" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M9 23h4" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M9 27h4" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M9 31h4" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M12 40h24" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Professional Site</h3>
+            <p class="service-body">A full multi-page presence — home, about, services, contact. Built for businesses and professionals who need substance and structure. Starting from £349.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 8L38 36H10L24 8Z" stroke="#2d4eff" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M24 16v8" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="24" cy="29" r="1.5" fill="#2d4eff"/>
+                <path d="M7 40h34" stroke="#2d4eff" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Bespoke</h3>
+            <p class="service-body">Custom scope, your vision exactly. For requirements outside standard tiers — we scope, price, and build to your precise specification. Starting from £749.</p>
+          </div>
+
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="services">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-num">Services</span>
-    </div>
-    <div class="services-layout">
-      <div class="service-item reveal">
-        <h3>Design</h3>
-        <p>Custom layouts built around your brand identity. We start with your goals and design a site that communicates trust, clarity, and professionalism.</p>
+    <!-- ============ CTA STRIP ============ -->
+    <section class="cta-strip" aria-label="Call to action">
+      <div class="container cta-strip-inner">
+        <h2 class="cta-strip-title">ZERO HOSTING FEES.<br>PERMANENT OWNERSHIP.</h2>
+        <p class="cta-strip-sub">Every other platform charges you rent. We hand you the keys.</p>
+        <a href="brief.html" class="btn-dark">Discuss your project <span class="arrow">···→</span></a>
       </div>
-      <div class="service-item reveal">
-        <h3>Development</h3>
-        <p>Clean HTML, CSS and JavaScript. Hand-coded for speed, accessibility, and search engine performance. No bloated frameworks.</p>
-      </div>
-      <div class="service-item reveal">
-        <h3>Deployment</h3>
-        <p>Your site goes live on GitHub Pages with a custom domain. Fast, secure, and backed by Microsoft infrastructure - at no cost.</p>
-      </div>
-      <div class="service-item reveal">
-        <h3>Support</h3>
-        <p>GDPR compliance, analytics setup, and optional monthly maintenance. We're here after launch, not just before it.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="audience">
-  <div class="container">
-    <div class="audience-layout">
-      <div class="audience-text reveal">
-        <span class="section-num">Who This Is For</span>
-        <h2 class="section-title">Built for people whose <i>ideas deserve a permanent home</i></h2>
-        <p class="section-intro">Your work matters. A website hosted on GitHub Pages isn't a temporary landing page - it's a digital presence that stays live as long as you want it to. No renewals, no expiry, no platform pulling the plug.</p>
-        <p class="audience-tagline">A permanent digital message portal - for the work, the research, and the thinking that should live forever.</p>
+    <!-- ============ PERFORMANCE ============ -->
+    <section class="perf" aria-labelledby="perf-h">
+      <div class="container">
+        <p class="label">— BY THE NUMBERS</p>
+        <hr class="rule" aria-hidden="true">
+        <div class="perf-grid">
+          <div class="perf-item">
+            <p class="perf-stat">100</p>
+            <p class="perf-label">Lighthouse Performance</p>
+          </div>
+          <div class="perf-item">
+            <p class="perf-stat">100</p>
+            <p class="perf-label">Lighthouse Accessibility</p>
+          </div>
+          <div class="perf-item">
+            <p class="perf-stat">100</p>
+            <p class="perf-label">Best Practices</p>
+          </div>
+          <div class="perf-item">
+            <p class="perf-stat">100</p>
+            <p class="perf-label">SEO Score</p>
+          </div>
+        </div>
       </div>
-      <div class="audience-grid reveal">
-        <div class="audience-card"><div class="audience-num">i</div><h4>Researchers & Scientists</h4><p>Publish your lab, your papers, and your findings on a site you control - not locked inside a university CMS that disappears when you move on.</p></div>
-        <div class="audience-card"><div class="audience-num">ii</div><h4>PhD & MSc Students</h4><p>Showcase your thesis, publications, and academic profile. A professional presence that grows with your career - from student to professor.</p></div>
-        <div class="audience-card"><div class="audience-num">iii</div><h4>Knowledge Workers</h4><p>Consultants, analysts, strategists - your expertise deserves more than a LinkedIn page. Own your narrative with a site that reflects your depth.</p></div>
-        <div class="audience-card"><div class="audience-num">iv</div><h4>Fund Managers & Finance</h4><p>A clean, credible digital presence for your fund, your thesis, or your advisory practice. Professional, understated, and always available.</p></div>
-        <div class="audience-card"><div class="audience-num">v</div><h4>Software Developers</h4><p>You know GitHub already. Let me turn your repos and side projects into a portfolio site that makes recruiters and clients pay attention.</p></div>
-        <div class="audience-card"><div class="audience-num">vi</div><h4>Writers & Thought Leaders</h4><p>Essays, talks, newsletters, books - collect your body of work in one place that you fully own. No algorithm deciding who sees it.</p></div>
-        <div class="audience-card"><div class="audience-num">vii</div><h4>Non-Profits & Foundations</h4><p>Stretch every pound. A beautiful site with zero hosting costs means more of your budget goes to the mission, not to servers.</p></div>
-        <div class="audience-card"><div class="audience-num">viii</div><h4>Creatives & Freelancers</h4><p>Photographers, designers, coaches, makers - stop paying monthly fees for a portfolio. Pay once and focus on your craft.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="packages">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-num">Packages</span>
-      <h2 class="section-title">Simple, <i>honest</i> pricing</h2>
-      <p class="section-intro">One payment. No subscriptions. You own the code, the design, and the domain.</p>
-    </div>
-    <div class="packages-wrapper reveal">
-      <div class="pkg-card">
-        <div class="pkg-label">Premium</div>
-        <div class="pkg-name">Limited Introductory Offer</div>
-        <div class="pkg-tagline">A polished page/s to get you online.</div>
-        <div class="pkg-price">£50</div>
-        <div class="pkg-note">One-time · 3-day delivery</div>
-        <div class="pkg-save">Saves £1246+/yr vs Squarespace</div>
-        <ul class="pkg-list">
-          <li>Custom responsive design</li>
-          <li>Contact form setup</li>
-          <li>GitHub Pages deployment</li>
-          <li>Custom domain hookup</li>
-          <li>GDPR cookie notice</li>
-          <li>1 revision round</li>
-          <li>One of the fastest loading websites in the world</li>
+    <!-- ============ WHY ============ -->
+    <section class="why" aria-labelledby="why-h">
+      <div class="container">
+        <p class="label">— WHY GITFOUNDRY</p>
+        <hr class="rule" aria-hidden="true">
+        <p class="why-statement">We build on GitHub Pages — the same infrastructure that serves millions of developers worldwide — and give you everything: the source code, the domain guidance, the deployment. You leave with an asset, not a subscription.</p>
+
+        <ul class="why-list" role="list">
+          <li>
+            <strong>No monthly fees. Ever.</strong>
+            GitHub Pages hosting costs nothing, permanently. Your only running cost is a domain name — roughly £12 per year.
+          </li>
+          <li>
+            <strong>Full code ownership</strong>
+            You receive every file on delivery. If you ever outgrow us, take the code anywhere. No export fees, no vendor lock-in.
+          </li>
+          <li>
+            <strong>Built for performance</strong>
+            Static sites load fast by nature. No databases, no server lag, no bloated plugins. Pure, measurable speed.
+          </li>
+          <li>
+            <strong>Precision over volume</strong>
+            We take on a limited number of projects at a time. Every site receives considered attention from brief to delivery.
+          </li>
+          <li>
+            <strong>GDPR compliant by design</strong>
+            No third-party data collection baked in. Privacy is a starting point, not an afterthought.
+          </li>
+          <li>
+            <strong>Nothing is impossible</strong>
+            Static does not mean simple. We build portfolios, tools, data visualisations, interactive reports — scoped to your ambition.
+          </li>
         </ul>
-        <a href="brief.html" class="btn-pkg">Get Started</a>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section">
-  <div class="container">
-    <div class="savings-layout reveal">
-      <div class="savings-text">
-        <span class="section-num">The Maths</span>
-        <h3>Over three years, the numbers speak for <i>themselves</i></h3>
-        <p>Traditional platforms charge monthly. We charge once. Your hosting is free forever - backed by Microsoft's GitHub infrastructure.</p>
+    <!-- ============ ENQUIRE STRIP ============ -->
+    <section class="enquire-strip" aria-label="Enquire">
+      <div class="enquire-inner">
+        <a href="contact.html" class="btn-enquire">Enquire now <span class="arrow">···→</span></a>
       </div>
-      <div class="savings-table">
-        <div class="savings-row head">
-          <div class="savings-cell">Squarespace</div>
-          <div class="savings-cell">GitFoundry</div>
-          <div class="savings-cell">You Save</div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <p class="footer-logo">GITFOUNDRY</p>
+        <p class="footer-tagline">BUILT ONCE. YOURS FOREVER.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <address class="footer-address">
+        <p>Stoke-on-Trent<br>Staffordshire</p>
+        <p><a href="mailto:hello@gitfoundry.co.uk">hello@gitfoundry.co.uk</a></p>
+      </address>
+
+    </div>
+    <div class="footer-legal">
+      <div class="container footer-legal-inner">
+        <p>© GitFoundry. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="legal.html">Terms &amp; Conditions</a>
+          <a href="legal.html#privacy">Privacy Policy</a>
         </div>
-        <div class="savings-row">
-          <div class="savings-cell"><span class="big">£1,296</span><span class="small">£36/mo × 36 months</span></div>
-          <div class="savings-cell"><span class="big">£50</span><span class="small">One-time, forever</span></div>
-          <div class="savings-cell"><span class="big">£1246</span><span class="small">Plus a better site</span></div>
-        </div>
       </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<section class="section">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-num">Process</span>
-      <h2 class="section-title">Four steps. <i>That's it.</i></h2>
-    </div>
-    <div class="process-grid reveal">
-      <div class="process-step"><div class="step-num">01</div><h4>Conversation</h4><p>Tell me about your brand, your goals, and what you like. A quick call or message is all it takes.</p></div>
-      <div class="process-step"><div class="step-num">02</div><h4>Design</h4><p>I create a custom mockup based on your vision. You give feedback - we refine it together.</p></div>
-      <div class="process-step"><div class="step-num">03</div><h4>Build</h4><p>I code your site by hand. Clean, fast, and responsive on every device.</p></div>
-      <div class="process-step"><div class="step-num">04</div><h4>Launch</h4><p>Your site goes live on GitHub Pages. I connect your domain and hand everything over.</p></div>
-    </div>
-  </div>
-</section>
+  <script>
+    // Burger nav toggle
+    const burger = document.querySelector('.nav-burger');
+    const drawer = document.getElementById('nav-drawer');
 
-<section class="cta-section">
-  <div class="container reveal">
-    <h2>Ready to <i>begin?</i></h2>
-    <p>Send a message and I'll reply within 24 hours with a plan and a quote.</p>
-    <a href="brief.html" class="btn btn-primary">Start a Conversation</a>
-    <div class="cta-meta">No commitment · Free consultation</div>
-  </div>
-</section>
+    burger.addEventListener('click', () => {
+      const isOpen = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!isOpen));
+      drawer.setAttribute('aria-hidden', String(isOpen));
+      drawer.classList.toggle('open');
+      burger.classList.toggle('active');
+    });
 
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-left"><a href="https://gitfoundry.co.uk">Git<em>Foundry</em></a></div>
-      <div class="footer-right">Hosted free on GitHub Pages · © 2026</div>
-    </div>
-  </div>
-</footer>
+    // Close drawer on link click
+    drawer.querySelectorAll('.nav-drawer-link').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+        drawer.classList.remove('open');
+        burger.classList.remove('active');
+      });
+    });
 
-<script>
-  (function() {
-    const observer = new IntersectionObserver((entries) => {
-      for (let entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+    // Close drawer on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+        drawer.classList.remove('open');
+        burger.classList.remove('active');
+        burger.focus();
       }
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  })();
-</script>
+    });
+  </script>
+
 </body>
 </html>
