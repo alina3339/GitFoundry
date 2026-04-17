@@ -2,191 +2,392 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Start Your Project - GitFoundry</title>
-<meta name="description" content="Tell us about your website vision. We'll come back with a plan within 24 hours.">
-<meta name="theme-color" content="#0c0c0c">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Quote — GitFoundry · Start Your Project</title>
+<meta name="description" content="Tell us about your project. We'll reply within 48 hours with a quote and timeline. A UK studio supporting local businesses.">
+<link rel="canonical" href="https://gitfoundry.co.uk/brief.html">
+<meta property="og:title" content="Get a Quote — GitFoundry">
+<meta property="og:description" content="Tell us about your project. We reply within 48 hours.">
+<meta property="og:url" content="https://gitfoundry.co.uk/brief.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Get a Quote — GitFoundry">
+<meta name="twitter:description" content="Tell us about your project. We reply within 48 hours.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P72JB657');</script>
+<!-- End Google Tag Manager -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
-/* ---------- RESET & VARIABLES ---------- */
-* { margin:0; padding:0; box-sizing:border-box; }
-:root { 
-  --bg:#0c0c0c; --surface:#161616; --card:#1c1c1e; --card-border:rgba(255,255,255,0.06);
-  --text:#f5f5f7; --text-muted:rgba(245,245,247,0.5); --accent:#f5f5f7;
-  --btn-bg:rgba(255,255,255,0.12); --btn-hover:rgba(255,255,255,0.18);
-  --gradient-start:#6b8ea0; --gradient-mid:#9aabb5; --gradient-end:#c8ccc5;
-  --radius-sm:8px; --radius-md:12px; --radius-lg:20px;
-  --space-1:0.5rem; --space-2:1rem; --space-3:1.5rem; --space-4:2rem; --space-5:3rem; --space-6:4rem;
-  --font-xs:0.75rem; --font-sm:0.875rem; --font-base:1rem; --font-md:1.25rem; --font-lg:1.5rem; --font-xl:2rem; --font-2xl:2.5rem; --font-3xl:3rem;
-  --error:#e06c6c;
+.brief-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 4rem;
+  align-items: start;
 }
-.day { --bg:#f5f5f3; --surface:#eeeee8; --card:#e4e4dc; --card-border:rgba(0,0,0,0.06);
-  --text:#1a1a1a; --text-muted:rgba(26,26,26,0.5); --btn-bg:rgba(0,0,0,0.08); --btn-hover:rgba(0,0,0,0.14); --nav-bg:rgba(245,245,243,0.85);
+@media (max-width: 860px) {
+  .brief-layout { grid-template-columns: 1fr; }
 }
-body { font-family:'Inter', system-ui, -apple-system, sans-serif; background:var(--bg); color:var(--text); font-size:var(--font-base); line-height:1.5; transition: background 0.3s, color 0.3s; }
-input, textarea { font-family:inherit; color:var(--text); background:transparent; border:none; border-bottom:1px solid var(--card-border); padding:var(--space-2) 0; width:100%; }
-input:focus, textarea:focus { border-color:var(--text); outline:none; }
-textarea { min-height:100px; border-radius:var(--radius-sm); resize:vertical; }
-button { font-family:inherit; cursor:pointer; border:none; transition:all 0.2s; }
-.btn-next, .btn-submit { background:var(--text); color:var(--bg); padding:var(--space-2) var(--space-4); border-radius:var(--radius-md); }
-.btn-next:hover, .btn-submit:hover { background:var(--text-muted); transform:translateY(-2px); }
-.btn-back { color:var(--text-muted); border:1px solid var(--card-border); padding:var(--space-2) var(--space-4); border-radius:var(--radius-md); }
-.btn-back:hover { color:var(--text); border-color:var(--text); transform:translateY(-1px); }
-.step { display:none; animation:fadeStep 0.4s ease; }
-.step.active { display:block; }
-@keyframes fadeStep { from { opacity:0; transform:translateY(12px);} to{opacity:1; transform:translateY(0);} }
-.progress-bar { max-width:640px; margin:var(--space-4) auto; display:flex; align-items:center; gap:var(--space-2); }
-.progress-track { flex:1; height:2px; background:var(--card-border); position:relative; }
-.progress-fill { position:absolute; top:0; left:0; height:100%; background:var(--text); width:0%; transition:width 0.4s ease; }
-.option-card { background:var(--card); border:1px solid var(--card-border); border-radius:var(--radius-md); padding:var(--space-2) var(--space-3); cursor:pointer; transition:all 0.2s; }
-.option-card.selected { border-color:var(--text); background:var(--btn-bg); }
-.chip { background:var(--card); border:1px solid var(--card-border); border-radius:40px; padding:var(--space-1) var(--space-3); cursor:pointer; transition:all 0.2s; display:inline-block; margin:var(--space-1) var(--space-1) 0 0; }
-.chip.selected { background:var(--text); color:var(--bg); border-color:var(--text); }
-.success-screen { display:none; text-align:center; padding:var(--space-6) var(--space-4); }
-.success-screen.active { display:block; }
+.brief-sidebar {
+  position: sticky;
+  top: 72px;
+}
+.brief-sidebar-block {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background: var(--surface);
+}
+.brief-sidebar-block h3 {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.brief-sidebar-block p {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.brief-sidebar-block a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; }
+@media (max-width: 580px) { .form-grid { grid-template-columns: 1fr; } }
+.form-full { grid-column: 1 / -1; }
+
+/* Optional details toggle */
+.optional-toggle {
+  grid-column: 1 / -1;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: color var(--dur), border-color var(--dur);
+  width: 100%;
+  text-align: center;
+}
+.optional-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.optional-fields {
+  grid-column: 1 / -1;
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.optional-fields.open {
+  display: grid;
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  display: none;
+}
+.form-status.error {
+  display: block;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #fca5a5;
+}
+.form-status.success {
+  display: block;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #86efac;
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
 </style>
 </head>
-<body x-data="projectForm()">
 
-<script>
-function projectForm() {
-  return {
-    dark: true,
-    drawerOpen: false,
-    currentStep: 1,
-    totalSteps: 3,
-    formData: {
-      name:'', email:'', website:'', style:'', features:[]
-    },
-    init() {
-      if(localStorage.getItem('gf_theme')==='day'){this.dark=false; document.documentElement.classList.add('day');}
-    },
-    toggle() { this.dark = !this.dark; document.documentElement.classList.toggle('day', !this.dark); localStorage.setItem('gf_theme', this.dark?'night':'day'); },
-    closeDrawer(){ this.drawerOpen=false; },
-    nextStep() {
-      if(this.validateStep()) {
-        if(this.currentStep < this.totalSteps){ this.currentStep++; this.updateProgress(); }
-      }
-    },
-    prevStep(){ if(this.currentStep>1){ this.currentStep--; this.updateProgress(); } },
-    updateProgress() {
-      document.querySelector('.progress-fill').style.width = (this.currentStep-1)/(this.totalSteps-1)*100+'%';
-    },
-    toggleFeature(feature){
-      if(this.formData.features.includes(feature)){ this.formData.features = this.formData.features.filter(f=>f!==feature);}
-      else { this.formData.features.push(feature);}
-    },
-    selectStyle(style){ this.formData.style = style; },
-    validateStep() {
-      if(this.currentStep===1 && (!this.formData.name || !this.formData.email)) { alert('Please enter name and email'); return false; }
-      return true;
-    },
-    submitForm() {
-      console.log('Form submitted:', this.formData);
-      document.querySelector('.form-area').style.display='none';
-      document.querySelector('.success-screen').classList.add('active');
-    }
-  }
-}
-</script>
+<body x-data="site()" :data-theme="theme">
 
-<div class="top-bar">Beautifully crafted websites. Zero hosting fees. UK‑based.</div>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-<nav class="nav" aria-label="Main navigation">
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
-    <a href="index.html" class="wordmark">GitFoundry</a>
-    <div class="nav-right">
-      <button class="theme-btn" @click="toggle()" x-text="dark ? 'Light' : 'Dark'"></button>
-    </div>
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <span x-text="theme==='night'?'☀':'☾'"></span>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-b" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
   </div>
 </nav>
 
-<div class="form-hero">
-  <div class="hero-content">
-    <div class="hero-sup">Start your project</div>
-    <h1>Your project brief, in 3 simple steps</h1>
-    <p>Fill in your vision, style preferences and features. We'll prepare a plan within 24 hours.</p>
+<!-- Mobile drawer -->
+<div id="nav-drawer-b" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+</div>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <header class="page-header">
+      <span class="page-header-label">Project brief</span>
+      <h1 class="page-header-title">Tell us about your project.</h1>
+      <p class="page-header-desc">Three fields is all we need to get started. We'll reply within 48 hours with a quote and suggested timeline — no commitment required.</p>
+    </header>
+
+    <div class="brief-layout">
+
+      <!-- Form -->
+      <section aria-labelledby="form-heading">
+        <h2 class="section-title" id="form-heading" style="margin-bottom:2rem;font-size:1.25rem">Project details</h2>
+
+        <form id="brief-form" action="https://formspree.io/f/xojpdznv" method="POST" novalidate>
+          <div class="form-grid">
+
+            <div class="form-field">
+              <label class="form-label" for="name">Your name</label>
+              <input class="form-input" type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="email">Email address</label>
+              <input class="form-input" type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+
+            <div class="form-field form-full">
+              <label class="form-label" for="message">Tell us about your project</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="A few sentences — what the site is for, who it's for, and anything else we should know." required></textarea>
+            </div>
+
+            <!-- Optional details toggle -->
+            <button type="button" class="optional-toggle" id="optional-toggle" aria-expanded="false" aria-controls="optional-fields">
+              + Add more details (optional)
+            </button>
+
+            <div class="optional-fields" id="optional-fields">
+              <div class="form-field">
+                <label class="form-label" for="tier">Tier of interest</label>
+                <select class="form-select" id="tier" name="tier">
+                  <option value="">Not sure yet</option>
+                  <option value="landing">Landing Page — £149</option>
+                  <option value="professional">Professional — £349</option>
+                  <option value="bespoke">Bespoke — £749+</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="purpose">What is the site for?</label>
+                <input class="form-input" type="text" id="purpose" name="purpose" placeholder="e.g. local shop, consultant site, charity homepage">
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="audience">Who will visit it?</label>
+                <input class="form-input" type="text" id="audience" name="audience" placeholder="e.g. local customers, clients, research peers">
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="references">Reference sites</label>
+                <input class="form-input" type="text" id="references" name="references" placeholder="Any sites whose style you admire — URLs welcome">
+              </div>
+            </div>
+
+            <div class="form-field form-full">
+              <p class="form-hint">By submitting this form you agree to our <a href="legal.html" style="color:var(--accent);text-decoration:none">privacy policy</a>. We will only use your details to reply to your enquiry.</p>
+            </div>
+
+            <div class="form-full">
+              <button type="submit" class="btn btn-primary" id="submit-btn">Send brief — no commitment</button>
+              <div id="form-status" class="form-status"></div>
+            </div>
+
+          </div>
+        </form>
+      </section>
+
+      <!-- Sidebar -->
+      <aside class="brief-sidebar">
+        <div class="brief-sidebar-block">
+          <h3>Prefer email?</h3>
+          <p>Send your brief directly to <a href="mailto:info@gitfoundry.co.uk">info@gitfoundry.co.uk</a> — we reply within 48 hours.</p>
+        </div>
+        <div class="brief-sidebar-block">
+          <h3>What happens next</h3>
+          <p>We review your brief, ask any clarifying questions, and reply with a fixed quote and timeline. No obligation to proceed.</p>
+        </div>
+        <div class="brief-sidebar-block">
+          <h3>Pricing guide</h3>
+          <p>Landing Page — £149<br>Professional — £349<br>Bespoke — from £749<br><br><a href="pricing.html">Full pricing breakdown →</a></p>
+        </div>
+        <div class="brief-sidebar-block">
+          <h3>Supporting local</h3>
+          <p>A UK studio based in Staffordshire. We work with independent businesses and professionals across the country.</p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
   </div>
 </div>
 
-<div class="progress-bar">
-  <div class="progress-label" x-text="'Step '+currentStep+' of '+totalSteps"></div>
-  <div class="progress-track"><div class="progress-fill"></div></div>
-</div>
+<script>
+function site() {
+  return {
+    theme: localStorage.getItem('gf-theme') || 'night',
+    drawerOpen: false,
+    cookieVisible: false,
 
-<div class="form-area" id="form-start">
-  <!-- STEP 1 -->
-  <div class="step" :class="{ 'active': currentStep===1 }">
-    <div class="step-header">
-      <div class="step-num">Step 1</div>
-      <h2>Tell us about you</h2>
-      <p class="step-desc">Enter your basic information so we can reach out.</p>
-    </div>
-    <div class="field">
-      <label for="name">Name</label>
-      <input type="text" id="name" x-model="formData.name" required>
-    </div>
-    <div class="field">
-      <label for="email">Email</label>
-      <input type="email" id="email" x-model="formData.email" required>
-    </div>
-    <div class="field">
-      <label for="website">Website (optional)</label>
-      <input type="url" id="website" x-model="formData.website">
-    </div>
-    <div class="actions">
-      <button type="button" class="btn-next" @click="nextStep()">Next</button>
-    </div>
-  </div>
+    init() {
+      document.documentElement.setAttribute('data-theme', this.theme);
+      setTimeout(() => {
+        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
+      }, 1800);
+    },
 
-  <!-- STEP 2 -->
-  <div class="step" :class="{ 'active': currentStep===2 }">
-    <div class="step-header">
-      <div class="step-num">Step 2</div>
-      <h2>Pick a style</h2>
-      <p class="step-desc">Select a style that matches your vision.</p>
-    </div>
-    <div class="options-grid">
-      <div class="option-card" :class="{ 'selected': formData.style==='Minimal' }" @click="selectStyle('Minimal')">Minimal</div>
-      <div class="option-card" :class="{ 'selected': formData.style==='Dark' }" @click="selectStyle('Dark')">Dark</div>
-      <div class="option-card" :class="{ 'selected': formData.style==='Warm' }" @click="selectStyle('Warm')">Warm</div>
-      <div class="option-card" :class="{ 'selected': formData.style==='Vibrant' }" @click="selectStyle('Vibrant')">Vibrant</div>
-    </div>
-    <div class="actions">
-      <button type="button" class="btn-back" @click="prevStep()">Back</button>
-      <button type="button" class="btn-next" @click="nextStep()">Next</button>
-    </div>
-  </div>
+    toggleTheme() {
+      this.theme = this.theme === 'night' ? 'day' : 'night';
+      localStorage.setItem('gf-theme', this.theme);
+    },
 
-  <!-- STEP 3 -->
-  <div class="step" :class="{ 'active': currentStep===3 }">
-    <div class="step-header">
-      <div class="step-num">Step 3</div>
-      <h2>Features</h2>
-      <p class="step-desc">Select the features you want on your website.</p>
-    </div>
-    <div class="chips-grid">
-      <div class="chip" :class="{ 'selected': formData.features.includes('E-commerce') }" @click="toggleFeature('E-commerce')">E-commerce</div>
-      <div class="chip" :class="{ 'selected': formData.features.includes('Blog') }" @click="toggleFeature('Blog')">Blog</div>
-      <div class="chip" :class="{ 'selected': formData.features.includes('Portfolio') }" @click="toggleFeature('Portfolio')">Portfolio</div>
-      <div class="chip" :class="{ 'selected': formData.features.includes('Booking') }" @click="toggleFeature('Booking')">Booking</div>
-    </div>
-    <div class="actions">
-      <button type="button" class="btn-back" @click="prevStep()">Back</button>
-      <button type="button" class="btn-submit" @click="submitForm()">Submit</button>
-    </div>
-  </div>
-</div>
+    acceptCookies() {
+      localStorage.setItem('gf-cookies', 'accepted');
+      this.cookieVisible = false;
+    },
 
-<div class="success-screen">
-  <div class="success-icon">✔️</div>
-  <h2>Thank you!</h2>
-  <p>Your project brief has been submitted. We’ll get back to you within 24 hours with a plan.</p>
-</div>
+    declineCookies() {
+      localStorage.setItem('gf-cookies', 'declined');
+      this.cookieVisible = false;
+    }
+  };
+}
 
+// Optional details toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('optional-toggle');
+  const fields = document.getElementById('optional-fields');
+
+  toggle.addEventListener('click', function() {
+    const isOpen = fields.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+    toggle.textContent = isOpen ? '− Hide optional details' : '+ Add more details (optional)';
+  });
+});
+
+// AJAX form submission with redirect to success.html
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('brief-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const statusDiv = document.getElementById('form-status');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Basic validation
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+      statusDiv.textContent = 'Please fill in your name, email, and a short description of the project.';
+      statusDiv.className = 'form-status error';
+      return;
+    }
+
+    // Disable button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    statusDiv.textContent = '';
+    statusDiv.className = 'form-status';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        window.location.href = 'success.html';
+      } else {
+        const data = await response.json();
+        throw new Error(data.error || 'Submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      statusDiv.textContent = 'Something went wrong. Please try again or email us directly at info@gitfoundry.co.uk.';
+      statusDiv.className = 'form-status error';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send brief — no commitment';
+    }
+  });
+});
+</script>
 </body>
 </html>

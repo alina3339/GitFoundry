@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - GitFoundry · Precision-built Websites on GitHub Pages</title>
+<meta name="description" content="What GitFoundry builds — precision-built, elegant websites deployed free on GitHub Pages. Permanent ownership, no monthly fees. Supporting local UK businesses.">
+<link rel="canonical" href="https://gitfoundry.co.uk/services.html">
+<meta property="og:title" content="Services - GitFoundry">
+<meta property="og:description" content="Precision-built websites deployed free on GitHub Pages. Permanent ownership, no monthly fees.">
+<meta property="og:url" content="https://gitfoundry.co.uk/services.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services - GitFoundry">
+<meta name="twitter:description" content="Precision-built websites deployed free on GitHub Pages. Permanent ownership, no monthly fees.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P72JB657');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item active">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <span x-text="theme==='night'?'☀':'☾'"></span>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-s" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer-s" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+</div>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <header class="page-header">
+      <span class="page-header-label">Services</span>
+      <h1 class="page-header-title">What we build</h1>
+      <p class="page-header-desc">Most platforms rent you a website. We build you one you actually own — precision-crafted, designed for your goals, and hosted free on GitHub Pages with no expiry date.</p>
+    </header>
+
+    <!-- Core deliverable -->
+    <section aria-labelledby="core-heading">
+      <span class="section-label">The core deliverable</span>
+      <h2 class="section-title" id="core-heading">A precision-built website<br>you permanently own.</h2>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
+        <div class="item-row-label">Design</div>
+        <div class="item-row-body">
+          <strong>Elegant layouts, not templates</strong>
+          We design around your goals — audience, tone, and purpose. Every layout decision is intentional. Nothing is dragged-and-dropped.
+        </div>
+      </div>
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Engineering</div>
+        <div class="item-row-body">
+          <strong>Semantic structure, lean styling, minimal scripts</strong>
+          Built with precision. Accessible, fast, and optimised for search engines. No CMS bloat, no security vulnerabilities from unused plugins.
+        </div>
+      </div>
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Accessibility</div>
+        <div class="item-row-body">
+          <strong>WCAG 2.1 AA as standard</strong>
+          Proper heading structure, keyboard navigation, screen reader support, and sufficient colour contrast — built in from the start.
+        </div>
+      </div>
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Performance</div>
+        <div class="item-row-body">
+          <strong>Lighthouse 90+ across all metrics</strong>
+          No unnecessary scripts, no render-blocking fonts, no oversized images. Performance is a design constraint, not an afterthought.
+        </div>
+      </div>
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Deployment</div>
+        <div class="item-row-body">
+          <strong>GitHub Pages — free, indefinitely</strong>
+          GitHub's hosting is free. Your site stays live as long as GitHub exists. No renewal dates, no hosting invoices, no platform risk.
+        </div>
+      </div>
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Ownership</div>
+        <div class="item-row-body">
+          <strong>Full source code handover</strong>
+          You receive the complete repository. Every file, every commit. You can take it anywhere, give it to another developer, or edit it yourself.
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" style="margin:4rem 0">
+
+    <!-- What's supported -->
+    <section aria-labelledby="scope-heading">
+      <span class="section-label">Scope &amp; boundaries</span>
+      <h2 class="section-title" id="scope-heading">What GitHub Pages supports — and what it doesn't.</h2>
+      <p class="section-intro" style="margin-bottom:2rem">GitHub Pages serves static files. This covers the vast majority of professional website needs.</p>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Supported</div>
+        <div class="item-row-body">
+          Local business sites · Portfolio sites · CV &amp; résumé pages · Business landing pages · Research publications · Documentation · Event pages · Non-profit homepages · Professional profiles · Writer sites · Contact forms (via Formspree or Netlify Forms)
+        </div>
+      </div>
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Not supported</div>
+        <div class="item-row-body">
+          Server-side databases · User login systems · E-commerce checkout · Real-time feeds · User-generated content · CMS-driven content management<br>
+          <span style="color:var(--text-muted);font-size:0.8125rem;margin-top:0.5rem;display:block">If your project needs any of these, we'll discuss the right approach before quoting.</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" style="margin:4rem 0">
+
+    <!-- Optional upsells -->
+    <section aria-labelledby="addons-heading">
+      <span class="section-label">Optional add-ons</span>
+      <h2 class="section-title" id="addons-heading">Extend after launch.</h2>
+      <div class="upsell-grid" style="margin-top:1.5rem">
+        <div class="upsell-item a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <span class="upsell-item-label">Content</span>
+          <div class="upsell-item-name">Content updates</div>
+          <div class="upsell-item-price">£25–50 / update</div>
+        </div>
+        <div class="upsell-item a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <span class="upsell-item-label">Search</span>
+          <div class="upsell-item-name">SEO audit report</div>
+          <div class="upsell-item-price">£99 one-time</div>
+        </div>
+        <div class="upsell-item a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <span class="upsell-item-label">Domain</span>
+          <div class="upsell-item-name">Domain management</div>
+          <div class="upsell-item-price">£20 / year</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="cta-s-heading">
+      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <h2 class="section-title" id="cta-s-heading">Ready to build something permanent?</h2>
+        <p class="section-intro" style="margin-bottom:2rem">Share your brief and we'll reply within 48 hours.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
+          <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="brief.html">Brief</a></li>
+      <li><a href="legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function site() {
+  return {
+    theme: localStorage.getItem('gf-theme') || 'night',
+    drawerOpen: false,
+    cookieVisible: false,
+
+    init() {
+      document.documentElement.setAttribute('data-theme', this.theme);
+      setTimeout(() => {
+        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
+      }, 1800);
+    },
+
+    toggleTheme() {
+      this.theme = this.theme === 'night' ? 'day' : 'night';
+      localStorage.setItem('gf-theme', this.theme);
+    },
+
+    acceptCookies() {
+      localStorage.setItem('gf-cookies', 'accepted');
+      this.cookieVisible = false;
+    },
+
+    declineCookies() {
+      localStorage.setItem('gf-cookies', 'declined');
+      this.cookieVisible = false;
+    }
+  };
+}
+</script>
+</body>
+</html>

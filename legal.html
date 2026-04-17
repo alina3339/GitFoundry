@@ -3,163 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy & Legal - GitFoundry</title>
-<meta name="description" content="Privacy policy, cookie policy, terms of service, and GDPR compliance information for GitFoundry.co.uk.">
-<meta name="theme-color" content="#111">
+<title>Legal - GitFoundry · Privacy, Terms &amp; Cookies</title>
+<meta name="description" content="GitFoundry's privacy policy, terms of service, and cookie policy. A UK studio supporting local businesses.">
+<link rel="canonical" href="https://gitfoundry.co.uk/legal.html">
+<meta property="og:title" content="Legal - GitFoundry">
+<meta property="og:description" content="Privacy policy, terms of service, and cookie policy.">
+<meta property="og:url" content="https://gitfoundry.co.uk/legal.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Legal - GitFoundry">
+<meta name="twitter:description" content="Privacy policy, terms of service, and cookie policy.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P72JB657');</script>
+<!-- End Google Tag Manager -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"></noscript>
-<style>
-  :root {
-    --black: #111;
-    --grey-700: #555;
-    --grey-500: #888;
-    --grey-300: #c8c8c8;
-    --grey-200: #e2e2e2;
-    --grey-100: #f0f0f0;
-    --white: #fafafa;
-    --paper: #fdfdfd;
-    --rule: #ddd;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Inter', -apple-system, sans-serif;
-    --mono: 'JetBrains Mono', monospace;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  *:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; }
-  body { font-family: var(--sans); background: var(--paper); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-  ::selection { background: var(--black); color: var(--white); }
-
-  a { text-decoration: none; color: inherit; }
-  a:hover { color: var(--black); }
-
-  header { padding: 1.6rem 2.5rem; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: baseline; }
-  .wordmark { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--black); }
-  .wordmark em { font-style: italic; font-weight: 300; }
-  .back-link { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-500); }
-  .back-link:hover { color: var(--black); }
-
-  .container { max-width: 720px; margin: 0 auto; padding: 0 2.5rem; }
-
-  .hero { padding: 3rem 0; border-bottom: 1px solid var(--rule); }
-  .hero-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 1rem; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1rem; }
-  .hero h1 i { font-weight: 400; }
-  .hero p { font-size: 0.9rem; font-weight: 300; color: var(--grey-700); line-height: 1.7; }
-
-  /* Tabbed interface */
-  .tabs { margin-top: 3rem; }
-  .tabs input[type="radio"] { display: none; }
-  .tabs label { display: inline-block; padding: 0.8rem 1.2rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; background: var(--grey-200); cursor: pointer; margin-right: 0.4rem; border-top-left-radius: 4px; border-top-right-radius: 4px; }
-  .tabs label:hover { background: var(--grey-300); }
-  .tab-panels section { display: none; padding: 2rem 0; border-top: 1px solid var(--rule); }
-  #tab-privacy:checked ~ label[for="tab-privacy"] { background: var(--white); border-bottom: none; }
-  #tab-cookies:checked ~ label[for="tab-cookies"] { background: var(--white); border-bottom: none; }
-  #tab-terms:checked ~ label[for="tab-terms"] { background: var(--white); border-bottom: none; }
-  #tab-privacy:checked ~ .tab-panels #privacy,
-  #tab-cookies:checked ~ .tab-panels #cookies,
-  #tab-terms:checked ~ .tab-panels #terms { display: block; }
-
-  h2 { font-family: var(--serif); font-weight: 300; margin-bottom: 1rem; }
-  h3 { font-family: var(--serif); font-weight: 400; margin: 1.5rem 0 0.5rem; }
-  p { font-size: 0.88rem; font-weight: 300; color: var(--grey-700); line-height: 1.8; margin-bottom: 1rem; }
-  ul { list-style: none; margin: 0.5rem 0 1.5rem; padding-left: 1.2rem; }
-  ul li { position: relative; padding-left: 1rem; margin-bottom: 0.3rem; }
-  ul li::before { content: '-'; position: absolute; left: 0; color: var(--grey-300); }
-
-  footer { border-top: 1px solid var(--rule); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; font-family: var(--mono); font-size: 0.55rem; color: var(--grey-500); }
-
-  @media (max-width: 600px) { .container { padding: 0 1.5rem; } header, footer { padding-left: 1.5rem; padding-right: 1.5rem; } .tabs label { display: block; margin-bottom: 0.3rem; } }
-</style>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body>
 
-<header>
-  <a href="index.html" class="wordmark" aria-label="GitFoundry home">Git<em>Foundry</em></a>
-  <a href="index.html" class="back-link">&larr; Back to site</a>
-</header>
+<body x-data="site()" :data-theme="theme">
 
-<main class="container">
-  <div class="hero">
-    <div class="hero-label">Legal & Privacy</div>
-    <h1>Your data, your <i>rights</i></h1>
-    <p>GitFoundry is committed to protecting your privacy and handling your data with care. All content here complies with UK GDPR, the Data Protection Act 2018, and the Data (Use and Access) Act 2025.</p>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <span x-text="theme==='night'?'☀':'☾'"></span>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-l" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
   </div>
+</nav>
 
-  <div class="tabs">
-    <input type="radio" name="tabset" id="tab-privacy" checked>
-    <label for="tab-privacy">Privacy Policy</label>
+<div id="nav-drawer-l" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+</div>
 
-    <input type="radio" name="tabset" id="tab-cookies">
-    <label for="tab-cookies">Cookie Policy</label>
+<main id="main">
+  <div class="content-wrapper">
 
-    <input type="radio" name="tabset" id="tab-terms">
-    <label for="tab-terms">Terms of Service</label>
+    <header class="page-header">
+      <span class="page-header-label">Legal</span>
+      <h1 class="page-header-title">Privacy, terms &amp; cookies.</h1>
+      <p class="page-header-desc">The legal documents that govern GitFoundry's services. Written in plain English wherever possible.</p>
+    </header>
 
-    <div class="tab-panels">
-      <section id="privacy">
-        <h2>Privacy Policy</h2>
-        <p><strong>Last updated:</strong> March 2026</p>
-        <p><strong>Data controller:</strong> GitFoundry, United Kingdom</p>
-        <p><strong>Contact:</strong> <a href="mailto:info@gitfoundry.co.uk">info@gitfoundry.co.uk</a></p>
+    <div class="legal-max legal-body">
 
-        <h3>What we collect</h3>
+      <section>
+        <span class="legal-updated">Privacy policy · Last updated April 2026</span>
+        <h2>Who we are</h2>
+        <p>GitFoundry is a UK-based web studio operated by Azhar, based in Stoke, Staffordshire. For any privacy-related enquiry, contact <a href="mailto:info@gitfoundry.co.uk">info@gitfoundry.co.uk</a>.</p>
+
+        <h2>What data we collect</h2>
+        <p>We collect only what is necessary to respond to your enquiry and deliver your project:</p>
         <ul>
-          <li>Your name and email address</li>
-          <li>Business or brand name</li>
-          <li>Phone number (optional)</li>
-          <li>Website vision, style preferences, project requirements</li>
-          <li>Domain name (if you have one)</li>
+          <li>Your name and email address (from the project brief form)</li>
+          <li>Details you provide about your project</li>
+          <li>Analytics data via Google Analytics (anonymised IP, browser type, pages visited)</li>
         </ul>
 
-        <h3>How we use your data</h3>
-        <ul>
-          <li>Respond to your enquiry and provide a quote</li>
-          <li>Deliver web design and development services</li>
-          <li>Communicate about your project</li>
-          <li>Comply with legal obligations</li>
-        </ul>
+        <h2>How we use it</h2>
+        <p>Personal data is used only to reply to your enquiry, deliver the service you've commissioned, and comply with our legal obligations (e.g. tax records). We do not sell your data. We do not share it with third parties except where required by law.</p>
 
-        <h3>Who we share data with</h3>
-        <ul>
-          <li>Email providers (for communication)</li>
-          <li>GitHub (deployment only, no personal data stored)</li>
-          <li>Domain registrars (if you request domain registration)</li>
-        </ul>
+        <h2>Your rights under UK GDPR</h2>
+        <p>You have the right to request access to, correction of, or deletion of your personal data at any time. Contact us at <a href="mailto:info@gitfoundry.co.uk">info@gitfoundry.co.uk</a> and we will respond within 30 days.</p>
 
-        <h3>Data retention</h3>
-        <p>Project data is kept for the duration of our relationship and up to 24 months after completion. Brief form data is retained for 12 months. Deletion can be requested anytime.</p>
+        <h2>Data retention</h2>
+        <p>Enquiry data is retained for 12 months unless a project proceeds, in which case project records are retained for 6 years to meet UK tax requirements.</p>
       </section>
 
-      <section id="cookies">
-        <h2>Cookie Policy</h2>
-        <p>We use no tracking cookies or analytics by default. GitHub Pages may use strictly necessary technical cookies for site delivery. Fonts from Google may log your IP per their policy.</p>
+      <hr class="section-divider" style="margin:3rem 0">
+
+      <section>
+        <span class="legal-updated">Terms of service · Last updated April 2026</span>
+        <h2>Scope</h2>
+        <p>These terms apply to all website design and development services provided by GitFoundry to clients in the UK and internationally.</p>
+
+        <h2>Quotes &amp; pricing</h2>
+        <p>All prices are quoted in GBP and include VAT where applicable. Quotes are valid for 30 days. The fee covers the scope described in the original brief — additional work is agreed separately.</p>
+
+        <h2>Payment</h2>
+        <p>A 50% deposit is due on project start. The remaining 50% is due on handover of the completed site. Projects are not deployed to production until final payment clears.</p>
+
+        <h2>Revisions</h2>
+        <p>Each pricing tier includes a defined number of revision rounds. Additional revision rounds are charged at £45/hour.</p>
+
+        <h2>Ownership</h2>
+        <p>On final payment, the complete source code is transferred to the client. The client owns all custom design work, content, and code produced specifically for their project.</p>
+
+        <h2>Third-party services</h2>
+        <p>Where a project uses third-party services (GitHub Pages, Formspree, domain registrars), the client is responsible for maintaining those accounts after handover.</p>
+
+        <h2>Liability</h2>
+        <p>Our liability is limited to the fees paid for the specific project. We cannot be held liable for business losses, third-party service outages, or issues arising from client-made changes post-handover.</p>
       </section>
 
-      <section id="terms">
-        <h2>Terms of Service</h2>
-        <h3>Services</h3>
-        <p>GitFoundry provides custom web design, development, and deployment services. All work is agreed in writing.</p>
-        <h3>Payment</h3>
-        <p>50% upfront, 50% upon completion. Prices in GBP, exclusive of VAT unless stated.</p>
-        <h3>Intellectual property</h3>
-        <p>After full payment, you own all rights. We may display work in our portfolio unless requested otherwise.</p>
-        <h3>Hosting & domain</h3>
-        <p>Sites hosted on GitHub Pages. Domain registration through third-party registrars.</p>
-        <h3>Limitation of liability</h3>
-        <p>Our total liability is limited to the fees paid. We are not liable for indirect or consequential damages.</p>
-        <h3>Governing law</h3>
-        <p>English law governs these terms; disputes are under English courts.</p>
+      <hr class="section-divider" style="margin:3rem 0">
+
+      <section>
+        <span class="legal-updated">Cookie policy · Last updated April 2026</span>
+        <h2>Cookies we use</h2>
+        <p>This site uses cookies only for Google Analytics, to understand how visitors use the site. Analytics cookies are optional and only set if you accept them via our cookie banner.</p>
+
+        <h2>Managing cookies</h2>
+        <p>You can decline cookies via the banner on first visit, or change your choice at any time by clearing your site data in your browser. Declining cookies does not affect your ability to use the site.</p>
+
+        <h2>No advertising or tracking</h2>
+        <p>We do not use advertising cookies, remarketing pixels, or cross-site tracking of any kind.</p>
       </section>
+
     </div>
   </div>
 </main>
 
-<footer>
-  &copy; 2026 GitFoundry. All rights reserved.
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+    </ul>
+  </div>
 </footer>
 
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function site() {
+  return {
+    theme: localStorage.getItem('gf-theme') || 'night',
+    drawerOpen: false,
+    cookieVisible: false,
+    init() {
+      document.documentElement.setAttribute('data-theme', this.theme);
+      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
+    },
+    toggleTheme() {
+      this.theme = this.theme === 'night' ? 'day' : 'night';
+      localStorage.setItem('gf-theme', this.theme);
+    },
+    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
+    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
+  };
+}
+</script>
 </body>
 </html>

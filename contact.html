@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - GitFoundry · Get in Touch</title>
+<meta name="description" content="Get in touch with GitFoundry. We reply to all enquiries within 48 hours. A UK studio based in Stoke, supporting local businesses.">
+<link rel="canonical" href="https://gitfoundry.co.uk/contact.html">
+<meta property="og:title" content="Contact - GitFoundry">
+<meta property="og:description" content="Get in touch. We reply within 48 hours.">
+<meta property="og:url" content="https://gitfoundry.co.uk/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact - GitFoundry">
+<meta name="twitter:description" content="Get in touch. We reply within 48 hours.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P72JB657');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <span x-text="theme==='night'?'☀':'☾'"></span>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-c" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer-c" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+</div>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <header class="page-header">
+      <span class="page-header-label">Contact</span>
+      <h1 class="page-header-title">Start a conversation.</h1>
+      <p class="page-header-desc">Whether you have a project in mind or just a question to ask, we'll reply within 48 hours.</p>
+    </header>
+
+    <section aria-labelledby="contact-heading">
+      <h2 class="sr-only" id="contact-heading">Contact details</h2>
+
+      <div class="item-row" style="margin-top:2rem">
+        <div class="item-row-label">Email</div>
+        <div class="item-row-body">
+          <a href="mailto:info@gitfoundry.co.uk" style="color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--text)'" onmouseout="this.style.borderColor='var(--border)'">info@gitfoundry.co.uk</a>
+          <span style="display:block;margin-top:0.5rem;font-size:0.8125rem;color:var(--text-muted)">We reply to all enquiries within 48 hours.</span>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-row-label">Location</div>
+        <div class="item-row-body">
+          Stoke, Staffordshire, UK.
+          <span style="display:block;margin-top:0.5rem;font-size:0.8125rem;color:var(--text-muted)">A UK studio supporting local businesses and clients across the country.</span>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-row-label">Projects</div>
+        <div class="item-row-body">
+          For a structured quote, the brief form is the fastest route.
+          <span style="display:block;margin-top:0.5rem;font-size:0.8125rem;color:var(--text-muted)">Tell us your goals, audience, and budget — we'll reply with a fixed price and timeline.</span>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section" aria-labelledby="cta-c-heading">
+      <h2 class="section-title" id="cta-c-heading">Ready to get started?</h2>
+      <p class="section-intro" style="margin-bottom:2rem">Describe your project and we'll reply with a clear quote. No obligation.</p>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+        <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
+        <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function site() {
+  return {
+    theme: localStorage.getItem('gf-theme') || 'night',
+    drawerOpen: false,
+    cookieVisible: false,
+
+    init() {
+      document.documentElement.setAttribute('data-theme', this.theme);
+      setTimeout(() => {
+        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
+      }, 1800);
+    },
+
+    toggleTheme() {
+      this.theme = this.theme === 'night' ? 'day' : 'night';
+      localStorage.setItem('gf-theme', this.theme);
+    },
+
+    acceptCookies() {
+      localStorage.setItem('gf-cookies', 'accepted');
+      this.cookieVisible = false;
+    },
+
+    declineCookies() {
+      localStorage.setItem('gf-cookies', 'declined');
+      this.cookieVisible = false;
+    }
+  };
+}
+</script>
+</body>
+</html>

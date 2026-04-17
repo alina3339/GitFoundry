@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing - GitFoundry · One-time Payment, Zero Monthly Fees</title>
+<meta name="description" content="Three tiers from £149 to £749+. One-time payment, full source code ownership, hosted free on GitHub Pages forever. Supporting local UK businesses.">
+<link rel="canonical" href="https://gitfoundry.co.uk/pricing.html">
+<meta property="og:title" content="Pricing - GitFoundry">
+<meta property="og:description" content="Three tiers from £149. One-time payment, full source code ownership, free GitHub Pages hosting forever.">
+<meta property="og:url" content="https://gitfoundry.co.uk/pricing.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pricing - GitFoundry">
+<meta name="twitter:description" content="Three tiers from £149. One-time payment, zero monthly fees.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P72JB657');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item active">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <span x-text="theme==='night'?'☀':'☾'"></span>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-p" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer-p" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
+</div>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <header class="page-header">
+      <span class="page-header-label">Pricing</span>
+      <h1 class="page-header-title">One-time payment.<br>No monthly fees, ever.</h1>
+      <p class="page-header-desc">Three tiers to match your project's scope. All include GitHub Pages deployment, full source code, and custom domain setup.</p>
+    </header>
+
+    <!-- Pricing cards -->
+    <section aria-labelledby="tiers-heading">
+      <h2 class="section-title" id="tiers-heading" style="margin-bottom:0.5rem">Choose your tier</h2>
+      <p class="section-intro">All prices include VAT. No hidden fees, no renewal costs.</p>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <div>
+            <span class="pricing-tier">Tier 01</span>
+            <div class="pricing-name">Landing Page</div>
+            <div class="pricing-tagline">A focused single-page site. Ideal for portfolios, CVs, product launches, and professional profiles.</div>
+            <span class="pricing-nudge">Fastest delivery — 3 days</span>
+          </div>
+          <div>
+            <div class="pricing-price"><sup>£</sup>149</div>
+            <div class="pricing-note">one-time payment · ~3 working days</div>
+          </div>
+          <ul class="pricing-features" aria-label="Landing Page inclusions">
+            <li>Single elegantly designed page</li>
+            <li>Responsive on all devices</li>
+            <li>Contact form (via Formspree)</li>
+            <li>GitHub Pages deployment</li>
+            <li>Custom domain connection</li>
+            <li>Basic meta &amp; OG tags</li>
+            <li>1 round of revisions</li>
+            <li>Full source code handover</li>
+            <li class="dim">SEO setup</li>
+            <li class="dim">Analytics integration</li>
+            <li class="dim">Custom animations</li>
+          </ul>
+          <a href="brief.html?tier=landing" class="btn btn-outline">Start this project</a>
+        </div>
+
+        <div class="pricing-card featured a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="transition-delay:0.08s">
+          <span class="pricing-badge">Most Popular</span>
+          <div>
+            <span class="pricing-tier">Tier 02</span>
+            <div class="pricing-name">Professional</div>
+            <div class="pricing-tagline">A complete multi-page presence. Everything a professional, local business, or researcher needs to be taken seriously online.</div>
+          </div>
+          <div>
+            <div class="pricing-price"><sup>£</sup>349</div>
+            <div class="pricing-note">one-time payment · ~7 working days</div>
+          </div>
+          <ul class="pricing-features" aria-label="Professional inclusions">
+            <li>Up to 5 pages</li>
+            <li>Responsive on all devices</li>
+            <li>Contact form (via Formspree)</li>
+            <li>GitHub Pages deployment</li>
+            <li>Custom domain connection</li>
+            <li>SEO fundamentals</li>
+            <li>Google Analytics / Plausible</li>
+            <li>Performance optimisation</li>
+            <li>2 rounds of revisions</li>
+            <li>Full source code handover</li>
+            <li class="dim">Custom interactions</li>
+          </ul>
+          <a href="brief.html?tier=professional" class="btn btn-primary">Start this project</a>
+        </div>
+
+        <div class="pricing-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="transition-delay:0.16s">
+          <div>
+            <span class="pricing-tier">Tier 03</span>
+            <div class="pricing-name">Bespoke</div>
+            <div class="pricing-tagline">Complex or custom requirements — extensive content, advanced interactions, or a distinctive visual identity.</div>
+            <span class="pricing-nudge">Priority turnaround</span>
+          </div>
+          <div>
+            <div class="pricing-price"><sup>£</sup>749<span style="font-size:1rem;color:var(--text-muted)">+</span></div>
+            <div class="pricing-note">one-time · timeline agreed per project</div>
+          </div>
+          <ul class="pricing-features" aria-label="Bespoke inclusions">
+            <li>Unlimited pages</li>
+            <li>Responsive on all devices</li>
+            <li>Contact form (via Formspree)</li>
+            <li>GitHub Pages deployment</li>
+            <li>Custom domain connection</li>
+            <li>Extended SEO setup</li>
+            <li>Analytics integration</li>
+            <li>Custom animations &amp; interactions</li>
+            <li>Advanced layout complexity</li>
+            <li>3 rounds of revisions</li>
+            <li>Priority turnaround</li>
+            <li>Full source code handover</li>
+          </ul>
+          <a href="brief.html?tier=bespoke" class="btn btn-outline">Discuss your project</a>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="section-divider" style="margin:4rem 0">
+
+    <!-- Add-ons -->
+    <section aria-labelledby="addons-p-heading">
+      <span class="section-label">After launch</span>
+      <h2 class="section-title" id="addons-p-heading">Optional add-ons</h2>
+      <p class="section-intro" style="margin-bottom:1.5rem">Maintenance, updates, and extras — charged individually, no retainer required.</p>
+
+      <div class="upsell-grid">
+        <div class="upsell-item a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <span class="upsell-item-label">Content</span>
+          <div class="upsell-item-name">Content updates</div>
+          <div class="upsell-item-price">£25–50 per update</div>
+        </div>
+        <div class="upsell-item a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <span class="upsell-item-label">Search</span>
+          <div class="upsell-item-name">SEO audit report</div>
+          <div class="upsell-item-price">£99 one-time</div>
+        </div>
+        <div class="upsell-item a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <span class="upsell-item-label">Domain</span>
+          <div class="upsell-item-name">Domain management</div>
+          <div class="upsell-item-price">£20 per year</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" style="margin:4rem 0">
+
+    <!-- Comparison table -->
+    <section aria-labelledby="compare-heading">
+      <span class="section-label">The cost of renting vs owning</span>
+      <h2 class="section-title" id="compare-heading">Three years of Squarespace<br>or one GitFoundry build?</h2>
+      <p class="section-intro" style="margin-bottom:0">The platforms charge monthly. We charge once.</p>
+
+      <table class="savings-table" aria-label="Platform cost comparison" style="margin-top:1.5rem">
+        <thead>
+          <tr>
+            <th scope="col">Platform</th>
+            <th scope="col">Monthly fee</th>
+            <th scope="col">3-year total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Squarespace (Business)</td>
+            <td>~£16/mo</td>
+            <td>~£576</td>
+          </tr>
+          <tr>
+            <td>Wix (Core)</td>
+            <td>~£14/mo</td>
+            <td>~£504</td>
+          </tr>
+          <tr>
+            <td>Webflow (Basic)</td>
+            <td>~£23/mo</td>
+            <td>~£828</td>
+          </tr>
+          <tr>
+            <td>WordPress.com (Business)</td>
+            <td>~£25/mo</td>
+            <td>~£900</td>
+          </tr>
+          <tr>
+            <td><strong>GitFoundry Professional</strong></td>
+            <td><span class="savings-highlight">£0/mo</span></td>
+            <td><span class="savings-highlight">£349 — once</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout" style="margin-top:1.5rem">
+        The platforms also retain rights over your content and can suspend your account. With GitFoundry, the code is yours and the hosting is free. There is no platform to abandon you.
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="cta-p-heading">
+      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <h2 class="section-title" id="cta-p-heading">Not sure which tier is right?</h2>
+        <p class="section-intro" style="margin-bottom:2rem">Describe your project in the brief and we'll recommend the appropriate tier.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
+          <a href="mailto:info@gitfoundry.co.uk" class="btn btn-outline">info@gitfoundry.co.uk</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="brief.html">Brief</a></li>
+      <li><a href="legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function site() {
+  return {
+    theme: localStorage.getItem('gf-theme') || 'night',
+    drawerOpen: false,
+    cookieVisible: false,
+
+    init() {
+      document.documentElement.setAttribute('data-theme', this.theme);
+      setTimeout(() => {
+        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
+      }, 1800);
+    },
+
+    toggleTheme() {
+      this.theme = this.theme === 'night' ? 'day' : 'night';
+      localStorage.setItem('gf-theme', this.theme);
+    },
+
+    acceptCookies() {
+      localStorage.setItem('gf-cookies', 'accepted');
+      this.cookieVisible = false;
+    },
+
+    declineCookies() {
+      localStorage.setItem('gf-cookies', 'declined');
+      this.cookieVisible = false;
+    }
+  };
+}
+</script>
+</body>
+</html>

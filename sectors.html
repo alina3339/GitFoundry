@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sectors - GitFoundry · Who We Build For</title>
+<meta name="description" content="Who GitFoundry builds for — local UK businesses, professionals, researchers, non-profits, and creatives. Precision-built websites, permanently owned.">
+<link rel="canonical" href="https://gitfoundry.co.uk/sectors.html">
+<meta property="og:title" content="Sectors - GitFoundry">
+<meta property="og:description" content="Local UK businesses, professionals, researchers, non-profits, and creatives. Precision-built websites, permanently owned.">
+<meta property="og:url" content="https://gitfoundry.co.uk/sectors.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sectors - GitFoundry">
+<meta name="twitter:description" content="Local UK businesses, professionals, researchers, non-profits, and creatives.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P72JB657');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <span x-text="theme==='night'?'☀':'☾'"></span>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-sec" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<div id="nav-drawer-sec" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+</div>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <header class="page-header">
+      <span class="page-header-label">Sectors</span>
+      <h1 class="page-header-title">Who we build for.</h1>
+      <p class="page-header-desc">A UK studio supporting local businesses, independent professionals, researchers, non-profits, and creatives — people whose work deserves a web presence as precise as the craft behind it.</p>
+    </header>
+
+    <section aria-labelledby="sectors-heading">
+      <span class="section-label">Sectors we serve</span>
+      <h2 class="section-title" id="sectors-heading">Built for people<br>who take their work seriously.</h2>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
+        <div class="item-row-label">Local business</div>
+        <div class="item-row-body">
+          <strong>Independent UK businesses, shops, trades &amp; services</strong>
+          The backbone of UK high streets — independent shops, studios, tradespeople, and professional services. A polished permanent web presence that reflects the quality of your work, without a monthly bill quietly eating into your margin.
+          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">Common projects: local shop sites, trade business pages, professional service sites, event pages.</span>
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Professionals</div>
+        <div class="item-row-body">
+          <strong>Consultants, freelancers &amp; advisors</strong>
+          Your expertise is established — your site should match. Something elegant, considered, and permanent that reflects your standards. No subscription-branded template footers, no monthly fee.
+          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">Common projects: consultant sites, advisory profiles, freelance portfolios, service pages.</span>
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Researchers</div>
+        <div class="item-row-body">
+          <strong>Academics &amp; scientists</strong>
+          Moving institutions? A university-hosted page doesn't travel with you. Your publications, research profile, and contact details — on a site that belongs to you, not your current employer.
+          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">Common projects: academic profiles, publication lists, research group pages, conference pages.</span>
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Non-profits</div>
+        <div class="item-row-body">
+          <strong>Charities, foundations &amp; community groups</strong>
+          Every pound spent on recurring hosting is a pound that didn't serve your mission. One build. Permanent free hosting. No ongoing platform cost draining donor funds.
+          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">Common projects: charity homepages, foundation sites, community group pages, campaign microsites.</span>
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Creatives</div>
+        <div class="item-row-body">
+          <strong>Artists, designers &amp; portfolio owners</strong>
+          An image-optimised portfolio that loads without compromise. No template constraints, no platform branding — something distinctive that reflects the standard of the work it contains.
+          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">Common projects: visual portfolios, design studio sites, photographer galleries, writer pages.</span>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section" aria-labelledby="cta-sec-heading">
+      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <h2 class="section-title" id="cta-sec-heading">Does this sound like you?</h2>
+        <p class="section-intro" style="margin-bottom:2rem">Tell us about your project. We reply within 48 hours with a quote and timeline.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
+          <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function site() {
+  return {
+    theme: localStorage.getItem('gf-theme') || 'night',
+    drawerOpen: false,
+    cookieVisible: false,
+    init() {
+      document.documentElement.setAttribute('data-theme', this.theme);
+      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
+    },
+    toggleTheme() {
+      this.theme = this.theme === 'night' ? 'day' : 'night';
+      localStorage.setItem('gf-theme', this.theme);
+    },
+    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
+    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
+  };
+}
+</script>
+</body>
+</html>
