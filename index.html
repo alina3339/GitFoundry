@@ -1,314 +1,194 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitFoundry · Precision-built Websites on GitHub Pages</title>
-<meta name="description" content="Websites built once, owned forever. Hand-coded, hosted free on GitHub Pages. No monthly fees.">
-<link rel="canonical" href="https://gitfoundry.co.uk/">
-<meta property="og:title" content="GitFoundry · Precision-built Websites on GitHub Pages">
-<meta property="og:description" content="Websites built once, owned forever. Hand-coded, hosted free on GitHub Pages. No monthly fees.">
-<meta property="og:url" content="https://gitfoundry.co.uk/">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_GB">
-<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GitFoundry · Precision-built Websites on GitHub Pages">
-<meta name="twitter:description" content="Websites built once, owned forever. Hand-coded, hosted free on GitHub Pages. No monthly fees.">
-<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitFoundry — Built once. Yours forever.</title>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P72JB657');</script>
-<!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="styles.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
-<link rel="stylesheet" href="styles.css">
-<script>document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')</script>
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Alpine -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<body x-data="site()" :data-theme="theme">
+<body x-data="{ mobileMenu: false }">
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="nav-container">
+      <div class="logo">GitFoundry</div>
 
-<!-- Booking Banner -->
-<div class="booking-banner">
-  <span>Now booking April–May projects</span> — 48-hour reply on every brief.
-</div>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="brief.html">Get Quote</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-<a href="#main" class="skip-link">Skip to main content</a>
+      <button class="mobile-toggle" @click="mobileMenu = !mobileMenu">
+        ☰
+      </button>
+    </div>
 
-<nav class="site-nav" aria-label="Primary navigation">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
-    <ul class="nav-links" role="list">
-      <li><a href="services.html"  class="nav-item">Services</a></li>
-      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
-      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="brief.html"     class="nav-item nav-cta">Get a quote</a></li>
-    </ul>
-    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
-      <span x-text="theme==='night'?'☀':'☾'"></span>
-    </button>
-    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
-      <span x-text="drawerOpen?'✕':'≡'"></span>
-    </button>
-  </div>
-</nav>
-
-<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
-  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
-  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
-  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
-</div>
-
-<main id="main">
+    <div class="mobile-menu" x-show="mobileMenu" x-transition>
+      <a href="about.html">About</a>
+      <a href="brief.html">Get Quote</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
 
   <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="content-wrapper">
-      <span class="hero-eyebrow">GitFoundry</span>
-      <p class="hero-clarifier">Precision-built websites on GitHub Pages. One-time fee. Yours forever.</p>
-      <h1 class="hero-title">Built once.<br><em>Yours forever.</em></h1>
-      <p class="hero-sub"><strong>48-hour reply.</strong> Lighthouse 90+. Full source code handover. A UK studio supporting local businesses with websites they actually own.</p>
-      <div class="hero-actions">
-        <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
-        <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
-      </div>
-      <div class="hero-tags">
-        <span class="spec-tag">Lighthouse 90+</span>
-        <span class="spec-tag">github pages</span>
-        <span class="spec-tag">zero hosting fees</span>
-        <span class="spec-tag">uk-based</span>
-        <span class="spec-tag">support local</span>
-      </div>
-    </div>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="content-wrapper hero-grid">
 
-  <hr class="section-divider">
+        <!-- LEFT -->
+        <div class="hero-content">
+          <span class="hero-eyebrow">GitFoundry</span>
 
-  <!-- STATS -->
-  <section class="section-sm stat-strip" aria-label="Key figures">
-    <div class="content-wrapper">
-      <div class="stat-strip-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="stat-item">
-          <span class="stat-num">£0</span>
-          <span class="stat-label">Monthly hosting</span>
+          <p class="hero-clarifier">
+            Precision-built websites on GitHub Pages. One-time fee. Yours forever.
+          </p>
+
+          <h1 class="hero-title">
+            Built once.<br><em>Yours forever.</em>
+          </h1>
+
+          <p class="hero-sub">
+            Lighthouse 90+. Full source code handover. Built for ownership, not subscriptions.
+          </p>
+
+          <div class="hero-actions">
+            <a href="brief.html" class="btn btn-primary">Get Quote</a>
+            <a href="#" class="btn btn-outline">View Pricing</a>
+          </div>
+
+          <div class="hero-tags">
+            <span class="spec-tag">No Hosting Fees</span>
+            <span class="spec-tag">GitHub Powered</span>
+            <span class="spec-tag">UK-Based</span>
+          </div>
         </div>
-        <div class="stat-item">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">Yours to own</span>
+
+        <!-- RIGHT ANIMATION -->
+        <div class="hero-animation">
+          <div class="globe-frame">
+            <svg viewBox="0 0 800 800">
+              <defs>
+                <clipPath id="sphereClip">
+                  <circle cx="400" cy="400" r="240"/>
+                </clipPath>
+              </defs>
+
+              <g id="whirl"></g>
+              <circle cx="400" cy="400" r="240" fill="rgba(44,40,33,0.07)"/>
+              <g id="graticule" clip-path="url(#sphereClip)"></g>
+              <g id="countries" clip-path="url(#sphereClip)"></g>
+              <circle cx="400" cy="400" r="240" fill="none" stroke="rgba(44,40,33,0.85)" stroke-width="1.5"/>
+            </svg>
+          </div>
         </div>
-        <div class="stat-item">
-          <span class="stat-num">&lt;48h</span>
-          <span class="stat-label">Response time</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">90+</span>
-          <span class="stat-label">Lighthouse scores</span>
-        </div>
+
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <hr class="section-divider">
+  <!-- LIBS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson-client/3.1.0/topojson-client.min.js"></script>
 
-  <!-- WHAT WE BUILD -->
-  <section class="section" id="services">
-    <div class="content-wrapper">
-      <span class="section-label">What we build</span>
-      <h2 class="section-title">No templates. No builders.<br>Hand-coded, designed for your project.</h2>
-      <p class="section-intro">A UK studio crafting each site with care — clean, considered, and measured. Hosted free on GitHub Pages. Yours outright from day one.</p>
+  <!-- ANIMATION -->
+  <script>
+  (async function(){
+    const NS='http://www.w3.org/2000/svg';
+    const cx=400, cy=400, r=240;
 
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2.5rem">
-        <div class="item-row-label">Design</div>
-        <div class="item-row-body">
-          <strong>Elegant layouts built around your goals</strong>
-          We start with your objectives and craft a site that communicates trust, clarity, and permanence — no generic templates, no compromises.
-        </div>
-      </div>
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Engineering</div>
-        <div class="item-row-body">
-          <strong>Clean, semantic, purpose-built</strong>
-          No WordPress, no Wix, no Squarespace. Just precise, accessible code that scores well on Lighthouse and loads fast on any connection.
-        </div>
-      </div>
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Deployment</div>
-        <div class="item-row-body">
-          <strong>Live on GitHub Pages — forever, free</strong>
-          Your site is deployed with a custom domain. GitHub hosts it indefinitely at no cost. No platform risk, no renewal anxiety.
-        </div>
-      </div>
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Ownership</div>
-        <div class="item-row-body">
-          <strong>The source code is yours</strong>
-          Every file, every line. You receive the complete repository. No lock-in, no dependency on us to stay live.
-        </div>
-      </div>
+    const ink=(a)=>{
+      const isDay=document.documentElement.getAttribute('data-theme')==='day';
+      return isDay ? `rgba(26,21,16,${a})` : `rgba(236,232,223,${a})`;
+    };
 
-      <div style="margin-top:2rem">
-        <a href="services.html" class="btn btn-outline">See full service detail →</a>
-      </div>
-    </div>
-  </section>
+    const projection=d3.geoOrthographic()
+      .scale(r)
+      .translate([cx,cy])
+      .clipAngle(90)
+      .rotate([0,-15,0]);
 
-  <hr class="section-divider">
+    const path=d3.geoPath(projection);
 
-  <!-- WHO IT'S FOR -->
-  <section class="section" id="who">
-    <div class="content-wrapper">
-      <span class="section-label">Who it's for</span>
-      <h2 class="section-title">For UK businesses and professionals<br>who deserve a site as precise as their work.</h2>
+    const countriesG=document.getElementById('countries');
+    const graticuleG=document.getElementById('graticule');
+    const whirlG=document.getElementById('whirl');
 
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2.5rem">
-        <div class="item-row-label">Local business</div>
-        <div class="item-row-body">
-          <strong>Independent UK businesses</strong>
-          Shops, studios, trades, and services — a polished, permanent web presence that reflects the quality of your work, without a monthly bill eating into your margin.
-        </div>
-      </div>
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Researchers</div>
-        <div class="item-row-body">
-          <strong>Academics &amp; scientists</strong>
-          Moving institutions? Your publications and profile — on a site that belongs to you, not your current employer's subscription.
-        </div>
-      </div>
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Professionals</div>
-        <div class="item-row-body">
-          <strong>Consultants, freelancers &amp; advisors</strong>
-          A professional presence that reflects the quality of your work — without a monthly fee quietly eroding your margin.
-        </div>
-      </div>
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Non-profits</div>
-        <div class="item-row-body">
-          <strong>Charities &amp; foundations</strong>
-          Every pound on recurring hosting is a pound that didn't serve your mission. One build. Permanent hosting. No monthly drain.
-        </div>
-      </div>
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Creatives</div>
-        <div class="item-row-body">
-          <strong>Artists, designers &amp; portfolio owners</strong>
-          Something distinctive that reflects the standard of the work it contains — no template constraints, no platform branding.
-        </div>
-      </div>
+    if(!countriesG) return;
 
-      <div style="margin-top:2rem">
-        <a href="sectors.html" class="btn btn-outline">See who we work with →</a>
-      </div>
-    </div>
-  </section>
+    const graticule=d3.geoGraticule().step([20,20])();
+    const gratEl=document.createElementNS(NS,'path');
+    gratEl.setAttribute('fill','none');
+    gratEl.setAttribute('stroke',ink(0.18));
+    gratEl.setAttribute('stroke-width','0.5');
+    graticuleG.appendChild(gratEl);
 
-  <hr class="section-divider">
+    const whirlConfigs=[
+      {radius:262,sweep:115,width:2,opacity:0.4,speed:24,start:20},
+      {radius:290,sweep:90,width:1.5,opacity:0.3,speed:-18,start:200}
+    ];
 
-  <!-- PRICING SUMMARY -->
-  <section class="section" id="pricing">
-    <div class="content-wrapper">
-      <span class="section-label">Pricing</span>
-      <h2 class="section-title">Three tiers.<br>One-time payment.</h2>
-      <p class="section-intro">All include GitHub Pages deployment, full source code handover, and custom domain setup. No monthly fees, ever.</p>
+    const arcs=whirlConfigs.map(cfg=>{
+      const el=document.createElementNS(NS,'path');
+      el.setAttribute('fill','none');
+      el.setAttribute('stroke',ink(cfg.opacity));
+      el.setAttribute('stroke-width',cfg.width);
+      whirlG.appendChild(el);
+      return {el,...cfg};
+    });
 
-      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
-        <div class="item-row">
-          <div class="item-row-label">Landing — £149</div>
-          <div class="item-row-body">Single page. Contact form. Custom domain. SEO setup. ~3 working days.</div>
-        </div>
-        <div class="item-row">
-          <div class="item-row-label">Professional — £349</div>
-          <div class="item-row-body">Up to 5 pages. Analytics. SEO fundamentals. GDPR compliance. ~7 working days.</div>
-        </div>
-        <div class="item-row">
-          <div class="item-row-label">Bespoke — £749+</div>
-          <div class="item-row-body">Custom animations. Advanced SEO. Portfolio filtering. Timeline agreed per project.</div>
-        </div>
-      </div>
+    const res=await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
+    const world=await res.json();
+    const countries=topojson.feature(world,world.objects.countries);
 
-      <div style="margin-top:2rem">
-        <a href="pricing.html" class="btn btn-outline">View full pricing →</a>
-      </div>
-    </div>
-  </section>
+    const countryEls=countries.features.map(f=>{
+      const el=document.createElementNS(NS,'path');
+      el.setAttribute('fill',ink(0.6));
+      el.setAttribute('stroke',ink(0.9));
+      el.setAttribute('stroke-width','0.4');
+      countriesG.appendChild(el);
+      return {el,feature:f};
+    });
 
-  <hr class="section-divider">
+    function arcPath(radius,start,sweep){
+      const s=(start-90)*Math.PI/180;
+      const e=(start+sweep-90)*Math.PI/180;
 
-  <!-- CTA -->
-  <section class="section" id="contact" aria-labelledby="cta-heading">
-    <div class="content-wrapper">
-      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <span class="section-label">Ready to begin</span>
-        <h2 class="section-title" id="cta-heading">Ready to stop renting<br>your website?</h2>
-        <p class="section-intro" style="margin-bottom:2rem">One-time payment. No lock-in. Yours forever. We respond within 48 hours.</p>
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
-          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
-          <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
-        </div>
-      </div>
-    </div>
-  </section>
+      return `
+        M ${cx+radius*Math.cos(s)} ${cy+radius*Math.sin(s)}
+        A ${radius} ${radius} 0 ${sweep>180?1:0} 1
+        ${cx+radius*Math.cos(e)} ${cy+radius*Math.sin(e)}
+      `;
+    }
 
-</main>
+    const t0=performance.now();
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
-    <ul class="footer-links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="legal.html">Legal</a></li>
-    </ul>
-  </div>
-</footer>
+    function tick(now){
+      const dt=(now-t0)/1000;
 
-<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
-  <div class="cookie-inner">
-    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
-    <div class="cookie-actions">
-      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
-      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
-    </div>
-  </div>
-</div>
+      projection.rotate([(dt*12)%360,-15,0]);
 
-<script>
-function site() {
-  return {
-    theme: localStorage.getItem('gf-theme') || 'night',
-    drawerOpen: false,
-    cookieVisible: false,
-    init() {
-      document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
-    },
-    toggleTheme() {
-      this.theme = this.theme === 'night' ? 'day' : 'night';
-      localStorage.setItem('gf-theme', this.theme);
-    },
-    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
-    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
-  };
-}
-</script>
+      gratEl.setAttribute('d',path(graticule));
+
+      countryEls.forEach(c=>{
+        c.el.setAttribute('d',path(c.feature));
+      });
+
+      arcs.forEach(a=>{
+        a.el.setAttribute('d',arcPath(a.radius,a.start+dt*a.speed,a.sweep));
+      });
+
+      requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  })();
+  </script>
+
 </body>
 </html>
