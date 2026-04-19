@@ -145,19 +145,14 @@
 
 </main>
 <!-- Hero globe — desktop only, loaded after everything else -->
+<!-- Hero globe — desktop only, loaded after everything else -->
 <script>
 if (window.matchMedia('(min-width: 960px)').matches) {
   var s1 = document.createElement('script');
   s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js';
   s1.defer = true;
+  s1.onload = initGlobe;
   document.body.appendChild(s1);
-  s1.onload = function() {
-    var s2 = document.createElement('script');
-    s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/topojson-client/3.1.0/topojson-client.min.js';
-    s2.defer = true;
-    document.body.appendChild(s2);
-    s2.onload = initGlobe;
-  };
 }
 
 async function initGlobe() {
@@ -219,10 +214,12 @@ async function initGlobe() {
 
   let countries = null;
   try {
-    const res = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
-    const world = await res.json();
-    countries = topojson.feature(world, world.objects.countries);
-  } catch (e) { return; }
+    const res = await fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson');
+    countries = await res.json();
+  } catch (e) {
+    console.warn('Globe: country data failed to load', e);
+    return;
+  }
 
   const countryEls = countries.features.map(f => {
     const el = document.createElementNS(NS, 'path');
