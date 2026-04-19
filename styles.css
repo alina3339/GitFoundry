@@ -173,3 +173,54 @@ body{
   height:1px;
   background:var(--border);
 }
+/* ── HERO GRID (globe beside text on desktop) ── */
+.hero-grid {
+  display: block;
+}
+
+@media (min-width: 960px) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .hero-text { min-width: 0; }
+  .hero-globe {
+    min-width: 0;
+    justify-self: end;
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+.hero-globe { display: none; }
+@media (min-width: 960px) {
+  .hero-globe { display: block; }
+}
+
+.globe-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.globe-frame svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── VITRUVIAN — shunt down so it doesn't sit behind the globe ── */
+@media (min-width: 960px) {
+  .hero::after {
+    top: auto;
+    bottom: -45%;
+    right: -15%;
+    transform: none;
+    width: min(60vw, 700px);
+    height: min(60vw, 700px);
+  }
+}
