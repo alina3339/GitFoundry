@@ -1122,3 +1122,40 @@ body::before {
 
 /* GTM noscript hidden */
 iframe[src*="googletagmanager"] { display: none !important; visibility: hidden !important; }
+/* HERO SPLIT LAYOUT — NON-DESTRUCTIVE */
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* keep your typography intact */
+.hero-main {
+  max-width: 640px;
+}
+
+/* RIGHT SIDE */
+.hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* animation container — respects your minimal aesthetic */
+.globe-wrap {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.9;
+}
+
+.globe-wrap svg {
+  width: 100%;
+  height: auto;
+}
