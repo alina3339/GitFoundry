@@ -44,36 +44,43 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="hero">
-
-  <div class="content-wrapper">
-
-    <span class="hero-eyebrow">GitFoundry</span>
-
-    <h1 class="hero-title">
-      Built once.<br><em>Yours forever.</em>
-    </h1>
-
-    <p class="hero-sub">
-      We build precision-crafted websites hosted on GitHub Pages. No subscriptions, no platform lock-in — full ownership from day one.
-    </p>
-
-    <div class="hero-actions">
-      <a href="brief.html" class="btn btn-primary">Get a Quote</a>
-      <a href="#pricing" class="btn btn-outline">View Pricing</a>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="content-wrapper hero-grid">
+    <div class="hero-text">
+      <span class="hero-eyebrow">GitFoundry</span>
+      <p class="hero-clarifier">Precision-built websites on GitHub Pages. One-time fee. Yours forever.</p>
+      <h1 class="hero-title">Built once.<br><em>Yours forever.</em></h1>
+      <p class="hero-sub"><strong>48-hour reply.</strong> Lighthouse 90+. Full source code handover. A UK studio supporting local businesses with websites they actually own.</p>
+      <div class="hero-actions">
+        <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
+        <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
+      </div>
+      <div class="hero-tags">
+        <span class="spec-tag">Lighthouse 90+</span>
+        <span class="spec-tag">github pages</span>
+        <span class="spec-tag">zero hosting fees</span>
+        <span class="spec-tag">uk-based</span>
+        <span class="spec-tag">support local</span>
+      </div>
     </div>
 
-    <div class="hero-tags">
-      <span class="spec-tag">Free hosting forever</span>
-      <span class="spec-tag">GitHub Pages</span>
-      <span class="spec-tag">Clean builds</span>
-      <span class="spec-tag">Ownership model</span>
+    <div class="hero-globe" aria-hidden="true">
+      <div class="globe-frame">
+        <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <clipPath id="sphereClip"><circle cx="400" cy="400" r="240"/></clipPath>
+          </defs>
+          <g id="whirl" style="pointer-events:none;"></g>
+          <circle cx="400" cy="400" r="240" fill="rgba(236,232,223,0.05)"/>
+          <g id="graticule" clip-path="url(#sphereClip)" style="pointer-events:none;"></g>
+          <g id="countries" clip-path="url(#sphereClip)" style="pointer-events:none;"></g>
+          <circle cx="400" cy="400" r="240" fill="none" stroke="rgba(236,232,223,0.5)" stroke-width="1.2"/>
+        </svg>
+      </div>
     </div>
-
   </div>
-
 </section>
-
 <!-- VALUE -->
 <section class="section">
 
@@ -137,6 +144,124 @@
 </section>
 
 </main>
+<!-- Hero globe — desktop only, loaded after everything else -->
+<script>
+if (window.matchMedia('(min-width: 960px)').matches) {
+  var s1 = document.createElement('script');
+  s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js';
+  s1.defer = true;
+  document.body.appendChild(s1);
+  s1.onload = function() {
+    var s2 = document.createElement('script');
+    s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/topojson-client/3.1.0/topojson-client.min.js';
+    s2.defer = true;
+    document.body.appendChild(s2);
+    s2.onload = initGlobe;
+  };
+}
 
+async function initGlobe() {
+  const NS = 'http://www.w3.org/2000/svg';
+  const cx = 400, cy = 400, r = 240;
+  const ink = (a) => `rgba(236,232,223,${a})`;
+
+  const projection = d3.geoOrthographic().scale(r).translate([cx, cy]).clipAngle(90).rotate([0, -15, 0]);
+  const path = d3.geoPath(projection);
+
+  const countriesG = document.getElementById('countries');
+  const graticuleG = document.getElementById('graticule');
+  const whirlG = document.getElementById('whirl');
+
+  const graticule = d3.geoGraticule().step([20, 20])();
+  const gratEl = document.createElementNS(NS, 'path');
+  gratEl.setAttribute('fill', 'none');
+  gratEl.setAttribute('stroke', ink(0.12));
+  gratEl.setAttribute('stroke-width', '0.5');
+  graticuleG.appendChild(gratEl);
+
+  const equator = { type: 'LineString', coordinates: Array.from({length:361}, (_,i) => [i-180, 0]) };
+  const equatorEl = document.createElementNS(NS, 'path');
+  equatorEl.setAttribute('fill', 'none');
+  equatorEl.setAttribute('stroke', ink(0.2));
+  equatorEl.setAttribute('stroke-width', '0.7');
+  graticuleG.appendChild(equatorEl);
+
+  const whirlConfigs = [
+    {radius:262,sweep:115,width:2.2,opacity:0.3, speed:48, start:20},
+    {radius:285,sweep:75, width:1.6,opacity:0.22,speed:-36,start:210},
+    {radius:310,sweep:140,width:1.2,opacity:0.18,speed:24, start:100},
+    {radius:335,sweep:55, width:1.0,opacity:0.14,speed:-18,start:300},
+    {radius:360,sweep:95, width:0.8,opacity:0.10,speed:14, start:150},
+    {radius:385,sweep:35, width:0.7,opacity:0.08,speed:-10,start:50}
+  ];
+  const whirlArcs = whirlConfigs.map(cfg => {
+    const el = document.createElementNS(NS, 'path');
+    el.setAttribute('fill', 'none');
+    el.setAttribute('stroke', ink(cfg.opacity));
+    el.setAttribute('stroke-width', cfg.width);
+    el.setAttribute('stroke-linecap', 'round');
+    whirlG.appendChild(el);
+    return { el, ...cfg };
+  });
+
+  const dotConfigs = [
+    {radius:272,size:3.5,opacity:0.4, speed:50, start:130},
+    {radius:320,size:2.5,opacity:0.28,speed:-28,start:0},
+    {radius:370,size:2.0,opacity:0.2, speed:18, start:260}
+  ];
+  const dots = dotConfigs.map(cfg => {
+    const el = document.createElementNS(NS, 'circle');
+    el.setAttribute('r', cfg.size);
+    el.setAttribute('fill', ink(cfg.opacity));
+    whirlG.appendChild(el);
+    return { el, ...cfg };
+  });
+
+  let countries = null;
+  try {
+    const res = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
+    const world = await res.json();
+    countries = topojson.feature(world, world.objects.countries);
+  } catch (e) { return; }
+
+  const countryEls = countries.features.map(f => {
+    const el = document.createElementNS(NS, 'path');
+    el.setAttribute('fill', ink(0.35));
+    el.setAttribute('stroke', ink(0.55));
+    el.setAttribute('stroke-width', '0.45');
+    el.setAttribute('stroke-linejoin', 'round');
+    countriesG.appendChild(el);
+    return { el, feature: f };
+  });
+
+  function arcPath(radius, startDeg, sweepDeg) {
+    const s = (startDeg-90)*Math.PI/180;
+    const e = (startDeg+sweepDeg-90)*Math.PI/180;
+    const x1 = cx+radius*Math.cos(s), y1 = cy+radius*Math.sin(s);
+    const x2 = cx+radius*Math.cos(e), y2 = cy+radius*Math.sin(e);
+    const large = sweepDeg>180 ? 1 : 0;
+    return `M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${radius} ${radius} 0 ${large} 1 ${x2.toFixed(2)} ${y2.toFixed(2)}`;
+  }
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const t0 = performance.now();
+
+  function tick(now) {
+    const dt = (now-t0)/1000;
+    projection.rotate([(dt*22)%360, -15, 0]);
+    gratEl.setAttribute('d', path(graticule) || '');
+    equatorEl.setAttribute('d', path(equator) || '');
+    countryEls.forEach(c => c.el.setAttribute('d', path(c.feature) || ''));
+    whirlArcs.forEach(a => a.el.setAttribute('d', arcPath(a.radius, a.start+dt*a.speed, a.sweep)));
+    dots.forEach(d => {
+      const ang = (d.start+dt*d.speed-90)*Math.PI/180;
+      d.el.setAttribute('cx', (cx+d.radius*Math.cos(ang)).toFixed(2));
+      d.el.setAttribute('cy', (cy+d.radius*Math.sin(ang)).toFixed(2));
+    });
+    if (!reduce) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+</script>
 </body>
 </html>
