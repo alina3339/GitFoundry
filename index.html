@@ -1,51 +1,53 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitFoundry — Built once. Yours forever.</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="styles.css">
- 
-  <!-- Alpine -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<title>GitFoundry</title>
+<meta name="description" content="Precision-built GitHub Pages websites. No subscriptions. Full ownership.">
+
+<link rel="stylesheet" href="styles.css">
+
 </head>
 
-<body x-data="{ mobileMenu: false }">
+<body>
 
-  <!-- NAV -->
-  <header class="site-header">
-    <div class="nav-container">
-      <div class="logo">GitFoundry</div>
+<a class="skip-link" href="#main">Skip to content</a>
 
-      <nav class="nav-links">
-        <a href="about.html">About</a>
-        <a href="brief.html">Get Quote</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
 
-      <button class="mobile-toggle" @click="mobileMenu = !mobileMenu">
-        ☰
-      </button>
-    </div>
+    <a class="nav-logo" href="index.html">
+      Git<span>Foundry</span>
+    </a>
 
-    <div class="mobile-menu" x-show="mobileMenu" x-transition>
-      <a href="about.html">About</a>
-      <a href="brief.html">Get Quote</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </header>
+    <ul class="nav-links">
+      <li><a class="nav-item active" href="about.html">About</a></li>
+      <li><a class="nav-item" href="brief.html">Get Quote</a></li>
+      <li><a class="nav-item" href="contact.html">Contact</a></li>
+      <li><a class="nav-item nav-cta" href="brief.html">Start Project</a></li>
+    </ul>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero">
-      <div class="content-wrapper hero-grid">
+    <button class="nav-burger" aria-label="Open menu">☰</button>
 
-        <!-- LEFT -->
-        <div class="content-wrapper hero-layout">
+  </div>
 
-  <!-- LEFT: ORIGINAL CONTENT (UNCHANGED) -->
-  <div class="hero-main">
+  <div class="nav-drawer">
+    <a class="nav-item" href="about.html">About</a>
+    <a class="nav-item" href="brief.html">Get Quote</a>
+    <a class="nav-item" href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="content-wrapper">
+
     <span class="hero-eyebrow">GitFoundry</span>
 
     <h1 class="hero-title">
@@ -53,7 +55,7 @@
     </h1>
 
     <p class="hero-sub">
-      Every other platform charges you rent. We hand you the keys - a precision-built website on GitHub Pages with zero monthly fees, permanently.
+      We build precision-crafted websites hosted on GitHub Pages. No subscriptions, no platform lock-in — full ownership from day one.
     </p>
 
     <div class="hero-actions">
@@ -62,136 +64,79 @@
     </div>
 
     <div class="hero-tags">
-      <span class="spec-tag">Beautifully crafted</span>
-      <span class="spec-tag">github pages</span>
-      <span class="spec-tag">zero hosting fees</span>
-      <span class="spec-tag">uk-based</span>
-      <span class="spec-tag">Friendly staff</span>
+      <span class="spec-tag">Free hosting forever</span>
+      <span class="spec-tag">GitHub Pages</span>
+      <span class="spec-tag">Clean builds</span>
+      <span class="spec-tag">Ownership model</span>
     </div>
+
   </div>
 
-  <!-- RIGHT: ANIMATION -->
-  <div class="hero-visual">
-    <div class="globe-wrap">
+</section>
 
-      <svg viewBox="0 0 800 800" aria-hidden="true">
-        <defs>
-          <clipPath id="sphereClip">
-            <circle cx="400" cy="400" r="240"/>
-          </clipPath>
-        </defs>
+<!-- VALUE -->
+<section class="section">
 
-        <g id="whirl"></g>
-        <circle cx="400" cy="400" r="240" fill="rgba(44,40,33,0.07)"/>
-        <g id="graticule" clip-path="url(#sphereClip)"></g>
-        <g id="countries" clip-path="url(#sphereClip)"></g>
-        <circle cx="400" cy="400" r="240" fill="none" stroke="rgba(44,40,33,0.85)" stroke-width="1.5"/>
-      </svg>
+  <div class="content-wrapper">
 
-    </div>
+    <span class="section-label">Why GitFoundry</span>
+
+    <h2 class="section-title">
+      Web presence without <em>rent</em>
+    </h2>
+
+    <p class="section-intro">
+      Traditional platforms charge ongoing fees for websites you never truly own. We remove that dependency entirely.
+    </p>
+
   </div>
 
-</div>
-    </section>
-  </main>
+</section>
 
-  <!-- LIBS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson-client/3.1.0/topojson-client.min.js"></script>
+<hr class="section-divider">
 
-  <!-- ANIMATION -->
-  <script>
-  (async function(){
-    const NS='http://www.w3.org/2000/svg';
-    const cx=400, cy=400, r=240;
+<!-- PROCESS -->
+<section class="section">
 
-    const ink=(a)=>{
-      const isDay=document.documentElement.getAttribute('data-theme')==='day';
-      return isDay ? `rgba(26,21,16,${a})` : `rgba(236,232,223,${a})`;
-    };
+  <div class="content-wrapper">
 
-    const projection=d3.geoOrthographic()
-      .scale(r)
-      .translate([cx,cy])
-      .clipAngle(90)
-      .rotate([0,-15,0]);
+    <span class="section-label">Process</span>
 
-    const path=d3.geoPath(projection);
+    <h2 class="section-title">Simple execution model</h2>
 
-    const countriesG=document.getElementById('countries');
-    const graticuleG=document.getElementById('graticule');
-    const whirlG=document.getElementById('whirl');
+    <div class="process-list">
 
-    if(!countriesG) return;
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <div class="process-body">
+          <strong>Brief</strong>
+          <p>You define what you need — we translate it into structure.</p>
+        </div>
+      </div>
 
-    const graticule=d3.geoGraticule().step([20,20])();
-    const gratEl=document.createElementNS(NS,'path');
-    gratEl.setAttribute('fill','none');
-    gratEl.setAttribute('stroke',ink(0.18));
-    gratEl.setAttribute('stroke-width','0.5');
-    graticuleG.appendChild(gratEl);
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <div class="process-body">
+          <strong>Build</strong>
+          <p>We design and implement a static GitHub Pages site.</p>
+        </div>
+      </div>
 
-    const whirlConfigs=[
-      {radius:262,sweep:115,width:2,opacity:0.4,speed:24,start:20},
-      {radius:290,sweep:90,width:1.5,opacity:0.3,speed:-18,start:200}
-    ];
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <div class="process-body">
+          <strong>Deploy</strong>
+          <p>Your site goes live — permanently hosted, no recurring cost.</p>
+        </div>
+      </div>
 
-    const arcs=whirlConfigs.map(cfg=>{
-      const el=document.createElementNS(NS,'path');
-      el.setAttribute('fill','none');
-      el.setAttribute('stroke',ink(cfg.opacity));
-      el.setAttribute('stroke-width',cfg.width);
-      whirlG.appendChild(el);
-      return {el,...cfg};
-    });
+    </div>
 
-    const res=await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
-    const world=await res.json();
-    const countries=topojson.feature(world,world.objects.countries);
+  </div>
 
-    const countryEls=countries.features.map(f=>{
-      const el=document.createElementNS(NS,'path');
-      el.setAttribute('fill',ink(0.6));
-      el.setAttribute('stroke',ink(0.9));
-      el.setAttribute('stroke-width','0.4');
-      countriesG.appendChild(el);
-      return {el,feature:f};
-    });
+</section>
 
-    function arcPath(radius,start,sweep){
-      const s=(start-90)*Math.PI/180;
-      const e=(start+sweep-90)*Math.PI/180;
-
-      return `
-        M ${cx+radius*Math.cos(s)} ${cy+radius*Math.sin(s)}
-        A ${radius} ${radius} 0 ${sweep>180?1:0} 1
-        ${cx+radius*Math.cos(e)} ${cy+radius*Math.sin(e)}
-      `;
-    }
-
-    const t0=performance.now();
-
-    function tick(now){
-      const dt=(now-t0)/1000;
-
-      projection.rotate([(dt*12)%360,-15,0]);
-
-      gratEl.setAttribute('d',path(graticule));
-
-      countryEls.forEach(c=>{
-        c.el.setAttribute('d',path(c.feature));
-      });
-
-      arcs.forEach(a=>{
-        a.el.setAttribute('d',arcPath(a.radius,a.start+dt*a.speed,a.sweep));
-      });
-
-      requestAnimationFrame(tick);
-    }
-
-    requestAnimationFrame(tick);
-  })();
-  </script>
+</main>
 
 </body>
 </html>
