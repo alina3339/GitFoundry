@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About - GitFoundry · The Person Behind the Build</title>
-<meta name="description" content="GitFoundry is built by Azhar, based in Stoke. A UK studio supporting local businesses — every site precision-built, audited to Lighthouse, and handed over in full.">
+<title>About · GitFoundry</title>
+<meta name="description" content="GitFoundry is a one-person UK web studio. Hand-coded static sites, no ongoing fees, full client ownership.">
 <link rel="canonical" href="https://gitfoundry.co.uk/about.html">
-<meta property="og:title" content="About - GitFoundry">
-<meta property="og:description" content="The person behind the build. A UK studio supporting local businesses with precision-built websites.">
+<meta property="og:title" content="About · GitFoundry">
+<meta property="og:description" content="A one-person UK web studio. Hand-coded static sites, no ongoing fees, full client ownership.">
 <meta property="og:url" content="https://gitfoundry.co.uk/about.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About - GitFoundry">
-<meta name="twitter:description" content="The person behind the build. Precision-built websites, audited to Lighthouse, handed over in full.">
+<meta name="twitter:title" content="About · GitFoundry">
+<meta name="twitter:description" content="A one-person UK web studio. Hand-coded static sites, no ongoing fees, full client ownership.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
 
 <!-- Google Tag Manager -->
@@ -44,7 +44,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- NAV -->
 <nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
     <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
@@ -52,7 +51,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get a quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
       <span x-text="theme==='night'?'☀':'☾'"></span>
@@ -63,12 +62,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
-<!-- Mobile drawer -->
 <div id="nav-drawer-a" class="nav-drawer" :class="drawerOpen?'open':''">
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
 </div>
 
 <main id="main">
@@ -77,7 +75,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="page-header">
       <span class="page-header-label">About</span>
       <h1 class="page-header-title">The person behind the build.</h1>
-      <p class="page-header-desc">GitFoundry is not an agency. No account managers, no handoffs, no junior teams. A UK studio supporting local businesses — every site built by the same person from brief to handover.</p>
+      <p class="page-header-desc">GitFoundry is not an agency. No account managers, no handoffs, no junior teams. Every site built by the same person from brief to handover.</p>
     </header>
 
     <!-- Who -->
@@ -88,15 +86,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
         <div class="item-row-label">Background</div>
         <div class="item-row-body">
-          I'm based in Stoke, Staffordshire, and I work with local UK businesses and clients across the country. My background is in software and digital design, with a focus on quality, performance, and precision.
-          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">GitFoundry grew out of a straightforward frustration: most people building a professional presence online end up paying rent indefinitely for something they never truly own. I wanted to offer a better arrangement — and to do it for UK independents who deserve proper craft.</span>
+          Based in Stoke, Staffordshire. My background is in software and digital design, with a focus on quality, performance, and precision.
+          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">GitFoundry grew out of a straightforward frustration: most people building a professional presence online end up paying rent indefinitely for something they never truly own. I wanted to offer a better arrangement — for UK independents who deserve proper craft.</span>
         </div>
       </div>
 
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Why this</div>
         <div class="item-row-body">
-          There is no shortage of ways to build a website. Squarespace, Wix, Webflow — they all work. But they all charge you monthly, they all hold the assets, and they all reserve the right to change pricing, alter features, or suspend your account.
+          Squarespace, Wix, Webflow — they all work. But they all charge you monthly, hold the assets, and reserve the right to change pricing or suspend your account.
           <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">What I offer is the alternative: a site designed from scratch, hosted free on GitHub Pages, and handed over to you in full. You own every file. There is no platform to abandon you.</span>
         </div>
       </div>
@@ -105,7 +103,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="item-row-label">Supporting local</div>
         <div class="item-row-body">
           <strong>UK independents, local businesses, and professionals</strong>
-          The UK high street is built on independent shops, studios, trades, and professional practices. They deserve web presences as considered as their work — not rented templates that look identical to everyone else's. That's who this studio is for.
+          The UK high street is built on independent shops, studios, trades, and professional practices. They deserve web presences as considered as their work — not rented templates that look identical to everyone else's.
         </div>
       </div>
 
@@ -124,13 +122,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section aria-labelledby="how-heading">
       <span class="section-label">How the work is done</span>
       <h2 class="section-title" id="how-heading">Methodical, not rushed.<br>Every site earns its handover.</h2>
-      <p class="section-intro" style="margin-bottom:2rem">A site isn't shown to a client because a deadline arrived. It's shown because it's ready. That distinction matters.</p>
+      <p class="section-intro" style="margin-bottom:2rem">A site isn't shown to a client because a deadline arrived. It's shown because it's ready.</p>
 
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">The standard</div>
         <div class="item-row-body">
           <strong>Lighthouse audit on every project</strong>
-          Before any site is shared with a client, it passes a Google Lighthouse audit across all four metrics — performance, accessibility, best practices, and SEO. This isn't a checkbox. It's the threshold for handover.
+          Before any site is shared with a client, it passes a Google Lighthouse audit across all four metrics — performance, accessibility, best practices, and SEO. This is the threshold for handover, not a checkbox.
         </div>
       </div>
 
@@ -138,7 +136,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="item-row-label">The approach</div>
         <div class="item-row-body">
           <strong>Multiple iterations before you see anything</strong>
-          Every project goes through several rounds of internal refinement before a preview is shared. Layout, typography, contrast, responsiveness, and performance are all reviewed before a client's time is asked for.
+          Layout, typography, contrast, responsiveness, and performance are all reviewed before a client's time is asked for.
         </div>
       </div>
 
@@ -146,7 +144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="item-row-label">The handover</div>
         <div class="item-row-body">
           <strong>Full source code, not just a live URL</strong>
-          You receive the complete repository — every file, every commit. You can take it to another developer, edit it yourself, or simply leave it running on GitHub Pages indefinitely. There is no ongoing dependency on me.
+          You receive the complete repository — every file, every commit. You can take it to another developer, edit it yourself, or leave it running on GitHub Pages indefinitely. No ongoing dependency on me.
         </div>
       </div>
 
@@ -154,7 +152,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="item-row-label">The relationship</div>
         <div class="item-row-body">
           <strong>You deal with the person building your site</strong>
-          There are no account managers between us. When you ask a question, the person who answers is the same person designing and building your site. That keeps decisions fast, communication honest, and quality consistent.
+          No account managers between us. When you ask a question, the person who answers is the same person designing and building your site.
         </div>
       </div>
     </section>
@@ -167,37 +165,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-title" id="standard-heading">What every GitFoundry site ships with.</h2>
 
       <div class="stat-strip-inner" style="margin-top:2rem">
-        <div class="stat-item">
-          <span class="stat-num">97+</span>
-          <span class="stat-label">Performance</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">100</span>
-          <span class="stat-label">Accessibility</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">100</span>
-          <span class="stat-label">Best practices</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">95+</span>
-          <span class="stat-label">SEO</span>
-        </div>
+        <div class="stat-item"><span class="stat-num">97+</span><span class="stat-label">Performance</span></div>
+        <div class="stat-item"><span class="stat-num">100</span><span class="stat-label">Accessibility</span></div>
+        <div class="stat-item"><span class="stat-num">100</span><span class="stat-label">Best practices</span></div>
+        <div class="stat-item"><span class="stat-num">95+</span><span class="stat-label">SEO</span></div>
       </div>
 
       <div class="callout" style="margin-top:1.5rem">
-        These are the Lighthouse scores measured on completed GitFoundry sites, audited on mobile — the stricter standard. Every project is audited before handover. These figures are targets, not guarantees — exact scores vary by project complexity, but the standard holds.
+        Lighthouse scores measured on completed GitFoundry sites, audited on mobile — the stricter standard. Exact scores vary by project complexity, but the standard holds.
       </div>
     </section>
 
     <!-- CTA -->
     <section class="section" aria-labelledby="cta-a-heading">
       <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <h2 class="section-title" id="cta-a-heading">If that sounds like the right fit,<br>tell me about your project.</h2>
-        <p class="section-intro" style="margin-bottom:2rem">A short brief is all it takes. I'll review it and reply within 48 hours with a quote and timeline.</p>
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
-          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
-          <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
+        <h2 class="section-title" id="cta-a-heading">If that sounds like the right fit,<br>let's talk.</h2>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem">
+          <a href="brief.html" class="btn btn-primary">Submit a brief</a>
         </div>
       </div>
     </section>
@@ -207,19 +191,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses</span>
+    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
 </footer>
 
-<!-- Cookie Banner -->
 <div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
   <div class="cookie-inner">
     <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
@@ -236,28 +220,16 @@ function site() {
     theme: localStorage.getItem('gf-theme') || 'night',
     drawerOpen: false,
     cookieVisible: false,
-
     init() {
       document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => {
-        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
-      }, 1800);
+      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
     },
-
     toggleTheme() {
       this.theme = this.theme === 'night' ? 'day' : 'night';
       localStorage.setItem('gf-theme', this.theme);
     },
-
-    acceptCookies() {
-      localStorage.setItem('gf-cookies', 'accepted');
-      this.cookieVisible = false;
-    },
-
-    declineCookies() {
-      localStorage.setItem('gf-cookies', 'declined');
-      this.cookieVisible = false;
-    }
+    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
+    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
   };
 }
 </script>

@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitFoundry | Precision-built Websites, Zero Hosting Fees</title>
-<meta name="description" content="Precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees, no platform lock-in. A UK web studio supporting local businesses.">
+<title>GitFoundry · Precision-built Websites on GitHub Pages</title>
+<meta name="description" content="Websites built once, owned forever. Hand-coded, hosted free on GitHub Pages. No monthly fees.">
 <link rel="canonical" href="https://gitfoundry.co.uk/">
-<meta property="og:title" content="GitFoundry | Precision-built Websites, Zero Hosting Fees">
-<meta property="og:description" content="Precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees. A UK web studio supporting local businesses.">
+<meta property="og:title" content="GitFoundry · Precision-built Websites on GitHub Pages">
+<meta property="og:description" content="Websites built once, owned forever. Hand-coded, hosted free on GitHub Pages. No monthly fees.">
 <meta property="og:url" content="https://gitfoundry.co.uk/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GitFoundry | Precision-built Websites, Zero Hosting Fees">
-<meta name="twitter:description" content="Precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees. A UK web studio supporting local businesses.">
+<meta name="twitter:title" content="GitFoundry · Precision-built Websites on GitHub Pages">
+<meta name="twitter:description" content="Websites built once, owned forever. Hand-coded, hosted free on GitHub Pages. No monthly fees.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
 
 <!-- Google Tag Manager -->
@@ -49,7 +49,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
-<!-- NAV -->
 <nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
     <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
@@ -57,7 +56,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get a quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
       <span x-text="theme==='night'?'☀':'☾'"></span>
@@ -68,17 +67,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
-<!-- Mobile drawer -->
 <div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
 </div>
 
 <main id="main">
 
-  <!-- ── HERO ── -->
+  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="content-wrapper">
       <span class="hero-eyebrow">GitFoundry</span>
@@ -101,7 +99,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <hr class="section-divider">
 
-  <!-- ── STATS ── -->
+  <!-- STATS -->
   <section class="section-sm stat-strip" aria-label="Key figures">
     <div class="content-wrapper">
       <div class="stat-strip-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
@@ -127,11 +125,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <hr class="section-divider">
 
-  <!-- ── SERVICES ── -->
+  <!-- WHAT WE BUILD -->
   <section class="section" id="services">
     <div class="content-wrapper">
       <span class="section-label">What we build</span>
-      <h2 class="section-title">No templates. No builders.<br>Precision and elegance, designed for your project.</h2>
+      <h2 class="section-title">No templates. No builders.<br>Hand-coded, designed for your project.</h2>
       <p class="section-intro">A UK studio crafting each site with care — clean, considered, and measured. Hosted free on GitHub Pages. Yours outright from day one.</p>
 
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2.5rem">
@@ -152,7 +150,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="item-row-label">Deployment</div>
         <div class="item-row-body">
           <strong>Live on GitHub Pages — forever, free</strong>
-          Your site is deployed to GitHub Pages with a custom domain. GitHub hosts it indefinitely at no cost. No platform risk, no renewal anxiety.
+          Your site is deployed with a custom domain. GitHub hosts it indefinitely at no cost. No platform risk, no renewal anxiety.
         </div>
       </div>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
@@ -162,263 +160,105 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Every file, every line. You receive the complete repository. No lock-in, no dependency on us to stay live.
         </div>
       </div>
+
+      <div style="margin-top:2rem">
+        <a href="services.html" class="btn btn-outline">See full service detail →</a>
+      </div>
     </div>
   </section>
 
   <hr class="section-divider">
 
-  <!-- ── WHO IT'S FOR ── -->
+  <!-- WHO IT'S FOR -->
   <section class="section" id="who">
     <div class="content-wrapper">
       <span class="section-label">Who it's for</span>
-      <h2 class="section-title">For local businesses and professionals<br>who deserve a site as precise as their work.</h2>
+      <h2 class="section-title">For UK businesses and professionals<br>who deserve a site as precise as their work.</h2>
 
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2.5rem">
         <div class="item-row-label">Local business</div>
         <div class="item-row-body">
           <strong>Independent UK businesses</strong>
-          Shops, studios, trades, and services — the backbone of UK high streets. A polished, permanent web presence that reflects the quality of your work, without a monthly bill eating into your margin.
+          Shops, studios, trades, and services — a polished, permanent web presence that reflects the quality of your work, without a monthly bill eating into your margin.
         </div>
       </div>
-
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Researchers</div>
         <div class="item-row-body">
           <strong>Academics &amp; scientists</strong>
-          Moving institutions? A platform site doesn't travel with you. Your publications, research profile, and contact details — on a site that belongs to you, not your current employer's subscription.
+          Moving institutions? Your publications and profile — on a site that belongs to you, not your current employer's subscription.
         </div>
       </div>
-
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Professionals</div>
         <div class="item-row-body">
           <strong>Consultants, freelancers &amp; advisors</strong>
-          Your expertise is established. Your website should keep pace with it. A professional presence that reflects the quality of your work — without a monthly fee quietly eroding your margin.
+          A professional presence that reflects the quality of your work — without a monthly fee quietly eroding your margin.
         </div>
       </div>
-
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Non-profits</div>
         <div class="item-row-body">
           <strong>Charities &amp; foundations</strong>
-          Every pound spent on recurring hosting is a pound that didn't serve your mission. One build. Permanent hosting. No monthly drain on donor funds.
+          Every pound on recurring hosting is a pound that didn't serve your mission. One build. Permanent hosting. No monthly drain.
         </div>
       </div>
-
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Creatives</div>
         <div class="item-row-body">
           <strong>Artists, designers &amp; portfolio owners</strong>
-          An image-optimised portfolio that loads without compromise. No template constraints, no platform branding — something distinctive that reflects the standard of the work it contains.
+          Something distinctive that reflects the standard of the work it contains — no template constraints, no platform branding.
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <hr class="section-divider">
-
-  <!-- ── HOW IT WORKS ── -->
-  <section class="section" id="how">
-    <div class="content-wrapper">
-      <span class="section-label">How it works</span>
-      <h2 class="section-title">From brief to live<br>in under two weeks.</h2>
-      <p class="section-intro">You deal with the same person throughout — the one designing and building your site. No handoffs, no agency layers, no surprises.</p>
-
-      <div class="process-list">
-        <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <span class="process-num">01</span>
-          <div class="process-body">
-            <strong>Brief</strong>
-            <p>You complete our short project brief — goals, audience, tone, any reference sites. No calls required unless you prefer them.</p>
-          </div>
-        </div>
-        <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <span class="process-num">02</span>
-          <div class="process-body">
-            <strong>Design &amp; build</strong>
-            <p>We design and build your site. You receive a preview link, typically within five working days.</p>
-          </div>
-        </div>
-        <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <span class="process-num">03</span>
-          <div class="process-body">
-            <strong>Revisions</strong>
-            <p>You review and request changes. Each package includes a defined number of revision rounds.</p>
-          </div>
-        </div>
-        <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <span class="process-num">04</span>
-          <div class="process-body">
-            <strong>Handover</strong>
-            <p>We deploy to GitHub Pages, connect your domain, and hand over the full source repository. The site is yours.</p>
-          </div>
-        </div>
+      <div style="margin-top:2rem">
+        <a href="sectors.html" class="btn btn-outline">See who we work with →</a>
       </div>
     </div>
   </section>
 
   <hr class="section-divider">
 
-  <!-- ── PRICING ── -->
+  <!-- PRICING SUMMARY -->
   <section class="section" id="pricing">
     <div class="content-wrapper">
       <span class="section-label">Pricing</span>
-      <h2 class="section-title">One-time payment.<br>No monthly fees, ever.</h2>
-      <p class="section-intro">Three tiers to suit the scope of your project. All include deployment to GitHub Pages and full source code ownership.</p>
+      <h2 class="section-title">Three tiers.<br>One-time payment.</h2>
+      <p class="section-intro">All include GitHub Pages deployment, full source code handover, and custom domain setup. No monthly fees, ever.</p>
 
-      <div class="pricing-grid">
-
-        <!-- Landing Page -->
-        <div class="pricing-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <div>
-            <span class="pricing-tier">Tier 01</span>
-            <div class="pricing-name">Landing Page</div>
-            <div class="pricing-tagline">A focused single-page site. Ideal for portfolios, CVs, and launch pages.</div>
-            <span class="pricing-nudge">Fastest delivery — 3 days</span>
-          </div>
-          <div>
-            <div class="pricing-price"><sup>£</sup>149</div>
-            <div class="pricing-note">one-time · delivered in ~3 days</div>
-          </div>
-          <ul class="pricing-features">
-            <li>Single elegantly designed page</li>
-            <li>Responsive on all devices</li>
-            <li>Contact form integration</li>
-            <li>GitHub Pages deployment</li>
-            <li>Custom domain setup</li>
-            <li>1 round of revisions</li>
-            <li>Full source code handover</li>
-          </ul>
-          <a href="brief.html?tier=landing" class="btn btn-outline">Start this project</a>
+      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
+        <div class="item-row">
+          <div class="item-row-label">Landing — £149</div>
+          <div class="item-row-body">Single page. Contact form. Custom domain. SEO setup. ~3 working days.</div>
         </div>
-
-        <!-- Professional -->
-        <div class="pricing-card featured a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="transition-delay:0.08s">
-          <span class="pricing-badge">Most Popular</span>
-          <div>
-            <span class="pricing-tier">Tier 02</span>
-            <div class="pricing-name">Professional</div>
-            <div class="pricing-tagline">A multi-page site with everything a professional presence requires.</div>
-          </div>
-          <div>
-            <div class="pricing-price"><sup>£</sup>349</div>
-            <div class="pricing-note">one-time · delivered in ~7 days</div>
-          </div>
-          <ul class="pricing-features">
-            <li>Up to 5 pages</li>
-            <li>Responsive on all devices</li>
-            <li>Contact form integration</li>
-            <li>GitHub Pages deployment</li>
-            <li>Custom domain setup</li>
-            <li>SEO fundamentals included</li>
-            <li>Analytics integration</li>
-            <li>2 rounds of revisions</li>
-            <li>Full source code handover</li>
-          </ul>
-          <a href="brief.html?tier=professional" class="btn btn-primary">Start this project</a>
+        <div class="item-row">
+          <div class="item-row-label">Professional — £349</div>
+          <div class="item-row-body">Up to 5 pages. Analytics. SEO fundamentals. GDPR compliance. ~7 working days.</div>
         </div>
-
-        <!-- Bespoke -->
-        <div class="pricing-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="transition-delay:0.16s">
-          <div>
-            <span class="pricing-tier">Tier 03</span>
-            <div class="pricing-name">Bespoke</div>
-            <div class="pricing-tagline">Complex or custom requirements. Priced after a short brief review.</div>
-            <span class="pricing-nudge">Priority turnaround</span>
-          </div>
-          <div>
-            <div class="pricing-price"><sup>£</sup>749<span style="font-size:1rem;color:var(--text-muted)">+</span></div>
-            <div class="pricing-note">one-time · timeline agreed per project</div>
-          </div>
-          <ul class="pricing-features">
-            <li>Unlimited pages</li>
-            <li>Custom interactions &amp; animations</li>
-            <li>Advanced layout complexity</li>
-            <li>Extended SEO setup</li>
-            <li>Performance optimisation</li>
-            <li>3 rounds of revisions</li>
-            <li>Priority turnaround</li>
-            <li>Full source code handover</li>
-          </ul>
-          <a href="brief.html?tier=bespoke" class="btn btn-outline">Discuss your project</a>
-        </div>
-
-      </div>
-
-      <!-- Savings comparison -->
-      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:3rem">
-        <span class="section-label">The cost of renting vs owning</span>
-        <table class="savings-table" aria-label="Platform cost comparison over three years">
-          <thead>
-            <tr>
-              <th>Platform</th>
-              <th>Monthly</th>
-              <th>3-year total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Squarespace</td>
-              <td>~£16/mo</td>
-              <td>~£576</td>
-            </tr>
-            <tr>
-              <td>Wix</td>
-              <td>~£14/mo</td>
-              <td>~£504</td>
-            </tr>
-            <tr>
-              <td>Webflow</td>
-              <td>~£23/mo</td>
-              <td>~£828</td>
-            </tr>
-            <tr>
-              <td><strong>GitFoundry Professional</strong></td>
-              <td><span class="savings-highlight">£0/mo</span></td>
-              <td><span class="savings-highlight">£349 — once</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Optional upsells -->
-      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:3rem">
-        <span class="section-label">Optional add-ons</span>
-        <div class="upsell-grid">
-          <div class="upsell-item">
-            <span class="upsell-item-label">Content</span>
-            <div class="upsell-item-name">Content updates</div>
-            <div class="upsell-item-price">£25–50 / update</div>
-          </div>
-          <div class="upsell-item">
-            <span class="upsell-item-label">Search</span>
-            <div class="upsell-item-name">SEO audit report</div>
-            <div class="upsell-item-price">£99 one-time</div>
-          </div>
-          <div class="upsell-item">
-            <span class="upsell-item-label">Domain</span>
-            <div class="upsell-item-name">Domain management</div>
-            <div class="upsell-item-price">£20 / year</div>
-          </div>
+        <div class="item-row">
+          <div class="item-row-label">Bespoke — £749+</div>
+          <div class="item-row-body">Custom animations. Advanced SEO. Portfolio filtering. Timeline agreed per project.</div>
         </div>
       </div>
 
+      <div style="margin-top:2rem">
+        <a href="pricing.html" class="btn btn-outline">View full pricing →</a>
+      </div>
     </div>
   </section>
 
   <hr class="section-divider">
 
-  <!-- ── CTA ── -->
+  <!-- CTA -->
   <section class="section" id="contact" aria-labelledby="cta-heading">
     <div class="content-wrapper">
       <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <span class="section-label">Ready to begin</span>
-        <h2 class="section-title" id="cta-heading">Your site. Your code.<br><em>Zero ongoing cost.</em></h2>
-        <p class="section-intro" style="margin-bottom:2rem">Tell us about your project. We'll review your brief and reply within 48 hours.</p>
+        <h2 class="section-title" id="cta-heading">Ready to stop renting<br>your website?</h2>
+        <p class="section-intro" style="margin-bottom:2rem">One-time payment. No lock-in. Yours forever. We respond within 48 hours.</p>
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
           <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
-          <a href="mailto:info@gitfoundry.co.uk" class="btn btn-outline">info@gitfoundry.co.uk</a>
+          <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
         </div>
       </div>
     </div>
@@ -426,23 +266,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </main>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="brief.html">Brief</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
 </footer>
 
-<!-- COOKIE BANNER -->
 <div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
   <div class="cookie-inner">
     <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
@@ -459,28 +297,16 @@ function site() {
     theme: localStorage.getItem('gf-theme') || 'night',
     drawerOpen: false,
     cookieVisible: false,
-
     init() {
       document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => {
-        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
-      }, 1800);
+      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
     },
-
     toggleTheme() {
       this.theme = this.theme === 'night' ? 'day' : 'night';
       localStorage.setItem('gf-theme', this.theme);
     },
-
-    acceptCookies() {
-      localStorage.setItem('gf-cookies', 'accepted');
-      this.cookieVisible = false;
-    },
-
-    declineCookies() {
-      localStorage.setItem('gf-cookies', 'declined');
-      this.cookieVisible = false;
-    }
+    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
+    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
   };
 }
 </script>

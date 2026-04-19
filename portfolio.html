@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - GitFoundry · Precision-built Websites on GitHub Pages</title>
-<meta name="description" content="Example projects built by GitFoundry — precision-built websites with Lighthouse 90+ scores, hosted free on GitHub Pages. Supporting local UK businesses.">
+<title>Portfolio · GitFoundry</title>
+<meta name="description" content="Recent work from GitFoundry — static sites built for researchers, consultants, and small businesses across the UK.">
 <link rel="canonical" href="https://gitfoundry.co.uk/portfolio.html">
-<meta property="og:title" content="Portfolio - GitFoundry">
-<meta property="og:description" content="Precision-built websites with Lighthouse 90+ scores, hosted free on GitHub Pages.">
+<meta property="og:title" content="Portfolio · GitFoundry">
+<meta property="og:description" content="Recent work from GitFoundry — static sites built for researchers, consultants, and small businesses across the UK.">
 <meta property="og:url" content="https://gitfoundry.co.uk/portfolio.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Portfolio - GitFoundry">
-<meta name="twitter:description" content="Precision-built websites with Lighthouse 90+ scores, hosted free on GitHub Pages.">
+<meta name="twitter:title" content="Portfolio · GitFoundry">
+<meta name="twitter:description" content="Recent work from GitFoundry — static sites built for researchers, consultants, and small businesses across the UK.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
 
 <!-- Google Tag Manager -->
@@ -51,7 +51,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item active">Portfolio</a></li>
-      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get a quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
       <span x-text="theme==='night'?'☀':'☾'"></span>
@@ -62,12 +62,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
-<!-- Mobile drawer -->
 <div id="nav-drawer-pf" class="nav-drawer" :class="drawerOpen?'open':''">
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
 </div>
 
 <main id="main">
@@ -79,33 +78,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="page-header-desc">Every project designed with care, tested to Lighthouse 90+, and hosted free on GitHub Pages. No templates used.</p>
     </header>
 
-    <!-- Performance proof section -->
+    <!-- Performance proof -->
     <section aria-labelledby="perf-heading" style="margin-bottom:4rem">
-      <span class="section-label">Why Lighthouse scores matter</span>
+      <span class="section-label">Lighthouse scores</span>
       <h2 class="section-title" id="perf-heading">Performance is a design choice,<br>not an accident.</h2>
-      <p class="section-intro" style="margin-bottom:2rem">Every GitFoundry site is audited against Google's Lighthouse criteria before handover. Here's what we consistently achieve.</p>
+      <p class="section-intro" style="margin-bottom:2rem">Every GitFoundry site is audited against Google's Lighthouse criteria before handover.</p>
 
       <div class="stat-strip-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="stat-item">
-          <span class="stat-num">97</span>
-          <span class="stat-label">Performance</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">100</span>
-          <span class="stat-label">Accessibility</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">100</span>
-          <span class="stat-label">Best practices</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">95</span>
-          <span class="stat-label">SEO</span>
-        </div>
+        <div class="stat-item"><span class="stat-num">97</span><span class="stat-label">Performance</span></div>
+        <div class="stat-item"><span class="stat-num">100</span><span class="stat-label">Accessibility</span></div>
+        <div class="stat-item"><span class="stat-num">100</span><span class="stat-label">Best practices</span></div>
+        <div class="stat-item"><span class="stat-num">95</span><span class="stat-label">SEO</span></div>
       </div>
 
       <div class="callout" style="margin-top:1.5rem">
-        These figures are from Lighthouse audits run on completed GitFoundry sites. Performance scores are measured on mobile, which is the stricter standard. Exact scores vary by project complexity.
+        Figures from Lighthouse audits run on completed GitFoundry sites, measured on mobile — the stricter standard. Exact scores vary by project complexity.
       </div>
     </section>
 
@@ -125,7 +112,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3 class="portfolio-card-title">Academic researcher portfolio</h3>
             <p class="portfolio-card-desc">A single-page academic profile for a PhD researcher — publications, research interests, and contact. Lighthouse 98/100/100/96.</p>
             <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap">
-              <span class="spec-tag">precision-built</span>
+              <span class="spec-tag">hand-coded</span>
               <span class="spec-tag">github pages</span>
             </div>
           </div>
@@ -176,11 +163,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- CTA -->
     <section class="section" aria-labelledby="cta-pf-heading">
       <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <h2 class="section-title" id="cta-pf-heading">Want this kind of quality applied to your project?</h2>
-        <p class="section-intro" style="margin-bottom:2rem">Submit a brief and we'll confirm scope and timeline within 48 hours.</p>
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
-          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
-          <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
+        <h2 class="section-title" id="cta-pf-heading">Want work like this<br>applied to your project?</h2>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem">
+          <a href="brief.html" class="btn btn-primary">Submit a brief</a>
         </div>
       </div>
     </section>
@@ -190,19 +175,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses</span>
+    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="brief.html">Brief</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
 </footer>
 
-<!-- Cookie Banner -->
 <div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
   <div class="cookie-inner">
     <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
@@ -219,28 +204,16 @@ function site() {
     theme: localStorage.getItem('gf-theme') || 'night',
     drawerOpen: false,
     cookieVisible: false,
-
     init() {
       document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => {
-        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
-      }, 1800);
+      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
     },
-
     toggleTheme() {
       this.theme = this.theme === 'night' ? 'day' : 'night';
       localStorage.setItem('gf-theme', this.theme);
     },
-
-    acceptCookies() {
-      localStorage.setItem('gf-cookies', 'accepted');
-      this.cookieVisible = false;
-    },
-
-    declineCookies() {
-      localStorage.setItem('gf-cookies', 'declined');
-      this.cookieVisible = false;
-    }
+    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
+    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
   };
 }
 </script>

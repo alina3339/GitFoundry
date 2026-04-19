@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing - GitFoundry · One-time Payment, Zero Monthly Fees</title>
-<meta name="description" content="Three tiers from £149 to £749+. One-time payment, full source code ownership, hosted free on GitHub Pages forever. Supporting local UK businesses.">
+<title>Pricing · GitFoundry</title>
+<meta name="description" content="Three packages: Landing £149, Professional £349, Bespoke £749+. One-time payment. No subscriptions.">
 <link rel="canonical" href="https://gitfoundry.co.uk/pricing.html">
-<meta property="og:title" content="Pricing - GitFoundry">
-<meta property="og:description" content="Three tiers from £149. One-time payment, full source code ownership, free GitHub Pages hosting forever.">
+<meta property="og:title" content="Pricing · GitFoundry">
+<meta property="og:description" content="Three packages: Landing £149, Professional £349, Bespoke £749+. One-time payment. No subscriptions.">
 <meta property="og:url" content="https://gitfoundry.co.uk/pricing.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pricing - GitFoundry">
-<meta name="twitter:description" content="Three tiers from £149. One-time payment, zero monthly fees.">
+<meta name="twitter:title" content="Pricing · GitFoundry">
+<meta name="twitter:description" content="Three packages: Landing £149, Professional £349, Bespoke £749+. One-time payment. No subscriptions.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
 
 <!-- Google Tag Manager -->
@@ -51,7 +51,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item active">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get a quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
       <span x-text="theme==='night'?'☀':'☾'"></span>
@@ -62,12 +62,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
-<!-- Mobile drawer -->
 <div id="nav-drawer-p" class="nav-drawer" :class="drawerOpen?'open':''">
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
 </div>
 
 <main id="main">
@@ -79,7 +78,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="page-header-desc">Three tiers to match your project's scope. All include GitHub Pages deployment, full source code, and custom domain setup.</p>
     </header>
 
-    <!-- Pricing cards -->
+    <!-- Pricing tiers — canonical source of truth -->
     <section aria-labelledby="tiers-heading">
       <h2 class="section-title" id="tiers-heading" style="margin-bottom:0.5rem">Choose your tier</h2>
       <p class="section-intro">All prices include VAT. No hidden fees, no renewal costs.</p>
@@ -173,7 +172,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <hr class="section-divider" style="margin:4rem 0">
 
-    <!-- Add-ons -->
+    <!-- Add-ons — canonical source of truth -->
     <section aria-labelledby="addons-p-heading">
       <span class="section-label">After launch</span>
       <h2 class="section-title" id="addons-p-heading">Optional add-ons</h2>
@@ -200,7 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <hr class="section-divider" style="margin:4rem 0">
 
-    <!-- Comparison table -->
+    <!-- Cost comparison -->
     <section aria-labelledby="compare-heading">
       <span class="section-label">The cost of renting vs owning</span>
       <h2 class="section-title" id="compare-heading">Three years of Squarespace<br>or one GitFoundry build?</h2>
@@ -215,26 +214,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Squarespace (Business)</td>
-            <td>~£16/mo</td>
-            <td>~£576</td>
-          </tr>
-          <tr>
-            <td>Wix (Core)</td>
-            <td>~£14/mo</td>
-            <td>~£504</td>
-          </tr>
-          <tr>
-            <td>Webflow (Basic)</td>
-            <td>~£23/mo</td>
-            <td>~£828</td>
-          </tr>
-          <tr>
-            <td>WordPress.com (Business)</td>
-            <td>~£25/mo</td>
-            <td>~£900</td>
-          </tr>
+          <tr><td>Squarespace (Business)</td><td>~£16/mo</td><td>~£576</td></tr>
+          <tr><td>Wix (Core)</td><td>~£14/mo</td><td>~£504</td></tr>
+          <tr><td>Webflow (Basic)</td><td>~£23/mo</td><td>~£828</td></tr>
+          <tr><td>WordPress.com (Business)</td><td>~£25/mo</td><td>~£900</td></tr>
           <tr>
             <td><strong>GitFoundry Professional</strong></td>
             <td><span class="savings-highlight">£0/mo</span></td>
@@ -252,10 +235,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="section" aria-labelledby="cta-p-heading">
       <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <h2 class="section-title" id="cta-p-heading">Not sure which tier is right?</h2>
-        <p class="section-intro" style="margin-bottom:2rem">Describe your project in the brief and we'll recommend the appropriate tier.</p>
+        <p class="section-intro" style="margin-bottom:2rem">Tell us what you need in the brief and we'll recommend the appropriate tier.</p>
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
-          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
-          <a href="mailto:info@gitfoundry.co.uk" class="btn btn-outline">info@gitfoundry.co.uk</a>
+          <a href="brief.html" class="btn btn-primary">Submit a brief</a>
         </div>
       </div>
     </section>
@@ -265,19 +247,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="brief.html">Brief</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
 </footer>
 
-<!-- Cookie Banner -->
 <div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
   <div class="cookie-inner">
     <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
@@ -294,28 +276,16 @@ function site() {
     theme: localStorage.getItem('gf-theme') || 'night',
     drawerOpen: false,
     cookieVisible: false,
-
     init() {
       document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => {
-        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
-      }, 1800);
+      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
     },
-
     toggleTheme() {
       this.theme = this.theme === 'night' ? 'day' : 'night';
       localStorage.setItem('gf-theme', this.theme);
     },
-
-    acceptCookies() {
-      localStorage.setItem('gf-cookies', 'accepted');
-      this.cookieVisible = false;
-    },
-
-    declineCookies() {
-      localStorage.setItem('gf-cookies', 'declined');
-      this.cookieVisible = false;
-    }
+    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
+    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
   };
 }
 </script>
