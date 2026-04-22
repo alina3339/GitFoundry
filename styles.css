@@ -1,62 +1,226 @@
-/* ════════════════════════════════════════════════
-   TYPE LAB OVERRIDES — 2026-04-22
-   Paste this block at the VERY BOTTOM of styles.css
-   To undo: delete this block.
-   ════════════════════════════════════════════════ */
+/* GitFoundry — Clean Rebuild Base */
 
+/* TOKENS */
 :root {
-  --serif: 'Fraunces', Georgia, serif;
-  --sans:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --accent: #c9a84c;
-  --accent-dim: rgba(201,168,76,0.08);
+  --bg:#080f24;
+  --surface:#0d1632;
+  --text:#ece8df;
+  --text-soft:#b2ac9e;
+  --text-muted:#8a8272;
+  --border:rgba(255,255,255,0.07);
+  --accent:#c9a84c;
+
+  --max:1120px;
+  --gutter:clamp(1.25rem,4vw,2.5rem);
+  --radius:2px;
+
+  --serif:'Georgia',serif;
+  --mono:'JetBrains Mono',monospace;
+
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+  --dur:0.35s;
 }
 
-[data-theme="day"] {
-  --accent: #c9a84c;
-  --accent-dim: rgba(201,168,76,0.08);
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
 }
 
-.hero-title {
-  font-size: clamp(2.1875rem, 11.0vw, 5.5rem);
-  font-weight: 300;
-  line-height: 0.97;
-  letter-spacing: -0.035em;
+/* CONTAINER */
+.content-wrapper{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 var(--gutter);
+  position:relative;
 }
 
-.page-header-title {
-  font-size: clamp(1.9375rem, 8.8vw, 4.375rem);
-  font-weight: 300;
-  line-height: 0.97;
-  letter-spacing: -0.035em;
+/* NAV */
+.site-nav{
+  position:sticky;
+  top:0;
+  background:rgba(8,15,36,0.9);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(10px);
+}
+.nav-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:1rem var(--gutter);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.section-title {
-  font-size: clamp(1.625rem, 6.6vw, 3.3125rem);
-  font-weight: 300;
-  line-height: 1.00;
-  letter-spacing: -0.035em;
+.nav-logo{
+  font-family:var(--mono);
+  color:var(--text);
+  text-decoration:none;
+}
+.nav-logo span{color:var(--accent);}
+
+/* HERO */
+.hero{
+  padding:5rem 0;
 }
 
-.hero-eyebrow, .page-header-label, .section-label {
-  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.200em;
+.hero-eyebrow{
+  font-family:var(--mono);
+  font-size:0.75rem;
+  color:var(--accent);
+  letter-spacing:0.2em;
 }
 
-.hero-sub, .page-header-desc, .section-intro {
-  font-size: 1.0625rem;
-  font-weight: 300;
-  line-height: 1.75;
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(3rem,8vw,6rem);
+  font-weight:300;
+  line-height:1;
+  margin:1rem 0;
 }
 
-body {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.70;
+.hero-title em{
+  color:var(--accent);
+  font-style:italic;
 }
 
-.pricing-tagline, .pricing-features li, .process-body p {
-  font-size: 0.875rem;
-  font-weight: 400;
+.hero-sub{
+  max-width:520px;
+  color:var(--text-soft);
+  margin-bottom:2rem;
+}
+
+.hero-actions{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.hero-tags{
+  margin-top:2rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+}
+
+/* BUTTONS */
+.btn{
+  padding:0.75rem 1.5rem;
+  border-radius:var(--radius);
+  text-decoration:none;
+  font-family:var(--mono);
+  font-size:0.75rem;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#000;
+}
+
+.btn-outline{
+  border:1px solid var(--border);
+  color:var(--text);
+}
+
+/* SECTIONS */
+.section{
+  padding:6rem 0;
+}
+
+.section-label{
+  font-family:var(--mono);
+  color:var(--accent);
+  font-size:0.75rem;
+  letter-spacing:0.2em;
+}
+
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(2.5rem,5vw,4rem);
+  margin:1rem 0;
+}
+
+.section-intro{
+  color:var(--text-soft);
+  max-width:520px;
+}
+
+/* PROCESS */
+.process-step{
+  display:grid;
+  grid-template-columns:60px 1fr;
+  gap:1rem;
+  padding:1.5rem 0;
+  border-bottom:1px solid var(--border);
+}
+
+.process-num{
+  font-family:var(--mono);
+  color:var(--accent);
+}
+
+.process-body strong{
+  display:block;
+  margin-bottom:0.25rem;
+}
+
+/* DIVIDER */
+.section-divider{
+  border:0;
+  height:1px;
+  background:var(--border);
+}
+/* ── HERO GRID (globe beside text on desktop) ── */
+.hero-grid {
+  display: block;
+}
+
+@media (min-width: 960px) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .hero-text { min-width: 0; }
+  .hero-globe {
+    min-width: 0;
+    justify-self: end;
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+.hero-globe { display: none; }
+@media (min-width: 960px) {
+  .hero-globe { display: block; }
+}
+
+.globe-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.globe-frame svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── VITRUVIAN — shunt down so it doesn't sit behind the globe ── */
+@media (min-width: 960px) {
+  .hero::after {
+    top: auto;
+    bottom: -45%;
+    right: -15%;
+    transform: none;
+    width: min(60vw, 700px);
+    height: min(60vw, 700px);
+  }
 }
