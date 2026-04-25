@@ -1,7 +1,19 @@
 /* ════════════════════════════════════════════════
    GitFoundry — Fluid Monolith Framework
-   styles.css · Da Vinci Edition v2
+   styles.css · Da Vinci Edition v2.1
    Precision in service of elegance.
+   ════════════════════════════════════════════════
+   v2.1 patch notes:
+     · Vitruvian motif paths made relative (was absolute /…svg, broke on
+       GitHub Pages project subpaths and local file:// previews).
+     · Motif fallback rule re-ordered with :not([data-motif]) so per-page
+       motifs (golden / flower / orbital / gear) are no longer overridden
+       by the classic fallback.
+     · Portfolio card images: added img sizing + object-fit so real images
+       don't render as clipped colour bars.
+     · Construction-banner duplicate kept (legacy refs) but folded into
+       a single rule chained with .booking-banner.
+     · Day-mode --text-muted lifted slightly for contrast on small text.
    ════════════════════════════════════════════════ */
 
 /* ── TOKENS ── */
@@ -12,7 +24,7 @@
   --surface-2:     #162040;
   --text:          #ece8df;
   --text-soft:     #b2ac9e;
-  --text-muted:    #8a8272;  /* lifted from #6a6358 for contrast on form hints */
+  --text-muted:    #8a8272;
   --border:        rgba(255,255,255,0.07);
   --border-strong: rgba(255,255,255,0.14);
   --accent:        #c9a84c;
@@ -44,7 +56,7 @@
   --surface-2:     #e2dcd0;
   --text:          #1a1510;
   --text-soft:     #484038;
-  --text-muted:    #6a6054;
+  --text-muted:    #5a5048; /* lifted from #6a6054 for AA on small mono labels */
   --border:        rgba(0,0,0,0.08);
   --border-strong: rgba(0,0,0,0.16);
   --accent:        #9a6e1c;
@@ -122,27 +134,8 @@ body::before {
   position: relative; z-index: 1;
 }
 
-/* ── BOOKING BANNER (replaces construction banner) ── */
-.booking-banner {
-  background: var(--accent-dim);
-  color: var(--accent);
-  border-bottom: 1px solid rgba(201,168,76,0.2);
-  text-align: center;
-  padding: 0.5rem var(--gutter);
-  font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  line-height: 1.5;
-  position: relative;
-  z-index: 101;
-}
-.booking-banner span {
-  font-weight: 500;
-  color: var(--text);
-}
-
-/* Legacy construction-banner — retained for any lingering refs, matches new booking style */
+/* ── BOOKING / CONSTRUCTION BANNER ── */
+.booking-banner,
 .construction-banner {
   background: var(--accent-dim);
   color: var(--accent);
@@ -157,7 +150,11 @@ body::before {
   position: relative;
   z-index: 101;
 }
-.construction-banner span { font-weight: 500; color: var(--text); }
+.booking-banner span,
+.construction-banner span {
+  font-weight: 500;
+  color: var(--text);
+}
 
 /* ── NAV ── */
 .site-nav {
@@ -283,7 +280,7 @@ body::before {
   cursor: pointer;
   transition: background var(--dur), color var(--dur), border-color var(--dur), transform 0.15s;
   white-space: nowrap;
-  min-height: 44px;  /* accessibility: WCAG touch target minimum */
+  min-height: 44px;
 }
 .btn:active { transform: translateY(1px); }
 
@@ -302,7 +299,6 @@ body::before {
 }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-/* Mobile: larger touch targets for thumb-friendly tapping */
 @media (max-width: 720px) {
   .btn {
     padding: 0.95rem 1.6rem;
@@ -393,9 +389,7 @@ body::before {
   opacity: 0.55;
   transition: background var(--dur);
 }
-[data-theme="day"] .section-divider::after {
-  background: var(--bg);
-}
+[data-theme="day"] .section-divider::after { background: var(--bg); }
 
 /* ── ITEM ROW ── */
 .item-row {
@@ -446,24 +440,23 @@ body::before {
   overflow: hidden;
 }
 
-/* Tighter hero padding on mobile so CTAs land above the fold */
 @media (max-width: 720px) {
   .hero { padding: 3rem 0 3.5rem; }
 }
 
 /* ──────────────────────────────────────────────
-   Vitruvian geometric — the Da Vinci signature
-   Shared pseudo-element for .hero AND .page-header
-   Per-page motif controlled by data-motif attribute
+   Vitruvian motif — shared by .hero and .page-header
+   FIX (v2.1): paths are now RELATIVE so they resolve
+   on GitHub Pages project subpaths and file:// previews.
+   The :not([data-motif]) fallback comes FIRST so per-page
+   motifs (golden/flower/orbital/gear) are not overridden.
    ────────────────────────────────────────────── */
 
-/* Ensure page-header can contain the pseudo-element */
 .page-header {
   position: relative;
   overflow: hidden;
 }
 
-/* Shared base rules for both hero and page-header */
 .hero::after,
 .page-header::after {
   content: '';
@@ -481,7 +474,6 @@ body::before {
   z-index: 0;
 }
 
-/* Page-header uses a smaller, right-aligned motif */
 .page-header::after {
   width: min(55vw, 620px);
   height: min(55vw, 620px);
@@ -490,7 +482,6 @@ body::before {
   opacity: 0.088;
 }
 
-/* Day theme — invert white strokes to dark, slightly boost opacity */
 [data-theme="day"] .hero::after,
 [data-theme="day"] .page-header::after {
   filter: invert(1);
@@ -500,32 +491,32 @@ body::before {
   opacity: 0.042;
 }
 
-/* ── Per-page motif selection ── */
+/* Fallback (no data-motif set) */
+.hero:not([data-motif])::after,
+.page-header:not([data-motif])::after {
+  background-image: url('vitruvian.svg');
+}
+
+/* Per-page motifs */
 .hero[data-motif="classic"]::after,
 .page-header[data-motif="classic"]::after {
-  background-image: url('/vitruvian.svg');
+  background-image: url('vitruvian.svg');
 }
 .hero[data-motif="golden"]::after,
 .page-header[data-motif="golden"]::after {
-  background-image: url('/vitruvian-golden.svg');
+  background-image: url('vitruvian-golden.svg');
 }
 .hero[data-motif="flower"]::after,
 .page-header[data-motif="flower"]::after {
-  background-image: url('/vitruvian-flower.svg');
+  background-image: url('vitruvian-flower.svg');
 }
 .hero[data-motif="orbital"]::after,
 .page-header[data-motif="orbital"]::after {
-  background-image: url('/vitruvian-orbital.svg');
+  background-image: url('vitruvian-orbital.svg');
 }
 .hero[data-motif="gear"]::after,
 .page-header[data-motif="gear"]::after {
-  background-image: url('/vitruvian-gear.svg');
-}
-
-/* Fallback — if no data-motif is set, use classic */
-.hero::after,
-.page-header::after {
-  background-image: url('/vitruvian.svg');
+  background-image: url('vitruvian-gear.svg');
 }
 
 .hero-eyebrow {
@@ -539,7 +530,6 @@ body::before {
   opacity: 0.9;
 }
 
-/* Hero clarifier — sits under the eyebrow, tells visitors what we do in one line */
 .hero-clarifier {
   font-size: 0.875rem;
   color: var(--text-soft);
@@ -741,9 +731,7 @@ body::before {
   transform: translateY(-3px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 }
-.pricing-card.featured {
-  border-color: rgba(201,168,76,0.4);
-}
+.pricing-card.featured { border-color: rgba(201,168,76,0.4); }
 .pricing-card.featured:hover { border-color: var(--accent); }
 
 .pricing-card::before {
@@ -804,7 +792,6 @@ body::before {
   margin-top: 0.25rem;
 }
 
-/* Pricing nudge — small tagline under tagline to give every card a reason to be chosen */
 .pricing-nudge {
   display: inline-block;
   margin-top: 0.75rem;
@@ -878,7 +865,7 @@ body::before {
 .portfolio-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  overflow: visible;
+  overflow: hidden; /* v2.1: was 'visible', reverted so card-img clips inside */
   background: var(--surface);
   transition: border-color var(--dur), transform 0.25s var(--ease);
   position: relative;
@@ -920,7 +907,16 @@ body::before {
   text-transform: uppercase;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
+  position: relative;
 }
+/* v2.1: ensure real images fill the frame instead of rendering as clipped bars */
+.portfolio-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .portfolio-card-body { padding: 1.5rem; }
 .portfolio-card-tag {
   font-family: var(--mono); font-size: 0.6875rem;
@@ -1066,7 +1062,7 @@ body::before {
 .form-textarea { min-height: 130px; resize: vertical; }
 .form-hint {
   font-size: 0.8125rem;
-  color: var(--text-soft);  /* lifted from text-muted for WCAG AA contrast */
+  color: var(--text-soft);
   line-height: 1.6;
 }
 
@@ -1223,7 +1219,7 @@ iframe[src*="googletagmanager"] { display: none !important; visibility: hidden !
 }
 .testimonial-link:hover { border-color: var(--accent); }
 
-/* Pricing page one-liner */
+/* Pricing-page one-liner */
 .testimonial-strip {
   max-width: 720px;
   margin: 0 auto;
@@ -1244,10 +1240,7 @@ iframe[src*="googletagmanager"] { display: none !important; visibility: hidden !
   text-transform: uppercase;
   color: var(--text-muted);
 }
-.testimonial-strip-cite a {
-  color: var(--accent);
-  text-decoration: none;
-}
+.testimonial-strip-cite a { color: var(--accent); text-decoration: none; }
 .testimonial-strip-cite a:hover { text-decoration: underline; }
 
 /* Portfolio-page full testimonial */
@@ -1341,6 +1334,7 @@ iframe[src*="googletagmanager"] { display: none !important; visibility: hidden !
   transition: border-color var(--dur);
 }
 .testimonial-full-link:hover { border-color: var(--accent); }
+
 /* ── HERO GRID (globe beside text on desktop) ── */
 .hero-grid { display: block; }
 .hero-globe { display: none; }
@@ -1387,9 +1381,9 @@ html[data-theme="day"] .hero-globe,
 body[data-theme="day"] .hero-globe {
   filter: invert(1) brightness(0.9);
 }
+
 /* ════════════════════════════════════════════════
    SAVINGS CALCULATOR — inherits design tokens
-   Append to end of styles.css
    ════════════════════════════════════════════════ */
 
 .calc {
@@ -1402,7 +1396,6 @@ body[data-theme="day"] .hero-globe {
   overflow: hidden;
 }
 
-/* Corner registration marks — matches pricing-card treatment */
 .calc::before {
   content: '';
   position: absolute;
@@ -1443,7 +1436,6 @@ body[data-theme="day"] .hero-globe {
   max-width: 44ch;
 }
 
-/* Input row */
 .calc-input-row {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -1518,7 +1510,6 @@ body[data-theme="day"] .hero-globe {
   opacity: 0.7;
 }
 
-/* Results grid */
 .calc-results {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
