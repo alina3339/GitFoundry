@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Type Lab · Premium Editions — GitFoundry</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Serif+Display&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600;700&family=Italiana&family=Tenor+Sans&family=Forum&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Prata&family=Marcellus&family=Yeseva+One&family=Syne:wght@400;600;800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=Work+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;700&family=Archivo:wght@400;500;700&display=swap">
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.tl-wrap { display: grid; grid-template-columns: 360px 1fr; gap: 2rem; padding: 2rem 0 6rem; align-items: start; }
+@media (max-width: 960px) { .tl-wrap { grid-template-columns: 1fr; } }
+
+.tl-controls { position: sticky; top: 78px; max-height: calc(100vh - 100px); overflow-y: auto; padding-right: 0.5rem; display: flex; flex-direction: column; gap: 1rem; }
+.tl-controls::-webkit-scrollbar { width: 6px; }
+.tl-controls::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+@media (max-width: 960px) { .tl-controls { position: static; max-height: none; } }
+
+.tl-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; background: var(--surface); }
+.tl-card h3 { font-family: var(--mono); font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.85rem; }
+
+.tl-presets-group { margin-bottom: 1rem; }
+.tl-presets-group:last-child { margin-bottom: 0; }
+.tl-presets-group-label {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.55rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.tl-presets-group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.tl-presets-group-label.lux { color: var(--accent); }
+.tl-presets-group-label.lux::after { background: linear-gradient(to right, var(--accent-dim), transparent); }
+
+.tl-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.tl-chips button { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.06em; padding: 0.45rem 0.7rem; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; border-radius: var(--radius); transition: all var(--dur); }
+.tl-chips button:hover { color: var(--text-soft); border-color: var(--border-strong); }
+.tl-chips button.on { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+.tl-chips button.lux { border-color: var(--accent-dim); color: var(--text-soft); }
+.tl-chips button.lux::before { content: '◆ '; color: var(--accent); font-size: 0.55rem; letter-spacing: 0; }
+.tl-chips button.lux.on { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+
+.tl-seg { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; background: var(--bg); padding: 2px; border: 1px solid var(--border); border-radius: var(--radius); }
+.tl-seg button { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.45rem 0.3rem; border: none; background: transparent; color: var(--text-muted); cursor: pointer; border-radius: 1px; transition: color var(--dur), background var(--dur); }
+.tl-seg button:hover { color: var(--text-soft); }
+.tl-seg button.on { background: var(--accent); color: #080f24; }
+
+.tl-swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
+.tl-swatches button { height: 28px; border-radius: var(--radius); border: 1px solid var(--border); cursor: pointer; padding: 0; transition: transform 0.15s; }
+.tl-swatches button:hover { transform: scale(1.08); }
+.tl-swatches button.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--accent); }
+
+.tl-preview-wrap { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.tl-preview { border: 1px solid var(--border); border-radius: var(--radius); padding: 4rem 3rem; min-height: 620px; transition: background var(--dur), color var(--dur); position: relative; overflow: hidden; }
+.tl-preview[data-pv="night"] { background: #080f24; color: #ece8df; }
+.tl-preview[data-pv="day"]   { background: #f4efe5; color: #1a1510; }
+.tl-preview[data-pv="paper"] { background: #ffffff; color: #111111; }
+.tl-preview[data-pv="ink"]   { background: #131313; color: #f0f0f0; }
+.tl-preview[data-pv="noir"]  { background: #0a0a0a; color: #e8dcc2; }
+.tl-preview[data-pv="linen"] { background: #efe7d8; color: #2a2218; }
+.tl-preview[data-pv="velvet"]{ background: #1a0e1f; color: #ead9c5; }
+.tl-preview[data-pv="marble"]{ background: #f3f0ea; color: #1f1a14; }
+
+.tl-preview::before, .tl-preview::after { content: ''; position: absolute; width: 14px; height: 14px; opacity: 0.25; }
+.tl-preview::before { top: 14px; left: 14px; border-top: 1px solid currentColor; border-left: 1px solid currentColor; }
+.tl-preview::after { bottom: 14px; right: 14px; border-bottom: 1px solid currentColor; border-right: 1px solid currentColor; }
+
+.tl-preview .tl-motif {
+  position: absolute; right: -6%; top: 50%; transform: translateY(-50%);
+  width: 55%; aspect-ratio: 1/1; pointer-events: none;
+  background-position: center; background-size: contain; background-repeat: no-repeat;
+  opacity: 0.06;
+  filter: var(--motif-filter, none);
+}
+
+.tl-eyebrow { display: block; text-transform: uppercase; position: relative; z-index: 1; }
+.tl-title { position: relative; z-index: 1; }
+.tl-title em { font-style: italic; }
+.tl-lead { max-width: 52ch; position: relative; z-index: 1; }
+.tl-body { position: relative; z-index: 1; }
+.tl-caption { display: block; opacity: 0.7; position: relative; z-index: 1; }
+.tl-sep { display: block; height: 1px; background: currentColor; opacity: 0.12; margin: 1.5rem 0; position: relative; z-index: 1; }
+
+/* APPLY PANEL */
+.tl-apply { border: 1px solid var(--accent); background: var(--accent-dim); border-radius: var(--radius); padding: 1.5rem 1.75rem; }
+.tl-apply-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap; }
+.tl-apply-head h3 { font-family: var(--mono); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 0; }
+.tl-apply-head .tl-status { font-family: var(--mono); font-size: 0.6875rem; color: var(--text-soft); letter-spacing: 0.05em; }
+
+.tl-apply-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; }
+.tl-btn { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.75rem 1.25rem; background: transparent; color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--radius); cursor: pointer; transition: all var(--dur); font-weight: 400; display: inline-flex; align-items: center; gap: 0.5rem; }
+.tl-btn:hover { border-color: var(--accent); color: var(--accent); }
+.tl-btn-primary { background: var(--accent); color: #080f24; border-color: var(--accent); font-weight: 500; }
+.tl-btn-ghost { border: 1px solid var(--border); color: var(--text-soft); }
+
+.tl-preset-desc {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--text-soft);
+  line-height: 1.55;
+  margin-top: 0.9rem;
+  padding: 0.8rem 0.9rem;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-dim);
+  font-style: italic;
+}
+.tl-preset-desc strong {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 400;
+}
+
+.tl-lab-badge { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 0.25rem 0.6rem; border-radius: var(--radius); border: 1px solid rgba(201,168,76,0.25); margin-left: 0.75rem; }
+
+.tl-preview-motif-note {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  z-index: 2;
+}
+</style>
+</head>
+
+<body data-theme="night">
+
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Git<span>Foundry</span>.co.uk <span class="tl-lab-badge">Type Lab ◆ Premium</span></a>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <header class="page-header" data-motif="golden" style="margin-bottom:1rem">
+      <span class="page-header-label">Private tooling — premium editions</span>
+      <h1 class="page-header-title">Type Lab.</h1>
+      <p class="page-header-desc">Fifteen curated presets. Nine of them tuned for luxury, editorial and couture work. Pick one, tweak, export to your repo.</p>
+    </header>
+
+    <div class="tl-wrap">
+
+      <aside class="tl-controls" aria-label="Typography controls">
+
+        <div class="tl-card">
+          <h3>Preview surface</h3>
+          <div class="tl-seg" data-group="bg">
+            <button data-v="night" class="on">Night</button>
+            <button data-v="day">Day</button>
+            <button data-v="noir">Noir</button>
+            <button data-v="linen">Linen</button>
+            <button data-v="velvet">Velvet</button>
+            <button data-v="marble">Marble</button>
+          </div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Presets</h3>
+
+          <div class="tl-presets-group">
+            <div class="tl-presets-group-label">House · from your codebase</div>
+            <div class="tl-chips" data-group="preset">
+              <button data-v="gitfoundry" class="on">GitFoundry</button>
+              <button data-v="editorial">Editorial</button>
+              <button data-v="brutalist">Brutalist</button>
+              <button data-v="swiss">Swiss</button>
+              <button data-v="magazine">Magazine</button>
+              <button data-v="monograph">Monograph</button>
+            </div>
+          </div>
+
+          <div class="tl-presets-group">
+            <div class="tl-presets-group-label lux">Premium · luxury editions</div>
+            <div class="tl-chips" data-group="preset">
+              <button data-v="couture" class="lux">Couture</button>
+              <button data-v="maison" class="lux">Maison</button>
+              <button data-v="atelier" class="lux">Atelier</button>
+              <button data-v="heirloom" class="lux">Heirloom</button>
+              <button data-v="opera" class="lux">Opera</button>
+              <button data-v="davinci" class="lux">Da Vinci</button>
+              <button data-v="savile" class="lux">Savile Row</button>
+              <button data-v="champagne" class="lux">Champagne</button>
+              <button data-v="sovereign" class="lux">Sovereign</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Background motif</h3>
+          <div class="tl-chips" data-group="motif">
+            <button data-v="none" class="on">None</button>
+            <button data-v="classic">Classic</button>
+            <button data-v="golden">Golden</button>
+            <button data-v="flower">Flower</button>
+            <button data-v="orbital">Orbital</button>
+            <button data-v="gear">Gear</button>
+          </div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Accent</h3>
+          <div class="tl-swatches" data-group="accent">
+            <button data-v="#c9a84c" class="on" style="background:#c9a84c" title="Gold"></button>
+            <button data-v="#b68a3a" style="background:#b68a3a" title="Antique gold"></button>
+            <button data-v="#9a6e1c" style="background:#9a6e1c" title="Bronze"></button>
+            <button data-v="#8a6b3d" style="background:#8a6b3d" title="Champagne"></button>
+            <button data-v="#d4af37" style="background:#d4af37" title="Sovereign"></button>
+            <button data-v="#a8884a" style="background:#a8884a" title="Parchment"></button>
+            <button data-v="#7a5c2b" style="background:#7a5c2b" title="Tobacco"></button>
+            <button data-v="#3d2817" style="background:#3d2817" title="Walnut"></button>
+            <button data-v="#4a2728" style="background:#4a2728" title="Claret"></button>
+            <button data-v="#1f2e4a" style="background:#1f2e4a" title="Navy"></button>
+            <button data-v="#2b3d2a" style="background:#2b3d2a" title="Forest"></button>
+            <button data-v="#8e3c33" style="background:#8e3c33" title="Sienna"></button>
+          </div>
+        </div>
+
+        <div class="tl-card" id="preset-info">
+          <h3>About this preset</h3>
+          <div id="preset-description" class="tl-preset-desc"></div>
+        </div>
+
+      </aside>
+
+      <div class="tl-preview-wrap">
+
+        <div class="tl-preview" id="tl-preview" data-pv="night">
+          <div class="tl-motif" id="pv-motif"></div>
+          <span class="tl-eyebrow" id="pv-eyebrow">01 · Specification</span>
+          <h1 class="tl-title" id="pv-title">Precision in service of <em>beauty</em>.</h1>
+          <p class="tl-lead" id="pv-lead">Every line of code serves a purpose. Every pixel is intentional. This is what a site looks like when the margins have been earned and the letterforms have been chosen, not defaulted to.</p>
+          <p class="tl-body" id="pv-body">A static site is not a limitation — it is a posture. It says the words matter more than the scripts, that readers deserve a page that loads in the time it takes them to blink. Typography is the first promise a page makes: that somebody cared before you arrived.</p>
+          <span class="tl-sep"></span>
+          <span class="tl-caption" id="pv-caption">— Caption text · technical annotation · footnote voice.</span>
+          <span class="tl-preview-motif-note" id="pv-meta">◆  Preset</span>
+        </div>
+
+        <div class="tl-apply">
+          <div class="tl-apply-head">
+            <h3>Ready to apply?</h3>
+            <span class="tl-status" id="tl-status">Preset loaded — click download to bake the patch</span>
+          </div>
+          <div class="tl-apply-actions">
+            <button class="tl-btn tl-btn-primary" id="btn-download">↓ Download patched styles.css</button>
+            <button class="tl-btn" id="btn-copy">Copy patch instead</button>
+            <button class="tl-btn tl-btn-ghost" id="btn-reset">Reset</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<div class="tl-toast" id="tl-toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(120%);background:var(--accent);color:#080f24;font-family:var(--mono);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.85rem 1.5rem;border-radius:var(--radius);transition:transform 0.3s var(--ease);z-index:300;font-weight:500">Downloaded</div>
+
+<script>
+(function () {
+  const LS_KEY = 'gf-typelab-premium-state';
+
+  const SERIF_FONTS = ['Fraunces','Playfair Display','DM Serif Display','Source Serif 4','EB Garamond','Libre Caslon Text','Lora','Cormorant Garamond','Cinzel','Italiana','Bodoni Moda','Forum','Prata','Marcellus','Yeseva One','Tenor Sans'];
+
+  const presets = {
+    // ── House (existing) ──
+    gitfoundry: { headFont:'Fraunces', bodyFont:'Inter', hSize:88, hWt:300, hLh:97, hLs:-35, hItalic:'mixed', hCase:'none', eFam:'mono', eSize:12, eWt:400, eLs:200, lSize:17, lWt:300, lLh:175, bSize:16, bWt:400, bLh:170, cSize:14, cWt:400, accent:'#c9a84c', bg:'night', motif:'none',
+      _name:'GitFoundry', _desc:'The house default. Fraunces display + Inter body, warm gold accent, mono labels. Precision-engineering voice with a serif weekend.' },
+    editorial:  { headFont:'Playfair Display', bodyFont:'Lora', hSize:96, hWt:400, hLh:100, hLs:-20, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:11, eWt:500, eLs:240, lSize:19, lWt:400, lLh:180, bSize:17, bWt:400, bLh:180, cSize:13, cWt:400, accent:'#9a6e1c', bg:'day', motif:'none',
+      _name:'Editorial', _desc:'Long-form magazine voice. Playfair display paired with Lora body on parchment. For essays, journals, longform founder letters.' },
+    brutalist:  { headFont:'Space Grotesk', bodyFont:'Space Grotesk', hSize:120, hWt:700, hLh:90, hLs:-50, hItalic:'roman', hCase:'upper', eFam:'mono', eSize:12, eWt:500, eLs:100, lSize:18, lWt:400, lLh:150, bSize:16, bWt:400, bLh:160, cSize:12, cWt:500, accent:'#d85a30', bg:'paper', motif:'none',
+      _name:'Brutalist', _desc:'One sans, enormous weight, brutal tracking. A site that shouts from across the room. Use sparingly.' },
+    swiss:      { headFont:'Inter', bodyFont:'Inter', hSize:80, hWt:500, hLh:95, hLs:-30, hItalic:'roman', hCase:'none', eFam:'sans', eSize:11, eWt:500, eLs:150, lSize:16, lWt:400, lLh:155, bSize:15, bWt:400, bLh:160, cSize:13, cWt:400, accent:'#378add', bg:'paper', motif:'none',
+      _name:'Swiss', _desc:'International style. One family, tight grid, no ornament. Trust and clarity without a single flourish.' },
+    magazine:   { headFont:'DM Serif Display', bodyFont:'Work Sans', hSize:104, hWt:400, hLh:93, hLs:-30, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:12, eWt:500, eLs:260, lSize:18, lWt:300, lLh:175, bSize:16, bWt:400, bLh:175, cSize:13, cWt:500, accent:'#d85a30', bg:'day', motif:'none',
+      _name:'Magazine', _desc:'Newsstand energy. DM Serif display is muscle, Work Sans is calm body. Big, punchy, weekly-supplement feel.' },
+    monograph:  { headFont:'EB Garamond', bodyFont:'EB Garamond', hSize:72, hWt:400, hLh:110, hLs:-15, hItalic:'roman', hCase:'none', eFam:'sans', eSize:11, eWt:400, eLs:300, lSize:18, lWt:400, lLh:185, bSize:18, bWt:400, bLh:180, cSize:14, cWt:400, accent:'#7f77dd', bg:'day', motif:'none',
+      _name:'Monograph', _desc:'Scholarly. One serif from display to caption — like a bound academic volume. For research, archives, thoughtful practices.' },
+
+    // ── Premium / Luxury ──
+    couture: { headFont:'Bodoni Moda', bodyFont:'Inter', hSize:108, hWt:400, hLh:92, hLs:-20, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:11, eWt:500, eLs:320, lSize:18, lWt:300, lLh:185, bSize:15, bWt:400, bLh:180, cSize:12, cWt:400, accent:'#1f2e4a', bg:'marble', motif:'golden',
+      _name:'Couture', _desc:'High fashion. Bodoni Moda — hairline serifs, extreme contrast. Inter body set airy. For ateliers, perfumeries, fashion houses. Pair with Marble or Linen.' },
+
+    maison: { headFont:'Cormorant Garamond', bodyFont:'Manrope', hSize:96, hWt:300, hLh:98, hLs:-10, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:10, eWt:500, eLs:400, lSize:17, lWt:300, lLh:190, bSize:15, bWt:400, bLh:175, cSize:13, cWt:400, accent:'#8a6b3d', bg:'linen', motif:'flower',
+      _name:'Maison', _desc:'Parisian maison. Cormorant italic — thin, generous, elegant. Extremely wide eyebrow tracking. For vineyards, galleries, private chefs, five-room hotels.' },
+
+    atelier: { headFont:'Cinzel', bodyFont:'Inter', hSize:72, hWt:500, hLh:108, hLs:60, hItalic:'roman', hCase:'upper', eFam:'sans', eSize:10, eWt:400, eLs:500, lSize:17, lWt:300, lLh:185, bSize:15, bWt:400, bLh:175, cSize:12, cWt:400, accent:'#7a5c2b', bg:'marble', motif:'classic',
+      _name:'Atelier', _desc:'Neoclassical. Cinzel — Roman capitals carved into stone. Wide letterspacing on everything. For law firms, museums, classical music, heritage trades.' },
+
+    heirloom: { headFont:'Libre Caslon Text', bodyFont:'Lora', hSize:80, hWt:400, hLh:105, hLs:-10, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:11, eWt:400, eLs:280, lSize:18, lWt:400, lLh:185, bSize:16, bWt:400, bLh:180, cSize:13, cWt:400, accent:'#4a2728', bg:'linen', motif:'flower',
+      _name:'Heirloom', _desc:'Century-old bookshop. Libre Caslon has the warmth of a hardback frontispiece. Claret accents. For wills, estates, family offices, rare-books.' },
+
+    opera: { headFont:'Italiana', bodyFont:'Cormorant Garamond', hSize:116, hWt:400, hLh:95, hLs:0, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:10, eWt:400, eLs:450, lSize:18, lWt:300, lLh:190, bSize:15, bWt:300, bLh:185, cSize:12, cWt:400, accent:'#c9a84c', bg:'noir', motif:'orbital',
+      _name:'Opera', _desc:'Theatrical darkness. Italiana in a single gigantic weight over a noir stage. Gold against black. For jewellery, private clubs, spirits brands, late-night.' },
+
+    davinci: { headFont:'Forum', bodyFont:'Source Serif 4', hSize:88, hWt:400, hLh:105, hLs:20, hItalic:'mixed', hCase:'none', eFam:'mono', eSize:11, eWt:400, eLs:280, lSize:17, lWt:400, lLh:180, bSize:16, bWt:400, bLh:180, cSize:13, cWt:400, accent:'#9a6e1c', bg:'linen', motif:'gear',
+      _name:'Da Vinci', _desc:'Renaissance workbook. Forum carries Roman-inscription bones, Source Serif handles body copy like a scientific treatise. For engineering studios, horology, bespoke instruments.' },
+
+    savile: { headFont:'Marcellus', bodyFont:'IBM Plex Sans', hSize:84, hWt:400, hLh:102, hLs:-5, hItalic:'roman', hCase:'none', eFam:'sans', eSize:10, eWt:500, eLs:380, lSize:16, lWt:400, lLh:175, bSize:15, bWt:400, bLh:170, cSize:12, cWt:400, accent:'#3d2817', bg:'marble', motif:'golden',
+      _name:'Savile Row', _desc:'Tailored. Marcellus is understated, classical, perfectly fitted. Plex body gives a modern mercantile edge. For bespoke tailors, advisors, private banking.' },
+
+    champagne: { headFont:'Prata', bodyFont:'Manrope', hSize:92, hWt:400, hLh:100, hLs:-15, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:10, eWt:400, eLs:460, lSize:17, lWt:300, lLh:185, bSize:15, bWt:400, bLh:175, cSize:12, cWt:400, accent:'#d4af37', bg:'velvet', motif:'flower',
+      _name:'Champagne', _desc:'Celebratory, not shouty. Prata has quiet elegance; Manrope keeps body crisp. Sovereign-gold on deep velvet. For champagne houses, private events, luxury weddings.' },
+
+    sovereign: { headFont:'Yeseva One', bodyFont:'Work Sans', hSize:104, hWt:400, hLh:96, hLs:-25, hItalic:'roman', hCase:'none', eFam:'mono', eSize:11, eWt:500, eLs:240, lSize:17, lWt:400, lLh:180, bSize:16, bWt:400, bLh:175, cSize:13, cWt:400, accent:'#d4af37', bg:'night', motif:'orbital',
+      _name:'Sovereign', _desc:'State-occasion gravitas. Yeseva One carries tall confident serifs. Sovereign gold on deep navy. For charities with royal patronage, heritage institutions, official publications.' }
+  };
+
+  let state = Object.assign({}, presets.gitfoundry, { preset: 'gitfoundry' });
+  try { const saved = localStorage.getItem(LS_KEY); if (saved) state = Object.assign({}, state, JSON.parse(saved)); } catch (e) {}
+
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+  function fontStack(name) {
+    const isSerif = SERIF_FONTS.indexOf(name) !== -1;
+    return "'" + name + "', " + (isSerif ? 'Georgia, serif' : "-apple-system, BlinkMacSystemFont, sans-serif");
+  }
+  function labelStack(fam) {
+    return fam === 'mono' ? "'JetBrains Mono', 'Fira Code', 'Courier New', monospace" : "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+  }
+  function pxToRem(px) { return (px / 16).toFixed(4).replace(/\.?0+$/, '') + 'rem'; }
+  function hexToRgb(hex) { const m = hex.replace('#','').match(/.{2}/g); return m.map(h => parseInt(h, 16)); }
+  function accentDim(hex) { const [r,g,b] = hexToRgb(hex); return 'rgba(' + r + ',' + g + ',' + b + ',0.10)'; }
+
+  function motifUrl(name) {
+    if (name === 'none') return 'none';
+    const map = { classic:'vitruvian.svg', golden:'vitruvian-golden.svg', flower:'vitruvian-flower.svg', orbital:'vitruvian-orbital.svg', gear:'vitruvian-gear.svg' };
+    return "url('" + map[name] + "')";
+  }
+
+  function render() {
+    const pv = $('#tl-preview');
+    pv.setAttribute('data-pv', state.bg);
+
+    // Motif
+    const motif = $('#pv-motif');
+    motif.style.backgroundImage = motifUrl(state.motif);
+    // On light surfaces, invert the white SVG strokes so they read as dark ink
+    const lightBg = ['day','paper','linen','marble'].indexOf(state.bg) !== -1;
+    motif.style.filter = lightBg ? 'invert(1)' : 'none';
+    motif.style.opacity = state.motif === 'none' ? 0 : (lightBg ? 0.08 : 0.09);
+
+    const eb = $('#pv-eyebrow');
+    eb.style.fontFamily = labelStack(state.eFam);
+    eb.style.fontSize = state.eSize + 'px';
+    eb.style.fontWeight = state.eWt;
+    eb.style.letterSpacing = (state.eLs / 1000) + 'em';
+    eb.style.color = state.accent;
+    eb.style.marginBottom = '2rem';
+
+    const t = $('#pv-title');
+    t.style.fontFamily = fontStack(state.headFont);
+    t.style.fontSize = state.hSize + 'px';
+    t.style.fontWeight = state.hWt;
+    t.style.lineHeight = (state.hLh / 100);
+    t.style.letterSpacing = (state.hLs / 1000) + 'em';
+    t.style.fontStyle = state.hItalic === 'italic' ? 'italic' : 'normal';
+    t.style.textTransform = state.hCase === 'upper' ? 'uppercase' : 'none';
+    t.style.fontVariant = state.hCase === 'small' ? 'small-caps' : 'normal';
+    t.style.marginBottom = '2rem';
+    const em = t.querySelector('em');
+    if (em) {
+      em.style.fontStyle = state.hItalic === 'roman' ? 'normal' : 'italic';
+      em.style.color = state.accent;
+      em.style.fontWeight = 'inherit';
+    }
+
+    const l = $('#pv-lead');
+    l.style.fontFamily = fontStack(state.bodyFont);
+    l.style.fontSize = state.lSize + 'px';
+    l.style.fontWeight = state.lWt;
+    l.style.lineHeight = (state.lLh / 100);
+    l.style.marginBottom = '1.5rem';
+
+    const b = $('#pv-body');
+    b.style.fontFamily = fontStack(state.bodyFont);
+    b.style.fontSize = state.bSize + 'px';
+    b.style.fontWeight = state.bWt;
+    b.style.lineHeight = (state.bLh / 100);
+
+    const c = $('#pv-caption');
+    c.style.fontFamily = labelStack(state.eFam);
+    c.style.fontSize = state.cSize + 'px';
+    c.style.fontWeight = state.cWt;
+    c.style.lineHeight = 1.65;
+
+    const m = $('#pv-meta');
+    m.textContent = '◆  ' + (presets[state.preset]?._name || 'Custom') + '  ·  ' + state.headFont + ' / ' + state.bodyFont;
+    m.style.color = state.accent;
+
+    // Preset description card
+    const desc = presets[state.preset];
+    if (desc) {
+      $('#preset-description').innerHTML =
+        '<strong>' + desc._name + '</strong>' + desc._desc;
+    }
+
+    persist();
+  }
+
+  function generatePatch() {
+    const headStack = fontStack(state.headFont);
+    const bodyStack = fontStack(state.bodyFont);
+    const lblStack = labelStack(state.eFam);
+    return [
+      '/* ════════════════════════════════════════════════',
+      '   TYPE LAB · PREMIUM — ' + (presets[state.preset]?._name || 'Custom') + ' · ' + new Date().toISOString().slice(0,10),
+      '   Paste at the very bottom of styles.css',
+      '   ════════════════════════════════════════════════ */',
+      '',
+      ':root {',
+      '  --serif: ' + headStack + ';',
+      '  --sans:  ' + bodyStack + ';',
+      '  --accent: ' + state.accent + ';',
+      '  --accent-dim: ' + accentDim(state.accent) + ';',
+      '}',
+      '',
+      '.hero-title, .page-header-title, .section-title {',
+      '  font-weight: ' + state.hWt + ';',
+      '  line-height: ' + (state.hLh / 100).toFixed(2) + ';',
+      '  letter-spacing: ' + (state.hLs / 1000).toFixed(3) + 'em;',
+      (state.hCase === 'upper' ? '  text-transform: uppercase;' : ''),
+      '}',
+      '',
+      '.hero-eyebrow, .page-header-label, .section-label {',
+      '  font-family: ' + lblStack + ';',
+      '  font-size: ' + pxToRem(state.eSize) + ';',
+      '  font-weight: ' + state.eWt + ';',
+      '  letter-spacing: ' + (state.eLs / 1000).toFixed(3) + 'em;',
+      '}',
+      '',
+      'body { font-size: ' + pxToRem(state.bSize) + '; font-weight: ' + state.bWt + '; line-height: ' + (state.bLh / 100).toFixed(2) + '; }',
+      ''
+    ].filter(Boolean).join('\n');
+  }
+
+  function persist() { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {} }
+
+  function syncUI() {
+    $$('[data-group]').forEach(group => {
+      const key = group.dataset.group;
+      $$('button[data-v]', group).forEach(btn => {
+        btn.classList.toggle('on', String(btn.dataset.v) === String(state[key]));
+      });
+    });
+  }
+
+  $$('[data-group]').forEach(group => {
+    const key = group.dataset.group;
+    $$('button[data-v]', group).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.v;
+        if (key === 'preset') {
+          Object.assign(state, presets[v]);
+          state.preset = v;
+          syncUI();
+        } else {
+          state[key] = v;
+          $$('button[data-v]', group).forEach(b => b.classList.toggle('on', b === btn));
+        }
+        render();
+      });
+    });
+  });
+
+  function showToast(msg) {
+    const t = $('#tl-toast');
+    t.textContent = msg;
+    t.style.transform = 'translateX(-50%) translateY(0)';
+    setTimeout(() => { t.style.transform = 'translateX(-50%) translateY(120%)'; }, 2600);
+  }
+
+  $('#btn-download').addEventListener('click', () => {
+    const blob = new Blob([generatePatch()], { type: 'text/css' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'type-' + state.preset + '.css';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('Patch downloaded — append to styles.css');
+  });
+  $('#btn-copy').addEventListener('click', () => {
+    navigator.clipboard.writeText(generatePatch());
+    showToast('CSS patch copied');
+  });
+  $('#btn-reset').addEventListener('click', () => {
+    Object.assign(state, presets.gitfoundry); state.preset = 'gitfoundry';
+    syncUI(); render(); showToast('Reset to GitFoundry');
+  });
+
+  syncUI();
+  render();
+})();
+</script>
+</body>
+</html>

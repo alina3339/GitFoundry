@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitFoundry — Review Canvas</title>
+<style>
+  html,body { margin:0; padding:0; height:100%; background:#f0eee9; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; }
+  #root { height:100vh; }
+
+  /* artboard inner frame wrapper */
+  .ab-frame {
+    width:100%; height:100%;
+    background:#0f0d0b;
+    border-radius:2px;
+    overflow:hidden;
+    position:relative;
+  }
+  .ab-frame iframe {
+    width:100%; height:100%;
+    border:0; display:block;
+    background:#0f0d0b;
+  }
+  /* quick-open link overlay in the corner */
+  .ab-open {
+    position:absolute;
+    top:8px; right:8px;
+    z-index:2;
+    background:rgba(15,13,11,0.78);
+    color:#e8e3dc;
+    font:500 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:6px 9px;
+    border-radius:3px;
+    text-decoration:none;
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.08);
+    transition: background .15s, color .15s;
+  }
+  .ab-open:hover { background:#c96442; color:#fff; }
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+
+<script type="text/babel">
+  const Frame = ({ src }) => (
+    <div className="ab-frame">
+      <a className="ab-open" href={src} target="_blank" rel="noopener">Open ↗</a>
+      <iframe src={src} loading="lazy" title={src}></iframe>
+    </div>
+  );
+
+  // Laptop-ish aspect ratios so the site sections read correctly.
+  const W = 1280;
+  const H = 860;
+
+  // A taller frame for the "full site" Vitruvian system page.
+  const Hx = 1400;
+
+  // Baseline page for comparison.
+  const Baseline = () => <Frame src="index-original.html" />;
+
+  const App = () => (
+    <DesignCanvas>
+      <DCSection
+        id="baseline"
+        title="00 · Baseline"
+        subtitle="The site as it stands today — the starting point for every track below."
+      >
+        <DCArtboard id="home" label="Current home page" width={W} height={H}>
+          <Frame src="index-original.html" />
+        </DCArtboard>
+        <DCArtboard id="portfolio" label="Current portfolio" width={W} height={H}>
+          <Frame src="portfolio-original.html" />
+        </DCArtboard>
+        <DCArtboard id="typelab" label="Current type lab" width={W} height={H}>
+          <Frame src="type-lab-original.html" />
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="track-01"
+        title="Track 01 · Bigger spinning globe"
+        subtitle="Hero gets a 3× larger Vitruvian globe, bleeding off the right edge. Three placement options."
+      >
+        <DCArtboard id="globe" label="Enlarged globe hero" width={W} height={H}>
+          <Frame src="hero-bigger-globe.html" />
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="track-02"
+        title="Track 02 · Will4Life case study"
+        subtitle="A full portfolio-detail page in the house style — brief, screens, results, testimonial."
+      >
+        <DCArtboard id="will4life" label="Will4Life — full case study" width={W} height={Hx}>
+          <Frame src="will4life-case-study.html" />
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="track-03"
+        title="Track 03 · Type Lab — luxury / premium presets"
+        subtitle="Four new curated typographic pairings aimed at luxury, editorial and premium work."
+      >
+        <DCArtboard id="typelab-premium" label="Type Lab — premium presets" width={W} height={H}>
+          <Frame src="type-lab-premium.html" />
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="track-04"
+        title="Track 04 · Vitruvian system"
+        subtitle="The five Vitruvian studies deployed across the site: dividers, stat-rail watermark, plaque cards, footer signature, page-to-motif legend."
+      >
+        <DCArtboard id="vitruvian" label="Vitruvian system — full page" width={W} height={Hx}>
+          <Frame src="vitruvian-system.html" />
+        </DCArtboard>
+      </DCSection>
+
+      <DCPostIt top={40} left={40} rotate={-2}>
+        Four tracks, one file each. Drag artboards to reorder; click any artboard header to focus it fullscreen (← / → / Esc).
+      </DCPostIt>
+
+      <DCPostIt top={40} right={40} rotate={1.5} width={200}>
+        Each frame links out with the ↗ button in the corner — open in a fresh tab to poke at it.
+      </DCPostIt>
+    </DesignCanvas>
+  );
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+</body>
+</html>

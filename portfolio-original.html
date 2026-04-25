@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - GitFoundry · Precision-built Websites on GitHub Pages</title>
+<meta name="description" content="Example projects built by GitFoundry — precision-built websites with Lighthouse 90+ scores, hosted free on GitHub Pages. Supporting local UK businesses.">
+<link rel="canonical" href="https://gitfoundry.co.uk/portfolio.html">
+<meta property="og:title" content="Portfolio - GitFoundry">
+<meta property="og:description" content="Precision-built websites with Lighthouse 90+ scores, hosted free on GitHub Pages.">
+<meta property="og:url" content="https://gitfoundry.co.uk/portfolio.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portfolio - GitFoundry">
+<meta name="twitter:description" content="Precision-built websites with Lighthouse 90+ scores, hosted free on GitHub Pages.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P72JB657');</script>
+<!-- End Google Tag Manager -->
+  
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now booking</span> — <span id="gf-booking-months"></span> projects.
+</div>
+
+<script>
+  (function () {
+    const months = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+    const now = new Date();
+    const current = months[now.getMonth()];
+    const next = months[(now.getMonth() + 1) % 12];
+    const el = document.getElementById('gf-booking-months');
+    if (el) el.textContent = current + '–' + next;
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item active">Portfolio</a></li>
+      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <span x-text="theme==='night'?'☀':'☾'"></span>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-pf" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer-pf" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+</div>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <header class="page-header" data-motif="orbital">
+      <span class="page-header-label">Portfolio</span>
+      <h1 class="page-header-title">Work that speaks for itself</h1>
+      <p class="page-header-desc">Every project designed with care, tested to Lighthouse 90+, and hosted free on GitHub Pages. No templates used.</p>
+    </header>
+
+    <!-- Performance proof section -->
+    <section aria-labelledby="perf-heading" style="margin-bottom:4rem">
+      <span class="section-label">Why Lighthouse scores matter</span>
+      <h2 class="section-title" id="perf-heading">Performance is a design choice,<br>not an accident.</h2>
+      <p class="section-intro" style="margin-bottom:2rem">Every GitFoundry site is audited against Google's Lighthouse criteria before handover. Here's what we consistently achieve.</p>
+
+      <div class="stat-strip-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="stat-item">
+          <span class="stat-num">97</span>
+          <span class="stat-label">Performance</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100</span>
+          <span class="stat-label">Accessibility</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100</span>
+          <span class="stat-label">Best practices</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">95</span>
+          <span class="stat-label">SEO</span>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:1.5rem">
+        These figures are from Lighthouse audits run on completed GitFoundry sites. Performance scores are measured on mobile, which is the stricter standard. Exact scores vary by project complexity.
+      </div>
+    </section>
+
+    <hr class="section-divider" style="margin-bottom:4rem">
+
+    <!-- Projects -->
+    
+    <!-- ── CLIENT VOICE ── -->
+<section aria-labelledby="client-voice-heading" style="margin-bottom:4rem">
+  <span class="section-label">Client voice</span>
+  <h2 class="section-title" id="client-voice-heading">What it's like<br>to work with GitFoundry.</h2>
+
+  <article class="testimonial-full a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+    <a class="testimonial-full-media" href="https://will4life.co.uk" target="_blank" rel="noopener" aria-label="Visit will4life.co.uk">
+     <img src="Assets/Images/will4life-preview.png" alt="will4life.co.uk homepage">
+    </a>
+
+    <div class="testimonial-full-body">
+      <span class="portfolio-card-tag">Startup · Launched 2026</span>
+      <blockquote class="testimonial-full-quote">
+        "I can put my hand on my heart and recommend GitFoundry without any hesitation. As a new startup I wanted a website builder who could understand my vision about my business and the suitability of the website. Azhar is one professional who was quick in grasping my ideas and delivered a product much beyond my expectations. I had very good feedback from many people. Azhar takes extra pride in getting the quality as per expectations and has patience in abundance to work with any client group. GitFoundry is a 100% satisfaction guaranteed experience. Please try it."
+      </blockquote>
+      <footer class="testimonial-full-cite">
+        <span class="testimonial-full-name">Renjith Reghu</span>
+        <span class="testimonial-full-role">Founder, Will4Life</span>
+        <a class="testimonial-full-link" href="https://will4life.co.uk" target="_blank" rel="noopener">Visit live site →</a>
+      </footer>
+    </div>
+  </article>
+</section>
+
+<hr class="section-divider" style="margin:4rem 0">
+    <section aria-labelledby="projects-heading">
+      <span class="section-label">Projects</span>
+      <h2 class="section-title" id="projects-heading">Selected work</h2>
+
+      <div class="portfolio-grid" style="margin-top:2rem">
+
+        <article class="portfolio-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <div class="portfolio-card-img" aria-hidden="true">preview</div>
+          <div class="portfolio-card-body">
+            <span class="portfolio-card-tag">Landing Page · £149</span>
+            <h3 class="portfolio-card-title">Academic researcher portfolio</h3>
+            <p class="portfolio-card-desc">A single-page academic profile for a PhD researcher — publications, research interests, and contact. Lighthouse 98/100/100/96.</p>
+            <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap">
+              <span class="spec-tag">precision-built</span>
+              <span class="spec-tag">github pages</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="transition-delay:0.08s">
+          <div class="portfolio-card-img" aria-hidden="true">preview</div>
+          <div class="portfolio-card-body">
+            <span class="portfolio-card-tag">Professional · £349</span>
+            <h3 class="portfolio-card-title">Local consultant site</h3>
+            <p class="portfolio-card-desc">Five-page professional site for an independent UK management consultant — services, case studies, and a project enquiry form. Lighthouse 95/100/100/94.</p>
+            <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap">
+              <span class="spec-tag">5 pages</span>
+              <span class="spec-tag">seo included</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <div class="portfolio-card-img" aria-hidden="true">preview</div>
+          <div class="portfolio-card-body">
+            <span class="portfolio-card-tag">Landing Page · £149</span>
+            <h3 class="portfolio-card-title">Graduate CV page</h3>
+            <p class="portfolio-card-desc">A clean, typographically focused one-page CV for a recent graduate in finance — sent directly to employers as a URL. Lighthouse 100/100/100/97.</p>
+            <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap">
+              <span class="spec-tag">elegant</span>
+              <span class="spec-tag">zero fees</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="transition-delay:0.08s">
+          <div class="portfolio-card-img" aria-hidden="true">preview</div>
+          <div class="portfolio-card-body">
+            <span class="portfolio-card-tag">Bespoke · £749+</span>
+            <h3 class="portfolio-card-title">Non-profit homepage</h3>
+            <p class="portfolio-card-desc">Full branding-led site for a local charity — home, about, work, news, and a donation-link page. Accessibility audited to WCAG 2.1 AA. Lighthouse 96/100/100/95.</p>
+            <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap">
+              <span class="spec-tag">wcag 2.1 aa</span>
+              <span class="spec-tag">bespoke</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="cta-pf-heading">
+      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <h2 class="section-title" id="cta-pf-heading">Want this kind of quality applied to your project?</h2>
+        <p class="section-intro" style="margin-bottom:2rem">Submit a brief and we'll confirm scope and timeline within 48 hours.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
+          <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="brief.html">Brief</a></li>
+      <li><a href="legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function site() {
+  return {
+    theme: localStorage.getItem('gf-theme') || 'night',
+    drawerOpen: false,
+    cookieVisible: false,
+
+    init() {
+      document.documentElement.setAttribute('data-theme', this.theme);
+      setTimeout(() => {
+        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
+      }, 1800);
+    },
+
+    toggleTheme() {
+      this.theme = this.theme === 'night' ? 'day' : 'night';
+      localStorage.setItem('gf-theme', this.theme);
+    },
+
+    acceptCookies() {
+      localStorage.setItem('gf-cookies', 'accepted');
+      this.cookieVisible = false;
+    },
+
+    declineCookies() {
+      localStorage.setItem('gf-cookies', 'declined');
+      this.cookieVisible = false;
+    }
+  };
+}
+</script>
+  <!-- ── SCHEMA: Review (Renjith / will4life.co.uk) ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "Service",
+    "name": "GitFoundry Website Build",
+    "provider": {
+      "@type": "Organization",
+      "name": "GitFoundry",
+      "url": "https://gitfoundry.co.uk"
+    },
+    "areaServed": "GB",
+    "serviceType": "Website design and development"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Renjith Eettickal Reghu"
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "5",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "reviewBody": "I can put my hand on my heart and recommend GitFoundry without any hesitation. As a new startup I wanted a website builder who could understand my vision about my business and the suitability of the website. Azhar is one professional who was quick in grasping my ideas and delivered a product much beyond my expectations. I had very good feedback from many people. Azhar takes extra pride in getting the quality as per expectations and has patience in abundance to work with any client group. GitFoundry is a 100% satisfaction guaranteed experience. Please try it.",
+  "datePublished": "2026-04-18",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GitFoundry",
+    "url": "https://gitfoundry.co.uk"
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitruvian System — GitFoundry</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* ── Vitruvian system additions ─────────────────────────
+   Uses the same five SVGs already wired into styles.css
+   (data-motif="classic|golden|flower|orbital|gear") but
+   extends them to four new contexts the current stylesheet
+   doesn't yet cover:
+
+   (a) Section divider with an inline motif medallion
+   (b) Stat-rail watermark behind the figures
+   (c) Corner plaque on pricing-style cards
+   (d) Footer centrepiece / signature mark
+
+   Each uses background-image on a pseudo-element with the
+   same opacity language (0.06–0.12) as the hero/header
+   motif so the whole page feels like one document.
+   ──────────────────────────────────────────────────────── */
+
+/* (a) Divider with medallion */
+.vit-divider {
+  position: relative;
+  height: 1px;
+  background: var(--border);
+  margin: 5rem 0;
+  border: none;
+}
+.vit-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  background: var(--bg);
+  background-image: var(--vit, url('vitruvian.svg'));
+  background-size: 70% 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  opacity: 0.9;
+}
+[data-theme="day"] .vit-divider::before { filter: invert(1); }
+
+.vit-divider[data-motif="classic"] { --vit: url('vitruvian.svg'); }
+.vit-divider[data-motif="golden"]  { --vit: url('vitruvian-golden.svg'); }
+.vit-divider[data-motif="flower"]  { --vit: url('vitruvian-flower.svg'); }
+.vit-divider[data-motif="orbital"] { --vit: url('vitruvian-orbital.svg'); }
+.vit-divider[data-motif="gear"]    { --vit: url('vitruvian-gear.svg'); }
+
+/* (b) Stat rail watermark */
+.vit-stats {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  margin: 2rem 0;
+}
+.vit-stats::before {
+  content: '';
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 360px;
+  height: 360px;
+  background: var(--vit-stat, url('vitruvian-gear.svg')) center/contain no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
+}
+[data-theme="day"] .vit-stats::before { filter: invert(1); opacity: 0.05; }
+.vit-stats-inner {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 720px) {
+  .vit-stats-inner { grid-template-columns: repeat(2,1fr); gap: 1.75rem 1rem; }
+}
+.vit-stats .stat-item { text-align: left; }
+
+/* (c) Plaque — for pricing/feature cards */
+.vit-plaque {
+  position: relative;
+  border: 1px solid var(--border);
+  padding: 2rem 1.75rem 1.75rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color var(--dur);
+}
+.vit-plaque:hover { border-color: var(--border-strong); }
+.vit-plaque::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 280px;
+  height: 280px;
+  background: var(--vit-plaque, url('vitruvian-golden.svg')) center/contain no-repeat;
+  opacity: 0.08;
+  pointer-events: none;
+  transition: opacity var(--dur), transform 0.8s var(--ease);
+}
+.vit-plaque:hover::before { opacity: 0.14; transform: rotate(6deg); }
+[data-theme="day"] .vit-plaque::before { filter: invert(1); opacity: 0.06; }
+
+.vit-plaque[data-motif="classic"] { --vit-plaque: url('vitruvian.svg'); }
+.vit-plaque[data-motif="golden"]  { --vit-plaque: url('vitruvian-golden.svg'); }
+.vit-plaque[data-motif="flower"]  { --vit-plaque: url('vitruvian-flower.svg'); }
+.vit-plaque[data-motif="orbital"] { --vit-plaque: url('vitruvian-orbital.svg'); }
+.vit-plaque[data-motif="gear"]    { --vit-plaque: url('vitruvian-gear.svg'); }
+
+.vit-plaque-label {
+  font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.14em;
+  color: var(--accent); text-transform: uppercase; margin-bottom: 0.65rem;
+  display: block; position: relative; z-index: 1;
+}
+.vit-plaque-title {
+  font-family: var(--serif); font-size: 1.375rem; font-weight: 400;
+  color: var(--text); letter-spacing: -0.01em; margin-bottom: 0.4rem;
+  line-height: 1.3; position: relative; z-index: 1;
+}
+.vit-plaque-title em { color: var(--accent); font-style: italic; }
+.vit-plaque-desc {
+  font-size: 0.9375rem; color: var(--text-muted); line-height: 1.65;
+  position: relative; z-index: 1;
+}
+
+/* (d) Signature footer mark */
+.vit-signature {
+  position: relative;
+  margin-top: 5rem;
+  padding: 4rem 0 3rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.vit-signature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  background: var(--bg) url('vitruvian.svg') center/70% no-repeat;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+[data-theme="day"] .vit-signature::before { filter: invert(1); }
+.vit-signature-caption {
+  font-family: var(--mono); font-size: 0.6875rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-muted); margin-top: 0.75rem;
+}
+.vit-signature-mark {
+  font-family: var(--serif); font-size: 2.5rem;
+  font-weight: 300; font-style: italic;
+  color: var(--text-soft); letter-spacing: -0.02em;
+  margin: 0;
+}
+.vit-signature-mark em { color: var(--accent); font-style: italic; }
+
+/* (e) Legend / mapping index */
+.vit-legend {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin: 2rem 0 4rem;
+}
+@media (max-width: 900px) { .vit-legend { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 520px) { .vit-legend { grid-template-columns: 1fr; } }
+
+.vit-legend-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1rem 1rem;
+  text-align: center;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--dur), transform var(--dur);
+}
+.vit-legend-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.vit-legend-thumb {
+  aspect-ratio: 1/1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 85% 85%;
+}
+[data-theme="day"] .vit-legend-thumb { filter: invert(1); }
+.vit-legend-item[data-motif="classic"] .vit-legend-thumb { background-image: url('vitruvian.svg'); }
+.vit-legend-item[data-motif="golden"]  .vit-legend-thumb { background-image: url('vitruvian-golden.svg'); }
+.vit-legend-item[data-motif="flower"]  .vit-legend-thumb { background-image: url('vitruvian-flower.svg'); }
+.vit-legend-item[data-motif="orbital"] .vit-legend-thumb { background-image: url('vitruvian-orbital.svg'); }
+.vit-legend-item[data-motif="gear"]    .vit-legend-thumb { background-image: url('vitruvian-gear.svg'); }
+
+.vit-legend-name {
+  font-family: var(--serif); font-size: 1.0625rem; font-weight: 400;
+  color: var(--text); margin-bottom: 0.25rem;
+}
+.vit-legend-role {
+  font-family: var(--mono); font-size: 0.6875rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.vit-legend-pages {
+  font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5;
+}
+
+/* Plaque grid */
+.vit-plaque-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+@media (max-width: 900px) { .vit-plaque-grid { grid-template-columns: 1fr; } }
+
+/* Compact page-header styling for the demo */
+.demo-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.demo-section:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+.demo-eyebrow {
+  font-family: var(--mono); font-size: 0.6875rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); display: block;
+  margin-bottom: 0.5rem;
+}
+.demo-title {
+  font-family: var(--serif); font-size: 1.75rem;
+  font-weight: 400; letter-spacing: -0.015em;
+  color: var(--text); margin-bottom: 0.5rem;
+}
+.demo-title em { font-style: italic; color: var(--accent); }
+.demo-caption {
+  font-size: 0.9375rem; color: var(--text-muted);
+  max-width: 62ch; margin-bottom: 2rem; line-height: 1.65;
+}
+</style>
+</head>
+
+<body data-theme="night">
+
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#" class="nav-item">Services</a></li>
+      <li><a href="#" class="nav-item">Pricing</a></li>
+      <li><a href="#" class="nav-item">Portfolio</a></li>
+      <li><a href="#" class="nav-item nav-cta">See pricing</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- (Hero — flower motif) -->
+<section class="hero" data-motif="flower">
+  <div class="content-wrapper">
+    <span class="hero-eyebrow">Vitruvian system</span>
+    <p class="hero-clarifier">One diagram per page. Five diagrams in rotation. The site carries a thread from home to brief.</p>
+    <h1 class="hero-title">A signature, <em>woven in.</em></h1>
+    <p class="hero-sub">The five Vitruvian studies — classic, golden, flower-of-life, orbital, and gear — now appear as hero watermarks, section medallions, stat-rail shadows, card plaques and the footer anchor. Each page holds its own motif; together they read as one book.</p>
+  </div>
+</section>
+
+<div class="content-wrapper">
+
+  <!-- LEGEND -->
+  <section class="demo-section">
+    <span class="demo-eyebrow">◆ Assignment</span>
+    <h2 class="demo-title">Each motif has a <em>page</em>.</h2>
+    <p class="demo-caption">The classic study holds the home page — our anchor. The four variants take the supporting rooms, so every page has its own geometric signature without diluting the set.</p>
+
+    <div class="vit-legend">
+      <div class="vit-legend-item" data-motif="classic">
+        <div class="vit-legend-thumb"></div>
+        <div class="vit-legend-role">Anchor</div>
+        <div class="vit-legend-name">Classic</div>
+        <div class="vit-legend-pages">Home · About · Success</div>
+      </div>
+      <div class="vit-legend-item" data-motif="golden">
+        <div class="vit-legend-thumb"></div>
+        <div class="vit-legend-role">Pricing</div>
+        <div class="vit-legend-name">Golden</div>
+        <div class="vit-legend-pages">Pricing · Services</div>
+      </div>
+      <div class="vit-legend-item" data-motif="flower">
+        <div class="vit-legend-thumb"></div>
+        <div class="vit-legend-role">Home hero</div>
+        <div class="vit-legend-name">Flower</div>
+        <div class="vit-legend-pages">Index hero · Sectors</div>
+      </div>
+      <div class="vit-legend-item" data-motif="orbital">
+        <div class="vit-legend-thumb"></div>
+        <div class="vit-legend-role">Portfolio</div>
+        <div class="vit-legend-name">Orbital</div>
+        <div class="vit-legend-pages">Portfolio · Case studies</div>
+      </div>
+      <div class="vit-legend-item" data-motif="gear">
+        <div class="vit-legend-thumb"></div>
+        <div class="vit-legend-role">Process</div>
+        <div class="vit-legend-name">Gear</div>
+        <div class="vit-legend-pages">Brief · Contact · Legal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (a) Divider medallions -->
+  <hr class="vit-divider" data-motif="classic">
+
+  <section class="demo-section">
+    <span class="demo-eyebrow">◆ Dividers</span>
+    <h2 class="demo-title">Section dividers carry a <em>medallion</em>.</h2>
+    <p class="demo-caption">Thin rule with a small circular plate in the centre. The motif inside the plate can change per section — used sparingly, it gives long pages a rhythm without shouting.</p>
+  </section>
+
+  <hr class="vit-divider" data-motif="golden">
+  <hr class="vit-divider" data-motif="flower">
+  <hr class="vit-divider" data-motif="orbital">
+  <hr class="vit-divider" data-motif="gear">
+
+  <!-- (b) Stat rail watermark -->
+  <section class="demo-section">
+    <span class="demo-eyebrow">◆ Stat rail</span>
+    <h2 class="demo-title">The numbers stand, the <em>gear</em> turns behind them.</h2>
+    <p class="demo-caption">Stat rails on the home, pricing, and portfolio pages gain a large gear-motif watermark bleeding off the right edge — enough to feel engineered, quiet enough to stay out of the figures' way.</p>
+
+    <div class="vit-stats" style="--vit-stat: url('vitruvian-gear.svg')">
+      <div class="vit-stats-inner">
+        <div class="stat-item">
+          <span class="stat-num">£0</span>
+          <span class="stat-label">Monthly hosting</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Yours to own</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">&lt;48h</span>
+          <span class="stat-label">Response time</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">90+</span>
+          <span class="stat-label">Lighthouse scores</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (c) Plaque cards -->
+  <section class="demo-section">
+    <span class="demo-eyebrow">◆ Plaque cards</span>
+    <h2 class="demo-title">Cards hold a <em>plaque</em> in the upper-right.</h2>
+    <p class="demo-caption">A new card treatment for feature rows and pricing tiles. The motif sits bleeding off the top-right corner at 8% opacity; it lifts to 14% and rotates slightly on hover. Each card can carry its own study — the set feels deliberate, not repetitive.</p>
+
+    <div class="vit-plaque-grid">
+      <div class="vit-plaque" data-motif="golden">
+        <span class="vit-plaque-label">Tier 01</span>
+        <div class="vit-plaque-title">Landing <em>Page</em></div>
+        <div class="vit-plaque-desc">A single elegant page. For portfolios, CVs, launch pages. Delivered in three days, hosted free.</div>
+      </div>
+      <div class="vit-plaque" data-motif="flower">
+        <span class="vit-plaque-label">Tier 02</span>
+        <div class="vit-plaque-title">Professional</div>
+        <div class="vit-plaque-desc">Up to five considered pages. Analytics and SEO fundamentals baked in. Source code handover.</div>
+      </div>
+      <div class="vit-plaque" data-motif="orbital">
+        <span class="vit-plaque-label">Tier 03</span>
+        <div class="vit-plaque-title"><em>Bespoke</em></div>
+        <div class="vit-plaque-desc">Custom scope, custom interactions, priority turnaround. Quoted per brief.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (d) Signature / footer mark -->
+  <section class="vit-signature">
+    <h2 class="vit-signature-mark">Craft · <em>Commit</em> · Create</h2>
+    <div class="vit-signature-caption">◆  The Git Foundry mark — a Vitruvian anchor</div>
+  </section>
+
+</div>
+
+</main>
+
+</body>
+</html>

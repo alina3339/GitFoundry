@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  
+  <g stroke="#ffffff" fill="none">
+
+    
+    <circle cx="300" cy="300" r="220" stroke-width="0.6"></circle>
+
+    
+    
+    <circle cx="300" cy="300" r="110" stroke-width="0.5"></circle>
+    
+    <circle cx="300" cy="190" r="110" stroke-width="0.45"></circle>
+    <circle cx="300" cy="410" r="110" stroke-width="0.45"></circle>
+    <circle cx="395" cy="245" r="110" stroke-width="0.45"></circle>
+    <circle cx="395" cy="355" r="110" stroke-width="0.45"></circle>
+    <circle cx="205" cy="245" r="110" stroke-width="0.45"></circle>
+    <circle cx="205" cy="355" r="110" stroke-width="0.45"></circle>
+
+    
+    <path d="M 300 190 L 395 245 L 395 355 L 300 410 L 205 355 L 205 245 Z" stroke-width="0.4"></path>
+
+    
+    <path d="M 300 190 L 395 355 L 205 355 Z" stroke-width="0.3"></path>
+    <path d="M 300 410 L 205 245 L 395 245 Z" stroke-width="0.3"></path>
+
+    
+    <line x1="60" y1="300" x2="540" y2="300" stroke-width="0.5"></line>
+    <line x1="300" y1="60" x2="300" y2="540" stroke-width="0.5"></line>
+
+    
+    <line x1="205" y1="295" x2="205" y2="305" stroke-width="0.5"></line>
+    <line x1="395" y1="295" x2="395" y2="305" stroke-width="0.5"></line>
+    <line x1="295" y1="190" x2="305" y2="190" stroke-width="0.5"></line>
+    <line x1="295" y1="410" x2="305" y2="410" stroke-width="0.5"></line>
+
+    
+    <circle cx="300" cy="300" r="3" stroke-width="1"></circle>
+
+    
+    <line x1="10" y1="10" x2="40" y2="10" stroke-width="1"></line>
+    <line x1="10" y1="10" x2="10" y2="40" stroke-width="1"></line>
+    <line x1="590" y1="10" x2="560" y2="10" stroke-width="1"></line>
+    <line x1="590" y1="10" x2="590" y2="40" stroke-width="1"></line>
+    <line x1="10" y1="590" x2="40" y2="590" stroke-width="1"></line>
+    <line x1="10" y1="590" x2="10" y2="560" stroke-width="1"></line>
+    <line x1="590" y1="590" x2="560" y2="590" stroke-width="1"></line>
+    <line x1="590" y1="590" x2="590" y2="560" stroke-width="1"></line>
+
+  </g>
+</svg>

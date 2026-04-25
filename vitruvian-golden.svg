@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  
+  <g stroke="#ffffff" fill="none">
+
+    
+    <rect x="60" y="112" width="480" height="297" stroke-width="0.55"></rect>
+
+    
+    
+    <line x1="357" y1="112" x2="357" y2="409" stroke-width="0.45"></line>
+    
+    <line x1="357" y1="296" x2="540" y2="296" stroke-width="0.4"></line>
+    
+    <line x1="470" y1="112" x2="470" y2="296" stroke-width="0.35"></line>
+    
+    <line x1="470" y1="183" x2="540" y2="183" stroke-width="0.3"></line>
+    <line x1="513" y1="183" x2="513" y2="296" stroke-width="0.3"></line>
+    <line x1="513" y1="240" x2="540" y2="240" stroke-width="0.25"></line>
+
+    
+    <path d="M 60 112 A 297 297 0 0 1 357 409" stroke-width="0.55"></path>
+    <path d="M 357 409 A 183 183 0 0 1 540 226" stroke-width="0.5"></path>
+    <path d="M 540 226 A 113 113 0 0 1 427 113" stroke-width="0.45"></path>
+    <path d="M 427 113 A 70 70 0 0 1 497 183" stroke-width="0.4"></path>
+    <path d="M 497 183 A 43 43 0 0 1 540 226" stroke-width="0.35"></path>
+
+    
+    
+    <line x1="357" y1="409" x2="357" y2="419" stroke-width="0.5"></line>
+    <line x1="60" y1="415" x2="357" y2="415" stroke-width="0.3"></line>
+    <line x1="357" y1="415" x2="540" y2="415" stroke-width="0.3"></line>
+
+    
+    <circle cx="497" cy="226" r="2" stroke-width="0.8"></circle>
+    <circle cx="497" cy="226" r="8" stroke-width="0.35"></circle>
+
+    
+    <line x1="10" y1="10" x2="40" y2="10" stroke-width="1"></line>
+    <line x1="10" y1="10" x2="10" y2="40" stroke-width="1"></line>
+    <line x1="590" y1="10" x2="560" y2="10" stroke-width="1"></line>
+    <line x1="590" y1="10" x2="590" y2="40" stroke-width="1"></line>
+    <line x1="10" y1="590" x2="40" y2="590" stroke-width="1"></line>
+    <line x1="10" y1="590" x2="10" y2="560" stroke-width="1"></line>
+    <line x1="590" y1="590" x2="560" y2="590" stroke-width="1"></line>
+    <line x1="590" y1="590" x2="590" y2="560" stroke-width="1"></line>
+
+  </g>
+</svg>

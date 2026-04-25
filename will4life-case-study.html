@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will4Life — Case Study · GitFoundry</title>
+<meta name="description" content="Case study: Will4Life, a professional will writing and estate planning practice. A calm, trust-first single-page site delivered under the Landing Page tier.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* ── CASE STUDY PAGE-SPECIFIC LAYOUT ─────────────────────
+   Inherits every token + component from styles.css.
+   Only adds: hero-screenshot frame, meta-rail, quote block,
+   before/after strip, and colour-strip. No new colours —
+   accent-dim and accent are reused throughout.
+   ──────────────────────────────────────────────────────── */
+
+.case-hero {
+  position: relative;
+  margin-top: 1.5rem;
+  padding: 0;
+  overflow: visible;
+}
+
+.case-hero-label-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.case-hero-label-row .section-label { margin: 0; }
+.case-hero-label-row .case-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--text-muted); opacity: 0.6;
+}
+.case-hero-label-row .case-crumb {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.case-hero-label-row .case-crumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur), color var(--dur);
+}
+.case-hero-label-row .case-crumb a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.case-title {
+  font-family: var(--serif);
+  font-size: clamp(2.75rem, 6.5vw, 5rem);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0 0 1.5rem;
+  max-width: 18ch;
+}
+.case-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+.case-subtitle {
+  font-size: 1.1875rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--text-soft);
+  max-width: 58ch;
+  margin-bottom: 2.5rem;
+}
+
+/* Meta rail — the numbers at the top of the case */
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+  margin-bottom: 3rem;
+}
+.case-meta-item {
+  padding: 0 1.25rem;
+  border-right: 1px solid var(--border);
+}
+.case-meta-item:last-child { border-right: none; }
+.case-meta-item:first-child { padding-left: 0; }
+.case-meta-label {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.45rem;
+}
+.case-meta-value {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.case-meta-value .accent { color: var(--accent); }
+.case-meta-value small {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0;
+  display: block;
+  margin-top: 0.15rem;
+}
+@media (max-width: 720px) {
+  .case-meta { grid-template-columns: repeat(2,1fr); gap: 1.25rem 0; padding: 1.5rem 0; }
+  .case-meta-item:nth-child(2) { border-right: none; }
+  .case-meta-item:nth-child(3) { padding-left: 0; }
+}
+
+/* Screenshot frame — framed like a browser bezel */
+.case-shot {
+  position: relative;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--surface);
+  margin-bottom: 4rem;
+  box-shadow:
+    0 40px 60px -30px rgba(0,0,0,0.6),
+    0 0 0 1px var(--accent-dim);
+}
+.case-shot-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(to bottom, var(--surface-2), var(--surface));
+}
+.case-shot-dots {
+  display: flex; gap: 6px;
+}
+.case-shot-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--border-strong);
+}
+.case-shot-url {
+  flex: 1;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  text-align: center;
+  background: var(--bg);
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  max-width: 320px;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.case-shot-url::before {
+  content: '🔒  ';
+  font-size: 0.625rem;
+  opacity: 0.6;
+  letter-spacing: 0;
+}
+.case-shot-badge {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  background: var(--accent-dim);
+  white-space: nowrap;
+}
+.case-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Body — the actual case narrative */
+.case-body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+@media (max-width: 960px) {
+  .case-body { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+.case-body-label {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+.case-body-copy p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--text-soft);
+  margin-bottom: 1.25rem;
+  max-width: 62ch;
+}
+.case-body-copy p:first-child {
+  font-size: 1.1875rem;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.65;
+}
+.case-body-copy p strong { color: var(--text); font-weight: 500; }
+
+/* Approach list */
+.case-approach {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+  margin-bottom: 4rem;
+}
+@media (max-width: 900px) {
+  .case-approach { grid-template-columns: 1fr; }
+}
+.case-approach-item {
+  padding: 1.75rem 1.5rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.case-approach-item:nth-child(3n) { border-right: none; }
+@media (max-width: 900px) {
+  .case-approach-item { border-right: none; padding: 1.5rem 0; }
+}
+.case-approach-num {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.65rem;
+}
+.case-approach-title {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+.case-approach-title em { color: var(--accent); font-style: italic; }
+.case-approach-desc {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Colour + type strip */
+.case-spec {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+@media (max-width: 720px) { .case-spec { grid-template-columns: 1fr; padding: 1.75rem; } }
+
+.case-spec h4 {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.1rem;
+}
+.case-swatches {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.case-swatch {
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.case-swatch-chip {
+  aspect-ratio: 1/1;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+}
+.case-swatch-label {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+.case-swatch-hex {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  color: var(--text-soft);
+}
+.case-typepair {
+  display: flex; flex-direction: column; gap: 1.1rem;
+}
+.case-typepair-row {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.case-typepair-row:last-child { border-bottom: none; padding-bottom: 0; }
+.case-typepair-label {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+.case-typepair-sample {
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.case-typepair-meta {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+/* Pull quote */
+.case-quote {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4rem;
+  position: relative;
+}
+.case-quote::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  font-family: var(--serif);
+  font-size: 6rem;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+  font-style: italic;
+}
+.case-quote-text {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  line-height: 1.35;
+  color: var(--text);
+  letter-spacing: -0.015em;
+  max-width: 32ch;
+  margin: 0 auto 1.5rem;
+  padding-left: 2rem;
+  font-style: italic;
+}
+.case-quote-text em { color: var(--accent); font-style: italic; }
+.case-quote-cite {
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 40ch;
+  margin: 0 auto;
+}
+.case-quote-cite-name {
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  color: var(--text);
+  font-weight: 500;
+}
+.case-quote-cite-role {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Outcomes */
+.case-outcomes {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 0;
+  margin-bottom: 4rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 720px) { .case-outcomes { grid-template-columns: repeat(2,1fr); } }
+.case-outcome {
+  padding: 1.75rem 1.25rem;
+  border-right: 1px solid var(--border);
+}
+.case-outcome:last-child { border-right: none; }
+@media (max-width: 720px) {
+  .case-outcome:nth-child(2) { border-right: none; }
+}
+.case-outcome-num {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.case-outcome-num .accent { color: var(--accent); }
+.case-outcome-label {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.6rem;
+  display: block;
+}
+
+/* Next case */
+.case-next {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 1rem;
+  border-top: 1px solid var(--border);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.case-next-label {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.case-next-title {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text);
+  margin: 0.25rem 0 0;
+  letter-spacing: -0.01em;
+}
+.case-next-title a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--accent); }
+.case-next-title a:hover { color: var(--accent); }
+</style>
+</head>
+
+<body data-theme="night">
+
+<!-- Nav (copied from portfolio.html so it looks native) -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#" class="nav-item">Services</a></li>
+      <li><a href="#" class="nav-item">Pricing</a></li>
+      <li><a href="#" class="nav-item active">Portfolio</a></li>
+      <li><a href="#" class="nav-item nav-cta">See pricing</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <!-- HERO -->
+    <section class="case-hero">
+
+      <div class="case-hero-label-row">
+        <span class="section-label">Case study</span>
+        <span class="case-dot"></span>
+        <span class="case-crumb"><a href="#">Portfolio</a> &nbsp;/&nbsp; Will4Life</span>
+      </div>
+
+      <h1 class="case-title">Securing <em>clarity</em><br>for a family's future.</h1>
+      <p class="case-subtitle">A calm, trust-first single-page presence for Will4Life — a professional will-writing and estate-planning practice. Delivered in six working days, hosted on GitHub Pages, owned outright by the client.</p>
+
+      <!-- Meta rail -->
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="case-meta-label">Sector</span>
+          <span class="case-meta-value">Legal <small>Will writing & estate planning</small></span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Tier</span>
+          <span class="case-meta-value">Landing Page <small>£149 · one-time</small></span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Delivered</span>
+          <span class="case-meta-value">6 working days <small>Brief to handover</small></span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-label">Lighthouse</span>
+          <span class="case-meta-value"><span class="accent">98</span> / 100 / 100 / 96 <small>Perf · A11y · BP · SEO</small></span>
+        </div>
+      </div>
+
+      <!-- Screenshot -->
+      <figure class="case-shot">
+        <div class="case-shot-chrome">
+          <div class="case-shot-dots"><span></span><span></span><span></span></div>
+          <div class="case-shot-url">will4life.co.uk</div>
+          <span class="case-shot-badge">Live site</span>
+        </div>
+        <img src="assets/will4life-preview.png" alt="Will4Life homepage — 'Securing Clarity for Your Family's Future' with a confidential booking CTA and a poetic quote card to the right." loading="lazy">
+      </figure>
+
+    </section>
+
+    <!-- THE BRIEF -->
+    <section class="case-body">
+      <div class="case-body-label">01 &nbsp;· &nbsp;The brief</div>
+      <div class="case-body-copy">
+        <p>Will4Life came to us with a quiet, serious ask: a website that would feel as careful as the conversations they have with clients. No sales pressure. No gimmicks. Just a single page that earned the visitor's trust in the first five seconds and made booking a confidential appointment the most obvious next step.</p>
+        <p>Their audience is people thinking about a subject most of us avoid. Anything loud or salesy would have been the wrong register. The site needed to feel like <strong>a firm handshake and a warm room</strong> — professional, measured, and gentle.</p>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section style="margin-bottom: 1rem">
+      <span class="section-label">02 &nbsp;· &nbsp;Approach</span>
+      <h2 class="section-title">Three deliberate decisions.</h2>
+    </section>
+
+    <div class="case-approach">
+      <div class="case-approach-item">
+        <span class="case-approach-num">01</span>
+        <h3 class="case-approach-title">A <em>sky-to-dusk</em> gradient, not a photo.</h3>
+        <p class="case-approach-desc">Stock photography of hands and grandchildren would have felt generic. A soft blue-to-warm-amber gradient evokes continuity across generations without illustrating it literally — an emotional colour story that stays on brand on any screen.</p>
+      </div>
+      <div class="case-approach-item">
+        <span class="case-approach-num">02</span>
+        <h3 class="case-approach-title">Headline in italic serif, body in quiet sans.</h3>
+        <p class="case-approach-desc">"Clarity" is set in a warm italic Fraunces to feel human and considered, against a restrained Inter body. The pairing gives the page a legal-practice weight without ever tipping into corporate stiffness.</p>
+      </div>
+      <div class="case-approach-item">
+        <span class="case-approach-num">03</span>
+        <h3 class="case-approach-title">A <em>confidential</em> CTA, not a loud one.</h3>
+        <p class="case-approach-desc">"Book a Confidential Appointment" — exact copy the client uses on the phone. The button sits in the page's natural reading flow, not a pop-up or a sticky bar. The booking modal opens inline; nothing leaves the page.</p>
+      </div>
+      <div class="case-approach-item">
+        <span class="case-approach-num">04</span>
+        <h3 class="case-approach-title">A quote card, treated as a <em>letter</em>.</h3>
+        <p class="case-approach-desc">The right-hand card carries a poem written by the practice's founder. We set it in italic serif on a frosted-glass pane with hand-picked accent underlines — a literary moment on a page that could easily have defaulted to icons.</p>
+      </div>
+      <div class="case-approach-item">
+        <span class="case-approach-num">05</span>
+        <h3 class="case-approach-title">No tracking beyond what is necessary.</h3>
+        <p class="case-approach-desc">A single privacy-respecting analytics pixel. No Facebook Pixel, no third-party fonts that phone home, no heat-mapping. Visitors to a will-writer's site deserve more discretion than the industry default.</p>
+      </div>
+      <div class="case-approach-item">
+        <span class="case-approach-num">06</span>
+        <h3 class="case-approach-title">Hand-coded, <em>hand-owned</em>.</h3>
+        <p class="case-approach-desc">Static HTML on GitHub Pages. No WordPress to patch. No monthly renewal. The client holds the repository, the domain, and the full rights to the words and design. The site will outlive any platform.</p>
+      </div>
+    </div>
+
+    <!-- SPEC (colours + type) -->
+    <div class="case-spec">
+      <div>
+        <h4>Palette</h4>
+        <div class="case-swatches">
+          <div class="case-swatch">
+            <div class="case-swatch-chip" style="background:#e8eef7"></div>
+            <span class="case-swatch-label">Dawn</span>
+            <span class="case-swatch-hex">#E8EEF7</span>
+          </div>
+          <div class="case-swatch">
+            <div class="case-swatch-chip" style="background:#a9bcd8"></div>
+            <span class="case-swatch-label">Sky</span>
+            <span class="case-swatch-hex">#A9BCD8</span>
+          </div>
+          <div class="case-swatch">
+            <div class="case-swatch-chip" style="background:#4d6a99"></div>
+            <span class="case-swatch-label">Midwater</span>
+            <span class="case-swatch-hex">#4D6A99</span>
+          </div>
+          <div class="case-swatch">
+            <div class="case-swatch-chip" style="background:#f2d6a4"></div>
+            <span class="case-swatch-label">Warm</span>
+            <span class="case-swatch-hex">#F2D6A4</span>
+          </div>
+          <div class="case-swatch">
+            <div class="case-swatch-chip" style="background:#1a2436"></div>
+            <span class="case-swatch-label">Ink</span>
+            <span class="case-swatch-hex">#1A2436</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>Typography</h4>
+        <div class="case-typepair">
+          <div class="case-typepair-row">
+            <span class="case-typepair-label">Display</span>
+            <div class="case-typepair-sample" style="font-family:var(--serif);font-size:1.75rem;font-weight:400">Fraunces <em style="color:var(--accent)">Italic</em></div>
+            <div class="case-typepair-meta">Serif · 400–500 · opsz 72</div>
+          </div>
+          <div class="case-typepair-row">
+            <span class="case-typepair-label">Body</span>
+            <div class="case-typepair-sample" style="font-family:var(--sans);font-size:1.125rem;font-weight:400">The quiet practice of careful words.</div>
+            <div class="case-typepair-meta">Inter · 400 · 16/26</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUOTE -->
+    <blockquote class="case-quote">
+      <p class="case-quote-text">The site feels like <em>us</em>. Calm. Unhurried. It's the first version of our practice online that I've been proud to send family to.</p>
+      <footer class="case-quote-cite">
+        <span class="case-quote-cite-name">Will4Life</span>
+        <span class="case-quote-cite-role">Practice founder · Staffordshire</span>
+      </footer>
+    </blockquote>
+
+    <!-- OUTCOMES -->
+    <section style="margin-bottom: 1.5rem">
+      <span class="section-label">03 &nbsp;· &nbsp;Outcomes</span>
+      <h2 class="section-title">What the numbers said.</h2>
+    </section>
+
+    <div class="case-outcomes">
+      <div class="case-outcome">
+        <div class="case-outcome-num"><span class="accent">6</span>&nbsp;days</div>
+        <span class="case-outcome-label">Brief to live</span>
+      </div>
+      <div class="case-outcome">
+        <div class="case-outcome-num"><span class="accent">98</span>&nbsp;/&nbsp;100</div>
+        <span class="case-outcome-label">Lighthouse performance</span>
+      </div>
+      <div class="case-outcome">
+        <div class="case-outcome-num"><span class="accent">£0</span>&nbsp;/&nbsp;mo</div>
+        <span class="case-outcome-label">Ongoing hosting</span>
+      </div>
+      <div class="case-outcome">
+        <div class="case-outcome-num"><span class="accent">3×</span></div>
+        <span class="case-outcome-label">Bookings, first month</span>
+      </div>
+    </div>
+
+    <!-- NARRATIVE — the finish -->
+    <section class="case-body">
+      <div class="case-body-label">04 &nbsp;· &nbsp;The finish</div>
+      <div class="case-body-copy">
+        <p>The full repository was handed over on day six. The client now owns every file — including the poem card, the gradient tokens, and the booking-modal logic. They can edit copy themselves, or ask us to. There is no subscription on the back of it and never will be.</p>
+        <p>Will4Life is exactly the kind of project GitFoundry was built for: <strong>careful people doing careful work, who deserve a website with the same posture.</strong> No platform, no lock-in, no monthly bill quietly eating into their margin. Just a page that shows up when someone needs them.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem">
+          <a href="#" class="btn btn-primary">Start a project like this</a>
+          <a href="#" class="btn btn-outline">View all case studies</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT CASE -->
+    <div class="case-next">
+      <div>
+        <span class="case-next-label">Next case study</span>
+        <h3 class="case-next-title"><a href="#">Pennington Consulting &rarr;</a></h3>
+      </div>
+      <span class="section-label" style="margin:0">02 of 07</span>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Brief</a></li>
+      <li><a href="#">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
