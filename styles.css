@@ -521,15 +521,6 @@ body::before {
 .page-header[data-motif="gear"]::after {
   background-image: url('/vitruvian-gear.svg');
 }
-.hero[data-motif="david"]::after,
-.page-header[data-motif="david"]::after {
-  background-image: url('/david-silhouette.svg');
-  opacity: 0.06;
-}
-[data-theme="day"] .hero[data-motif="david"]::after,
-[data-theme="day"] .page-header[data-motif="david"]::after {
-  opacity: 0.04;
-}
 
 /* Fallback — if no data-motif is set, use classic */
 .hero::after,
@@ -1350,38 +1341,24 @@ iframe[src*="googletagmanager"] { display: none !important; visibility: hidden !
   transition: border-color var(--dur);
 }
 .testimonial-full-link:hover { border-color: var(--accent); }
-/* ── HERO GRID (David figure beside text on desktop) ── */
+/* ── HERO GRID (globe beside text on desktop) ── */
 .hero-grid { display: block; }
-.hero-figure { display: none; }
+.hero-globe { display: none; }
 
 @media (min-width: 960px) {
   .hero-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 3rem;
+    gap: 2.5rem;
     align-items: center;
   }
   .hero-text { min-width: 0; }
-  .hero-figure {
+  .hero-globe {
     display: block;
-    position: relative;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    border-radius: 2px;
+    min-width: 0;
     justify-self: end;
     width: 100%;
-    max-width: 560px;
-  }
-  .hero-figure picture,
-  .hero-figure img {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  .hero-figure img {
-    object-fit: cover;
-    object-position: center 30%;
-    filter: grayscale(100%) contrast(1.05);
+    max-width: 720px;
   }
   .hero::after {
     top: auto;
@@ -1393,10 +1370,22 @@ iframe[src*="googletagmanager"] { display: none !important; visibility: hidden !
   }
 }
 
-/* Day mode — soften the contrast so it doesn't feel heavy */
-[data-theme="day"] .hero-figure img {
-  filter: grayscale(100%) contrast(0.95) brightness(1.02);
-  opacity: 0.92;
+.globe-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.globe-frame svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+html[data-theme="day"] .hero-globe,
+body[data-theme="day"] .hero-globe {
+  filter: invert(1) brightness(0.9);
 }
 /* ════════════════════════════════════════════════
    SAVINGS CALCULATOR — inherits design tokens
@@ -1586,3 +1575,67 @@ iframe[src*="googletagmanager"] { display: none !important; visibility: hidden !
   text-align: center;
   line-height: 1.6;
 }
+
+/* ════════════════════════════════════════════════
+   EDITORIAL TYPOGRAPHY LAYER
+   Inspired by Rands in Repose — readability, breathing room.
+   Scoped to prose only. No global rem changes; UI elements untouched.
+   To remove: delete this block.
+   ════════════════════════════════════════════════ */
+
+:root {
+  --read-width: 640px;       /* was 480–520px on prose blocks */
+  --read-line: 1.75;
+  --prose-size: 1.1875rem;   /* 19px — body prose */
+  --intro-size: 1.25rem;     /* 20px — leading paragraph / lede */
+}
+
+/* Lede / intro paragraphs — slightly larger to set the reading rhythm. */
+.section-intro,
+.hero-sub,
+.page-header-desc {
+  font-size: var(--intro-size);
+  line-height: var(--read-line);
+  max-width: var(--read-width);
+  letter-spacing: 0.003em;
+}
+
+/* Body prose — the workhorse paragraph size across content blocks. */
+.process-body p,
+.about-body p,
+.about-body li,
+.legal-body p,
+.legal-body li,
+.section-body p,
+.prose p,
+.prose li {
+  font-size: var(--prose-size);
+  line-height: var(--read-line);
+  max-width: var(--read-width);
+}
+
+/* Vertical rhythm — give paragraphs room to breathe. */
+.process-body p + p,
+.about-body p + p,
+.legal-body p + p,
+.section-body p + p,
+.prose p + p {
+  margin-top: 1.25rem;
+}
+
+/* Mobile: drop one notch so it doesn't overflow narrow screens. */
+@media (max-width: 640px) {
+  :root {
+    --prose-size: 1.0625rem;   /* 17px on mobile */
+    --intro-size: 1.125rem;    /* 18px on mobile */
+  }
+  .section-intro,
+  .hero-sub,
+  .page-header-desc {
+    max-width: 100%;
+  }
+}
+
+/* ════════════════════════════════════════════════
+   END EDITORIAL TYPOGRAPHY LAYER
+   ════════════════════════════════════════════════ */
