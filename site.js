@@ -2,6 +2,26 @@
    Loaded with defer on every page. Defines loadGTM() and site() before
    Alpine initialises (defer scripts execute in document order). */
 
+(function () {
+  function initPricingSpotlights() {
+    document.querySelectorAll('.pricing-card').forEach(function (card) {
+      var spot = document.createElement('div');
+      spot.className = 'card-spotlight';
+      card.appendChild(spot);
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        spot.style.left = (e.clientX - r.left) + 'px';
+        spot.style.top  = (e.clientY - r.top)  + 'px';
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPricingSpotlights);
+  } else {
+    initPricingSpotlights();
+  }
+}());
+
 function loadGTM() {
   if (window.__gtmLoaded) return;
   window.__gtmLoaded = true;
