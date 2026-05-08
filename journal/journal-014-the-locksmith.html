@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Locksmith Nobody Thought to Call First — Website for a Locksmith UK</title>
+<meta name="description" content="Why independent locksmiths with honest pricing and genuine qualifications need a website of their own — so the person locked out at midnight finds the right person before the directory sends them to a rogue trader.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Locksmith Nobody Thought to Call First">
+<meta property="og:description" content="On independent locksmiths whose pricing is honest, whose work is clean, and whose customers recommend them to every neighbour — and who cannot be found by the person locked out and searching their phone at eleven o'clock at night.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-014-the-locksmith.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-014-the-locksmith.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:image:alt" content="GitFoundry — precision-built websites, zero hosting fees">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 014</span>
+        <span>07 MAY 2026</span>
+        <span>7 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Locksmith Nobody Thought to Call First</h1>
+
+      <p class="post-standfirst">
+        For the independent locksmiths whose pricing is honest, whose work is clean and leaves no unnecessary damage, whose customers recommend them to every neighbour on the street &mdash; and who cannot be found by the person locked out at eleven o&rsquo;clock at night, searching their phone in the rain, about to call whoever appears first in the results.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>A locksmith&rsquo;s website means people searching for help in your area find your honest pricing and qualifications before they ring a directory listing that sends a rogue trader. GitFoundry builds these from £149 with no monthly fees.</p>
+    </div>
+
+    <article>
+
+      <p>
+        The moment a person realises they are locked out is not a moment of calm deliberation. It is a moment of low-grade panic: the keys are on the kitchen table, or in the car, or they have never existed in the form the person thought they existed in, and now there is a door that will not open and a phone and a pressing need to find someone who can fix this before the children get cold or the last train leaves or the anxiety of the situation compounds into something that feels considerably worse than it is. In this moment, the person searching does not have time to research. They call the first number that appears credible.
+      </p>
+
+      <p>
+        This is the moment the rogue locksmith has built their entire business around. The rogue understands, with considerable commercial acuity, that the searching person in distress will not notice that the quoted price doubles between the phone call and the completion of the work. They will not notice until the invoice appears, and by then the door is open and the leverage has shifted entirely. Trading Standards receives thousands of complaints about this practice every year. The honest independent locksmith, who quotes a real price and charges it, who drills only when drilling is necessary and picks the lock when picking is possible, loses work to the rogue in every town in the country &mdash; not because their work is worse, but because their name does not appear when the searching begins.
+      </p>
+
+      <h2>On the Problem of the Directory</h2>
+
+      <p>
+        The directories &mdash; the aggregated listing sites that occupy the upper portion of local search results for almost every service trade &mdash; do not distinguish between the honest locksmith and the dishonest one. They list both, sorted by the criteria the directory determines, which may have nothing to do with the quality or integrity of the service provided. The customer in distress calls whoever is listed first with a phone number visible. There is no mechanism for signalling, within the directory format, that one locksmith charges a real price and another does not.
+      </p>
+
+      <p>
+        The independent locksmith who has operated in the same town for fifteen years, who is known to every letting agent and estate agent and property manager in the area as the person you call when something needs doing properly, has no presence in this search environment unless they have built one. The directory lists them or it does not, and even when it does, it presents them identically to everyone else: a name, a phone number, a star rating that may or may not reflect the reality of their work.
+      </p>
+
+      <p>
+        <strong>The person locked out at eleven o&rsquo;clock will call the first number they find. Whether that number belongs to the locksmith who will charge them honestly or the one who will not depends, almost entirely, on which of those locksmiths has a page that appears in the search.</strong>
+      </p>
+
+      <h2>On Qualifications, Trust, and the Difficulty of Communicating Either</h2>
+
+      <p>
+        Locksmithing in the United Kingdom is, at the time of writing, an unregulated trade. Anyone may present themselves as a locksmith, purchase a basic set of tools, and begin responding to call-outs. The customer in distress has no legal framework protecting them from the unqualified practitioner; the protection, such as it is, comes from their ability to identify, before the locksmith arrives, that this particular person has the training and the ethics to do the job well.
+      </p>
+
+      <p>
+        The Master Locksmiths Association exists partly for this reason. An MLA-approved locksmith has been vetted, has passed a technical assessment, and has agreed to operate within a code of conduct that includes transparent pricing. But the searching customer does not know this unless someone tells them. The directory listing does not say it. The first result in the search does not explain it. The honest locksmith with MLA approval and fifteen years of experience has the same digital presence as the person who bought a pick set last Tuesday.
+      </p>
+
+      <p>
+        A page that says: I am MLA-approved, this is what that means, this is my pricing structure, these are the kinds of lock and door I work with, and this is what my customers say about the experience of calling me at midnight: this page does work that cannot be done by a directory listing. It gives the searching person a reason to call this number over every other number, before the distress of the moment erodes their capacity for discrimination.
+      </p>
+
+      <p class="pullquote">The locksmith whose customers recommend them to every neighbour deserves to be found by every stranger on the street — not only those who happen to know the right person to ask.</p>
+
+      <p>
+        At <a href="/">GitFoundry</a>, we build pages for independent locksmiths that carry the things that matter at midnight: your qualifications, your honest pricing structure, your coverage area, and the testimony of the customers who have already trusted you. One payment, no monthly fee, yours outright. The person searching in the rain should find you first.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-014-heading">
+      <h2 class="post-faq-heading" id="faq-014-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Do locksmiths need a website?</dt>
+          <dd>Yes. Most people searching for a locksmith are in a stressful situation and will call the first credible result they find. A dedicated website lets you establish your qualifications, pricing, and coverage area before they make contact — and gives them a reason to choose you over an anonymous directory listing.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should a locksmith's website include?</dt>
+          <dd>A locksmith&rsquo;s website should include your coverage area and postcodes, your qualifications and any association memberships such as the MLA, your transparent pricing structure, the types of lock and door you work with, and a prominent phone number for emergency call-outs. Customer reviews and response times are also important.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a locksmith website cost in the UK?</dt>
+          <dd>A GitFoundry website for a locksmith starts at £149 for a focused single-page site, or £399 for a multi-page site with a full services breakdown, pricing, and a contact form. One payment, no monthly fees, yours outright.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a locksmith whose customers can&rsquo;t find you online?</p>
+      <p class="post-cta-body">I build clear, professional websites for independent locksmiths &mdash; designed to appear in local search and communicate what directories cannot: your qualifications, your honest pricing, and what it&rsquo;s actually like to call you in a crisis. From £149, one payment, yours outright, no monthly fees.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your work &#x2192;</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Locksmith Nobody Thought to Call First",
+  "description": "On independent locksmiths whose pricing is honest, whose work is clean, and whose customers recommend them to every neighbour — and who cannot be found by the person locked out and searching their phone at eleven o'clock at night.",
+  "datePublished": "2026-05-07",
+  "dateModified": "2026-05-07",
+  "about": { "@type": "Thing", "name": "Locksmith" },
+  "keywords": "locksmith website UK, website for locksmith, local locksmith website, MLA locksmith",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-014-the-locksmith.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Locksmith Nobody Thought to Call First", "item": "https://gitfoundry.co.uk/journal/journal-014-the-locksmith.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do locksmiths need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most people searching for a locksmith are in a stressful situation and will call the first credible result they find. A dedicated website lets you establish your qualifications, pricing, and coverage area before they make contact — and gives them a reason to choose you over an anonymous directory listing." } },
+    { "@type": "Question", "name": "What should a locksmith's website include?", "acceptedAnswer": { "@type": "Answer", "text": "A locksmith's website should include your coverage area and postcodes, your qualifications and any association memberships such as the MLA, your transparent pricing structure, the types of lock and door you work with, and a prominent phone number for emergency call-outs. Customer reviews and response times are also important." } },
+    { "@type": "Question", "name": "How much does a locksmith website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for a locksmith starts at £149 for a focused single-page site, or £399 for a multi-page site with a full services breakdown, pricing, and a contact form. One payment, no monthly fees, yours outright." } }
+  ]
+}
+</script>
+</body>
+</html>

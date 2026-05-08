@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Florist Nobody Could Find — Website for an Independent Florist UK</title>
+<meta name="description" content="Why independent florists, wedding florists and event flower designers need a website of their own — not just an Instagram page — to be found by the couples and clients who need them most.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Florist Nobody Could Find">
+<meta property="og:description" content="On independent florists who create extraordinary work for weddings and events — and who remain invisible to every couple searching for exactly what they do.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-011-the-florist.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-011-the-florist.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Florist Nobody Could Find — GitFoundry Journal">
+<meta name="twitter:description" content="On independent florists who create extraordinary work for weddings and events — and who remain invisible to every couple searching for exactly what they do.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  /* Article reading styles — token aliases into styles.css */
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .def-list { margin: 0 0 1.5rem; }
+  .def-list dt { font-weight: 700; color: var(--fg); margin-top: 1rem; }
+  .def-list dt:first-child { margin-top: 0; }
+  .def-list dd { margin: 0.25rem 0 0 1.5rem; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 011</span>
+        <span>06 MAY 2026</span>
+        <span>7 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Florist Nobody Could Find</h1>
+
+      <p class="post-standfirst">
+        For the independent florists and wedding flower designers whose arrangements are extraordinary, whose clients weep at the altar, and who cannot be discovered by the engaged couple searching their county for exactly this quality of work.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>A florist's website turns an interest in flowers into an order or enquiry — it showcases your work and tells the customer searching for a florist near them exactly where to find you.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a particular kind of attention that a florist brings to the work of a wedding day, and it is not well described by the word &ldquo;flowers.&rdquo; It is closer to the work of a set designer who understands that the ceremony is a theatre, that every sight line matters, that the arch at the end of the aisle will be in the background of photographs for the next fifty years, and that the scent of particular blooms will, from that day forward, mean something specific and irreplaceable to two people and to everyone who loves them. The florist who has done this work many times and done it well carries, in their hands, a kind of practical knowledge about sentiment and beauty that has almost no equivalent.
+      </p>
+
+      <p>
+        The couple who finds this florist &mdash; usually by a friend's recommendation, or by a chance encounter at an open wedding fair in a country house on a Sunday in February &mdash; counts themselves fortunate. And they are. But the couple who does not have the friend and who did not attend the fair begins their search where almost everyone begins their search now, which is on a telephone, and what they find there is not always what they are looking for.
+      </p>
+
+      <p>
+        The extraordinary independent florist who has been working in a county for fifteen years, who knows her suppliers intimately and her seasonality instinctively and her clients with the kind of deep contextual attention that makes a bride feel seen rather than processed, is very likely not the first result the telephone returns. She may not be the fifteenth.
+      </p>
+
+      <h2>On Why Instagram Is Not Enough</h2>
+
+      <p>
+        The florist who has no website has almost always made a reasonable calculation. Her work is visual. Instagram exists to display visual work. She has followers; her photographs are beautiful; enquiries come in through the message function and she answers them and the bookings follow. The system, within its own logic, works.
+      </p>
+
+      <p>
+        What the system does not do is reach the person who is searching in a search engine, which is &mdash; by considerable distance &mdash; the most common way that a person who does not already know a florist&rsquo;s name tries to find one. The search engine cannot see Instagram photographs. It cannot read a caption. It cannot understand, from a grid of beautiful images, that this particular florist specialises in loose, meadow-style arrangements for outdoor ceremonies in Shropshire, and that she works exclusively with British-grown seasonal flowers, and that she has a minimum spend for weddings because she will not compromise the quality of her sourcing for the sake of a lower invoice. All of this is enormously important to the right client, and the search engine sees none of it.
+      </p>
+
+      <p>
+        <strong>The consequence is that the client who would have chosen her above all others &mdash; the client for whom her specific aesthetic and her ethical sourcing and her particular way of working are exactly the point &mdash; cannot find her, and books someone else, and the difference is felt on the day.</strong>
+      </p>
+
+      <h2>On the Difference Between a Booking and a Commission</h2>
+
+      <p>
+        There is a distinction that the best independent florists understand, which is the distinction between a booking and a commission. A booking is transactional: a couple specifies a budget and a colour palette, the florist produces something within those parameters, the day passes. A commission is different. It requires that the client and the florist have arrived at a genuine meeting of minds about what the work is for &mdash; what feeling it is trying to create, what memories it is meant to anchor, what kind of beauty the couple are reaching toward when they imagine the space in which they will make their promises.
+      </p>
+
+      <p>
+        This meeting of minds is not possible until the client has found the right florist. And finding the right florist requires, at minimum, that the client be able to read enough about how the florist works &mdash; in words, not only in images &mdash; to recognise that this is the person they are looking for. A website that says, in plain language, the kinds of weddings you work best on, the kind of brief that excites you most, the regions you cover and the minimum spend that makes your work possible at the quality you hold yourself to: this is the page that produces commissions rather than bookings.
+      </p>
+
+      <p>
+        It is also, incidentally, the page that produces the right commissions &mdash; the ones where the work is satisfying and the client is delighted, rather than the ones where a mismatch of expectations makes the day harder than it should be for everyone.
+      </p>
+
+      <h2>On the Visual Trap</h2>
+
+      <p>
+        The florist who relies entirely on visual platforms is caught in a particular trap: her work is so beautiful that she does not feel she needs words. The photographs speak. The grid is compelling. She is right that the images are doing important work. She is wrong that they are doing all of it.
+      </p>
+
+      <p>
+        Words do something that images cannot. Words convey specificity of approach, clarity of values, and a sense of the person behind the work. They allow the searching client to understand not just that the work is beautiful, but that this is the right beautiful &mdash; that this florist&rsquo;s sense of beauty is aligned with their own. A page that carries a paragraph about your philosophy, your sourcing, the rough geography you cover, and two or three words about what it is like to work with you is not an alternative to your photographs. It is the context that makes your photographs mean something to the right person.
+      </p>
+
+      <p class="pullquote">The florist who cannot be found by search is not lacking in beauty. She is lacking in words &mdash; and words are what the algorithm reads.</p>
+
+      <p>
+        At <a href="/">GitFoundry</a>, we build pages for independent florists and wedding flower designers that carry both: the photographs that show the work, and the words that explain why you in particular are the right person for the couple doing the searching. One payment, no monthly fee, yours outright, found by the clients who are already looking for exactly what you do.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-011-heading">
+      <h2 class="post-faq-heading" id="faq-011-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Do florists need a website?</dt>
+          <dd>Yes. Customers searching for flowers for a wedding, event, or gift look online first — and they are looking for evidence of the florist's style and quality before making contact. A florist without a website loses those customers to competitors who can be found and evaluated immediately.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should a florist's website include?</dt>
+          <dd>A florist's website should include photographs of your work across different occasion types — weddings, funerals, corporate events, everyday gifts — the areas you serve, your ordering or enquiry process, and pricing guidance where possible. High-quality photography is the most important element.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a florist website cost in the UK?</dt>
+          <dd>A GitFoundry website for a florist starts at £399 — a multi-page site with a portfolio, services section, and contact form. One payment, no monthly hosting fees, yours outright on delivery.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a florist whose work deserves to be found?</p>
+      <p class="post-cta-body">I build clear, beautiful websites for independent florists and wedding flower designers — designed to be found in search as well as admired in a feed. From £349, one payment, yours outright, no monthly fees. The couple looking for exactly your style should be able to find you.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your floristry &#x2192;</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Florist Nobody Could Find",
+  "description": "On independent florists and wedding flower designers who create extraordinary work — and who remain invisible to every couple searching their county for exactly this quality.",
+  "datePublished": "2026-05-06",
+  "dateModified": "2026-05-06",
+  "about": { "@type": "Thing", "name": "Florist / Flower Shop" },
+  "keywords": "florist website UK, website for florist, independent florist website design UK",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-011-the-florist.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Florist Nobody Could Find", "item": "https://gitfoundry.co.uk/journal/journal-011-the-florist.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do florists need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Customers searching for flowers for a wedding, event, or gift look online first — and they are looking for evidence of the florist's style and quality before making contact. A florist without a website loses those customers to competitors who can be found and evaluated immediately." } },
+    { "@type": "Question", "name": "What should a florist's website include?", "acceptedAnswer": { "@type": "Answer", "text": "A florist's website should include photographs of your work across different occasion types — weddings, funerals, corporate events, everyday gifts — the areas you serve, your ordering or enquiry process, and pricing guidance where possible. High-quality photography is the most important element." } },
+    { "@type": "Question", "name": "How much does a florist website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for a florist starts at £399 — a multi-page site with a portfolio, services section, and contact form. One payment, no monthly hosting fees, yours outright on delivery." } }
+  ]
+}
+</script>
+</body>
+</html>

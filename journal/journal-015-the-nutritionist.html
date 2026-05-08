@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Nutritionist Nobody Could Verify — Website for a Nutritionist UK</title>
+<meta name="description" content="Why registered nutritionists and dietitians need a website — so the person who wants evidence-based advice can find and verify their qualifications before the algorithm sends them to an influencer instead.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Nutritionist Nobody Could Verify">
+<meta property="og:description" content="On registered nutritionists and dietitians whose qualifications are rigorous and whose approach is evidence-based — and who cannot be found by the person who wants real guidance and ends up reading an influencer's content instead.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-015-the-nutritionist.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-015-the-nutritionist.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:image:alt" content="GitFoundry — precision-built websites, zero hosting fees">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 015</span>
+        <span>07 MAY 2026</span>
+        <span>7 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Nutritionist Nobody Could Verify</h1>
+
+      <p class="post-standfirst">
+        For the registered nutritionists and dietitians whose training is rigorous, whose approach is grounded in evidence, and whose clients leave consultations with clarity they have never found in any other conversation about food &mdash; and who cannot be distinguished, by someone searching online, from the person who completed a weekend course and calls themselves a nutrition coach.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>A nutritionist&rsquo;s website lets prospective clients verify qualifications, understand your approach, and book a consultation with confidence &mdash; before the algorithm sends them to an influencer instead. GitFoundry builds these from £399 with no monthly fees.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a particular confusion at the centre of the nutrition industry in this country, and it is a confusion that the internet has not resolved but deepened. The title &ldquo;nutritionist&rdquo; is, in the United Kingdom, unprotected. Anyone may use it. The person who completed a degree in nutritional science, undertook clinical placement, registered with the Association for Nutrition, and has spent years applying evidence-based practice to complex health conditions: they are a nutritionist. The person who attended a weekend seminar, read a popular book about elimination diets, and decided to offer one-to-one guidance: they are also, by the current legal definition, a nutritionist. The prospective client searching for help cannot tell them apart.
+      </p>
+
+      <p>
+        This is the environment in which the qualified professional practises. They have the training to identify when dietary change is appropriate and when it is not, to spot the signs that what a client describes as a digestive issue may warrant a referral to a GP, to work within evidence rather than around it. Their clients leave consultations with changes they can actually sustain, because the advice is calibrated to their real lives rather than to an idealised version of a clean diet. And yet when the person who needs this kind of guidance types their need into a search engine, they are at least as likely to find the weekend-course practitioner as the registered professional &mdash; and they have, at that moment, no reliable way of knowing which is which.
+      </p>
+
+      <h2>On What the Algorithm Surfaces Instead</h2>
+
+      <p>
+        The nutrition space online is dominated by content that is optimised for engagement rather than accuracy. The social media algorithm rewards posts that provoke a reaction: the dramatic before-and-after, the list of foods that are secretly destroying your health, the protocol that the medical establishment does not want you to know about. This content is produced in enormous volume by people with varying levels of qualification and varying degrees of concern for the consequences of their advice. It reaches a very large audience. It does not, in most cases, help.
+      </p>
+
+      <p>
+        The person who is genuinely struggling &mdash; who has tried multiple approaches to managing their weight or their digestion or their energy levels and found none of them sustainable, and who suspects that what they actually need is a conversation with someone qualified to understand their particular situation &mdash; begins their search in this environment. They may be looking for a registered nutritionist. They do not know, necessarily, how to distinguish a registered nutritionist from a nutrition coach from a wellness influencer. The search results do not help them. The first page they find that belongs to a human being with a face and a list of services and a booking form will receive their enquiry, regardless of what qualifications underpin it.
+      </p>
+
+      <p>
+        <strong>The registered nutritionist who does not have a page that clearly states their qualifications, their registration body, and their approach to evidence-based practice is allowing the searching client to make a choice that they are not equipped to make well.</strong>
+      </p>
+
+      <h2>On Specialisation and the Inability to Communicate It</h2>
+
+      <p>
+        Within the profession of registered nutritionist, there is significant specialisation. There are practitioners who focus on sports performance, on gut health, on eating disorder recovery, on maternal nutrition, on the management of specific chronic conditions. This specialisation matters enormously. The person recovering from an eating disorder needs a nutritionist who understands the psychological dimension of their relationship with food, not one who is excellent at performance nutrition for athletes. The athlete does not benefit from the same consultation as the perimenopausal woman navigating hormonal changes. The child with a complex feeding difficulty needs a practitioner with paediatric experience and the patience for a very slow, very careful approach.
+      </p>
+
+      <p>
+        None of this specialisation is visible in a directory listing. It is not visible in a social media profile. It exists in the practitioner&rsquo;s head and in their case history, and it cannot reach the person who needs it unless that person can read, before they make contact, a clear account of who this practitioner works with, what kinds of problem they have experience addressing, and what a first consultation with them actually involves.
+      </p>
+
+      <p class="pullquote">The registered nutritionist whose clients leave with clarity and change they can sustain deserves to be found by everyone who needs that guidance — not only those who already know to look for their registration number.</p>
+
+      <p>
+        At <a href="/">GitFoundry</a>, we build pages for registered nutritionists that carry the things that matter to the searching client: your registration and qualifications, the areas you specialise in, your approach to the first consultation, and what past clients say about working with you. One payment, no monthly fee, yours outright. The person who needs a qualified professional should not have to guess whether they&rsquo;ve found one.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-015-heading">
+      <h2 class="post-faq-heading" id="faq-015-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Do nutritionists need a website?</dt>
+          <dd>Yes. The title &ldquo;nutritionist&rdquo; is unprotected in the UK, which means potential clients cannot easily distinguish a registered professional from an unqualified practitioner without reading their credentials. A website that clearly states your registration, qualifications, and approach allows clients to verify your suitability before booking &mdash; and makes it significantly more likely that the right clients find you.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should a nutritionist&rsquo;s website include?</dt>
+          <dd>A nutritionist&rsquo;s website should include your registration body and membership number (e.g. Association for Nutrition), your qualifications, the areas you specialise in, your approach to consultations, your fees, and how to book an initial appointment. Testimonials from past clients, where appropriate and consented, also provide important reassurance.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a nutritionist website cost in the UK?</dt>
+          <dd>A GitFoundry website for a nutritionist starts at £399 for a multi-page site covering your qualifications, specialisms, services, and a booking or contact form. One payment, no monthly fees, yours outright.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a registered nutritionist whose clients can&rsquo;t find you online?</p>
+      <p class="post-cta-body">I build clear, professional websites for registered nutritionists and dietitians &mdash; designed to establish your credentials, communicate your specialisms, and give the searching client every reason to book with the qualified professional rather than whoever else the algorithm returns. From £399, one payment, yours outright, no monthly fees.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your practice &#x2192;</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Nutritionist Nobody Could Verify",
+  "description": "On registered nutritionists and dietitians whose qualifications are rigorous and whose approach is evidence-based — and who cannot be found by the person who wants real guidance and ends up reading an influencer's content instead.",
+  "datePublished": "2026-05-07",
+  "dateModified": "2026-05-07",
+  "about": { "@type": "Thing", "name": "Nutritionist" },
+  "keywords": "nutritionist website UK, registered nutritionist website, dietitian website UK, nutrition consultant website",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-015-the-nutritionist.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Nutritionist Nobody Could Verify", "item": "https://gitfoundry.co.uk/journal/journal-015-the-nutritionist.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do nutritionists need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The title 'nutritionist' is unprotected in the UK, which means potential clients cannot easily distinguish a registered professional from an unqualified practitioner without reading their credentials. A website that clearly states your registration, qualifications, and approach allows clients to verify your suitability before booking — and makes it significantly more likely that the right clients find you." } },
+    { "@type": "Question", "name": "What should a nutritionist's website include?", "acceptedAnswer": { "@type": "Answer", "text": "A nutritionist's website should include your registration body and membership number (e.g. Association for Nutrition), your qualifications, the areas you specialise in, your approach to consultations, your fees, and how to book an initial appointment. Testimonials from past clients, where appropriate and consented, also provide important reassurance." } },
+    { "@type": "Question", "name": "How much does a nutritionist website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for a nutritionist starts at £399 for a multi-page site covering your qualifications, specialisms, services, and a booking or contact form. One payment, no monthly fees, yours outright." } }
+  ]
+}
+</script>
+</body>
+</html>

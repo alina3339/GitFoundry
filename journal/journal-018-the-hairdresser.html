@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hairdresser Whose Clients Came Once and Could Not Find Their Way Back — Hairdresser Website UK</title>
+<meta name="description" content="On independent hairdressers and stylists who build loyal clients one appointment at a time — and who are invisible to the person who has just moved into the area and does not yet know anyone worth asking.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Hairdresser Whose Clients Came Once and Could Not Find Their Way Back">
+<meta property="og:description" content="On independent hairdressers and stylists who work with precision and personal attention the chains cannot match — and who remain unfindable to anyone who has not already been recommended to them.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-018-the-hairdresser.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-018-the-hairdresser.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:image:alt" content="GitFoundry — precision-built websites, zero hosting fees">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 018</span>
+        <span>08 MAY 2026</span>
+        <span>6 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Hairdresser Whose Clients Came Once and Could Not Find Their Way Back</h1>
+
+      <p class="post-standfirst">
+        For the independent hairdressers and stylists who work with the kind of precision and personal attention the high street chains cannot replicate &mdash; who build loyal clients one appointment at a time, who know their regulars&rsquo; hair as well as their regulars know themselves &mdash; and who are invisible to the person who has just moved to the area and does not yet know anyone worth asking.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>A hairdresser&rsquo;s website lets potential clients in your area find you, see your work, understand your services and prices, and book with confidence &mdash; before they settle for the nearest available appointment at a chain they have never tried. GitFoundry builds these from £399 with no monthly fees.</p>
+    </div>
+
+    <article>
+
+      <p>
+        The relationship between a person and their hairdresser is, for many people, one of the most stable professional relationships in their life. It operates on a rhythm that is personal rather than transactional &mdash; the same chair, the same conversation, the understanding that has accumulated over years of small observations about what works and what does not. When this relationship works, the client does not think about it very much. They rebook at the end of each appointment, they arrive on the day, and the result is reliably what they wanted. The hairdresser, from the outside, appears not to need to do anything to maintain their clientele. The clients come back because the work is good, and the goodwill compounds.
+      </p>
+
+      <p>
+        What this picture leaves out is the process by which a new client becomes a loyal one. The person who has been getting their hair cut at the same place for seven years is not representative of the whole market. The market also contains the person who has just moved to a new city and needs to start from scratch, the person who has finally decided to leave the salon that has been cutting their hair incorrectly for two years, and the person whose regular stylist has retired or moved away. For these people, the search for a hairdresser begins with a browser and a location, and ends at whichever result gives them enough confidence to make a booking.
+      </p>
+
+      <h2>On the Invisible Portfolio</h2>
+
+      <p>
+        Hairdressing is a visual craft. The person looking for a new salon wants to see work before they commit to sitting in a chair for ninety minutes with their hair wet. They want to know whether the cuts shown are the kind of cut they want, whether the colour work is the kind of colour work they are thinking about, and whether the aesthetic of the salon &mdash; the light in the photographs, the names in the testimonials, the way the services are described &mdash; is consistent with the kind of experience they are hoping to have.
+      </p>
+
+      <p>
+        Instagram exists, and many hairdressers use it, and it is genuinely useful as a portfolio. But Instagram is a platform that was designed for its own purposes, not for the purposes of a small business trying to convert a local search into a first appointment. The person who searches for a hairdresser near them and lands on an Instagram profile must then decide whether to follow, scroll back through months of posts, and piece together an impression of the stylist&rsquo;s range. The person who lands on a website finds a curated gallery, a list of services with prices, and a direct booking link. The friction of the first option is often enough to send the potential client to the next result.
+      </p>
+
+      <p>
+        <strong>The stylist whose best work is buried six months deep in an Instagram grid is, for the practical purposes of local search, invisible.</strong>
+      </p>
+
+      <h2>On Price Transparency and the Question That Goes Unanswered</h2>
+
+      <p>
+        There is a question that almost every person searching for a new hairdresser wants answered before they make contact, and that many hairdressers are reluctant to answer publicly: how much does it cost? The reluctance is understandable &mdash; pricing in this trade varies by hair length, condition, complexity of colour, and the time required &mdash; but the effect of leaving the question unanswered is that the searching client cannot make a decision. They will move to a result that either gives them a price or gives them enough other information to feel confident enough to enquire.
+      </p>
+
+      <p class="pullquote">The hairdresser who answers the questions a new client is afraid to ask &mdash; what it costs, what you offer, who you are for &mdash; is the hairdresser who gets booked first.</p>
+
+      <p>
+        A simple website resolves this. A page that lists the services you offer, a price range or starting price for each, the area you work in, and how to book gives the searching client everything they need to take the next step. It does not need to be elaborate. It needs to exist, and it needs to be clear. At <a href="/">GitFoundry</a>, we build exactly this for independent hairdressers and stylists across the UK. One payment, no monthly fee, yours outright.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-018-heading">
+      <h2 class="post-faq-heading" id="faq-018-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Do hairdressers need a website?</dt>
+          <dd>Yes, particularly for attracting new clients. Loyal regulars rebook automatically, but new clients &mdash; people who have moved to the area, left another salon, or lost their regular stylist &mdash; will search online before making a decision. A website lets you show your work, explain your services, and give them a reason to choose you over the nearest chain with available appointments.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should a hairdresser&rsquo;s website include?</dt>
+          <dd>A hairdresser&rsquo;s website should include a portfolio of your work (cuts, colours, styles), a clear list of services with at least starting prices, information about the salon or studio environment, your location and working hours, and a simple way to book or enquire. Testimonials from existing clients are particularly effective for building the confidence a new client needs to make a first appointment.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a hairdresser website cost in the UK?</dt>
+          <dd>A GitFoundry website for an independent hairdresser or stylist starts at £399 for a clean, professional site with a portfolio, services list, and booking or contact details. One payment, no monthly fees, yours outright.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a hairdresser or stylist whose new clients can&rsquo;t find you?</p>
+      <p class="post-cta-body">I build clear, professional websites for independent hairdressers and stylists &mdash; designed to show the quality of your work, answer the questions new clients have before they book, and give the person who has just moved to the area every reason to choose you over whoever appears first in the directory. From £399, one payment, yours outright, no monthly fees.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your work &#x2192;</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Hairdresser Whose Clients Came Once and Could Not Find Their Way Back",
+  "description": "On independent hairdressers and stylists who build loyal clients one appointment at a time — and who are invisible to the person who has just moved into the area and does not yet know anyone worth asking.",
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-05-08",
+  "about": { "@type": "Thing", "name": "Hairdresser" },
+  "keywords": "hairdresser website UK, independent hairdresser website, hair salon website UK, stylist website UK",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-018-the-hairdresser.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Hairdresser Whose Clients Came Once and Could Not Find Their Way Back", "item": "https://gitfoundry.co.uk/journal/journal-018-the-hairdresser.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do hairdressers need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, particularly for attracting new clients. Loyal regulars rebook automatically, but new clients — people who have moved to the area, left another salon, or lost their regular stylist — will search online before making a decision. A website lets you show your work, explain your services, and give them a reason to choose you over the nearest chain with available appointments." } },
+    { "@type": "Question", "name": "What should a hairdresser's website include?", "acceptedAnswer": { "@type": "Answer", "text": "A hairdresser's website should include a portfolio of your work (cuts, colours, styles), a clear list of services with at least starting prices, information about the salon or studio environment, your location and working hours, and a simple way to book or enquire. Testimonials from existing clients are particularly effective for building the confidence a new client needs to make a first appointment." } },
+    { "@type": "Question", "name": "How much does a hairdresser website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for an independent hairdresser or stylist starts at £399 for a clean, professional site with a portfolio, services list, and booking or contact details. One payment, no monthly fees, yours outright." } }
+  ]
+}
+</script>
+</body>
+</html>

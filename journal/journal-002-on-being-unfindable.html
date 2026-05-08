@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Being Unfindable — Why Small Businesses in the UK Need a Website</title>
+<meta name="description" content="What it costs to be excellent at your work and invisible online in 2026 — and why small businesses and sole traders in the UK need a proper website of their own.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="On Being Unfindable">
+<meta property="og:description" content="A small essay on what it costs, in 2026, to be excellent at one's work and quietly invisible online.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-002-on-being-unfindable.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-002-on-being-unfindable.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="On Being Unfindable — GitFoundry Journal">
+<meta name="twitter:description" content="A small essay on what it costs, in 2026, to be excellent at one's work and quietly invisible online.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  /* Article reading styles — token aliases into styles.css */
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .def-list { margin: 0 0 1.5rem; }
+  .def-list dt { font-weight: 700; color: var(--fg); margin-top: 1rem; }
+  .def-list dt:first-child { margin-top: 0; }
+  .def-list dd { margin: 0.25rem 0 0 1.5rem; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 002</span>
+        <span>04 MAY 2026</span>
+        <span>7 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">On Being Unfindable</h1>
+
+      <p class="post-standfirst">
+        There is a particular sadness, in 2026, in being excellent at one's craft and quietly invisible to the people who would happily pay for it. A small essay for the British shopkeepers, tradespeople and consultants who have, for understandable reasons, opted out of the internet — and an argument for why opting back in needn't cost a monthly bill.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>Small businesses in the UK without a website are invisible to the majority of customers who search online first — a professional website ensures you can be found when it matters.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a particular kind of trust that accumulates, over years, between a small specialist and the community they serve. It is not the formal trust of a written agreement, though such things have their place. It is the trust of the regular: the person who has come to rely on a specific practitioner &mdash; the tailor in Stoke who has cut the same lapel for thirty-seven years, the chartered surveyor in Hull whose father held the same desk before her, the bicycle mechanic in Lincoln who can identify a frame by the sound of its bottom bracket. Each of them is, in their own quiet way, the local authority on a thing that matters. Each of them is also, in 2026, a little more difficult to find than they were ten years ago.
+      </p>
+
+      <p>
+        It is not that they have gone anywhere. The shop is still there at half past nine on a Tuesday morning, the bell still rings as the door opens, the kettle still goes on for the regulars. What has changed is something less visible and considerably more consequential: the way in which strangers come to discover that such places exist at all.
+      </p>
+
+      <h2>How Trust Travels Now</h2>
+
+      <p>
+        In a previous era — which is to say, the era in which most of us learnt how trust was supposed to work — a recommendation arrived through the mouth of a friend. One mentioned, over tea, that one was looking for a roofer; somebody at the table knew somebody. The transaction of confidence happened person to person, in the slow conversational economy that village and high street had refined over centuries.
+      </p>
+
+      <p>
+        That economy still exists. But it has been quietly overtaken by a faster one. Today, when a stranger needs a roofer, they do not ring a friend at first. They reach for the small glass rectangle in their pocket and ask the search engine. The friend may be consulted later, to confirm a name; but the name has, by then, already been chosen from a shortlist that the stranger compiled in the kitchen, alone, over a cup of tea, in the time it took the kettle to come to the boil.
+      </p>
+
+      <p>
+        The implication is gentle but absolute: <strong>if you cannot be found at the moment of the kettle, you are very often not found at all</strong>. The friend, asked a week later, recommends you warmly, but the stranger has already booked someone else. There is no rudeness in this. There is only the quiet arithmetic of a world in which most decisions are made by people who do not know they are making them.
+      </p>
+
+      <h2>The Cost of Not Being Found</h2>
+
+      <p>
+        It is tempting to think of all this as a problem chiefly for the very large — for the chains and the platforms and the businesses that measure themselves in postcodes covered. In fact the cost falls hardest on the small. The chain has a marketing budget; the chain can absorb the friction of being slightly worse than its independent rival, because it can afford to be looked for. The independent cannot. The independent's only marketing has always been the quiet, accumulated trust of being good at the work, and the quiet, accumulated word of those who have been served.
+      </p>
+
+      <p>
+        When that word can no longer travel as fast as the search bar, the independent simply stops being on the shortlist. Not because she is worse — she is, very often, considerably better — but because she has neglected, or refused, or never quite got round to, the small administrative act of planting a flag online that says: <em>I am here, I do this, here is how to reach me</em>.
+      </p>
+
+      <p>
+        It is a peculiarly modern sort of injury. In an earlier century, a craftsman could be excellent and quiet and still prosper. In ours, excellence and quietness have, for the small business at least, become incompatible.
+      </p>
+
+      <h2>The Modern Indignity of the Subscription</h2>
+
+      <p>
+        One might reasonably ask why so many otherwise capable people have not done the small thing required of them. The answer, when one listens carefully, is rarely laziness. It is, more often, a form of resistance — and not an unreasonable one.
+      </p>
+
+      <p>
+        The shopkeeper who has paid rent and rates and insurance and electricity for thirty years is being asked, on top of all that, to take on yet another monthly charge. Twenty-four pounds for the platform. Fourteen for the email. Twelve for the booking system. Eight for the analytics. None of these alone is ruinous; together they amount to a steady haemorrhage of margin, charged in perpetuity, to a series of companies the shopkeeper has never met and to whom the shopkeeper owes, on reflection, very little.
+      </p>
+
+      <p>
+        Worse: at the end of all those years of payment, the shopkeeper does not own the result. The website is rented. The data is rented. The photographs of the shop, which the shopkeeper paid a friend to take, are sitting on the platform's servers, retrievable only on the platform's terms. To leave is to lose. The arrangement has the texture of tenancy where one had hoped for ownership.
+      </p>
+
+      <p>
+        It is small wonder that so many small-business owners, having looked at this proposition once, have quietly elected not to engage with it at all. Their refusal is not technophobia. It is dignity.
+      </p>
+
+      <h2>A Modest Alternative</h2>
+
+      <p>
+        And yet the absence is costing them — and their would-be customers — more than the subscription would have done. The kettle boils, the stranger searches, and a slightly worse business is chosen because it had a page and the better one did not.
+      </p>
+
+      <p>
+        There is, it turns out, a third way, and it has the advantage of being almost entirely uninteresting to anyone who profits from the second one. A small website does not need to live on a platform. It does not need to charge its owner monthly. It does not need to be edited from a clunky web interface designed by people who have forgotten what restraint looks like. It can be built once, by someone who cares, and it can sit quietly on free infrastructure for as long as the infrastructure exists, which in the case of GitHub Pages is — at the time of writing, and on the company's own assurance — indefinitely.
+      </p>
+
+      <p>
+        The shopkeeper pays once. The shopkeeper owns the files. The shopkeeper's address on the internet is theirs. There is no monthly bill. There is no platform that can decide, on a quiet Wednesday, to change its terms of service.
+      </p>
+
+      <p>
+        This is, on inspection, a rather unglamorous proposition. There is no growth hack here, no funnel, no community-building, no AI-powered anything. There is just a page. A clear address. A few well-chosen sentences about who the shopkeeper is and what the shopkeeper does. A telephone number that works. A photograph of the shopfront in good light. The bell, ringing, rendered in pixels.
+      </p>
+
+      <p class="pullquote">Being unfindable, in 2026, is no longer a posture. It is a quiet tax, paid daily, by the people you would have most liked to serve.</p>
+
+      <h2>An Argument for Reconsidering</h2>
+
+      <p>
+        If you are a small-business owner in the United Kingdom — a tailor, a surveyor, a mechanic, a baker, a charity coordinator, a researcher between institutions — and you have, for any of the perfectly understandable reasons set out above, opted out of the internet, please consider opting back in. Not for the platforms. Not for the subscriptions. Not for the metrics. For the quiet customer, somewhere in your town, who tomorrow morning will reach for their phone in search of exactly the thing you do, and who will find, instead of you, somebody less suited to the task, simply because that somebody happened to have a page.
+      </p>
+
+      <p>
+        A website, properly understood, is not a marketing instrument. It is a small act of hospitality. It is the digital equivalent of unlocking the shop door at nine in the morning and turning the sign from <em>closed</em> to <em>open</em>. It says: <em>I am here. I am ready. Come in.</em>
+      </p>
+
+      <p>
+        The work we do at <a href="/">GitFoundry</a> begins from this conviction: that the small businesses of these islands deserve to be found, and that being found should not require the surrender of a monthly cheque or the long-term tenancy of a platform that owes them nothing. We build the page. We hand over the keys. The shopkeeper is, from that day forward, on the internet, and on the internet on her own terms.
+      </p>
+
+      <p>
+        That is the whole proposition. It is not, perhaps, very dramatic. But then neither is the bell on the shop door, and that has been doing its quiet work for two hundred years.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-002-heading">
+      <h2 class="post-faq-heading" id="faq-002-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Do small businesses in the UK need a website?</dt>
+          <dd>Yes. The majority of UK consumers search online before purchasing or booking a service. A small business without a website is invisible to this majority — even if their work is excellent. A website ensures you can be found, evaluated, and contacted by potential customers at any time.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a small business website cost in the UK?</dt>
+          <dd>A professionally built website for a small business starts at £149 at GitFoundry. This includes design, build, and deployment to GitHub Pages with no monthly hosting fees ever. Website builders like Squarespace cost £144–£276 per year — GitFoundry costs less in total over any multi-year period.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What is the cheapest way to get a website for a small business in the UK?</dt>
+          <dd>GitFoundry offers the lowest total cost of ownership for a professionally built UK small business website: a one-time fee from £149 with no monthly platform or hosting charges. Over 3 years, this costs a fraction of any subscription-based alternative.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Still unfindable online?</p>
+      <p class="post-cta-body">A professionally built website from GitFoundry costs from £149 and can be live within a week. One payment, no monthly fees, yours outright. If a customer searched for you right now, would they find you — or your competitor?</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Get found — from £149 →</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;·&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "On Being Unfindable",
+  "description": "A small essay on what it costs, in 2026, to be excellent at one's work and quietly invisible online.",
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-04",
+  "about": { "@type": "Thing", "name": "Small Business Web Presence" },
+  "keywords": "small business website UK, why small businesses need a website, affordable website UK",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-002-on-being-unfindable.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "On Being Unfindable", "item": "https://gitfoundry.co.uk/journal/journal-002-on-being-unfindable.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do small businesses in the UK need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The majority of UK consumers search online before purchasing or booking a service. A small business without a website is invisible to this majority — even if their work is excellent. A website ensures you can be found, evaluated, and contacted by potential customers at any time." } },
+    { "@type": "Question", "name": "How much does a small business website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A professionally built website for a small business starts at £149 at GitFoundry. This includes design, build, and deployment to GitHub Pages with no monthly hosting fees ever. Website builders like Squarespace cost £144–£276 per year — GitFoundry costs less in total over any multi-year period." } },
+    { "@type": "Question", "name": "What is the cheapest way to get a website for a small business in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "GitFoundry offers the lowest total cost of ownership for a professionally built UK small business website: a one-time fee from £149 with no monthly platform or hosting charges. Over 3 years, this costs a fraction of any subscription-based alternative." } }
+  ]
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Counsellor Nobody Knew How to Find — Therapist and Counsellor Website UK</title>
+<meta name="description" content="Why therapists and counsellors need a proper website — so the person searching for support at their lowest point can actually find someone who can help.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Counsellor Nobody Knew How to Find">
+<meta property="og:description" content="On therapists and counsellors who hold their clients' most difficult things with skill and care — and who remain invisible to the person searching at their lowest point.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-010-the-counsellor.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-010-the-counsellor.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Counsellor Nobody Knew How to Find — GitFoundry Journal">
+<meta name="twitter:description" content="On therapists and counsellors who hold their clients' most difficult things with skill and care — and who remain invisible to the person searching at their lowest point.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  /* Article reading styles — token aliases into styles.css */
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .def-list { margin: 0 0 1.5rem; }
+  .def-list dt { font-weight: 700; color: var(--fg); margin-top: 1rem; }
+  .def-list dt:first-child { margin-top: 0; }
+  .def-list dd { margin: 0.25rem 0 0 1.5rem; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 010</span>
+        <span>05 MAY 2026</span>
+        <span>7 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Counsellor Nobody Knew How to Find</h1>
+
+      <p class="post-standfirst">
+        Therapists, counsellors and psychotherapists hold their clients' most difficult things with a quality of attention that is rare in ordinary life. They remain, for the person searching alone at their lowest point, among the hardest professionals to find well.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>A counsellor's website creates a safe, considered first impression for someone reaching out at their most vulnerable — it communicates your approach before a single word is exchanged.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a particular kind of trust that is built in a counselling room, and it is not built quickly. It is built by a form of careful, sustained attention that has almost no equivalent in ordinary life: the attention of a person who has been trained to hear not only what is being said, but what is being said in the spaces around what is being said. The client who has experienced this kind of attention &mdash; who has sat with someone who is genuinely trying to understand, without agenda, without judgement, without the faint impatience that even the most well-meaning friends sometimes cannot quite conceal &mdash; knows that it is not a common thing.
+      </p>
+
+      <p>
+        The counsellor who can provide this builds, over time, a practice that runs on word of mouth in the way that all the best practices do. Clients recommend their therapist to friends with the same quiet seriousness with which they might recommend a surgeon who was kind as well as skilled. The recommendation carries, implicitly, the whole weight of what has happened in the room over months or years. It is not casual.
+      </p>
+
+      <p>
+        But the person who has not yet been in the room &mdash; who is searching, perhaps urgently, for someone to help them, and who does not have a friend who happens to know the right name &mdash; has to begin somewhere. And where they begin, too often, is nowhere very useful.
+      </p>
+
+      <h2>On the Directories and Their Limitations</h2>
+
+      <p>
+        The professional directories for counsellors and psychotherapists in the United Kingdom are, in principle, thorough. BACP, UKCP, the Counselling Directory: the listings are maintained, the credentials are checked, and the system exists for sound reasons. The registrations are real and the qualifications are genuine. But a directory of credentials is not a way of finding someone. It is a way of establishing that a range of qualified somebodies exist within a given postcode.
+      </p>
+
+      <p>
+        The person who is searching for a counsellor is not, in general, looking for a list of qualified practitioners within five miles. They are looking for the specific quality of fit: a person who works with the particular difficulty they are carrying, in a mode that suits the way they approach such things, at a time and fee that is genuinely possible for them. They may be looking for someone experienced with bereavement, or with the occupational pressures of a demanding profession, or with the particular difficulties of a life stage they are navigating. This is a more nuanced specification than any directory supports, and it is the specification that actually matters.
+      </p>
+
+      <p>
+        <strong>The independent counsellor who has spent years developing a practice around a particular kind of difficulty has, in most cases, not made this specialism visible anywhere a searching person can find it</strong> &mdash; beyond the single-line description in the directory that identifies her, simply, as a qualified counsellor accepting new clients.
+      </p>
+
+      <h2>On the Particular Vulnerability of the Person Searching</h2>
+
+      <p>
+        The person searching for a counsellor is, very often, not at their best when they begin. They are searching because something is difficult enough that they are prepared, perhaps for the first time, to seek professional help &mdash; a threshold that many people cross only when the need has become pressing. For some, there is also a residue of uncertainty about seeking this kind of help at all: an old idea, not entirely gone, that one ought to be able to manage things oneself.
+      </p>
+
+      <p>
+        What this person needs, more than credentials or a list of therapeutic approaches, is to be able to imagine &mdash; before they make contact &mdash; that the person they are about to contact is likely to be the right person for them. Not just qualified. Right. This is a harder thing to communicate, and it requires more than a directory listing.
+      </p>
+
+      <p>
+        A page that makes this possible &mdash; that says, honestly and without clinical distance, the kinds of difficulty the counsellor works with, the general shape of their approach, what a first session is likely to involve &mdash; is not a small thing. It is the page that makes the call possible. It removes enough uncertainty that the person who has been hesitating for two weeks finally sends the message. The session that follows is the beginning of what may be a very long piece of important work.
+      </p>
+
+      <p class="pullquote">The counsellor who can hold a person's difficulty with care and skill deserves to be findable by every person carrying that difficulty &mdash; not only those who happened to know the right name.</p>
+
+      <p>
+        At <a href="/">GitFoundry</a>, we build pages for counsellors and therapists that communicate what a directory listing cannot: the quality of your attention, the specificity of your practice, and the kind of person who will be well served by working with you. They belong to you. They cost a one-time fee and nothing thereafter. The conversation begins.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-010-heading">
+      <h2 class="post-faq-heading" id="faq-010-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Do counsellors and therapists need a website?</dt>
+          <dd>Yes. People seeking counselling or therapy often search online privately, outside of GP referrals. A professional website that clearly explains your therapeutic approach, the issues you work with, and how to make contact provides the first step for someone who is ready to reach out — and the tone of the site matters as much as the information.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should a counsellor's website include?</dt>
+          <dd>A counsellor's website should describe the therapeutic approaches you use, the issues you work with, whether sessions are in-person or online, your fees, and how a new client can get in touch. A calm, unhurried tone and clear information about the first session reduces the barrier to reaching out.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a therapist's website cost in the UK?</dt>
+          <dd>A GitFoundry website for a counsellor or therapist starts at £399 for a multi-page site — covering about, services, and contact — delivered in about a week. One payment, no monthly fees, yours outright.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a counsellor or therapist without a web presence that reflects your work?</p>
+      <p class="post-cta-body">I build careful, considered websites for counsellors and therapists — calm in tone, clear in structure, built around client trust. From £349, one payment, yours outright, no monthly fees. The person who needs your support should be able to find you.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your practice &#x2192;</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Counsellor Nobody Knew How to Find",
+  "description": "On therapists and counsellors who hold their clients' most difficult things with skill and care — and who remain invisible to the person searching at their lowest point.",
+  "datePublished": "2026-05-05",
+  "dateModified": "2026-05-05",
+  "about": { "@type": "Thing", "name": "Counsellor / Therapist" },
+  "keywords": "counsellor website UK, therapist website design UK, website for counsellor",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-010-the-counsellor.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Counsellor Nobody Knew How to Find", "item": "https://gitfoundry.co.uk/journal/journal-010-the-counsellor.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do counsellors and therapists need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. People seeking counselling or therapy often search online privately, outside of GP referrals. A professional website that clearly explains your therapeutic approach, the issues you work with, and how to make contact provides the first step for someone who is ready to reach out — and the tone of the site matters as much as the information." } },
+    { "@type": "Question", "name": "What should a counsellor's website include?", "acceptedAnswer": { "@type": "Answer", "text": "A counsellor's website should describe the therapeutic approaches you use, the issues you work with, whether sessions are in-person or online, your fees, and how a new client can get in touch. A calm, unhurried tone and clear information about the first session reduces the barrier to reaching out." } },
+    { "@type": "Question", "name": "How much does a therapist's website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for a counsellor or therapist starts at £399 for a multi-page site — covering about, services, and contact — delivered in about a week. One payment, no monthly fees, yours outright." } }
+  ]
+}
+</script>
+</body>
+</html>

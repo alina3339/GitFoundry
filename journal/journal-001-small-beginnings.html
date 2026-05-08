@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Big Things Have Small Beginnings — GitFoundry, Independent UK Web Design Studio</title>
+<meta name="description" content="The first entry in the GitFoundry journal — why an independent UK web design studio with no monthly fees exists, and who it's for.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="All Big Things Have Small Beginnings">
+<meta property="og:description" content="The first entry in the GitFoundry journal. Why this exists, what it is, and what comes next.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-001-small-beginnings.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-001-small-beginnings.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="All Big Things Have Small Beginnings — GitFoundry Journal">
+<meta name="twitter:description" content="The first entry in the GitFoundry journal. Why this exists, what it is, and what comes next.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  /* Article reading styles — token aliases into styles.css */
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .def-list { margin: 0 0 1.5rem; }
+  .def-list dt { font-weight: 700; color: var(--fg); margin-top: 1rem; }
+  .def-list dt:first-child { margin-top: 0; }
+  .def-list dd { margin: 0.25rem 0 0 1.5rem; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 001</span>
+        <span>27 APR 2026</span>
+        <span>6 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">All Big Things Have Small Beginnings</h1>
+
+      <p class="post-standfirst">
+        The first entry in a working notebook. A small account of what is being built, why it is being kept here in public, and what such a notebook ought never to be mistaken for.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>GitFoundry is a UK web design studio that builds hand-coded websites for small businesses and independent professionals — from £149, hosted free on GitHub Pages, with no monthly fees.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a particular kind of trust that settles, quietly and without ceremony, into a craftsperson’s workshop long before a single thing has been made for any client. It resides not in the finished pieces on the shelf &mdash; those are evidence, not the thing itself &mdash; but in the corner where the tools rest between jobs: the chisels whose edges show honest use, the bench worn into a faint dish by the same elbow over twenty years, the jar of small brass screws nobody has thrown away because one never knows when one might want a small brass screw. The corner is, in its quiet way, the most honest part of the workshop. It is where the work has begun to leave its trace on the room.
+      </p>
+
+      <p>
+        Every studio has a corner like this &mdash; though in a studio whose craft happens to be digital, the corner does not have a physical address. It is, instead, the modest sequence of small decisions made in private over a period of months or years: the choice of one word over another; the slight rephrasing of a sentence in a client's brief; the discovery, on a Tuesday afternoon, that something which ought to have been straightforward has taken two days to put right. These decisions accumulate in the way the dish accumulates in the bench, and they are, in much the same way, the truest record of how the work is actually being done.
+      </p>
+
+      <p>
+        This notebook is the corner.
+      </p>
+
+      <h2>On Writing as One Builds</h2>
+
+      <p>
+        There is a temptation, when one has finally finished a thing, to write the story of how one finished it. The story is usually clean. The wrong turns have been smoothed away; the dead ends have been quietly forgotten; the moment at which one nearly gave up has been recast as a moment of brave perseverance. Such a story makes a pleasant essay, but it is not, in any meaningful sense, true.
+      </p>
+
+      <p>
+        The alternative, which is rather more demanding, is to write the work down as it is being done &mdash; before one has had time to forget, and before vanity has had time to revise. One records the wrong turn while it still smells of being wrong. One admits the unanswered question while it is still unanswered. The reward, for the writer, is a habit of being honest with oneself; the reward, for the reader, is the rare comfort of reading something that has not been arranged to flatter its author.
+      </p>
+
+      <p>
+        This is the modest ambition of the present notebook: to write the studio down while it is still being built.
+      </p>
+
+      <h2>On What This Notebook Should Not Be</h2>
+
+      <p>
+        It is worth saying, gently, what this is not. It is not a series of essays composed to be admired. It is not a place where one will find the brisk, instructive prose of the productivity literature, nor the seven-point lists by which the modern internet has agreed to teach us things. It is not, above all, a marketing channel &mdash; though one accepts that any honest piece of writing about one's own work will, if it is good enough, become a sort of marketing in spite of itself.
+      </p>
+
+      <p>
+        What it is meant to be is small, and slow, and irregular. An entry will appear when an entry is owed; it will be the length the subject deserves; it will sometimes contain the sort of small admission that one is, at first, faintly embarrassed to make in public. That embarrassment is part of the point. <strong>A craftsperson who is incapable of being faintly embarrassed in public is, more often than not, a craftsperson who has stopped learning.</strong>
+      </p>
+
+      <h2>On the Quiet Discipline of Showing the Work</h2>
+
+      <p>
+        There is a particular question that any small studio will sooner or later have to answer, and it is not really a question about design or about technique: it is a question of trust. <em>Why should one believe that the care you propose to take with my project is the care that you are actually capable of taking?</em> The honest answer to this question cannot be a portfolio alone, because a portfolio is the polished outcome and not the long, untidy, sometimes embarrassing process that produced it.
+      </p>
+
+      <p>
+        The honest answer, instead, is to keep some of that process visible. To write down the decision that one nearly got wrong. To name the day on which one had to redo something one had thought was finished. To admit, in plain prose, that excellence consists not of a single brilliant gesture but of a thousand small acts of attention &mdash; and that one is engaged in those small acts, today and tomorrow and next Tuesday, whether or not anyone is watching.
+      </p>
+
+      <p>
+        A notebook kept in public is the studio's modest form of this discipline. It is a way of saying, without making a fuss about it: <em>the same care that I will take with your project, I am taking, every day, with my own.</em>
+      </p>
+
+      <h2>On What Will Come</h2>
+
+      <p>
+        The next few entries will return to the small decisions that have already been made and not yet been written down. Why the studio settled on the way of working it has settled on. What was discovered along the way that nobody had warned about. The small typographic choices that nobody but the maker is meant to notice, but which are, in their quiet way, what makes a page feel cared for rather than assembled.
+      </p>
+
+      <p>
+        After that, whatever happens to be in front of one at the time. The work itself, mostly &mdash; the slow accumulation of small projects, each one teaching something the previous one had not. New clients, when they come. Old questions, when they return. The unspectacular, considered, daily practice of trying to do a thing properly.
+      </p>
+
+      <p class="pullquote">All big things have small beginnings.</p>
+
+      <p>
+        This is mine. Thank you for reading the first one.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-001-heading">
+      <h2 class="post-faq-heading" id="faq-001-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>What is GitFoundry?</dt>
+          <dd>GitFoundry is a small UK web design studio based in Stoke-on-Trent, Staffordshire. We build hand-coded static websites for sole traders, small businesses, freelancers, and charities across the United Kingdom — starting from £149, hosted free on GitHub Pages, with one-time payment and no monthly fees.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a GitFoundry website cost?</dt>
+          <dd>Websites start at £149 for the Foundry tier — a focused single-page site. The Precision tier is £399 for a multi-page site with contact form and journal. Bespoke builds start at £749 for fully custom work. All prices include UK VAT and there are no ongoing fees after delivery.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How long does it take GitFoundry to build a website?</dt>
+          <dd>A Foundry single-page site can be live in as few as 3 working days. A Precision multi-page build typically takes 7 working days. GitFoundry responds to all enquiries within 48 hours with a fixed quote and timeline.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Starting a business or going independent?</p>
+      <p class="post-cta-body">If you need a professional web presence without the ongoing cost, this is what I build. From £349 for a complete multi-page site, delivered in about a week — yours outright, no monthly fees, ever. I'll reply within 48 hours with a fixed quote.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your project →</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a></p>
+    </footer>
+
+  </main>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "All Big Things Have Small Beginnings",
+  "description": "The first entry in the GitFoundry journal. Why this exists, what it is, and what comes next.",
+  "datePublished": "2026-04-27",
+  "dateModified": "2026-04-27",
+  "about": { "@type": "Thing", "name": "Web Design Studio" },
+  "keywords": "GitFoundry, UK web design, hand-coded website, GitHub Pages, one-time payment",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-001-small-beginnings.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "All Big Things Have Small Beginnings", "item": "https://gitfoundry.co.uk/journal/journal-001-small-beginnings.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is GitFoundry?", "acceptedAnswer": { "@type": "Answer", "text": "GitFoundry is a small UK web design studio based in Stoke-on-Trent, Staffordshire. We build hand-coded static websites for sole traders, small businesses, freelancers, and charities across the United Kingdom — starting from £149, hosted free on GitHub Pages, with one-time payment and no monthly fees." } },
+    { "@type": "Question", "name": "How much does a GitFoundry website cost?", "acceptedAnswer": { "@type": "Answer", "text": "Websites start at £149 for the Foundry tier — a focused single-page site. The Precision tier is £399 for a multi-page site with contact form and journal. Bespoke builds start at £749 for fully custom work. All prices include UK VAT and there are no ongoing fees after delivery." } },
+    { "@type": "Question", "name": "How long does it take GitFoundry to build a website?", "acceptedAnswer": { "@type": "Answer", "text": "A Foundry single-page site can be live in as few as 3 working days. A Precision multi-page build typically takes 7 working days. GitFoundry responds to all enquiries within 48 hours with a fixed quote and timeline." } }
+  ]
+}
+</script>
+</body>
+</html>

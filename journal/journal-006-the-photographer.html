@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Photographer Who Hid in Plain Sight — Photographer Portfolio Website UK</title>
+<meta name="description" content="Why wedding photographers and portrait artists need a photographer portfolio website they own — not an Instagram profile or a platform that can vanish overnight.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Photographer Who Hid in Plain Sight">
+<meta property="og:description" content="On photographers who produce extraordinary images and keep them locked inside platforms that own them, rather than on pages that belong to themselves.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-006-the-photographer.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-006-the-photographer.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Photographer Who Hid in Plain Sight — GitFoundry Journal">
+<meta name="twitter:description" content="On photographers who produce extraordinary images and keep them locked inside platforms that own them, rather than on pages that belong to themselves.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  /* Article reading styles — token aliases into styles.css */
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .def-list { margin: 0 0 1.5rem; }
+  .def-list dt { font-weight: 700; color: var(--fg); margin-top: 1rem; }
+  .def-list dt:first-child { margin-top: 0; }
+  .def-list dd { margin: 0.25rem 0 0 1.5rem; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 006</span>
+        <span>04 MAY 2026</span>
+        <span>6 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Photographer Who Hid in Plain Sight</h1>
+
+      <p class="post-standfirst">
+        Of all the professions that have most to gain from a well-made website, photography is the most obvious — and yet photographers are among those most likely to house their finest work inside platforms they do not own, on pages they cannot fully control, at the mercy of algorithms they did not choose.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>A photographer's website is their portfolio and their booking page in one — without it, excellent work stays invisible to potential clients who are actively searching for it.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a particular kind of trust that a well-composed image can hold &mdash; the wedding photograph in which everything is as it was, the portrait that makes a person recognisable to themselves, the image of a building that says what the building actually is rather than what the brochure claims it to be. The working photographer understands this better than almost anyone: that a well-composed frame does not merely record. It argues. It persuades. It communicates something that a paragraph of well-meaning copy cannot quite reach. She has spent years learning how light falls, how a single chosen moment over all the other moments in a sequence transforms what the viewer sees. And yet there is something quietly contradictory about the situation of the working photographer in 2026.
+      </p>
+
+      <p>
+        And yet the space in which most photographers have chosen to present their work to the world is a space they did not design, cannot modify in any meaningful way, and do not own. The Instagram grid. The Facebook page. The listing on a wedding directory that charges a monthly fee and ranks its photographers by the size of their subscription rather than the quality of their frames.
+      </p>
+
+      <h2>On the Algorithm as Art Director</h2>
+
+      <p>
+        When a photographer posts her work to a social platform, she is, in the most literal sense, handing editorial control to a machine. The machine decides which images are seen, in which order, by which people, on which days. The machine has no eye. It has no understanding of the difference between a technically competent photograph and a genuinely moving one. It has an understanding of engagement — of which image produces a tap, a pause, a share — and it optimises for this, which is not the same thing as optimising for quality.
+      </p>
+
+      <p>
+        The result is that a photographer's reputation, when it is housed entirely on a social platform, is mediated at every point by a set of incentives that have nothing to do with the photographer's art. The image that performs well is not necessarily the best image. The photographer who grows a large following is not necessarily the most skilled photographer. The ranking is a function of the algorithm's priorities, and the algorithm's priorities are not, on the whole, the priorities of a discerning client looking for the right person to photograph their wedding.
+      </p>
+
+      <p>
+        <strong>The discerning client — the one who will choose carefully and pay fairly and value the work for what it is — is not, in general, looking on social platforms first.</strong> She is searching. She is typing words into a search engine and looking at what comes back. What comes back, for most independent photographers, is other people's directories, other people's listings, and the occasional photographer who has understood that a page of her own is worth more than a profile on someone else's.
+      </p>
+
+      <h2>On Owning One's Own Work</h2>
+
+      <p>
+        There is a further consideration that photographers, of all people, ought to find compelling. The images posted to a social platform are not, in any meaningful practical sense, under the photographer's control. The platform may compress them. It may crop them for its interface. It may serve them in a context — adjacent to an advertisement, sandwiched between two pieces of unrelated content — that actively undermines the impression the photographer intended to create. The photographer has made the image; the platform has made the experience of viewing it, and the platform's interests in that experience are not the photographer's interests.
+      </p>
+
+      <p>
+        A page of one's own is a different proposition entirely. The images are served at the resolution the photographer chooses. They are presented in a sequence the photographer has decided upon. The space around them — the whitespace, the typography, the navigation, the pace at which the viewer moves through the portfolio — is under the photographer's control, and the impression it creates is the impression the photographer intended. The work is, in this environment, the photographer's work in full, rather than the photographer's work as filtered through an interface designed to keep the viewer scrolling past it to the next thing.
+      </p>
+
+      <h2>The Couple with the Venue Booked</h2>
+
+      <p>
+        The couple who have booked a venue and are now looking for a photographer have, typically, a clear set of priorities and a limited amount of time. They want to see work. They want to understand whether the photographer's style matches the kind of images they want. They want to know what the process involves, what the packages are, and how to get in touch. These are simple requirements, and a well-made portfolio page answers all of them within a minute of arrival.
+      </p>
+
+      <p>
+        A social profile answers some of them, in a degraded way, whilst asking the viewer to navigate a set of distractions that the photographer did not invite and cannot remove. A directory listing answers almost none of them, because the directory's interest is in keeping the viewer on the directory, not in sending them efficiently to the photographer who is the right fit.
+      </p>
+
+      <p>
+        The photographer with a page of her own — a page that loads quickly, shows the work clearly, explains the approach honestly, and makes it easy to get in touch — is the photographer who gets the enquiry. The photographer who relies on platforms to do this work on her behalf is the photographer who hopes the algorithm is, on this particular Tuesday, in a mood to be helpful.
+      </p>
+
+      <p class="pullquote">A photographer understands, better than almost anyone, that the frame matters as much as what is inside it. The same is true of the page on which the work is shown.</p>
+
+      <p>
+        At <a href="/">GitFoundry</a>, we have built portfolio pages for photographers that are fast, clear and owned outright by the person whose name is on them. The work is shown as the photographer intends it to be shown. The enquiry arrives directly. No percentage is taken. No monthly fee is owed. The frame belongs to the photographer.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-006-heading">
+      <h2 class="post-faq-heading" id="faq-006-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Does a photographer need a website?</dt>
+          <dd>Yes. Instagram and social media are useful for visibility, but a photographer's website provides a professional portfolio, controls how your work is presented, and captures enquiries directly — without an algorithm deciding who sees it or when. A website is the only platform you fully own.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should a photographer's website include?</dt>
+          <dd>A photographer's website should include a curated portfolio by genre or subject, a clear description of the services you offer, pricing or a guide to your rates, and a straightforward contact or enquiry form. Clients want to see your best work and know how to reach you — everything else is secondary.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a photographer website cost in the UK?</dt>
+          <dd>A GitFoundry photographer portfolio website starts at £399 — a multi-page site with a portfolio section, about page, and contact form. One payment, no monthly fees, full ownership of your code and content.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a photographer paying too much for a portfolio site?</p>
+      <p class="post-cta-body">I build portfolio websites for photographers that load fast, look sharp, and cost nothing to keep running. From £149 for a single-page portfolio — one payment, yours outright, no Squarespace bill eating into every booking.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your work →</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Photographer Who Hid in Plain Sight",
+  "description": "On wedding photographers, portrait artists and commercial photographers who produce extraordinary images — and keep them locked inside platforms that own them.",
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-04",
+  "about": { "@type": "Thing", "name": "Photographer / Videographer" },
+  "keywords": "photographer website UK, photography portfolio website, website for photographer UK",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-006-the-photographer.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Photographer Who Hid in Plain Sight", "item": "https://gitfoundry.co.uk/journal/journal-006-the-photographer.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does a photographer need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Instagram and social media are useful for visibility, but a photographer's website provides a professional portfolio, controls how your work is presented, and captures enquiries directly — without an algorithm deciding who sees it or when. A website is the only platform you fully own." } },
+    { "@type": "Question", "name": "What should a photographer's website include?", "acceptedAnswer": { "@type": "Answer", "text": "A photographer's website should include a curated portfolio by genre or subject, a clear description of the services you offer, pricing or a guide to your rates, and a straightforward contact or enquiry form. Clients want to see your best work and know how to reach you — everything else is secondary." } },
+    { "@type": "Question", "name": "How much does a photographer website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry photographer portfolio website starts at £399 — a multi-page site with a portfolio section, about page, and contact form. One payment, no monthly fees, full ownership of your code and content." } }
+  ]
+}
+</script>
+</body>
+</html>

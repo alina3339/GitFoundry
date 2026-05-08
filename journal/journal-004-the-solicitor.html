@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Solicitor Who Trusted Only Word of Mouth — Solicitor Website Design UK</title>
+<meta name="description" content="Why solicitors, conveyancers, and family lawyers are among the hardest professionals to find online — and why a proper solicitor website design matters for clients who need them.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Solicitor Who Trusted Only Word of Mouth">
+<meta property="og:description" content="On why legal professionals are among the hardest professionals to find online, and what that costs their would-be clients.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-004-the-solicitor.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-004-the-solicitor.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Solicitor Who Trusted Only Word of Mouth — GitFoundry Journal">
+<meta name="twitter:description" content="On why legal professionals are among the hardest professionals to find online, and what that costs their would-be clients.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  /* Article reading styles — token aliases into styles.css */
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .def-list { margin: 0 0 1.5rem; }
+  .def-list dt { font-weight: 700; color: var(--fg); margin-top: 1rem; }
+  .def-list dt:first-child { margin-top: 0; }
+  .def-list dd { margin: 0.25rem 0 0 1.5rem; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 004</span>
+        <span>04 MAY 2026</span>
+        <span>7 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Solicitor Who Trusted Only Word of Mouth</h1>
+
+      <p class="post-standfirst">
+        On the quiet professional culture of the law, and why solicitors, conveyancers and family lawyers — who deal daily in matters of considerable consequence — are among the last professionals to make themselves findable to the people who need them most urgently.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>A solicitor's website establishes professional credibility before the first consultation — potential clients expect to find you online, and your absence suggests uncertainty about your standing.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a particular kind of trust that the law earns slowly and keeps quietly. The barrister who wins a case does not take out a notice in the local paper. The conveyancer who completes a difficult transaction does not erect a sign. The family solicitor who guides a client through a divorce with particular care and discretion does not, on the whole, ask to be thanked in public. The trust is built in chambers and waiting rooms and across the desk of a first meeting that costs nothing, and it is maintained by outcomes rather than advertisement &mdash; a long tradition that is part ethical caution, part collegial pride, and very largely correct. The law, as a profession, has always taken a careful view of self-promotion.
+      </p>
+
+      <p>
+        This restraint has a great deal to recommend it. It is, among other things, the mark of a profession that understands the difference between excellence and performance — that the best work, in law as in surgery, tends to be quiet and thorough rather than loud and impressive. A client who has been well-served knows it; the professional knows it; the matter rests between them and the file.
+      </p>
+
+      <p>
+        But this restraint, admirable as it is in its origins, has produced, in the particular conditions of 2026, a problem that the profession has not yet fully reckoned with.
+      </p>
+
+      <h2>The Moment Before the Appointment</h2>
+
+      <p>
+        Consider the situation of the first-time buyer who has had an offer accepted on a property. She has, in her hand, the most consequential piece of paper most people sign in their lives, and she has approximately no idea what to do with it. She knows she needs a solicitor. She does not know any solicitors. Her parents might, but they live elsewhere, and in any case their solicitor retired in 2019.
+      </p>
+
+      <p>
+        She does what most people in her situation do: she opens a search engine and she types. And what she finds, when she types, is not the quiet local firm two streets away whose partners have been doing residential conveyancing with particular care for thirty years. What she finds is a comparison website, and a national conveyancing factory, and a firm that has clearly spent a great deal of money on digital advertising, and somewhere on the fourth page of results, if she scrolls far enough, the local firm — presented, when she finally reaches it, by a website last updated in the early part of the previous decade.
+      </p>
+
+      <p>
+        She books the factory, because it has a price on the front page and a five-star rating from eleven hundred people she has never met. The quiet firm, two streets away, does not get a call.
+      </p>
+
+      <h2>On Trust and Its Infrastructure</h2>
+
+      <p>
+        The legal profession's discomfort with self-promotion is partly, as suggested, a matter of culture. But it is also, on closer inspection, a matter of a particular theory of how trust is built: the belief that trust travels through personal recommendation alone, and that any other mechanism for generating it is somehow undignified.
+      </p>
+
+      <p>
+        This theory was, for most of the history of the profession, essentially correct. The referral network — the local accountant who knows the local solicitor who knows the local estate agent — was the infrastructure through which most legal work found its way to the firms that were best equipped to do it. The system was slow and opaque, but it was not unreasonable: in a world without search engines, personal recommendation was the only available signal of trustworthiness.
+      </p>
+
+      <p>
+        <strong>In a world with search engines, it is no longer the only signal. But many legal professionals have not updated their understanding of how trust now travels.</strong> They continue to rely on a referral network that still functions, but that now reaches only a fraction of the people who need their services.
+      </p>
+
+      <h2>What the First-Time Buyer Actually Needs</h2>
+
+      <p>
+        The first-time buyer, searching for a solicitor, is not primarily looking for a bargain. She is looking for a person she can trust with a transaction that will define the next decade of her life. The comparison website has understood this, superficially, which is why it presents her with ratings and reviews. But the comparison website is, in the end, a marketplace, and marketplaces are not built to serve the interests of the most careful practitioner.
+      </p>
+
+      <p>
+        What the first-time buyer would respond to, if it were present, is evidence of the kind of care that a quiet local firm actually takes — not expressed as boasting, but as the quiet confidence of a practice that knows its area, knows its clients, and has been doing this work for long enough that it has seen every complication a local property market can produce. A page that says: <em>we do this work, in this town, and here is what our clients have found us to be like</em>. That is the whole case. It requires no flourish.
+      </p>
+
+      <h2>On Dignity and the Digital Page</h2>
+
+      <p>
+        There is sometimes an implication, in legal circles, that having a well-maintained website is somehow beneath the dignity of a serious practice. This implication is, on reflection, precisely wrong. A website is not an advertisement. It is a record. It says, in the most neutral terms possible: this practice exists, it does this work, it serves these clients, it may be reached as follows. The dignity of the practice is expressed not by the absence of such a record but by the care with which it is made.
+      </p>
+
+      <p>
+        A page that is clean, honest, accurate and easy to navigate reflects the qualities of a practice that is clean, honest, accurate and easy to deal with. A practice that cannot be found online, however excellent its work, reflects nothing to the stranger who is looking — because the stranger has no access to the work, and the practice has made no provision for the stranger to discover it.
+      </p>
+
+      <p class="pullquote">The referral will come, in time. But the burst pipe does not wait for the referral. Neither does the first-time buyer with an offer accepted and a completion date.</p>
+
+      <p>
+        At <a href="/">GitFoundry</a>, we have built pages for small legal practices that have been conducting their work with great competence and great discretion for many years, and that have simply never thought to plant a flag online. The flag is not a billboard. It is a door, unlocked, with the lights on. It says: come in. We are ready. This is what we do.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-004-heading">
+      <h2 class="post-faq-heading" id="faq-004-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Do solicitors need a website?</dt>
+          <dd>Yes. Clients looking for legal help in the UK typically search online before making contact. A professional website for a solicitor signals credibility, communicates your practice areas clearly, and makes it easy for the right clients to reach you — regardless of whether they have a personal referral.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should a solicitor's website include?</dt>
+          <dd>A solicitor's website should cover your practice areas, your background and qualifications, how to get in touch, and your location or the areas you serve. Clear, plain language builds trust far more than legal jargon. A professional photograph and brief biography are also valuable.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a solicitor's website cost in the UK?</dt>
+          <dd>A GitFoundry website for a solicitor starts at £399 for a multi-page site — covering services, about, and contact — delivered in about a week. One payment, no monthly fees, full source code ownership on delivery.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a solicitor or legal professional without a proper web presence?</p>
+      <p class="post-cta-body">I build clean, authoritative websites for small legal practices — conveying professionalism and trust from the first click. From £349, yours outright, no monthly fees. Clients searching for a solicitor in your area deserve to find you.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your practice →</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Solicitor Who Trusted Only Word of Mouth",
+  "description": "On why legal professionals — solicitors, conveyancers, family lawyers — are among the hardest professionals to find online.",
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-04",
+  "about": { "@type": "Thing", "name": "Legal Professional / Solicitor" },
+  "keywords": "solicitor website UK, website for law firm, legal professional website design UK",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-004-the-solicitor.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Solicitor Who Trusted Only Word of Mouth", "item": "https://gitfoundry.co.uk/journal/journal-004-the-solicitor.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do solicitors need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Clients looking for legal help in the UK typically search online before making contact. A professional website for a solicitor signals credibility, communicates your practice areas clearly, and makes it easy for the right clients to reach you — regardless of whether they have a personal referral." } },
+    { "@type": "Question", "name": "What should a solicitor's website include?", "acceptedAnswer": { "@type": "Answer", "text": "A solicitor's website should cover your practice areas, your background and qualifications, how to get in touch, and your location or the areas you serve. Clear, plain language builds trust far more than legal jargon. A professional photograph and brief biography are also valuable." } },
+    { "@type": "Question", "name": "How much does a solicitor's website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for a solicitor starts at £399 for a multi-page site — covering services, about, and contact — delivered in about a week. One payment, no monthly fees, full source code ownership on delivery." } }
+  ]
+}
+</script>
+</body>
+</html>

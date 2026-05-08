@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Yoga Instructor Who Could Not Be Found When It Mattered — Yoga Teacher Website UK</title>
+<meta name="description" content="On independent yoga teachers who guide their students through more than posture — and who remain invisible to the person who has decided, after months of delay, that this is the week they finally begin.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Yoga Instructor Who Could Not Be Found When It Mattered">
+<meta property="og:description" content="On independent yoga teachers whose classes transform their students in ways an app cannot replicate — and who are invisible to the person who has finally decided to begin.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-019-the-yoga-instructor.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-019-the-yoga-instructor.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:image:alt" content="GitFoundry — precision-built websites, zero hosting fees">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 019</span>
+        <span>08 MAY 2026</span>
+        <span>6 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Yoga Instructor Who Could Not Be Found When It Mattered</h1>
+
+      <p class="post-standfirst">
+        For the independent yoga teachers who guide their students through more than posture &mdash; who understand the relationship between breath, movement, and the nervous system in ways that a studio playlist and a subscription app cannot replace &mdash; and who remain invisible to the person who has decided, after months of delay, that this is the week they finally begin.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>A yoga instructor&rsquo;s website lets students in your area find your classes, understand your teaching style and qualifications, and take their first session with confidence &mdash; before the moment of motivation passes and they sign up for an app instead. GitFoundry builds these from £399 with no monthly fees.</p>
+    </div>
+
+    <article>
+
+      <p>
+        The decision to start yoga is rarely impulsive. It accumulates. A period of stress, a recurring injury, a recommendation from someone whose judgement is trusted, a gradual awareness that something in the body or the mind is not quite right and that movement might help. By the time a person searches for a yoga class, they have usually been considering it for weeks or months. The search itself is a small act of commitment, and the window in which that commitment is available &mdash; the evening when they have finally opened a browser and typed in the words &mdash; is not always wide.
+      </p>
+
+      <p>
+        What they find in that window shapes what happens next. The well-funded app with the recognisable name will appear. The large studio with a booking system and a social media presence will appear. The independent teacher with a decade of experience and a class that is exactly the right size and pace and approach may or may not appear &mdash; and if they do not appear, the person searching will not know to keep looking. They will take what they can find. They will sign up for something that serves them adequately rather than exceptionally, and the teacher who would have served them exceptionally will never know they passed through.
+      </p>
+
+      <h2>On Teaching Style and the Decision Before the First Class</h2>
+
+      <p>
+        Yoga is not a uniform practice, and the person searching for a class is often, even if they cannot articulate it precisely, looking for a specific kind of experience. They want to know whether the teacher emphasises alignment or flow, whether the classes are suitable for beginners or assume prior experience, whether the studio or community space is welcoming or intimidating, whether there is any room for the person who is not particularly flexible and is slightly afraid of being the least capable person in the room.
+      </p>
+
+      <p>
+        These questions cannot be answered by a directory listing. They can be answered by a page that the teacher has written themselves, in their own voice, about how they approach the practice and who their classes are for. A paragraph about how you came to teaching, what you prioritise in a class, and the kind of student who tends to get the most from your sessions does more to convert a hesitant searcher into a first-time student than any amount of promotional copy. People making decisions about how to spend their bodies and their time want to feel, before they arrive, that the teacher they have found is someone who takes that responsibility seriously.
+      </p>
+
+      <p>
+        <strong>The teacher who describes their practice honestly and specifically, in their own voice, is the teacher the right student will choose.</strong>
+      </p>
+
+      <h2>On the App and the Thing the App Cannot Provide</h2>
+
+      <p>
+        The subscription yoga app is a real competitor for the independent teacher&rsquo;s potential students, and it competes on the terms that are easiest to compete on: convenience, variety, and price. It is available at any time. It requires no travel. It is cheaper per session than most in-person classes. These are genuine advantages, and dismissing them is not useful.
+      </p>
+
+      <p>
+        What the app cannot provide is a teacher who knows the student&rsquo;s name, who notices when the posture they have been struggling with for three months finally clicks, who adjusts their approach to a class of eight people based on what those eight people brought with them that evening, and who builds over time the kind of relationship with their students that makes the practice sustainable rather than something that is done for a few weeks and then quietly abandoned. The person who understands this &mdash; who has tried the app and found it wanting, or who suspects from the beginning that they need the room &mdash; will choose a teacher if they can find one. A website makes finding one possible.
+      </p>
+
+      <p class="pullquote">The yoga teacher who could have helped the person who finally decided to begin, but could not be found in the moment that decision was made, has lost something that cannot be recovered.</p>
+
+      <p>
+        At <a href="/">GitFoundry</a>, we build websites for independent yoga teachers that describe your practice in your own words, list your classes and their schedules, explain who the classes are for, and make it straightforward for someone to take the step from searching to booking. One payment, no monthly fee, yours outright.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-019-heading">
+      <h2 class="post-faq-heading" id="faq-019-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Does a yoga instructor need a website?</dt>
+          <dd>Yes. Students searching for yoga classes in their area will look online first, and the decision of which teacher to choose is heavily influenced by what they can read about the teacher&rsquo;s style, qualifications, and approach. A website gives you the space to describe your practice in your own voice &mdash; something a directory listing or social media profile cannot do adequately.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should a yoga teacher&rsquo;s website include?</dt>
+          <dd>A yoga instructor&rsquo;s website should include information about your teaching style and background, your qualifications and any specialist training (prenatal, restorative, Iyengar, etc.), a list of your current classes with times and locations, pricing or membership options, who the classes are suitable for, and a simple way to book or enquire. A short personal statement about your approach to teaching is particularly valuable for helping the right student decide to come.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a yoga instructor website cost in the UK?</dt>
+          <dd>A GitFoundry website for an independent yoga teacher starts at £399 for a clear, professional site covering your classes, teaching style, qualifications, and contact or booking details. One payment, no monthly fees, yours outright.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a yoga teacher whose students can&rsquo;t find you online?</p>
+      <p class="post-cta-body">I build clear, professional websites for independent yoga instructors &mdash; designed to describe your practice in your own voice, show your class schedule, and give the person who has finally decided to begin every reason to choose you over whatever the algorithm serves them first. From £399, one payment, yours outright, no monthly fees.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your work &#x2192;</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Yoga Instructor Who Could Not Be Found When It Mattered",
+  "description": "On independent yoga teachers who guide their students through more than posture — and who remain invisible to the person who has decided, after months of delay, that this is the week they finally begin.",
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-05-08",
+  "about": { "@type": "Thing", "name": "Yoga Instructor" },
+  "keywords": "yoga instructor website UK, yoga teacher website, independent yoga class website UK, yoga studio website UK",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-019-the-yoga-instructor.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Yoga Instructor Who Could Not Be Found When It Mattered", "item": "https://gitfoundry.co.uk/journal/journal-019-the-yoga-instructor.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does a yoga instructor need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Students searching for yoga classes in their area will look online first, and the decision of which teacher to choose is heavily influenced by what they can read about the teacher's style, qualifications, and approach. A website gives you the space to describe your practice in your own voice — something a directory listing or social media profile cannot do adequately." } },
+    { "@type": "Question", "name": "What should a yoga teacher's website include?", "acceptedAnswer": { "@type": "Answer", "text": "A yoga instructor's website should include information about your teaching style and background, your qualifications and any specialist training (prenatal, restorative, Iyengar, etc.), a list of your current classes with times and locations, pricing or membership options, who the classes are suitable for, and a simple way to book or enquire. A short personal statement about your approach to teaching is particularly valuable for helping the right student decide to come." } },
+    { "@type": "Question", "name": "How much does a yoga instructor website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for an independent yoga teacher starts at £399 for a clear, professional site covering your classes, teaching style, qualifications, and contact or booking details. One payment, no monthly fees, yours outright." } }
+  ]
+}
+</script>
+</body>
+</html>

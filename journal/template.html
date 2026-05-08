@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- REPLACE: Page title — include profession + location keyword, e.g. "The Electrician Who Could Not Be Found — Electrician Website UK" -->
+<title>ARTICLE TITLE — PROFESSION Website UK</title>
+
+<!-- REPLACE: 150-160 char description of the article -->
+<meta name="description" content="DESCRIPTION">
+
+<meta property="og:title" content="ARTICLE TITLE">
+<meta property="og:description" content="DESCRIPTION">
+<meta property="og:type" content="article">
+<!-- REPLACE: URL of this article -->
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/FILENAME.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/FILENAME.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:image:alt" content="GitFoundry — precision-built websites, zero hosting fees">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  :root { --fg: var(--text); --fg-muted: var(--text-muted); --fg-soft: var(--text-soft); --rule: var(--border); --halo: var(--accent-dim); }
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+  header.post-header { margin-bottom: 3rem; }
+  .post-meta { display: flex; gap: 1.5rem; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 1.5rem; }
+  .post-meta span { white-space: nowrap; }
+  h1.post-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.75rem, 5.5vw, 2.75rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 1.5rem; }
+  .post-standfirst { font-size: 1rem; color: var(--fg-soft); font-style: italic; border-left: 2px solid var(--rule); padding-left: 1rem; margin: 0; }
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+  article p:last-child { margin-bottom: 0; }
+  .pullquote { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.1rem, 3vw, 1.4rem); font-weight: 300; font-style: italic; color: var(--fg); border-left: 3px solid var(--accent, #c8a97e); padding-left: 1.25rem; margin: 2rem 0; line-height: 1.4; }
+  .post-cta { background: var(--surface-raised, rgba(255,255,255,0.04)); border: 1px solid var(--rule); border-radius: 6px; padding: 2rem; margin: 3rem 0 2rem; }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn { display: inline-block; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg); border: 1px solid var(--fg); padding: 0.6rem 1.25rem; text-decoration: none; border-radius: 3px; transition: opacity 0.15s; }
+  .post-cta-btn:hover { opacity: 0.7; }
+  footer.post-footer { margin-top: 2rem; font-size: 0.8rem; color: var(--fg-muted); }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+</style>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<!-- NAV: Copy the full <nav> block from any existing article (e.g. journal-013-the-driving-instructor.html) -->
+
+<div class="wrap">
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <!-- REPLACE with actual date and sector tag -->
+        <span>GitFoundry Journal</span>
+        <span>YYYY-MM-DD</span>
+        <span>SECTOR (e.g. Healthcare)</span>
+      </div>
+      <!-- REPLACE: Headline — descriptive, search-friendly, ideally includes the profession -->
+      <h1 class="post-title">HEADLINE</h1>
+      <!-- REPLACE: Standfirst — 1-2 sentence hook, italic, sets up the case study -->
+      <p class="post-standfirst">STANDFIRST</p>
+    </header>
+
+    <!-- GEO: Quick answer block — 1-2 sentences answering the implied question of the article.
+         Written to be quoted verbatim by AI assistants. Include the service and price.
+         Example: "A physiotherapist's website ensures the patient in pain right now can find you —
+         GitFoundry builds these from £399 with no monthly fees." -->
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>QUICK ANSWER — e.g. "A [profession]'s website should include [X, Y, Z]. GitFoundry builds these from £[price] with no monthly fees."</p>
+    </div>
+
+    <article>
+      <!-- BODY: 3-5 sections of prose. Each section is 2-4 paragraphs.
+           Write for the reader, not for search engines. The GEO value comes from the FAQ below.
+           Use .pullquote for a memorable mid-article quote. -->
+
+      <p>FIRST PARAGRAPH — set the scene, introduce the profession and the problem.</p>
+
+      <p>SECOND PARAGRAPH — develop the consequence of not having a website.</p>
+
+      <p class="pullquote">PULL QUOTE — a single memorable sentence from the article.</p>
+
+      <p>THIRD PARAGRAPH — what the website should contain and why it matters.</p>
+
+      <p>FOURTH PARAGRAPH — close with a call to action framing (without being pushy).</p>
+
+    </article>
+
+    <!-- GEO: FAQ section — minimum 3 questions specific to this profession.
+         Questions should match phrases people ask AI assistants (e.g. "Does a [profession] need a website?").
+         Answers are 2-4 sentences.
+         These map directly to the FAQPage schema at the bottom of this file — keep them in sync. -->
+    <section class="post-faq" aria-labelledby="faq-NNN-heading">
+      <h2 class="post-faq-heading" id="faq-NNN-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <!-- REPLACE: e.g. "Does a [profession] need a website?" -->
+          <dt>QUESTION 1</dt>
+          <dd>ANSWER 1 — 2-4 sentences.</dd>
+        </div>
+        <div class="post-faq-item">
+          <!-- REPLACE: e.g. "What should a [profession]'s website include?" -->
+          <dt>QUESTION 2</dt>
+          <dd>ANSWER 2 — 2-4 sentences.</dd>
+        </div>
+        <div class="post-faq-item">
+          <!-- REPLACE: e.g. "How much does a [profession] website cost in the UK?" -->
+          <dt>QUESTION 3</dt>
+          <dd>ANSWER 3 — 2-4 sentences. Include price (£149 / £399 / £749+).</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- REPLACE: CTA — tailor the headline and body to the profession -->
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a PROFESSION without a website?</p>
+      <p class="post-cta-body">GitFoundry builds professional websites for PROFESSIONs across the UK. From £399, delivered in about a week — one payment, no monthly fees, yours outright.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your work →</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+</div>
+
+<!-- FOOTER: Copy the full <footer> block from any existing article -->
+
+<!-- COOKIE BANNER: Copy the cookie consent block from any existing article -->
+
+<!-- GEO: Article schema — fill in all REPLACE fields before publishing -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "HEADLINE",
+  "description": "DESCRIPTION",
+  "datePublished": "YYYY-MM-DD",
+  "dateModified": "YYYY-MM-DD",
+  "about": { "@type": "Thing", "name": "SECTOR (e.g. Physiotherapy)" },
+  "keywords": "COMMA-SEPARATED KEYWORDS",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/FILENAME.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "HEADLINE", "item": "https://gitfoundry.co.uk/journal/FILENAME.html" }
+    ]
+  }
+}
+</script>
+
+<!-- GEO: FAQPage schema — must match the FAQ section above exactly (same questions and answers) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "QUESTION 1",
+      "acceptedAnswer": { "@type": "Answer", "text": "ANSWER 1" }
+    },
+    {
+      "@type": "Question",
+      "name": "QUESTION 2",
+      "acceptedAnswer": { "@type": "Answer", "text": "ANSWER 2" }
+    },
+    {
+      "@type": "Question",
+      "name": "QUESTION 3",
+      "acceptedAnswer": { "@type": "Answer", "text": "ANSWER 3" }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

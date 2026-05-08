@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Architect Nobody Thought to Search For — Website for a Residential Architect UK</title>
+<meta name="description" content="Why residential architects, extension architects and planning consultants need a proper web presence — so the homeowner planning a loft conversion finds the right person before signing with the wrong one.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Architect Nobody Thought to Search For">
+<meta property="og:description" content="On residential architects and extension specialists whose best work sits behind the facades of homes across the country — and who remain unfindable to the homeowner about to make the most expensive mistake of their renovation.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-012-the-architect.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-012-the-architect.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Architect Nobody Thought to Search For — GitFoundry Journal">
+<meta name="twitter:description" content="On residential architects and extension specialists whose best work sits behind the facades of homes across the country — and who remain unfindable to the homeowner about to make the most expensive mistake of their renovation.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .def-list { margin: 0 0 1.5rem; }
+  .def-list dt { font-weight: 700; color: var(--fg); margin-top: 1rem; }
+  .def-list dt:first-child { margin-top: 0; }
+  .def-list dd { margin: 0.25rem 0 0 1.5rem; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 012</span>
+        <span>06 MAY 2026</span>
+        <span>7 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Architect Nobody Thought to Search For</h1>
+
+      <p class="post-standfirst">
+        For the residential architects and extension specialists whose best work quietly transforms the homes of this country — and who remain invisible to the homeowner about to commit to the most expensive and irreversible decision of their renovation.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>An architect's website makes their work visible to homeowners and developers who are actively searching — a portfolio online turns past projects into future commissions.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a moment in a homeowner&rsquo;s planning of a significant building project &mdash; a rear extension, a loft conversion, the reconfiguration of a Victorian terrace into something that actually fits the life being lived in it &mdash; when they realise that the difference between a good outcome and a bad one is almost entirely in the quality of the person they appoint to design and oversee it. This realisation often comes late. It sometimes comes only after the building work has begun, and the thing that was meant to flow has a corridor running through the middle of it, and the light that was meant to fall on the kitchen table falls instead on a wall.
+      </p>
+
+      <p>
+        The architect who could have prevented this &mdash; who understands how light moves through a house at different hours, who can look at a planning officer&rsquo;s constraints and find the thing that is still possible within them, who has done enough rear extensions in terraced streets of a particular period to know exactly where the structural surprises are &mdash; is, in most cases, not difficult to find once one knows to look. The difficulty is that many homeowners do not know to look. Or they know in the abstract that an architect exists and might help, but they do not know how to find this architect rather than any other, and they do not understand, until it is too late, that the difference between architects is not merely stylistic.
+      </p>
+
+      <h2>On the Peculiar Invisibility of Residential Practice</h2>
+
+      <p>
+        The large architectural practice with a commercial portfolio &mdash; schools, hospitals, mixed-use developments &mdash; tends to be findable, because its clients are institutions with procurement processes that require a degree of formality and a digital paper trail. The residential architect who works with individual homeowners is under no such pressure. Her clients find her through other clients, or through a planning officer who mentioned a name, or through the structural engineer who has worked with her enough times to know that her drawings are right first time and that the build will go smoothly as a result.
+      </p>
+
+      <p>
+        This word-of-mouth economy works well enough, up to a point. It does not reach the homeowner who has just moved into a house in a new area and does not yet have the network of neighbours who might know the right name. It does not reach the family who is ready to act on a project they have been planning for two years and has done their preliminary research via a search engine at nine o&rsquo;clock in the evening when the children are in bed.
+      </p>
+
+      <p>
+        <strong>The residential architect who has no searchable web presence has, in effect, placed a requirement on her clients: you must already know someone who knows me before you can find me.</strong> This is a fine filter in a stable community. It is a significant limitation everywhere else.
+      </p>
+
+      <h2>On the Planning Process as a Moment of Particular Need</h2>
+
+      <p>
+        The homeowner approaching a planning application for a project of any ambition is at a specific moment of vulnerability. They have, in most cases, done enough research to know that planning permission is uncertain; that permitted development rights are more constrained than they first appeared; that the difference between a well-prepared application and a poorly-prepared one is not merely administrative but material &mdash; that a refused application creates a precedent that complicates the resubmission, and that a poorly-drawn set of plans makes a sympathetic planning officer&rsquo;s job harder than it needs to be.
+      </p>
+
+      <p>
+        What they are looking for, at this moment, is not simply an architect. They are looking for an architect who knows their planning authority, who has navigated the particular sensitivities of their conservation area or their area of outstanding natural beauty, who has the working relationships with local officers that come from years of submitting good applications and turning up to pre-application meetings prepared. This is a highly specific thing to want, and it is a thing that requires words to communicate &mdash; a paragraph on a page that says, plainly: I have worked extensively with this local planning authority; I know what they will accept and what they will not; I have a track record of approval that I can point to.
+      </p>
+
+      <p>
+        The architect who has this track record and has not communicated it is leaving the homeowner to discover it by accident, if they discover it at all.
+      </p>
+
+      <h2>On the Cost of Being Found Late</h2>
+
+      <p>
+        The homeowner who finds the right architect early enough in the process benefits in ways that compound. The design is right; the planning application is prepared correctly; the tender documents are clear enough that the build quotes are genuinely comparable; the contract is appropriate to the scale of the project; the site visits happen at the moments they need to happen. The project arrives at completion in something like the condition it was imagined.
+      </p>
+
+      <p>
+        The homeowner who finds no architect, or finds the wrong one, or finds one too late to influence the design thinking, arrives at a different kind of completion: the kind in which there are things that cannot be fixed without spending more money, and things that could have been fixed at design stage at no additional cost, and the faint, persistent sense that the house is not quite what was possible.
+      </p>
+
+      <p>
+        The difference between these two outcomes is, very often, not the homeowner&rsquo;s willingness to spend money on good professional advice. It is their ability to find the person who could have given it. And finding that person begins with a search.
+      </p>
+
+      <p class="pullquote">The architect whose work quietly improves the homes of a county deserves to be found by every homeowner planning a project — not only those who happen to know the right neighbour.</p>
+
+      <p>
+        At <a href="/">GitFoundry</a>, we build pages for residential architects and planning consultants that say, clearly and searchably, what you do, where you work, and why your track record is the thing a homeowner with a serious project should care about. One payment, no monthly fee, yours outright.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-012-heading">
+      <h2 class="post-faq-heading" id="faq-012-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Do architects need a website?</dt>
+          <dd>Yes. Residential and commercial clients searching for an architect in the UK will search online. A website that presents your portfolio, explains the types of work you take on, and provides clear contact information gives potential clients what they need to choose you — before a single conversation takes place.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should an architect's website include?</dt>
+          <dd>An architect's website should showcase completed projects with photographs and descriptions, explain the types of work you take on — residential, commercial, planning applications — list your qualifications and practice location, and provide a clear way to make contact. A brief explanation of the design process is also reassuring for new clients.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does an architect's website cost in the UK?</dt>
+          <dd>A GitFoundry website for an architect starts at £399 — a professional multi-page site with a portfolio, about, and contact. One payment, no monthly fees, full source code ownership on delivery.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a residential architect without a web presence that works?</p>
+      <p class="post-cta-body">I build clear, professional websites for architects and planning consultants — designed to be found by homeowners searching for exactly your specialism in your area. From £349, one payment, yours outright, no monthly fees. The right client should be able to find you before they find the wrong person.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your practice &#x2192;</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Architect Nobody Thought to Search For",
+  "description": "On residential architects and extension specialists whose best work quietly transforms the homes of this country — and who remain unfindable to the homeowner planning the most expensive decision of their renovation.",
+  "datePublished": "2026-05-06",
+  "dateModified": "2026-05-06",
+  "about": { "@type": "Thing", "name": "Architect / Residential Designer" },
+  "keywords": "architect website UK, residential architect website, website for architect UK",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-012-the-architect.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Architect Nobody Thought to Search For", "item": "https://gitfoundry.co.uk/journal/journal-012-the-architect.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do architects need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Residential and commercial clients searching for an architect in the UK will search online. A website that presents your portfolio, explains the types of work you take on, and provides clear contact information gives potential clients what they need to choose you — before a single conversation takes place." } },
+    { "@type": "Question", "name": "What should an architect's website include?", "acceptedAnswer": { "@type": "Answer", "text": "An architect's website should showcase completed projects with photographs and descriptions, explain the types of work you take on — residential, commercial, planning applications — list your qualifications and practice location, and provide a clear way to make contact. A brief explanation of the design process is also reassuring for new clients." } },
+    { "@type": "Question", "name": "How much does an architect's website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for an architect starts at £399 — a professional multi-page site with a portfolio, about, and contact. One payment, no monthly fees, full source code ownership on delivery." } }
+  ]
+}
+</script>
+</body>
+</html>

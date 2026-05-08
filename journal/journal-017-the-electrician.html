@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Electrician Who Was Too Busy to Be Found — Electrician Website UK</title>
+<meta name="description" content="Why qualified electricians who work almost entirely through word of mouth are still losing work to less-experienced tradespeople — and what a simple website does about it.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Electrician Who Was Too Busy to Be Found">
+<meta property="og:description" content="On the electricians whose diaries fill from referral to referral — and who are invisible to the homeowner searching at eleven on a Sunday evening when the electrics have stopped working.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-017-the-electrician.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-017-the-electrician.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:image:alt" content="GitFoundry — precision-built websites, zero hosting fees">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 017</span>
+        <span>08 MAY 2026</span>
+        <span>6 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Electrician Who Was Too Busy to Be Found</h1>
+
+      <p class="post-standfirst">
+        For the qualified electricians and electrical contractors who have never needed to advertise &mdash; whose diaries fill from one job to the next through referral &mdash; and who have not yet built the digital presence that remains available to the homeowner searching at eleven o&rsquo;clock on a Sunday evening when something has stopped working and no one they know can supply a name.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>An electrician&rsquo;s website makes it possible for homeowners and small businesses in your area to find you, verify your qualifications and Part P registration, and make contact with confidence &mdash; before they call someone they know nothing about. GitFoundry builds these from £399 with no monthly fees.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a particular pattern that emerges among the best independent electricians. The work is careful, the certification is current, the jobs are completed on time and to a standard the customer is happy to recommend, and the next commission arrives before the last one is signed off. The diary is full. There is no apparent reason to think about marketing, because the mechanism by which new work arrives &mdash; someone mentions your name to someone else who needs the job doing &mdash; has never failed yet.
+      </p>
+
+      <p>
+        What this pattern obscures is that the referral chain is fragile in ways that only become visible after it breaks. The neighbour who would have passed on your number has moved away. The customer who always recommended you to their friends has had a falling-out with the one person who was about to need an electrician. The person who found you five years ago cannot remember, when asked by a colleague, whether they have a number for you somewhere. The referral economy is rich and real and genuinely the most reliable source of work for the trades &mdash; but it is not, by itself, sufficient to make you findable by the person who needs you and does not yet know you exist.
+      </p>
+
+      <h2>On the Sunday Evening Problem</h2>
+
+      <p>
+        The search for an electrician frequently happens at inconvenient times. A socket has stopped working. A consumer unit is behaving unexpectedly. The kitchen extension that was meant to be finished before the family arrives has a wiring problem that the other trades cannot resolve. The person with the problem is not in a position to ask around. They open a browser and search for an electrician in their area, and what they find is a mix of directory listings, aggregator platforms, and the occasional website from an electrician who thought to build one.
+      </p>
+
+      <p>
+        The directory listing tells them your name and your phone number and, if they are fortunate, a star rating derived from a handful of reviews. The website &mdash; if there is one &mdash; tells them whether you do the kind of work they need, how to contact you, where you operate, and whether you are Part P registered and NICEIC or NAPIT approved. It tells them, in your own words, whether you take on domestic work or commercial work or both, whether you do small jobs or whether your minimum is a day&rsquo;s labour, and whether an emergency callout is something you offer. It answers the questions the homeowner cannot ask a directory listing.
+      </p>
+
+      <p>
+        <strong>The electrician who answers those questions clearly, on a page they control, is the electrician who gets called first.</strong>
+      </p>
+
+      <h2>On Qualification Transparency and the Job That Goes Elsewhere</h2>
+
+      <p>
+        The electrical trade is one in which qualifications and scheme membership are genuinely meaningful to the customer in a way that is not always true of other trades. Part P certification, NICEIC or NAPIT registration, and the ability to self-certify notifiable electrical work are not technical details of interest only to professionals &mdash; they are the difference between a job that is legally compliant and insurable, and one that is not. A homeowner who understands this distinction will want to confirm it before booking. A homeowner who does not understand it fully may still sense that it matters, and will look for evidence that the electrician they are about to hire is qualified to do the work properly.
+      </p>
+
+      <p>
+        The qualification-conscious customer who cannot find evidence of your certifications on a page you control will not assume the best. They will move to the next result, where another electrician has been clear about their scheme membership and accreditation. The job will go to someone who may be less skilled, less careful, and less worth recommending &mdash; but who had the presence of mind to put their certifications somewhere a browser could find them.
+      </p>
+
+      <p class="pullquote">The electrician who is qualified, experienced, and genuinely good at the work deserves to be found by every homeowner in their area who is about to hire someone they know nothing about.</p>
+
+      <p>
+        At <a href="/">GitFoundry</a>, we build pages for independent electricians that answer the questions a searching homeowner actually has: the services you cover, the areas you work in, your certifications and scheme memberships, and how to get in touch. One payment, no monthly fee, yours outright. The person with the wiring problem at eleven on a Sunday should be able to find you before they call the first number on a list.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-017-heading">
+      <h2 class="post-faq-heading" id="faq-017-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Does an electrician need a website?</dt>
+          <dd>Yes. Most homeowners searching for an electrician will look online first, especially when the problem is urgent and they cannot ask someone they know. A website lets you show your qualifications, the areas you cover, and the services you offer &mdash; so the right customer can find you and make contact with confidence before they call someone else.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should an electrician&rsquo;s website include?</dt>
+          <dd>An electrician&rsquo;s website should clearly state your Part P registration, NICEIC or NAPIT scheme membership, and any other relevant certifications. It should list the services you offer (domestic, commercial, new installations, fault-finding, consumer unit upgrades), the areas you cover, your working hours, and a direct way to get in touch or request a quote. Customer testimonials are valuable, particularly for domestic work.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does an electrician website cost in the UK?</dt>
+          <dd>A GitFoundry website for an electrician starts at £399 for a clean, professional multi-page site covering your services, qualifications, and contact details. One payment, no monthly fees, yours outright. Larger sites with additional pages for specific service types are available from £749.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you an electrician whose customers can&rsquo;t find you online?</p>
+      <p class="post-cta-body">I build clear, professional websites for independent electricians and electrical contractors &mdash; designed to show your qualifications, communicate your services, and give the homeowner with an urgent problem every reason to call you first. From £399, one payment, yours outright, no monthly fees.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your work &#x2192;</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Electrician Who Was Too Busy to Be Found",
+  "description": "Why qualified electricians who work almost entirely through word of mouth are still losing work to less-experienced tradespeople — and what a simple website does about it.",
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-05-08",
+  "about": { "@type": "Thing", "name": "Electrician" },
+  "keywords": "electrician website UK, electrical contractor website, NICEIC electrician website, Part P electrician website",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-017-the-electrician.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Electrician Who Was Too Busy to Be Found", "item": "https://gitfoundry.co.uk/journal/journal-017-the-electrician.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does an electrician need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most homeowners searching for an electrician will look online first, especially when the problem is urgent and they cannot ask someone they know. A website lets you show your qualifications, the areas you cover, and the services you offer — so the right customer can find you and make contact with confidence before they call someone else." } },
+    { "@type": "Question", "name": "What should an electrician's website include?", "acceptedAnswer": { "@type": "Answer", "text": "An electrician's website should clearly state your Part P registration, NICEIC or NAPIT scheme membership, and any other relevant certifications. It should list the services you offer (domestic, commercial, new installations, fault-finding, consumer unit upgrades), the areas you cover, your working hours, and a direct way to get in touch or request a quote. Customer testimonials are valuable, particularly for domestic work." } },
+    { "@type": "Question", "name": "How much does an electrician website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for an electrician starts at £399 for a clean, professional multi-page site covering your services, qualifications, and contact details. One payment, no monthly fees, yours outright. Larger sites with additional pages for specific service types are available from £749." } }
+  ]
+}
+</script>
+</body>
+</html>

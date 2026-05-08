@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Physiotherapist Without a Digital Waiting Room — Physiotherapy Website UK</title>
+<meta name="description" content="Why physiotherapists, osteopaths and sports therapists need a professional physiotherapy website — so the patient in pain this week can actually find them.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Physiotherapist Without a Digital Waiting Room">
+<meta property="og:description" content="On healthcare practitioners who quietly transform their patients' lives — and who cannot be found by the person in pain who needs them this week.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gitfoundry.co.uk/journal/journal-005-the-physiotherapist.html">
+<link rel="canonical" href="https://gitfoundry.co.uk/journal/journal-005-the-physiotherapist.html">
+<meta property="og:site_name" content="GitFoundry">
+<meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Physiotherapist Without a Digital Waiting Room — GitFoundry Journal">
+<meta name="twitter:description" content="On healthcare practitioners who quietly transform their patients' lives — and who cannot be found by the person in pain who needs them this week.">
+<meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="../styles.css">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="../site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+  /* Article reading styles — token aliases into styles.css */
+  :root {
+    --fg:       var(--text);
+    --fg-muted: var(--text-muted);
+    --fg-soft:  var(--text-soft);
+    --rule:     var(--border);
+    --halo:     var(--accent-dim);
+  }
+
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 15px; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+
+  header.post-header { margin-bottom: 3rem; }
+
+  .post-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 1.5rem;
+  }
+  .post-meta span { white-space: nowrap; }
+
+  h1.post-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.5rem;
+  }
+
+  .post-standfirst {
+    font-size: 1rem;
+    color: var(--fg-soft);
+    font-style: italic;
+    border-left: 2px solid var(--rule);
+    padding-left: 1rem;
+    margin: 0;
+  }
+
+  article { font-size: 0.95rem; }
+  article p { margin: 0 0 1.5rem; }
+
+  article h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 3rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    color: var(--fg);
+  }
+
+  article a {
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  article a:hover { border-bottom-color: var(--fg); background: var(--halo); }
+
+  article strong { font-weight: 700; color: var(--fg); }
+  article em { font-style: italic; color: var(--fg-soft); }
+
+  .def-list { margin: 0 0 1.5rem; }
+  .def-list dt { font-weight: 700; color: var(--fg); margin-top: 1rem; }
+  .def-list dt:first-child { margin-top: 0; }
+  .def-list dd { margin: 0.25rem 0 0 1.5rem; color: var(--fg-soft); }
+
+  .pullquote {
+    font-style: italic;
+    color: var(--fg-soft);
+    margin: 2rem 0;
+    padding: 0 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pullquote::before { content: "\2014 "; }
+  .pullquote::after  { content: " \2014"; }
+
+  footer.post-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.04em;
+  }
+  footer.post-footer p { margin: 0 0 0.5rem; }
+  footer.post-footer a { color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer.post-footer a:hover { border-bottom-color: var(--fg); }
+
+  .post-cta {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+  }
+  [data-theme="day"] .post-cta { background: rgba(0,0,0,0.03); }
+  .post-cta-hed { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); margin: 0 0 0.75rem; }
+  .post-cta-body { font-size: 0.875rem; color: var(--fg-soft); line-height: 1.75; margin: 0 0 1.25rem; }
+  .post-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #080f24;
+    background: var(--accent);
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .post-cta-btn:hover { opacity: 0.8; border-bottom: none; }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 1.5rem 1.25rem 4rem; }
+    .post-meta { flex-direction: column; gap: 0.4rem; }
+    article { font-size: 0.9375rem; }
+  }
+</style>
+</head>
+<body x-data="site()" :data-theme="theme">
+
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/services.html"  class="nav-item">Services</a></li>
+      <li><a href="/pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="/portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"       class="nav-item active">Journal</a></li>
+      <li><a href="/brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="/services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="/pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="/portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"       class="nav-item active" @click="drawerOpen=false">Journal</a>
+  <a href="/brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+</div>
+
+<div class="wrap">
+
+  <main id="main">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>JOURNAL / 005</span>
+        <span>04 MAY 2026</span>
+        <span>7 MIN READ</span>
+      </div>
+
+      <h1 class="post-title">The Physiotherapist Without a Digital Waiting Room</h1>
+
+      <p class="post-standfirst">
+        On the physiotherapists, osteopaths, sports therapists and counsellors who quietly give people their lives back — and who remain findable only by the person already sitting in the waiting room. A reflection on care, trust, and the gap between them.
+      </p>
+    </header>
+
+    <div class="post-quick-answer" role="note" aria-label="Quick answer">
+      <p>A physiotherapist's website ensures the patient in pain right now can find you — it is the digital equivalent of your waiting room, communicating professional standing and making it easy to book.</p>
+    </div>
+
+    <article>
+
+      <p>
+        There is a particular kind of trust that forms in a physiotherapy room, and it is built from the body outward rather than from the mind inward. The patient who has been in pain long enough to have begun believing the pain permanent arrives guarded; the questions seem clinical, the assessment table slightly cold. But then the right question is asked in the right tone, and the patient answers it more honestly than expected, and something begins. It is the recognition that the person in the room with them knows what they are doing, is not rushing, and is genuinely trying to understand. This is a rarer quality than a list of credentials suggests &mdash; and it generates, when it exists, a particular quality of gratitude that a patient carries out of a physiotherapist’s clinic after a treatment that has genuinely worked.
+      </p>
+
+      <p>
+        This kind of gratitude generates referrals of remarkable quality. The patient tells her husband. The husband tells his colleague. The colleague goes in on a Tuesday and comes out on a Thursday rather different from how he arrived. The practitioner's diary, managed in this way, tends to be full. The practice sustains itself on an economy of restored movement and relieved discomfort, and the practitioner is, by any reasonable measure, doing very well.
+      </p>
+
+      <p>
+        But there is another person. The person who is in pain this morning, right now, who does not know the patient, and does not know the colleague, and has no entry point into this quiet network of recovered backs and repaired knees. This person has a search engine and an acute need. What happens to this person is the subject of the present entry.
+      </p>
+
+      <h2>The Urgency of the Search</h2>
+
+      <p>
+        Pain is not an experience that admits of patience. The person with a back that has gone wrong on a Monday morning is not in a position to wait for the slow movement of recommendation through social channels. She is in a position of some urgency: she cannot sit comfortably, she cannot drive without wincing, and she has things to do this week that require both of these capacities.
+      </p>
+
+      <p>
+        She searches. And the search, in the circumstances of urgency, produces a shortlist governed almost entirely by proximity and visibility. She is not evaluating, in any meaningful way, the clinical skill of the practitioners listed before her. She is looking for someone who appears to exist, who covers her area, who has times available, and who can be reached quickly enough to be of use this week rather than next.
+      </p>
+
+      <p>
+        <strong>The finest physiotherapist in the county, with twenty years of clinical experience and a waiting list of devoted regulars, does not appear on this shortlist if she does not have a page.</strong> The person in pain books someone else, gets a tolerable result, and lives thereafter with a slightly reduced range of movement that the excellent physiotherapist might have restored completely.
+      </p>
+
+      <h2>On the Particular Difficulty of Healthcare Online</h2>
+
+      <p>
+        Healthcare practitioners have, understandably, a particular anxiety about the way their work is represented online. The concern is legitimate: a misleading description of clinical capabilities, an inflated claim about treatment outcomes, a careless photograph in a clinical setting — any of these can cause genuine harm, to patients and to the regulatory standing of the practitioner both. The instinct to be cautious, in this context, is not unreasonable.
+      </p>
+
+      <p>
+        But caution, in this as in other contexts, has a cost. The practitioner who refrains from having a website because she is worried about misrepresenting her capabilities has, in effect, misrepresented them by a different means: by silence. The person searching for a physiotherapist in her area receives no information about this practitioner's qualifications, her specialisms, her approach to assessment, or the particular conditions she is best equipped to treat. The absence of information is itself a form of information, and what it communicates — unfairly, but inevitably — is not caution. It is absence.
+      </p>
+
+      <h2>What a Page Needs to Say</h2>
+
+      <p>
+        A website for a healthcare practitioner need not be complicated, and it need not be promotional in any sense that would trouble a careful reading of professional guidelines. It needs to say, with clarity and honesty, what the practitioner does, what she treats, where she practises, what her qualifications are, and how a prospective patient might make an appointment.
+      </p>
+
+      <p>
+        It can say these things in plain language that makes no clinical promises and cites no outcomes that cannot be substantiated. It can note the professional bodies to which the practitioner belongs, and the regulatory framework within which she operates. It can include, if she wishes, a short account of her approach — not as a marketing proposition, but as the kind of information that helps a prospective patient understand whether they are likely to be in the right room.
+      </p>
+
+      <p>
+        This is not self-promotion. It is, in the most precise sense, the provision of relevant information to people who are actively seeking it. The regulatory bodies that govern healthcare professions in the United Kingdom do not prohibit this. They encourage it. They understand that an informed patient who has chosen a practitioner on the basis of accurate information is a better patient than one who has arrived by accident and has no idea what to expect.
+      </p>
+
+      <h2>On the Waiting Room That Does Not Exist</h2>
+
+      <p>
+        The physical waiting room of a well-run practice has a particular quality: it is quiet, it is reassuring, and it communicates, by its neatness and its order and the certificates on the wall, that the person beyond the door knows what they are doing. The person waiting in it has already made a decision; the waiting room reinforces that decision and prepares them to be a cooperative patient.
+      </p>
+
+      <p>
+        A website is the digital equivalent of this waiting room. It is the place the prospective patient visits before they decide to visit. It communicates the same things: order, competence, clarity of purpose, professional standing. A practice without a website sends its prospective patients to a waiting room that does not exist — and many of them, finding no door to wait beside, walk on to the next address.
+      </p>
+
+      <p class="pullquote">Pain does not wait for a referral. Neither should the practitioner best placed to relieve it be invisible to the person searching at seven in the morning with a back that will not straighten.</p>
+
+      <p>
+        The pages we build at <a href="/">GitFoundry</a> for healthcare practitioners are plain, clear, and compliant with the norms of professional communication. They say what needs to be said. They make the practice findable. They do not claim miracles. They simply ensure that the person in pain, reaching for their phone, has a chance of finding the right pair of hands.
+      </p>
+
+    </article>
+
+    <section class="post-faq" aria-labelledby="faq-005-heading">
+      <h2 class="post-faq-heading" id="faq-005-heading">Frequently asked</h2>
+      <dl class="post-faq-list">
+        <div class="post-faq-item">
+          <dt>Does a physiotherapist need a website?</dt>
+          <dd>Yes. People searching for physiotherapy in the UK almost always start online, often in pain and looking for help quickly. A website that clearly communicates your services, location, and how to book means you can be found in that critical moment — not just by patients with a GP referral.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>What should a physiotherapy website include?</dt>
+          <dd>A physiotherapy website should include your treatment specialisms, location and service area, booking or contact information, your qualifications, and if possible, patient testimonials. Professional photography of your practice space builds confidence before the first appointment.</dd>
+        </div>
+        <div class="post-faq-item">
+          <dt>How much does a physiotherapist's website cost in the UK?</dt>
+          <dd>A GitFoundry website for a physiotherapist starts at £399 for a multi-page site covering services, about, and contact. One payment, no monthly fees, delivered in about a week. The site is yours outright on delivery.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <aside class="post-cta" aria-label="Get a quote">
+      <p class="post-cta-hed">Are you a physiotherapist or healthcare practitioner without a website?</p>
+      <p class="post-cta-body">I build calm, professional websites for physiotherapists, osteopaths, and sports therapists. From £349, delivered in about a week — one payment, no monthly fees, yours outright. The patient in pain who needs you this week should be able to find you.</p>
+      <a href="https://gitfoundry.co.uk/brief.html" class="post-cta-btn">Tell me about your practice →</a>
+    </aside>
+
+    <footer class="post-footer">
+      <p>&mdash; Azhar, GitFoundry</p>
+      <p><a href="/">Back to gitfoundry.co.uk</a> &nbsp;&middot;&nbsp; <a href="/journal/">All journal entries</a></p>
+    </footer>
+
+  </main>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/brief.html">Brief</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="/legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Physiotherapist Without a Digital Waiting Room",
+  "description": "On physiotherapists, osteopaths and sports therapists who quietly transform their patients' lives — and who cannot be found by the person in pain who needs them this week.",
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-04",
+  "about": { "@type": "Thing", "name": "Physiotherapist / Sports Therapist" },
+  "keywords": "physiotherapy website UK, website for physiotherapist, sports therapist website UK",
+  "author": { "@type": "Person", "name": "Azhar" },
+  "publisher": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "image": "https://gitfoundry.co.uk/og-image.png",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gitfoundry.co.uk/journal/journal-005-the-physiotherapist.html" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://gitfoundry.co.uk/journal/" },
+      { "@type": "ListItem", "position": 3, "name": "The Physiotherapist Without a Digital Waiting Room", "item": "https://gitfoundry.co.uk/journal/journal-005-the-physiotherapist.html" }
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does a physiotherapist need a website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. People searching for physiotherapy in the UK almost always start online, often in pain and looking for help quickly. A website that clearly communicates your services, location, and how to book means you can be found in that critical moment — not just by patients with a GP referral." } },
+    { "@type": "Question", "name": "What should a physiotherapy website include?", "acceptedAnswer": { "@type": "Answer", "text": "A physiotherapy website should include your treatment specialisms, location and service area, booking or contact information, your qualifications, and if possible, patient testimonials. Professional photography of your practice space builds confidence before the first appointment." } },
+    { "@type": "Question", "name": "How much does a physiotherapist's website cost in the UK?", "acceptedAnswer": { "@type": "Answer", "text": "A GitFoundry website for a physiotherapist starts at £399 for a multi-page site covering services, about, and contact. One payment, no monthly fees, delivered in about a week. The site is yours outright on delivery." } }
+  ]
+}
+</script>
+</body>
+</html>
