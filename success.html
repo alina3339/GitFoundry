@@ -1,20 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brief Received - GitFoundry · We'll Reply Within 48 Hours</title>
 <meta name="description" content="Thank you. Your brief has been received — we'll review it and reply within 48 hours.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://gitfoundry.co.uk/success.html">
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P72JB657');</script>
-<!-- End Google Tag Manager -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,15 +16,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
 <body x-data="site()" :data-theme="theme">
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -41,10 +32,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="brief.html"   class="nav-item nav-cta">Get a quote</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
-      <span x-text="theme==='night'?'☀':'☾'"></span>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
     </button>
     <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-sc" aria-label="Toggle navigation">
       <span x-text="drawerOpen?'✕':'≡'"></span>
@@ -56,13 +48,135 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="brief.html"   class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+  <a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
 </div>
 
 <main id="main">
   <div class="content-wrapper">
 
     <header class="page-header">
+      <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+  <!--
+    GitFoundry Vitruvian — Golden Ratio — v3
+    Mathematically correct φ-rectangle (480 × 480/φ) with properly nested
+    squares and continuous Fibonacci spiral converging on the eye.
+    Spiral and rectangle stay anchored. Comets orbit the figure centre.
+  -->
+  <style>
+    .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
+    .orbit { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .o1 { animation-name: spin;     animation-duration: 14s; }
+    .o2 { animation-name: spin-rev; animation-duration: 22s; }
+    .satellite { transform-origin: 426.69px 361.77px; animation: spin 9s linear infinite; will-change: transform; }
+    .grid-shimmer { animation: shimmer 5s ease-in-out infinite; }
+    .eye-pulse { transform-origin: center; transform-box: fill-box; animation: pulse 3s ease-in-out infinite; }
+    .eye-ring  { transform-origin: center; transform-box: fill-box; animation: ring-pulse 3s ease-in-out infinite; }
+
+    @keyframes spin     { to { transform: rotate(360deg);  } }
+    @keyframes spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1);     }
+      50%      { transform: scale(1.008); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);   opacity: 1;   }
+      50%      { transform: scale(1.6); opacity: 0.4; }
+    }
+    @keyframes ring-pulse {
+      0%, 100% { transform: scale(1);   opacity: 0.7; }
+      50%      { transform: scale(1.3); opacity: 0.2; }
+    }
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.55; }
+      50%      { opacity: 0.25; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .orbit, .satellite, .grid-shimmer, .eye-pulse, .eye-ring { animation: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="comet-gold-a" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#f4efe5" stop-opacity="0.05"/>
+      <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="comet-gold-b" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="80%"  stop-color="#f4efe5" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <g class="stage">
+    <g stroke="#f4efe5" fill="none">
+
+      <!-- Golden rectangle (480 × 480/φ ≈ 297) -->
+      <rect x="60.0" y="151.67" width="480.0" height="296.66" stroke-width="0.55"/>
+
+      <!-- Phi subdivisions — one line per square boundary, shimmering -->
+      <g class="grid-shimmer">
+        <line x1="356.66" y1="151.67" x2="356.66" y2="448.33" stroke-width="0.45"/>
+        <line x1="356.66" y1="335.02" x2="540.00" y2="335.02" stroke-width="0.41"/>
+        <line x1="426.69" y1="335.02" x2="426.69" y2="448.33" stroke-width="0.37"/>
+        <line x1="356.66" y1="378.30" x2="426.69" y2="378.30" stroke-width="0.33"/>
+        <line x1="399.94" y1="335.02" x2="399.94" y2="378.30" stroke-width="0.29"/>
+      </g>
+
+      <!-- Measurement ticks on the golden ratio split (at φ along width) -->
+      <line x1="356.66" y1="448.33" x2="356.66" y2="458.33" stroke-width="0.5"/>
+      <line x1="60.0" y1="454.33" x2="356.66" y2="454.33" stroke-width="0.3"/>
+      <line x1="356.66" y1="454.33" x2="540.0" y2="454.33" stroke-width="0.3"/>
+
+      <!-- Static Fibonacci spiral -->
+      <path d="M 60.00 448.33 A 296.66 296.66 0 0 1 356.66 151.67" stroke-width="0.70"/>
+      <path d="M 356.66 151.67 A 183.34 183.34 0 0 1 540.00 335.02" stroke-width="0.64"/>
+      <path d="M 540.00 335.02 A 113.31 113.31 0 0 1 426.69 448.33" stroke-width="0.58"/>
+      <path d="M 426.69 448.33 A 70.03 70.03 0 0 1 356.66 378.30" stroke-width="0.52"/>
+      <path d="M 356.66 378.30 A 43.28 43.28 0 0 1 399.94 335.02" stroke-width="0.46"/>
+      <path d="M 399.94 335.02 A 26.75 26.75 0 0 1 426.69 361.77" stroke-width="0.40"/>
+
+      <!-- Outer comet -->
+      <g class="orbit o1">
+        <circle cx="300.00" cy="300.00" r="280" stroke="url(#comet-gold-a)" stroke-width="1.8" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="280 720"/>
+        <circle cx="580.00" cy="300.00" r="2.2" fill="#f4efe5"/>
+      </g>
+
+      <!-- Counter-rotating mid comet -->
+      <g class="orbit o2">
+        <circle cx="300.00" cy="300.00" r="245" stroke="url(#comet-gold-b)" stroke-width="1" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="80 920" opacity="0.6"/>
+        <circle cx="545.00" cy="300.00" r="1.5" fill="#f4efe5" opacity="0.8"/>
+      </g>
+
+      <!-- Satellite circling the eye -->
+      <g class="satellite">
+        <circle cx="456.69" cy="361.77" r="1.4" fill="#f4efe5" opacity="0.85"/>
+      </g>
+
+      <!-- The eye — pulses at the spiral's true convergence point -->
+      <circle class="eye-ring"  cx="426.69" cy="361.77" r="8" stroke-width="0.35"/>
+      <circle class="eye-pulse" cx="426.69" cy="361.77" r="2" stroke-width="0.8" fill="#f4efe5"/>
+
+      <!-- Corner registration marks -->
+      <g stroke-width="1">
+        <line x1="10"  y1="10"  x2="40"  y2="10"/>
+        <line x1="10"  y1="10"  x2="10"  y2="40"/>
+        <line x1="590" y1="10"  x2="560" y2="10"/>
+        <line x1="590" y1="10"  x2="590" y2="40"/>
+        <line x1="10"  y1="590" x2="40"  y2="590"/>
+        <line x1="10"  y1="590" x2="10"  y2="560"/>
+        <line x1="590" y1="590" x2="560" y2="590"/>
+        <line x1="590" y1="590" x2="590" y2="560"/>
+      </g>
+
+    </g>
+  </g>
+</svg>
       <span class="page-header-label">Brief received</span>
       <h1 class="page-header-title">Thank you.<br><em>We'll be in touch.</em></h1>
       <p class="page-header-desc">Your project brief has arrived safely. We'll review it carefully and reply within 48 hours with a quote and proposed timeline — often sooner.</p>
@@ -107,16 +221,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+<!-- FOOTER — standardised across all pages -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="brief.html">Brief</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
@@ -132,24 +248,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<script>
-function site() {
-  return {
-    theme: localStorage.getItem('gf-theme') || 'night',
-    drawerOpen: false,
-    cookieVisible: false,
-    init() {
-      document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
-    },
-    toggleTheme() {
-      this.theme = this.theme === 'night' ? 'day' : 'night';
-      localStorage.setItem('gf-theme', this.theme);
-    },
-    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
-    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
-  };
-}
-</script>
+
 </body>
 </html>

@@ -1,0 +1,30 @@
+# GitFoundry.co.uk
+# Allow all crawlers, including AI engines
+
+User-agent: *
+Allow: /
+
+# Explicit allow for AI crawlers (optional, for clarity)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://gitfoundry.co.uk/sitemap.xml
+
+# LLM guidance
+# https://gitfoundry.co.uk/llms.txt
+LLMs-txt: https://gitfoundry.co.uk/llms-full.txt

@@ -1,46 +1,55 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio · GitFoundry</title>
-<meta name="description" content="Recent work from GitFoundry — static sites built for researchers, consultants, and small businesses across the UK.">
+<title>Portfolio - GitFoundry · Precision-built Websites on GitHub Pages</title>
+<meta name="description" content="Example projects built by GitFoundry — precision-built websites with Lighthouse 90+ scores, hosted free on GitHub Pages. Supporting local UK businesses.">
 <link rel="canonical" href="https://gitfoundry.co.uk/portfolio.html">
-<meta property="og:title" content="Portfolio · GitFoundry">
-<meta property="og:description" content="Recent work from GitFoundry — static sites built for researchers, consultants, and small businesses across the UK.">
+<meta property="og:title" content="Portfolio - GitFoundry">
+<meta property="og:description" content="Precision-built websites with Lighthouse 90+ scores, hosted free on GitHub Pages.">
 <meta property="og:url" content="https://gitfoundry.co.uk/portfolio.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Portfolio · GitFoundry">
-<meta name="twitter:description" content="Recent work from GitFoundry — static sites built for researchers, consultants, and small businesses across the UK.">
+<meta name="twitter:title" content="Portfolio - GitFoundry">
+<meta name="twitter:description" content="Precision-built websites with Lighthouse 90+ scores, hosted free on GitHub Pages.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P72JB657');</script>
-<!-- End Google Tag Manager -->
-
+<meta name="twitter:image:alt" content="GitFoundry — precision-built websites, zero hosting fees">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
 <body x-data="site()" :data-theme="theme">
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<script>
+  (function () {
+    const months = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+    const now = new Date();
+    const current = months[now.getMonth()];
+    const next = months[(now.getMonth() + 1) % 12];
+    const el = document.getElementById('gf-booking-months');
+    if (el) el.textContent = current + '–' + next;
+  })();
+</script>
+
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -51,10 +60,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item active">Portfolio</a></li>
-      <li><a href="brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
-      <span x-text="theme==='night'?'☀':'☾'"></span>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
     </button>
     <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-pf" aria-label="Toggle navigation">
       <span x-text="drawerOpen?'✕':'≡'"></span>
@@ -62,110 +72,278 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
+<!-- Mobile drawer -->
 <div id="nav-drawer-pf" class="nav-drawer" :class="drawerOpen?'open':''">
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+  <a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
 </div>
 
 <main id="main">
   <div class="content-wrapper">
 
     <header class="page-header">
+      <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+  <!--
+    GitFoundry Vitruvian — Orbital Schema — Continuous Motion (Globe Loader style)
+    Concentric rings stay still. Tilted ellipses each rotate at different cadences.
+    Comets sweep. Satellites orbit. Core pulses. Whole composition breathes.
+  -->
+  <style>
+    .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
+    .spin  { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .o1 { animation-name: spin;     animation-duration: 38s; }
+    .o2 { animation-name: spin-rev; animation-duration: 28s; }
+    .o3 { animation-name: spin;     animation-duration: 20s; }
+    .o4 { animation-name: spin-rev; animation-duration: 50s; }
+    .comet1 { animation-name: spin;     animation-duration: 14s; }
+    .comet2 { animation-name: spin-rev; animation-duration: 9s;  }
+    .sat1 { animation-name: spin;     animation-duration: 7s;  }
+    .sat2 { animation-name: spin-rev; animation-duration: 11s; }
+    .sat3 { animation-name: spin;     animation-duration: 18s; }
+    .sweep { animation-name: spin-rev; animation-duration: 16s; }
+    .core-pulse { transform-origin: 300px 300px; animation: pulse 4s ease-in-out infinite; }
+
+    @keyframes spin     { to { transform: rotate(360deg); } }
+    @keyframes spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.008); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.3); opacity: 0.65; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .spin, .core-pulse { animation: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="comet-o1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#f4efe5" stop-opacity="0.05"/>
+      <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="comet-o2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="80%"  stop-color="#f4efe5" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <g class="stage">
+    <g stroke="#f4efe5" fill="none">
+
+      <!-- Static concentric rings -->
+      <circle cx="300" cy="300" r="275" stroke-width="0.55"/>
+      <circle cx="300" cy="300" r="215" stroke-width="0.45"/>
+      <circle cx="300" cy="300" r="155" stroke-width="0.4"/>
+      <circle cx="300" cy="300" r="95"  stroke-width="0.35"/>
+      <circle cx="300" cy="300" r="50"  stroke-width="0.3"/>
+
+      <!-- Tilted ellipses, each rotating -->
+      <g class="spin o1"><ellipse cx="300" cy="300" rx="275" ry="95"  stroke-width="0.4"/></g>
+      <g class="spin o2"><ellipse cx="300" cy="300" rx="215" ry="75"  stroke-width="0.35"/></g>
+      <g class="spin o3"><ellipse cx="300" cy="300" rx="155" ry="55"  stroke-width="0.3"/></g>
+      <g class="spin o4">
+        <g transform="rotate(30 300 300)">
+          <ellipse cx="300" cy="300" rx="275" ry="85" stroke-width="0.35"/>
+        </g>
+      </g>
+
+      <!-- Static radial sweep lines -->
+      <line x1="300" y1="25"  x2="300" y2="575" stroke-width="0.4" opacity="0.5"/>
+      <line x1="25"  y1="300" x2="575" y2="300" stroke-width="0.4" opacity="0.5"/>
+      <line x1="105" y1="105" x2="495" y2="495" stroke-width="0.3" opacity="0.4"/>
+      <line x1="495" y1="105" x2="105" y2="495" stroke-width="0.3" opacity="0.4"/>
+
+      <!-- Long sweeping comet on outer ring -->
+      <g class="spin comet1">
+        <circle cx="300" cy="300" r="275" stroke="url(#comet-o1)" stroke-width="2" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="320 680"/>
+        <circle cx="575" cy="300" r="2.4" fill="#f4efe5"/>
+      </g>
+
+      <!-- Faster inner comet on r=215 -->
+      <g class="spin comet2">
+        <circle cx="300" cy="300" r="215" stroke="url(#comet-o2)" stroke-width="1.2" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="80 920" opacity="0.7"/>
+        <circle cx="515" cy="300" r="1.8" fill="#f4efe5"/>
+      </g>
+
+      <!-- Orbital nodes — each pair travels along its ring -->
+      <g class="spin sat1" opacity="0.85">
+        <circle cx="455" cy="300" r="2" fill="#f4efe5"/>
+        <circle cx="145" cy="300" r="2" fill="#f4efe5"/>
+      </g>
+      <g class="spin sat2" opacity="0.75">
+        <circle cx="395" cy="300" r="1.6" fill="#f4efe5"/>
+      </g>
+      <g class="spin sat3" opacity="0.7">
+        <circle cx="350" cy="300" r="1.3" fill="#f4efe5"/>
+      </g>
+
+      <!-- Dashed annotation arc — slow counter-rotation -->
+      <g class="spin sweep" opacity="0.5">
+        <path d="M 155 155 A 205 205 0 0 1 445 155" stroke-width="0.3" stroke-dasharray="3 3"/>
+      </g>
+
+      <!-- Core — pulsing -->
+      <circle class="core-pulse" cx="300" cy="300" r="6" stroke-width="1" fill="#f4efe5"/>
+      <circle cx="300" cy="300" r="12" stroke-width="0.5"/>
+
+      <!-- Corner registration marks -->
+      <g stroke-width="1">
+        <line x1="10"  y1="10"  x2="40"  y2="10"/>
+        <line x1="10"  y1="10"  x2="10"  y2="40"/>
+        <line x1="590" y1="10"  x2="560" y2="10"/>
+        <line x1="590" y1="10"  x2="590" y2="40"/>
+        <line x1="10"  y1="590" x2="40"  y2="590"/>
+        <line x1="10"  y1="590" x2="10"  y2="560"/>
+        <line x1="590" y1="590" x2="560" y2="590"/>
+        <line x1="590" y1="590" x2="590" y2="560"/>
+      </g>
+
+    </g>
+  </g>
+</svg>
       <span class="page-header-label">Portfolio</span>
-      <h1 class="page-header-title">Work that speaks for itself</h1>
-      <p class="page-header-desc">Every project designed with care, tested to Lighthouse 90+, and hosted free on GitHub Pages. No templates used.</p>
+      <h1 class="page-header-title">Client projects.</h1>
+      <p class="page-header-desc">Precision-built websites on GitHub Pages. One-time fee — full source code handover. Every project tested to Lighthouse 90+, hosted free, and built without templates.</p>
     </header>
 
-    <!-- Performance proof -->
+    <!-- Performance proof section -->
     <section aria-labelledby="perf-heading" style="margin-bottom:4rem">
-      <span class="section-label">Lighthouse scores</span>
+      <span class="section-label">Why Lighthouse scores matter</span>
       <h2 class="section-title" id="perf-heading">Performance is a design choice,<br>not an accident.</h2>
-      <p class="section-intro" style="margin-bottom:2rem">Every GitFoundry site is audited against Google's Lighthouse criteria before handover.</p>
+      <p class="section-intro" style="margin-bottom:2rem">Every GitFoundry site is audited against Google's Lighthouse criteria before handover. Here's what I consistently achieve.</p>
 
       <div class="stat-strip-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="stat-item"><span class="stat-num">97</span><span class="stat-label">Performance</span></div>
-        <div class="stat-item"><span class="stat-num">100</span><span class="stat-label">Accessibility</span></div>
-        <div class="stat-item"><span class="stat-num">100</span><span class="stat-label">Best practices</span></div>
-        <div class="stat-item"><span class="stat-num">95</span><span class="stat-label">SEO</span></div>
+        <div class="stat-item">
+          <span class="stat-num">97</span>
+          <span class="stat-label">Performance</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100</span>
+          <span class="stat-label">Accessibility</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100</span>
+          <span class="stat-label">Best practices</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">95</span>
+          <span class="stat-label">SEO</span>
+        </div>
       </div>
 
       <div class="callout" style="margin-top:1.5rem">
-        Figures from Lighthouse audits run on completed GitFoundry sites, measured on mobile — the stricter standard. Exact scores vary by project complexity.
+        These figures are from Lighthouse audits run on completed GitFoundry sites. Performance scores are measured on mobile, which is the stricter standard. Exact scores vary by project complexity.
       </div>
     </section>
 
     <hr class="section-divider" style="margin-bottom:4rem">
 
     <!-- Projects -->
+    
+    <!-- ── CLIENT VOICE ── -->
+<section aria-labelledby="client-voice-heading" style="margin-bottom:4rem">
+  <span class="section-label">Client voice</span>
+  <h2 class="section-title" id="client-voice-heading">What it's like<br>to work with GitFoundry.</h2>
+
+  <article class="testimonial-full a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+    <a class="testimonial-full-media" href="https://will4life.co.uk" target="_blank" rel="noopener" aria-label="Visit will4life.co.uk">
+     <img src="Assets/Images/will4life-preview.png" alt="Screenshot of the will4life.co.uk homepage built by GitFoundry" loading="lazy" decoding="async">
+    </a>
+
+    <div class="testimonial-full-body">
+      <span class="portfolio-card-tag">Startup · Launched 2026</span>
+      <blockquote class="testimonial-full-quote">
+        "I can put my hand on my heart and recommend GitFoundry without any hesitation. As a new startup I wanted a website builder who could understand my vision about my business and the suitability of the website. Azhar is one professional who was quick in grasping my ideas and delivered a product much beyond my expectations. I had very good feedback from many people. Azhar takes extra pride in getting the quality as per expectations and has patience in abundance to work with any client group."
+      </blockquote>
+      <footer class="testimonial-full-cite">
+        <span class="testimonial-full-name">Renjith Reghu</span>
+        <span class="testimonial-full-role">Founder, Will4Life</span>
+        <a class="testimonial-full-link" href="https://will4life.co.uk" target="_blank" rel="noopener">Visit live site →</a>
+      </footer>
+    </div>
+  </article>
+</section>
+
+<hr class="section-divider" style="margin:4rem 0">
+
+    <!-- Will4Life case study breakdown -->
+    <section aria-labelledby="will4life-heading" style="margin-bottom:4rem">
+      <span class="section-label">Case study — Will4Life</span>
+      <h2 class="section-title" id="will4life-heading">From zero online presence<br>to a live, professional site.</h2>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
+        <div class="item-row-label">The situation</div>
+        <div class="item-row-body">
+          Renjith Reghu was launching Will4Life — a new UK startup — and needed a professional website that could communicate the business clearly and credibly to prospective clients from day one. He had a clear vision but no existing web presence to build from.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">What I built</div>
+        <div class="item-row-body">
+          A clean, professionally designed site reflecting the Will4Life brand — built from scratch, no templates, no drag-and-drop builders. Deployed to GitHub Pages with a custom domain. Full source code handed over to Renjith on completion. Hosting cost to him since launch: £0.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">The outcome</div>
+        <div class="item-row-body">
+          The site has been live since early 2026 — fast, accessible, and costing nothing to run. Renjith reported strong positive feedback from contacts and clients who viewed it after launch. In his own words: <em>"a product much beyond my expectations."</em>
+          <span style="display:block;margin-top:0.75rem">
+            <a href="https://will4life.co.uk" target="_blank" rel="noopener" class="text-link">Visit will4life.co.uk →</a>
+          </span>
+        </div>
+      </div>
+
+      <div class="stat-strip-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
+        <div class="stat-item">
+          <span class="stat-num">97</span>
+          <span class="stat-label">Performance</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100</span>
+          <span class="stat-label">Accessibility</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100</span>
+          <span class="stat-label">Best practices</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">95</span>
+          <span class="stat-label">SEO</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" style="margin:4rem 0">
     <section aria-labelledby="projects-heading">
       <span class="section-label">Projects</span>
       <h2 class="section-title" id="projects-heading">Selected work</h2>
 
-      <div class="portfolio-grid" style="margin-top:2rem">
-
-        <article class="portfolio-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <div class="portfolio-card-img" aria-hidden="true">preview</div>
-          <div class="portfolio-card-body">
-            <span class="portfolio-card-tag">Landing Page · £149</span>
-            <h3 class="portfolio-card-title">Academic researcher portfolio</h3>
-            <p class="portfolio-card-desc">A single-page academic profile for a PhD researcher — publications, research interests, and contact. Lighthouse 98/100/100/96.</p>
-            <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap">
-              <span class="spec-tag">hand-coded</span>
-              <span class="spec-tag">github pages</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="portfolio-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="transition-delay:0.08s">
-          <div class="portfolio-card-img" aria-hidden="true">preview</div>
-          <div class="portfolio-card-body">
-            <span class="portfolio-card-tag">Professional · £349</span>
-            <h3 class="portfolio-card-title">Local consultant site</h3>
-            <p class="portfolio-card-desc">Five-page professional site for an independent UK management consultant — services, case studies, and a project enquiry form. Lighthouse 95/100/100/94.</p>
-            <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap">
-              <span class="spec-tag">5 pages</span>
-              <span class="spec-tag">seo included</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="portfolio-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <div class="portfolio-card-img" aria-hidden="true">preview</div>
-          <div class="portfolio-card-body">
-            <span class="portfolio-card-tag">Landing Page · £149</span>
-            <h3 class="portfolio-card-title">Graduate CV page</h3>
-            <p class="portfolio-card-desc">A clean, typographically focused one-page CV for a recent graduate in finance — sent directly to employers as a URL. Lighthouse 100/100/100/97.</p>
-            <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap">
-              <span class="spec-tag">elegant</span>
-              <span class="spec-tag">zero fees</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="portfolio-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="transition-delay:0.08s">
-          <div class="portfolio-card-img" aria-hidden="true">preview</div>
-          <div class="portfolio-card-body">
-            <span class="portfolio-card-tag">Bespoke · £749+</span>
-            <h3 class="portfolio-card-title">Non-profit homepage</h3>
-            <p class="portfolio-card-desc">Full branding-led site for a local charity — home, about, work, news, and a donation-link page. Accessibility audited to WCAG 2.1 AA. Lighthouse 96/100/100/95.</p>
-            <div style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap">
-              <span class="spec-tag">wcag 2.1 aa</span>
-              <span class="spec-tag">bespoke</span>
-            </div>
-          </div>
-        </article>
-
+      <div class="callout a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
+        GitFoundry launched in 2026. Will4Life is my first publicly listed project — the full site, Lighthouse scores, and client testimony are above. More work will be added as clients approve their listings. <a href="brief.html" class="text-link">Enquire directly →</a>
       </div>
     </section>
 
     <!-- CTA -->
     <section class="section" aria-labelledby="cta-pf-heading">
       <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <h2 class="section-title" id="cta-pf-heading">Want work like this<br>applied to your project?</h2>
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem">
-          <a href="brief.html" class="btn btn-primary">Submit a brief</a>
+        <h2 class="section-title" id="cta-pf-heading">Want this kind of quality applied to your project?</h2>
+        <p class="section-intro" style="margin-bottom:2rem">Tell me about your project. I'll reply within 48 hours with a quote and timeline.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
+          <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
         </div>
       </div>
     </section>
@@ -173,21 +351,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+<!-- FOOTER — standardised across all pages -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="brief.html">Brief</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
 </footer>
 
+<!-- Cookie Banner -->
 <div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
   <div class="cookie-inner">
     <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
@@ -198,24 +379,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<script>
-function site() {
-  return {
-    theme: localStorage.getItem('gf-theme') || 'night',
-    drawerOpen: false,
-    cookieVisible: false,
-    init() {
-      document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
-    },
-    toggleTheme() {
-      this.theme = this.theme === 'night' ? 'day' : 'night';
-      localStorage.setItem('gf-theme', this.theme);
-    },
-    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
-    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
-  };
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Portfolio — GitFoundry",
+  "url": "https://gitfoundry.co.uk/portfolio.html",
+  "description": "Examples of websites built by GitFoundry for UK small businesses and independent professionals. Static sites hosted on GitHub Pages.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://gitfoundry.co.uk/portfolio.html" }
+    ]
+  }
 }
 </script>
+
 </body>
 </html>

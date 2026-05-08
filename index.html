@@ -1,61 +1,61 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GitFoundry | Precision-built Websites, Zero Hosting Fees</title>
-<meta name="description" content="Precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees, no platform lock-in. A UK web studio supporting local businesses.">
+<meta name="description" content="Precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees, no platform lock-in. UK based web design studio supporting local businesses.">
 <link rel="canonical" href="https://gitfoundry.co.uk/">
 <meta property="og:title" content="GitFoundry | Precision-built Websites, Zero Hosting Fees">
-<meta property="og:description" content="Precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees. A UK web studio supporting local businesses.">
+<meta property="og:description" content="Precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees. UK based web design studio supporting local businesses.">
 <meta property="og:url" content="https://gitfoundry.co.uk/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GitFoundry | Precision-built Websites, Zero Hosting Fees">
-<meta name="twitter:description" content="Precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees. A UK web studio supporting local businesses.">
+<meta name="twitter:description" content="Precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees. UK based web design studio supporting local businesses.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P72JB657');</script>
-<!-- End Google Tag Manager -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
-<script>document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')</script>
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gf-theme')||'night')}catch(e){document.documentElement.setAttribute('data-theme','night')}</script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
 <body x-data="site()" :data-theme="theme">
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- Projects Banner -->
 <div class="construction-banner">
-  <span>Now booking</span> — <span id="gf-booking-months"></span> projects.
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
 </div>
 
 <script>
   (function () {
     const months = ['January','February','March','April','May','June',
                     'July','August','September','October','November','December'];
-    const now = new Date();
-    const current = months[now.getMonth()];
-    const next = months[(now.getMonth() + 1) % 12];
     const el = document.getElementById('gf-booking-months');
-    if (el) el.textContent = current + '–' + next;
+    if (!el) return;
+    function render() {
+      const now = new Date();
+      const current = months[now.getMonth()];
+      const next = months[(now.getMonth() + 1) % 12];
+      el.textContent = current + '–' + next;
+    }
+    render();
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) render();
+    });
   })();
 </script>
 
@@ -69,10 +69,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="pricing.html"   class="nav-item nav-cta">See pricing</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
-      <span x-text="theme==='night'?'☀':'☾'"></span>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
     </button>
     <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer" aria-label="Toggle navigation">
       <span x-text="drawerOpen?'✕':'≡'"></span>
@@ -85,64 +86,195 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="pricing.html"   class="nav-item nav-cta" @click="drawerOpen=false">See pricing</a>
+  <a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
 </div>
 
 <main id="main">
   <!-- HERO -->
-<section class="hero" id="hero" data-motif="classic">
+<section class="hero" id="hero">
+  <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+  <!--
+    GitFoundry Vitruvian Geometric — Continuous Orbital Motion
+    Concentric circles stay still (rotation invisible on a circle), but the
+    inscribed square + diagonals + tick layers rotate at different speeds.
+    Comet arcs sweep around. Whole composition breathes gently.
+  -->
+  <style>
+    .stage { transform-box: fill-box; transform-origin: center; animation: breathe 7s ease-in-out infinite; }
+    .spin  { transform-box: fill-box; transform-origin: center; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .s1 { animation-name: spin;     animation-duration: 18s; }
+    .s2 { animation-name: spin-rev; animation-duration: 26s; }
+    .s3 { animation-name: spin;     animation-duration: 12s; }
+    .s4 { animation-name: spin-rev; animation-duration: 9s;  }
+    .s5 { animation-name: spin;     animation-duration: 40s; }
+
+    @keyframes spin     { to { transform: rotate(360deg); } }
+    @keyframes spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.008); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .spin { animation: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="comet" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#f4efe5" stop-opacity="0.05"/>
+      <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <g class="stage">
+    <g stroke="#f4efe5" fill="none">
+
+      <!-- Static concentric circles (rotation is invisible on a circle) -->
+      <circle cx="300" cy="300" r="285" stroke-width="0.7"/>
+      <circle cx="300" cy="300" r="176" stroke-width="0.55"/>
+      <circle cx="300" cy="300" r="109" stroke-width="0.45"/>
+      <circle cx="300" cy="300" r="67"  stroke-width="0.35"/>
+      <circle cx="300" cy="300" r="41"  stroke-width="0.3"/>
+
+      <!-- Inscribed square + diagonals — slow rotation -->
+      <g class="spin s5">
+        <rect x="87" y="87" width="426" height="426" stroke-width="0.55"/>
+        <line x1="87"  y1="87"  x2="513" y2="513" stroke-width="0.35"/>
+        <line x1="513" y1="87"  x2="87"  y2="513" stroke-width="0.35"/>
+      </g>
+
+      <!-- Tick ring around r=176 — counter-rotating -->
+      <g class="spin s2">
+        <line x1="124" y1="295" x2="124" y2="305" stroke-width="0.6"/>
+        <line x1="176" y1="295" x2="176" y2="305" stroke-width="0.6"/>
+        <line x1="424" y1="295" x2="424" y2="305" stroke-width="0.6"/>
+        <line x1="476" y1="295" x2="476" y2="305" stroke-width="0.6"/>
+        <line x1="295" y1="124" x2="305" y2="124" stroke-width="0.6"/>
+        <line x1="295" y1="176" x2="305" y2="176" stroke-width="0.6"/>
+        <line x1="295" y1="424" x2="305" y2="424" stroke-width="0.6"/>
+        <line x1="295" y1="476" x2="305" y2="476" stroke-width="0.6"/>
+      </g>
+
+      <!-- Principal axes — rotate slowly -->
+      <g class="spin s1" opacity="0.7">
+        <line x1="5"   y1="300" x2="595" y2="300" stroke-width="0.6"/>
+        <line x1="300" y1="5"   x2="300" y2="595" stroke-width="0.6"/>
+      </g>
+
+      <!-- Comet sweep on outer circle -->
+      <g class="spin s3">
+        <circle cx="300" cy="300" r="285" stroke="url(#comet)" stroke-width="2" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="320 680"/>
+        <circle cx="585" cy="300" r="2.4" fill="#f4efe5"/>
+      </g>
+
+      <!-- Faster inner comet on r=176 -->
+      <g class="spin s4">
+        <circle cx="300" cy="300" r="176" stroke="#f4efe5" stroke-width="0.9"
+                pathLength="1000" stroke-dasharray="50 950" stroke-linecap="round" opacity="0.7"/>
+        <circle cx="476" cy="300" r="1.6" fill="#f4efe5"/>
+      </g>
+
+      <!-- Centre crosshair — static, sharp -->
+      <circle cx="300" cy="300" r="4" stroke-width="1.2"/>
+      <line x1="290" y1="300" x2="310" y2="300" stroke-width="1.2"/>
+      <line x1="300" y1="290" x2="300" y2="310" stroke-width="1.2"/>
+
+      <!-- Corner registration marks — static frame of reference -->
+      <g stroke-width="1">
+        <line x1="10"  y1="10"  x2="40"  y2="10"/>
+        <line x1="10"  y1="10"  x2="10"  y2="40"/>
+        <line x1="590" y1="10"  x2="560" y2="10"/>
+        <line x1="590" y1="10"  x2="590" y2="40"/>
+        <line x1="10"  y1="590" x2="40"  y2="590"/>
+        <line x1="10"  y1="590" x2="10"  y2="560"/>
+        <line x1="590" y1="590" x2="560" y2="590"/>
+        <line x1="590" y1="590" x2="590" y2="560"/>
+      </g>
+
+    </g>
+  </g>
+</svg>
   <div class="content-wrapper hero-grid">
     <div class="hero-text">
-      <span class="hero-eyebrow">GitFoundry</span>
-      <p class="hero-clarifier">Precision-built websites on GitHub Pages. One-time fee. Yours forever.</p>
-      <h1 class="hero-title">Built once.<br><em>Yours forever.</em></h1>
-      <p class="hero-sub"><strong>48-hour reply.</strong> Lighthouse 90+. Full source code handover. A UK studio supporting local businesses with websites they actually own.</p>
+      <div class="hero-trust" aria-label="Studio credentials">
+        <span>Zero hosting fees</span>
+        <span class="hero-trust-dot" aria-hidden="true"></span>
+        <span>UK-based</span>
+        <span class="hero-trust-dot" aria-hidden="true"></span>
+        <span>You own the code</span>
+      </div>
+      <h1 class="hero-title">A professional website.<br><em>One payment. No monthly bill. Ever.</em></h1>
       <div class="hero-actions">
-        <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
-        <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
+        <a href="brief.html" class="btn btn-primary">Get my quote</a>
+        <a href="pricing.html" class="btn btn-outline">See pricing</a>
       </div>
-      <div class="hero-tags">
-        <span class="spec-tag">Lighthouse 90+</span>
-        <span class="spec-tag">github pages</span>
-        <span class="spec-tag">zero hosting fees</span>
-        <span class="spec-tag">uk-based</span>
-        <span class="spec-tag">support local</span>
-      </div>
+      <p class="hero-price-line">From <strong>£149</strong> &middot; One-time payment &middot; Live in as few as 3 days</p>
     </div>
 
-    <div class="hero-figure" aria-hidden="true">
-      <picture>
-  <img src="david-hero-1600.jpg" alt="" loading="eager" fetchpriority="high" width="1280" height="1600">
-</picture>
+    <div class="hero-globe" aria-hidden="true">
+      <div class="globe-frame">
+        <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <clipPath id="sphereClip"><circle cx="400" cy="400" r="320"/></clipPath>
+          </defs>
+          <g id="whirl" style="pointer-events:none;"></g>
+          <circle cx="400" cy="400" r="320" fill="rgba(236,232,223,0.05)"/>
+          <g id="graticule" clip-path="url(#sphereClip)" style="pointer-events:none;"></g>
+          <g id="countries" clip-path="url(#sphereClip)" style="pointer-events:none;"></g>
+          <circle cx="400" cy="400" r="320" fill="none" stroke="rgba(236,232,223,0.5)" stroke-width="1.2"/>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
 
   <hr class="section-divider">
 
+<!-- ── WHY GITFOUNDRY (GEO quotable statements) ── -->
+<section class="section-sm" aria-labelledby="why-heading">
+  <div class="content-wrapper">
+    <h2 id="why-heading" class="sr-only">Why GitFoundry</h2>
+    <ul class="why-list" role="list">
+      <li>GitFoundry builds hand-coded websites for UK small businesses — one-time fee from £149, no monthly hosting costs, ever.</li>
+      <li>Every website is written from scratch in plain HTML, CSS, and JavaScript — no WordPress, no Squarespace, no platform dependency.</li>
+      <li>Your site is hosted free on GitHub Pages; you own the source code outright and can move it to any host at any time.</li>
+      <li>GitFoundry is based in Stoke-on-Trent and serves sole traders, freelancers, tradespeople, and charities across the United Kingdom.</li>
+      <li>A Precision multi-page site is delivered in 7 working days; a Foundry single-page site in as few as 3 days.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="section-divider">
+
   <!-- ── STATS ── -->
-  <section class="section-sm stat-strip" aria-label="Key figures">
-    <div class="content-wrapper">
-      <div class="stat-strip-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="stat-item">
-          <span class="stat-num">£0</span>
-          <span class="stat-label">Monthly hosting</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">100%</span>
-          <span class="stat-label">Yours to own</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">&lt;48h</span>
-          <span class="stat-label">Response time</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num">90+</span>
-          <span class="stat-label">Lighthouse scores</span>
-        </div>
+  <section class="section-sm stat-strip" aria-label="Verified figures">
+  <div class="content-wrapper">
+    <p style="font-family:var(--mono);font-size:0.6875rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin:0 0 1.5rem">Google Lighthouse scores — measured on mobile, the stricter test. Industry average for small business sites: ~55.</p>
+    <div class="stat-strip-inner a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+      <div class="stat-item">
+        <span class="stat-num">97</span>
+        <span class="stat-label">Performance — loads fast on mobile</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100</span>
+        <span class="stat-label">Accessibility — readable by everyone</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100</span>
+        <span class="stat-label">Best practices — secure and modern</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">95</span>
+        <span class="stat-label">SEO — found on Google</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <hr class="section-divider">
 
@@ -150,14 +282,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="section" id="services">
     <div class="content-wrapper">
       <span class="section-label">What we build</span>
-      <h2 class="section-title">No templates. No builders.<br>Precision and elegance, designed for your project.</h2>
-      <p class="section-intro">A UK studio crafting each site with care — clean, considered, and measured. Hosted free on GitHub Pages. Yours outright from day one.</p>
+      <h2 class="section-title">Fast, found on Google, and yours outright.</h2>
 
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2.5rem">
         <div class="item-row-label">Design</div>
         <div class="item-row-body">
           <strong>Elegant layouts built around your goals</strong>
-          We start with your objectives and craft a site that communicates trust, clarity, and permanence — no generic templates, no compromises.
+          I start with your objectives and craft a site that communicates trust, clarity, and permanence — no generic templates, no compromises.
         </div>
       </div>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
@@ -170,7 +301,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Deployment</div>
         <div class="item-row-body">
-          <strong>Live on GitHub Pages — forever, free</strong>
+          <strong>Live on GitHub Pages - forever, free</strong>
           Your site is deployed to GitHub Pages with a custom domain. GitHub hosts it indefinitely at no cost. No platform risk, no renewal anxiety.
         </div>
       </div>
@@ -178,7 +309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="item-row-label">Ownership</div>
         <div class="item-row-body">
           <strong>The source code is yours</strong>
-          Every file, every line. You receive the complete repository. No lock-in, no dependency on us to stay live.
+          Every file, every line. You receive the complete repository. No lock-in, no dependency on me to stay live.
         </div>
       </div>
     </div>
@@ -186,52 +317,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <hr class="section-divider">
 
-  <!-- ── WHO IT'S FOR ── -->
+  <!-- ── WHO IT'S FOR ── (slim summary; sectors.html owns the long form) -->
   <section class="section" id="who">
     <div class="content-wrapper">
       <span class="section-label">Who it's for</span>
-      <h2 class="section-title">For local businesses and professionals<br>who deserve a site as precise as their work.</h2>
-
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2.5rem">
-        <div class="item-row-label">Local business</div>
-        <div class="item-row-body">
-          <strong>Independent UK businesses</strong>
-          Shops, studios, trades, and services — the backbone of UK high streets. A polished, permanent web presence that reflects the quality of your work, without a monthly bill eating into your margin.
-        </div>
+      <h2 class="section-title">For people whose work<br>deserves to be seen properly.</h2>
+      <p class="section-intro" style="margin-bottom:2rem">Local businesses, independent professionals, researchers, charities, and creatives — the people whose craft deserves a web presence as precise as the work behind it.</p>
+      <div class="sector-chips a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <a href="sectors.html#local-business" class="sector-chip">Local business</a>
+        <a href="sectors.html#researchers" class="sector-chip">Researchers</a>
+        <a href="sectors.html#professionals" class="sector-chip">Professionals</a>
+        <a href="sectors.html#non-profits" class="sector-chip">Non-profits</a>
+        <a href="sectors.html#creatives" class="sector-chip">Creatives</a>
       </div>
+      <p style="margin-top:1.5rem"><a href="sectors.html" class="text-link">See how each sector benefits →</a></p>
+    </div>
+  </section>
 
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Researchers</div>
-        <div class="item-row-body">
-          <strong>Academics &amp; scientists</strong>
-          Moving institutions? A platform site doesn't travel with you. Your publications, research profile, and contact details — on a site that belongs to you, not your current employer's subscription.
+  <hr class="section-divider">
+
+  <!-- ── CLIENT VOICE ── -->
+  <section class="section" id="client-voice" aria-labelledby="client-voice-heading">
+    <div class="content-wrapper">
+      <span class="section-label">Client voice</span>
+      <h2 class="section-title" id="client-voice-heading">In their own words.</h2>
+
+      <article class="testimonial-full a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2.5rem">
+        <a class="testimonial-full-media" href="https://will4life.co.uk" target="_blank" rel="noopener" aria-label="Visit will4life.co.uk">
+          <img src="Assets/Images/will4life-preview.png" alt="Screenshot of the will4life.co.uk homepage built by GitFoundry" loading="lazy" decoding="async" width="2273" height="1233">
+        </a>
+        <div class="testimonial-full-body">
+          <span class="portfolio-card-tag">Startup · Launched 2026</span>
+          <blockquote class="testimonial-full-quote">
+            "Azhar was quick in grasping my ideas and delivered a product much beyond my expectations. GitFoundry is a 100% satisfaction guaranteed experience."
+          </blockquote>
+          <footer class="testimonial-full-cite">
+            <span class="testimonial-full-name">Renjith Reghu</span>
+            <span class="testimonial-full-role">Founder, Will4Life</span>
+            <a class="testimonial-full-link" href="portfolio.html">Read the full story →</a>
+          </footer>
         </div>
-      </div>
-
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Professionals</div>
-        <div class="item-row-body">
-          <strong>Consultants, freelancers &amp; advisors</strong>
-          Your expertise is established. Your website should keep pace with it. A professional presence that reflects the quality of your work — without a monthly fee quietly eroding your margin.
-        </div>
-      </div>
-
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Non-profits</div>
-        <div class="item-row-body">
-          <strong>Charities &amp; foundations</strong>
-          Every pound spent on recurring hosting is a pound that didn't serve your mission. One build. Permanent hosting. No monthly drain on donor funds.
-        </div>
-      </div>
-
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Creatives</div>
-        <div class="item-row-body">
-          <strong>Artists, designers &amp; portfolio owners</strong>
-          An image-optimised portfolio that loads without compromise. No template constraints, no platform branding — something distinctive that reflects the standard of the work it contains.
-        </div>
-      </div>
-
+      </article>
     </div>
   </section>
 
@@ -242,35 +368,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="content-wrapper">
       <span class="section-label">How it works</span>
       <h2 class="section-title">From brief to live<br>in under two weeks.</h2>
-      <p class="section-intro">You deal with the same person throughout — the one designing and building your site. No handoffs, no agency layers, no surprises.</p>
+      <p class="section-intro">You deal with the same person throughout - the one designing and building your site. No handoffs, no agency layers, no surprises.</p>
 
       <div class="process-list">
         <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
           <span class="process-num">01</span>
           <div class="process-body">
             <strong>Brief</strong>
-            <p>You complete our short project brief — goals, audience, tone, any reference sites. No calls required unless you prefer them.</p>
+            <p>Fill in a short written brief — goals, audience, tone, any reference sites.</p>
           </div>
         </div>
         <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
           <span class="process-num">02</span>
           <div class="process-body">
             <strong>Design &amp; build</strong>
-            <p>We design and build your site. You receive a preview link, typically within five working days.</p>
+            <p>You receive a preview link, typically within five working days.</p>
           </div>
         </div>
         <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
           <span class="process-num">03</span>
           <div class="process-body">
             <strong>Revisions</strong>
-            <p>You review and request changes. Each package includes a defined number of revision rounds.</p>
+            <p>Each tier includes 1–3 revision rounds; anything beyond that is quoted upfront.</p>
           </div>
         </div>
         <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
           <span class="process-num">04</span>
           <div class="process-body">
             <strong>Handover</strong>
-            <p>We deploy to GitHub Pages, connect your domain, and hand over the full source repository. The site is yours.</p>
+            <p>We deploy, connect your domain, and hand over the full source repository — it's yours.</p>
           </div>
         </div>
       </div>
@@ -294,18 +420,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="pricing-tier">Tier 01</span>
             <div class="pricing-name">Landing Page</div>
             <div class="pricing-tagline">A focused single-page site. Ideal for portfolios, CVs, and launch pages.</div>
-            <span class="pricing-nudge">Fastest delivery — 3 days</span>
+            <span class="pricing-nudge">Fastest delivery - 3 days</span>
           </div>
           <div>
             <div class="pricing-price"><sup>£</sup>149</div>
-            <div class="pricing-note">one-time · delivered in ~3 days</div>
+            <div class="pricing-note">one-time · includes VAT · delivered in ~3 days</div>
           </div>
           <ul class="pricing-features">
             <li>Single elegantly designed page</li>
-            <li>Responsive on all devices</li>
             <li>Contact form integration</li>
-            <li>GitHub Pages deployment</li>
-            <li>Custom domain setup</li>
             <li>1 round of revisions</li>
             <li>Full source code handover</li>
           </ul>
@@ -322,18 +445,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div>
             <div class="pricing-price"><sup>£</sup>349</div>
-            <div class="pricing-note">one-time · delivered in ~7 days</div>
+            <div class="pricing-note">one-time · includes VAT · delivered in ~7 days</div>
           </div>
           <ul class="pricing-features">
             <li>Up to 5 pages</li>
-            <li>Responsive on all devices</li>
-            <li>Contact form integration</li>
-            <li>GitHub Pages deployment</li>
-            <li>Custom domain setup</li>
             <li>SEO fundamentals included</li>
             <li>Analytics integration</li>
             <li>2 rounds of revisions</li>
-            <li>Full source code handover</li>
           </ul>
           <a href="brief.html?tier=professional" class="btn btn-primary">Start this project</a>
         </div>
@@ -348,161 +466,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div>
             <div class="pricing-price"><sup>£</sup>749<span style="font-size:1rem;color:var(--text-muted)">+</span></div>
-            <div class="pricing-note">one-time · timeline agreed per project</div>
+            <div class="pricing-note">one-time · includes VAT · timeline agreed per project</div>
           </div>
           <ul class="pricing-features">
             <li>Unlimited pages</li>
             <li>Custom interactions &amp; animations</li>
-            <li>Advanced layout complexity</li>
             <li>Extended SEO setup</li>
-            <li>Performance optimisation</li>
-            <li>3 rounds of revisions</li>
             <li>Priority turnaround</li>
-            <li>Full source code handover</li>
           </ul>
           <a href="brief.html?tier=bespoke" class="btn btn-outline">Discuss your project</a>
         </div>
 
       </div>
 
-      <!-- Savings comparison -->
-      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:3rem">
-        <span class="section-label">The cost of renting vs owning</span>
-        <table class="savings-table" aria-label="Platform cost comparison over three years">
-          <thead>
-            <tr>
-              <th>Platform</th>
-              <th>Monthly</th>
-              <th>3-year total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Squarespace</td>
-              <td>~£16/mo</td>
-              <td>~£576</td>
-            </tr>
-            <tr>
-              <td>Wix</td>
-              <td>~£14/mo</td>
-              <td>~£504</td>
-            </tr>
-            <tr>
-              <td>Webflow</td>
-              <td>~£23/mo</td>
-              <td>~£828</td>
-            </tr>
-            <tr>
-              <td><strong>GitFoundry Professional</strong></td>
-              <td><span class="savings-highlight">£0/mo</span></td>
-              <td><span class="savings-highlight">£349 — once</span></td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- ════════════════════════════════════════════════
-     SAVINGS CALCULATOR MODULE
-     Insert directly AFTER the existing .savings-table
-     on both pricing.html and index.html
-     ════════════════════════════════════════════════ -->
-
-<div class="calc a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-  <div class="calc-header">
-    <h3 class="calc-title">Run the numbers on your own site.</h3>
-    <p class="calc-sub">Move the slider to match what you pay today. The maths below updates as you go.</p>
-  </div>
-
-  <div class="calc-input-row">
-    <div>
-      <label class="calc-label" for="calc-monthly">Your current monthly fee</label>
-      <input
-        type="range"
-        id="calc-monthly"
-        class="calc-slider"
-        min="0"
-        max="60"
-        step="1"
-        value="16"
-        aria-label="Current monthly website cost in pounds"
-      >
-    </div>
-    <div class="calc-value" aria-live="polite">
-      <sup>£</sup><span id="calc-monthly-display">16</span><span style="font-size:0.875rem;color:var(--text-muted);letter-spacing:0.02em;">&nbsp;/mo</span>
-    </div>
-  </div>
-
-  <div class="calc-results">
-    <div class="calc-stat">
-      <span class="calc-stat-label">Break-even</span>
-      <div class="calc-stat-value" id="calc-breakeven">22 mo</div>
-    </div>
-    <div class="calc-stat">
-      <span class="calc-stat-label">Year 1</span>
-      <div class="calc-stat-value" id="calc-y1"><sup>£</sup>-157</div>
-    </div>
-    <div class="calc-stat">
-      <span class="calc-stat-label">Year 2</span>
-      <div class="calc-stat-value" id="calc-y2"><sup>£</sup>35</div>
-    </div>
-    <div class="calc-stat">
-      <span class="calc-stat-label">Year 3</span>
-      <div class="calc-stat-value" id="calc-y3"><sup>£</sup>227</div>
-    </div>
-  </div>
-
-  <p class="calc-footnote">Based on the GitFoundry Professional package at £349 one-time. Year figures are net of the build fee.</p>
-</div>
-      </div>
-
-      <!-- Optional upsells -->
-      <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:3rem">
-        <span class="section-label">Optional add-ons</span>
-        <div class="upsell-grid">
-          <div class="upsell-item">
-            <span class="upsell-item-label">Content</span>
-            <div class="upsell-item-name">Content updates</div>
-            <div class="upsell-item-price">£25–50 / update</div>
-          </div>
-          <div class="upsell-item">
-            <span class="upsell-item-label">Search</span>
-            <div class="upsell-item-name">SEO audit report</div>
-            <div class="upsell-item-price">£99 one-time</div>
-          </div>
-          <div class="upsell-item">
-            <span class="upsell-item-label">Domain</span>
-            <div class="upsell-item-name">Domain management</div>
-            <div class="upsell-item-price">£20 / year</div>
-          </div>
-        </div>
-      </div>
+      <!-- One-line bridge to the canonical pricing page (calculator + comparison live there) -->
+      <p class="pricing-bridge a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        A 3-year Squarespace bill is around £576. We charge £349, once.
+        <a href="pricing.html#calc" class="text-link">Run the numbers →</a>
+      </p>
 
     </div>
   </section>
 
   <hr class="section-divider">
-<!-- ── TESTIMONIAL (above final CTA) ── -->
-<section class="section" aria-labelledby="testimonial-heading">
-  <div class="content-wrapper">
-    <div class="testimonial-card a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-      <span class="section-label">Client feedback</span>
-      <blockquote class="testimonial-quote" id="testimonial-heading">
-        "Azhar is one professional who was quick in grasping my ideas and delivered a product much beyond my expectations."
-      </blockquote>
-      <footer class="testimonial-cite">
-        <span class="testimonial-name">Renjith Reghu</span>
-        <span class="testimonial-sep">—</span>
-        <a class="testimonial-link" href="https://will4life.co.uk" target="_blank" rel="noopener">will4life.co.uk</a>
-      </footer>
-    </div>
-  </div>
-</section>
-<hr class="section-divider">
+  <!-- Earlier "testimonial-card" block removed — the .testimonial-full block
+       higher up the page (Client voice section) now carries the testimonial. -->
+
   <!-- ── CTA ── -->
   <section class="section" id="contact" aria-labelledby="cta-heading">
     <div class="content-wrapper">
       <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <span class="section-label">Ready to begin</span>
         <h2 class="section-title" id="cta-heading">Your site. Your code.<br><em>Zero ongoing cost.</em></h2>
-        <p class="section-intro" style="margin-bottom:2rem">Tell us about your project. We'll review your brief and reply within 48 hours.</p>
+        <p class="section-intro" style="margin-bottom:2rem">Tell me about your project. I'll reply within 48 hours with a quote and timeline.</p>
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
           <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
           <a href="mailto:info@gitfoundry.co.uk" class="btn btn-outline">info@gitfoundry.co.uk</a>
@@ -513,16 +509,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </main>
 
-<!-- FOOTER -->
+<!-- FOOTER - standardised across all pages -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2025 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
       <li><a href="brief.html">Brief</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
@@ -540,47 +537,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<script>
-function site() {
-  return {
-    theme: localStorage.getItem('gf-theme') || 'night',
-    drawerOpen: false,
-    cookieVisible: false,
 
-    init() {
-      document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => {
-        if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true;
-      }, 1800);
-    },
-
-    toggleTheme() {
-      this.theme = this.theme === 'night' ? 'day' : 'night';
-      localStorage.setItem('gf-theme', this.theme);
-    },
-
-    acceptCookies() {
-      localStorage.setItem('gf-cookies', 'accepted');
-      this.cookieVisible = false;
-    },
-
-    declineCookies() {
-      localStorage.setItem('gf-cookies', 'declined');
-      this.cookieVisible = false;
-    }
-  };
-}
-</script>
-  <!-- ── SCHEMA: Organization + AggregateRating ── -->
+  <!-- ── SCHEMA: LocalBusiness ── -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["LocalBusiness", "ProfessionalService"],
   "name": "GitFoundry",
   "url": "https://gitfoundry.co.uk",
-  "description": "Precision-built websites on GitHub Pages. One-time fee, permanent ownership, zero hosting costs. UK-based studio.",
+  "description": "Affordable, precision-built websites hosted free on GitHub Pages. One-time payment, no monthly fees, full source code ownership. UK web design studio based in Stoke-on-Trent.",
   "image": "https://gitfoundry.co.uk/og-image.png",
+  "email": "info@gitfoundry.co.uk",
   "priceRange": "££",
+  "founder": {
+    "@type": "Person",
+    "name": "Azhar"
+  },
   "areaServed": {
     "@type": "Country",
     "name": "United Kingdom"
@@ -588,33 +560,139 @@ function site() {
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Stoke-on-Trent",
+    "addressRegion": "Staffordshire",
     "addressCountry": "GB"
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": "1",
-    "reviewCount": "1"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Renjith Reghu"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "Azhar is one professional who was quick in grasping my ideas and delivered a product much beyond my expectations. GitFoundry is a 100% satisfaction guaranteed experience."
-    }
-  ]
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.0027,
+    "longitude": -2.1794
+  }
 }
 </script>
-  <script src="calculator.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GitFoundry",
+  "url": "https://gitfoundry.co.uk",
+  "description": "UK web design studio building hand-coded static websites from £149. One-time payment, no monthly fees, hosted free on GitHub Pages."
+}
+</script>
+  <!-- Hero globe - desktop only, loaded after everything else -->
+<script>
+if (window.matchMedia('(min-width: 960px)').matches) {
+  var s1 = document.createElement('script');
+  s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js';
+  s1.defer = true;
+  s1.onload = initGlobe;
+  document.body.appendChild(s1);
+}
+
+async function initGlobe() {
+  const NS = 'http://www.w3.org/2000/svg';
+  const cx = 400, cy = 400, r = 320;
+  const ink = (a) => `rgba(236,232,223,${a})`;
+
+  const projection = d3.geoOrthographic().scale(r).translate([cx, cy]).clipAngle(90).rotate([0, -15, 0]);
+  const path = d3.geoPath(projection);
+
+  const countriesG = document.getElementById('countries');
+  const graticuleG = document.getElementById('graticule');
+  const whirlG = document.getElementById('whirl');
+
+  const graticule = d3.geoGraticule().step([20, 20])();
+  const gratEl = document.createElementNS(NS, 'path');
+  gratEl.setAttribute('fill', 'none');
+  gratEl.setAttribute('stroke', ink(0.12));
+  gratEl.setAttribute('stroke-width', '0.5');
+  graticuleG.appendChild(gratEl);
+
+  const equator = { type: 'LineString', coordinates: Array.from({length:361}, (_,i) => [i-180, 0]) };
+  const equatorEl = document.createElementNS(NS, 'path');
+  equatorEl.setAttribute('fill', 'none');
+  equatorEl.setAttribute('stroke', ink(0.2));
+  equatorEl.setAttribute('stroke-width', '0.7');
+  graticuleG.appendChild(equatorEl);
+
+  const whirlConfigs = [
+    {radius:349,sweep:115,width:2.2,opacity:0.3, speed:48, start:20},
+    {radius:380,sweep:75, width:1.6,opacity:0.22,speed:-36,start:210},
+    {radius:413,sweep:140,width:1.2,opacity:0.18,speed:24, start:100},
+    {radius:447,sweep:55, width:1.0,opacity:0.14,speed:-18,start:300},
+    {radius:480,sweep:95, width:0.8,opacity:0.10,speed:14, start:150},
+    {radius:513,sweep:35, width:0.7,opacity:0.08,speed:-10,start:50}
+  ];
+  const whirlArcs = whirlConfigs.map(cfg => {
+    const el = document.createElementNS(NS, 'path');
+    el.setAttribute('fill', 'none');
+    el.setAttribute('stroke', ink(cfg.opacity));
+    el.setAttribute('stroke-width', cfg.width);
+    el.setAttribute('stroke-linecap', 'round');
+    whirlG.appendChild(el);
+    return { el, ...cfg };
+  });
+
+  const dotConfigs = [
+    {radius:363,size:3.5,opacity:0.4, speed:50, start:130},
+    {radius:427,size:2.5,opacity:0.28,speed:-28,start:0},
+    {radius:493,size:2.0,opacity:0.2, speed:18, start:260}
+  ];
+  const dots = dotConfigs.map(cfg => {
+    const el = document.createElementNS(NS, 'circle');
+    el.setAttribute('r', cfg.size);
+    el.setAttribute('fill', ink(cfg.opacity));
+    whirlG.appendChild(el);
+    return { el, ...cfg };
+  });
+
+  let countries = null;
+  try {
+    const res = await fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson');
+    countries = await res.json();
+  } catch (e) {
+    console.warn('Globe: country data failed to load', e);
+    return;
+  }
+
+  const countryEls = countries.features.map(f => {
+    const el = document.createElementNS(NS, 'path');
+    el.setAttribute('fill', ink(0.35));
+    el.setAttribute('stroke', ink(0.55));
+    el.setAttribute('stroke-width', '0.45');
+    el.setAttribute('stroke-linejoin', 'round');
+    countriesG.appendChild(el);
+    return { el, feature: f };
+  });
+
+  function arcPath(radius, startDeg, sweepDeg) {
+    const s = (startDeg-90)*Math.PI/180;
+    const e = (startDeg+sweepDeg-90)*Math.PI/180;
+    const x1 = cx+radius*Math.cos(s), y1 = cy+radius*Math.sin(s);
+    const x2 = cx+radius*Math.cos(e), y2 = cy+radius*Math.sin(e);
+    const large = sweepDeg>180 ? 1 : 0;
+    return `M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${radius} ${radius} 0 ${large} 1 ${x2.toFixed(2)} ${y2.toFixed(2)}`;
+  }
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const t0 = performance.now();
+
+  function tick(now) {
+    const dt = (now-t0)/1000;
+    projection.rotate([(dt*22)%360, -15, 0]);
+    gratEl.setAttribute('d', path(graticule) || '');
+    equatorEl.setAttribute('d', path(equator) || '');
+    countryEls.forEach(c => c.el.setAttribute('d', path(c.feature) || ''));
+    whirlArcs.forEach(a => a.el.setAttribute('d', arcPath(a.radius, a.start+dt*a.speed, a.sweep)));
+    dots.forEach(d => {
+      const ang = (d.start+dt*d.speed-90)*Math.PI/180;
+      d.el.setAttribute('cx', (cx+d.radius*Math.cos(ang)).toFixed(2));
+      d.el.setAttribute('cy', (cy+d.radius*Math.sin(ang)).toFixed(2));
+    });
+    if (!reduce) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+</script>
 </body>
 </html>

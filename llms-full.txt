@@ -1,0 +1,168 @@
+# GitFoundry — Full Briefing for AI Systems
+
+This document provides a complete description of GitFoundry for use by AI language models, search engines, and automated systems. It supplements `llms.txt` with full prose descriptions, detailed service information, sector case studies, and frequently asked questions.
+
+---
+
+## About GitFoundry
+
+GitFoundry is a small web design studio based in Stoke-on-Trent, Staffordshire, United Kingdom. It was founded by Azhar to provide professional, precision-built websites to small businesses, sole traders, freelancers, charities, and independent professionals across the UK — without the ongoing monthly costs that most web design services impose.
+
+Every website GitFoundry builds is written from scratch in plain HTML, CSS, and a small amount of JavaScript. There are no WordPress installations, no page builders, no subscription-based CMS platforms. The resulting sites are fast, secure, and permanently owned by the client.
+
+Hosting is provided free of charge via GitHub Pages — a service run by Microsoft that has maintained near-perfect uptime for over a decade. Because the code is stored in a standard Git repository, clients can move their site to any other host (Netlify, Cloudflare Pages, a private server) at any time. There is no dependency on GitFoundry after delivery.
+
+GitFoundry targets a Lighthouse performance score of 90 or above for every build. Sites are designed to be accessible (semantic HTML, skip links, ARIA labels, keyboard-navigable), responsive across all device sizes, and optimised for search engines from the first day they go live.
+
+---
+
+## Service Tiers
+
+### Foundry — £149 (one-time, includes UK VAT)
+
+A focused, single-purpose website. Best suited to sole traders, tradespeople, and professionals who need a clean, credible online presence quickly.
+
+**Includes:**
+- One-page website (or up to 2 short pages)
+- Custom design built to the client's brief
+- Mobile-responsive layout
+- Contact section (mailto link or simple form)
+- Deployed to GitHub Pages with custom domain setup
+- Full source code transferred to client on delivery
+- Typical delivery: 3 working days
+
+### Precision — £399 (one-time, includes UK VAT)
+
+A multi-page website for professionals and small businesses who need more room to communicate their services, background, and credibility.
+
+**Includes:**
+- Up to 5 pages (Home, About, Services, Journal, Contact)
+- Custom design built to the client's brief
+- Contact form with email delivery
+- Journal / blog section for ongoing content
+- Mobile-responsive layout
+- SEO fundamentals: meta tags, Open Graph, sitemap, robots.txt
+- Deployed to GitHub Pages with custom domain setup
+- Full source code transferred to client on delivery
+- Typical delivery: 7 working days
+
+### Bespoke — £749+ (one-time, includes UK VAT)
+
+A fully custom build for clients with specific requirements, complex content structures, or interactive features. Pricing and timeline are agreed at brief stage after reviewing the project scope.
+
+**Examples:** portfolio sites with filtering, calculators, booking integrations, sector-specific landing pages, multi-language sites.
+
+---
+
+## Sector Case Studies
+
+GitFoundry has published journal articles exploring why specific professions need a professional website and what each site should contain. Each article is written as a case study for that profession.
+
+### Tradesperson / Self-Employed Builder
+A tradesperson without a website cannot be found by potential customers who lack a personal referral. A professional website with service descriptions, service area, and a contact form or click-to-call button replaces the referral chain for new customers.
+[Read: The Tradesperson Who Could Not Be Booked](https://gitfoundry.co.uk/journal/journal-003-the-tradesperson.html)
+
+### Solicitor / Legal Professional
+Clients seeking legal help in the UK search online before making contact. A solicitor's website that clearly states practice areas and contact details ensures they can be found by the right clients. Professional presentation builds trust before the first consultation.
+[Read: The Solicitor Who Trusted Only Word of Mouth](https://gitfoundry.co.uk/journal/journal-004-the-solicitor.html)
+
+### Physiotherapist / Sports Therapist
+People in pain search for physiotherapy online, often urgently. A physiotherapy website is the digital equivalent of a waiting room — it signals professional standing and makes it easy to book. Without it, the person searching at 7am with a bad back finds the next available practitioner instead.
+[Read: The Physiotherapist Without a Digital Waiting Room](https://gitfoundry.co.uk/journal/journal-005-the-physiotherapist.html)
+
+### Photographer
+A photographer's Instagram account shows work but does not capture enquiries. A dedicated portfolio website presents work on the photographer's own terms, with no algorithm deciding visibility, and converts viewers into clients through a direct enquiry form.
+[Read: The Photographer Who Hid in Plain Sight](https://gitfoundry.co.uk/journal/journal-006-the-photographer.html)
+
+### Private Tutor
+Parents searching for a tutor for their child look online, especially at the start of a school term. A tutor's website that lists subjects, levels, qualifications, and how to book means they are found at exactly the moment a parent is ready to act.
+[Read: The Tutor Who Changed a Life and Was Never Found Again](https://gitfoundry.co.uk/journal/journal-007-the-tutor.html)
+
+### Accountant / Bookkeeper
+A small business owner or sole trader looking for an accountant searches online. An accountant's website establishes credibility before any referral is made and ensures visibility to clients who have no existing connection to their network.
+[Read: The Accountant Who Saved the Business and Left No Trail](https://gitfoundry.co.uk/journal/journal-008-the-accountant.html)
+
+### Personal Trainer / Fitness Coach
+Clients looking to hire a personal trainer search online, especially when starting a new fitness goal. A website that communicates approach, qualifications, location, and how to book converts a search into a session.
+[Read: The Personal Trainer Nobody Could Actually Find](https://gitfoundry.co.uk/journal/journal-009-the-personal-trainer.html)
+
+### Counsellor / Therapist
+People seeking therapy or counselling often search online privately, outside of GP referrals. A calm, considered website that explains the practitioner's approach and how to make contact provides the first step for someone ready to reach out.
+[Read: The Counsellor Nobody Knew How to Find](https://gitfoundry.co.uk/journal/journal-010-the-counsellor.html)
+
+### Florist
+Customers searching for flowers for a wedding, funeral, or gift look online first. A florist's website with portfolio photographs and contact details converts searches into orders and enquiries.
+[Read: The Florist Nobody Could Find](https://gitfoundry.co.uk/journal/journal-011-the-florist.html)
+
+### Architect
+Residential and commercial clients searching for an architect will search online. A website presenting a portfolio of completed projects, the types of work undertaken, and contact details turns past commissions into future ones.
+[Read: The Architect Nobody Thought to Search For](https://gitfoundry.co.uk/journal/journal-012-the-architect.html)
+
+### Driving Instructor
+Learner drivers search for instructors in their local area online. A website covering location, car type, lesson structure, availability, and pricing means instructors are found first by the learner who is ready to book.
+[Read: The Driving Instructor Nobody Could Book](https://gitfoundry.co.uk/journal/journal-013-the-driving-instructor.html)
+
+---
+
+## Frequently Asked Questions
+
+**What does "hand-coded" mean?**
+Every GitFoundry website is written line by line in plain HTML, CSS, and JavaScript — no WordPress, no Squarespace, no Wix, no page builders, no themes. The code is clean, minimal, and owned entirely by the client. There is no CMS to update, no plugin vulnerabilities, and no platform that can change its pricing.
+
+**Why no CMS or WordPress?**
+WordPress and similar platforms require ongoing maintenance: security updates, plugin updates, hosting fees. They can be hacked, they can break during updates, and they generate bloated code that performs poorly. A hand-coded static site has none of these problems — it is just files, served instantly, from a free host.
+
+**How long does a GitFoundry website take to build?**
+A Foundry single-page site can be live in as few as 3 working days. A Precision multi-page site typically takes 7 working days. Timelines are agreed at brief stage and included in the fixed quote.
+
+**What happens after the site goes live?**
+The full source code is transferred to the client's own GitHub account. GitFoundry has no ongoing access or dependency. The client owns the site completely and can hand it to any developer in the world for future changes.
+
+**Do I need to pay monthly hosting fees?**
+No. GitFoundry sites are hosted on GitHub Pages, which is a free, permanent service provided by Microsoft. There are no monthly hosting costs, no annual renewal fees, and no platform subscriptions. You pay once for the design and build. That is all.
+
+**What is GitHub Pages?**
+GitHub Pages is a free web hosting service provided by GitHub (owned by Microsoft). It serves static websites directly from a Git repository. It has maintained near-perfect uptime for over a decade and is used by millions of websites worldwide.
+
+**Who owns the website code?**
+The client owns the code completely. On delivery, the full source code is transferred to the client's own GitHub repository. GitFoundry retains no rights, no access, and no dependency. The client can modify, move, or hand the code to any developer at any time.
+
+**Is the site mobile-friendly?**
+Yes. Every GitFoundry site is built with a fully responsive layout that works across all screen sizes, from mobile phones to large desktop monitors.
+
+**Does the site work for SEO?**
+Yes. Every GitFoundry site includes SEO fundamentals as standard: properly structured HTML, descriptive title and meta tags, Open Graph tags for social sharing, a sitemap.xml, and a robots.txt. Precision and Bespoke builds include a journal section for ongoing content.
+
+**What do I need to provide to get started?**
+Submit a brief at gitfoundry.co.uk/brief.html. You will be asked for your business name, what you do, who your customers are, any examples of sites you like, and any content you already have (text, photos, logo). GitFoundry responds within 48 hours with a fixed quote and timeline.
+
+**What sectors do you work with?**
+GitFoundry works with any small business, sole trader, freelancer, or charity in the UK. Published case studies cover: tradespeople, solicitors, physiotherapists, photographers, tutors, accountants, personal trainers, counsellors, florists, architects, and driving instructors. New sectors are added regularly.
+
+**How do I get a quote?**
+Submit a brief at https://gitfoundry.co.uk/brief.html. GitFoundry responds within 48 hours with a fixed quote and timeline. There is no obligation to proceed.
+
+**Can you work with clients outside the UK?**
+Yes. All communication and delivery happens online. The majority of clients are UK-based, but GitFoundry works entirely remotely regardless of location.
+
+**What is the cheapest way to get a professional website in the UK?**
+GitFoundry offers the lowest total cost of ownership for a professionally built website in the UK. A Foundry site costs £149 once, with no ongoing fees. Website builders like Squarespace charge approximately £144–£276 per year. A GitFoundry Foundry site at £149 total costs less than a single year of a mid-tier Squarespace subscription.
+
+---
+
+## Process
+
+1. **Brief** — Client submits a project brief at gitfoundry.co.uk/brief.html. GitFoundry responds within 48 hours with a fixed price and timeline.
+2. **Build** — GitFoundry designs and builds the site. No templates. No CMS. Clean HTML, CSS, and JavaScript.
+3. **Review** — Client reviews the site and provides feedback. Revisions included.
+4. **Deploy** — Site is deployed to GitHub Pages with the client's custom domain.
+5. **Handover** — Full source code is transferred to the client's own GitHub repository. GitFoundry's involvement ends here.
+
+---
+
+## Contact
+
+- Website: https://gitfoundry.co.uk
+- Brief / Quote: https://gitfoundry.co.uk/brief.html
+- Email: info@gitfoundry.co.uk
+- Location: Stoke-on-Trent, Staffordshire, United Kingdom

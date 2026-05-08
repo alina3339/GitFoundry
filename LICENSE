@@ -1,21 +1,44 @@
-MIT License
+SOFTWARE PROPRIETARY RIGHTS & END-USER LICENSE AGREEMENT (EULA)
 
-Copyright (c) 2026 Azhar Mohammed
+Copyright © 2024-2026 GitFoundry. All Rights Reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. PROPRIETARY RIGHTS AND OWNERSHIP
+This Software, including its source code, object code, documentation, graphical 
+assets, and underlying algorithms (collectively, the "Work Product"), is the 
+exclusive intellectual property of GitFoundry. The Work Product is protected by 
+United Kingdom and International copyright, trade secret, and intellectual 
+property laws. No title to or ownership of the Work Product is transferred 
+hereunder.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+2. LIMITED LICENSE GRANT
+GitFoundry hereby grants to its authorized personnel a non-exclusive, non-
+transferable, and revocable license to access and use the Work Product solely for 
+the internal business operations of GitFoundry. Any use of the Work Product 
+exceeding this scope constitutes a material breach of this Agreement.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+3. RESTRICTIVE COVENANTS
+The Licensee shall not, and shall not permit any third party to:
+   a. Reproduce, distribute, or publicly display the Work Product;
+   b. Modify, adapt, translate, or create derivative works based upon the 
+      Work Product for any purpose external to GitFoundry’s core mission;
+   c. Sublicense, lease, or commercially exploit the Work Product in any manner;
+   d. Decompile, disassemble, or reverse-engineer the Work Product, except to 
+      the extent such restriction is prohibited by applicable law.
+
+4. EQUITABLE RELIEF
+The Licensee acknowledges that a breach of Section 3 would cause GitFoundry 
+irreparable harm for which monetary damages would be an inadequate remedy. 
+Accordingly, GitFoundry shall be entitled to seek injunctive relief and specific 
+performance in any court of competent jurisdiction, in addition to all other 
+remedies available at law or in equity.
+
+5. DISCLAIMER OF WARRANTIES
+THE WORK PRODUCT IS PROVIDED ON AN "AS-IS" BASIS. GITFOUNDRY DISCLAIMS ALL 
+WARRANTIES, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED 
+TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, 
+AND NON-INFRINGEMENT.
+
+6. LIMITATION OF LIABILITY
+IN NO EVENT SHALL GITFOUNDRY OR ITS PRINCIPALS BE LIABLE FOR ANY INDIRECT, 
+INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO 
+USE THE WORK PRODUCT, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.

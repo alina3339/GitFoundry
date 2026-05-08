@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex, nofollow">
+<title>UX mockup — proposed hero (private)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap">
+<style>
+  :root {
+    --bg: #080f24;
+    --surface: #0d1632;
+    --text: #ece8df;
+    --text-soft: #b2ac9e;
+    --text-muted: #8a8272;
+    --border: rgba(255,255,255,0.1);
+    --accent: #c9a84c;
+    --accent-dim: rgba(201,168,76,0.08);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); padding: 3rem 1.5rem; }
+  h2.note { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .legend { font-family: var(--sans); font-size: 0.875rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 720px; }
+
+  .panel { max-width: 1120px; margin: 0 auto 5rem; padding: 5rem 3rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; position: relative; }
+  .panel-tag { position: absolute; top: 1rem; right: 1rem; font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
+
+  /* CURRENT pattern */
+  .hero-current .eyebrow { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: block; opacity: 0.9; }
+  .hero-current .clarifier { font-size: 1.0625rem; color: var(--text-soft); max-width: 540px; margin-bottom: 1rem; line-height: 1.6; }
+  .hero-current .title { font-family: var(--serif); font-size: clamp(3.5rem, 9vw, 6rem); font-weight: 300; line-height: 0.97; letter-spacing: -0.035em; max-width: 900px; margin-bottom: 1.5rem; }
+  .hero-current .title em { color: var(--accent); font-style: italic; font-weight: 300; }
+  .hero-current .sub { font-size: 1.0625rem; color: var(--text-soft); max-width: 500px; line-height: 1.75; margin-bottom: 2rem; font-weight: 300; }
+  .hero-current .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .hero-current .btn { display: inline-flex; align-items: center; padding: 0.85rem 1.5rem; border-radius: 2px; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: 0.2s; border: 1px solid; }
+  .hero-current .btn-primary { background: var(--accent); color: #080f24; border-color: var(--accent); font-weight: 500; }
+  .hero-current .btn-outline { background: transparent; color: var(--text); border-color: rgba(255,255,255,0.2); }
+  .hero-current .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .hero-current .tags span { font-family: var(--mono); font-size: 0.6875rem; padding: 0.35rem 0.7rem; border: 1px solid var(--border); border-radius: 2px; color: var(--text-muted); }
+
+  /* PROPOSED pattern */
+  .hero-new .tags-eyebrow { display: flex; gap: 0.875rem; align-items: center; font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; opacity: 0.95; }
+  .hero-new .tags-eyebrow span:not(.dot) { white-space: nowrap; }
+  .hero-new .tags-eyebrow .dot { width: 3px; height: 3px; background: var(--accent); border-radius: 50%; opacity: 0.5; }
+  .hero-new .title { font-family: var(--serif); font-size: clamp(3.5rem, 9vw, 6rem); font-weight: 300; line-height: 0.97; letter-spacing: -0.035em; max-width: 900px; margin-bottom: 1.75rem; }
+  .hero-new .title em { color: var(--accent); font-style: italic; font-weight: 300; }
+  .hero-new .sub { font-size: 1.125rem; color: var(--text-soft); max-width: 540px; line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
+  .hero-new .sub strong { color: var(--text); font-weight: 500; }
+  .hero-new .actions { display: flex; gap: 0.875rem; flex-wrap: wrap; margin-bottom: 0.875rem; }
+  .hero-new .btn { display: inline-flex; align-items: center; padding: 1rem 1.75rem; min-height: 48px; border-radius: 2px; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: 0.2s; border: 1px solid; }
+  .hero-new .btn-primary { background: var(--accent); color: #080f24; border-color: var(--accent); font-weight: 500; }
+  .hero-new .btn-outline { background: transparent; color: var(--text); border-color: rgba(255,255,255,0.2); }
+  .hero-new .price-line { font-size: 0.8125rem; color: var(--text-muted); font-family: var(--mono); letter-spacing: 0.05em; }
+  .hero-new .price-line strong { color: var(--accent); font-weight: 500; }
+
+  .annotation { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dashed var(--border); }
+  .annotation li { font-family: var(--sans); font-size: 0.8125rem; color: var(--text-soft); list-style: none; padding-left: 1.5rem; position: relative; margin-bottom: 0.4rem; line-height: 1.55; }
+  .annotation li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+  .annotation strong { color: var(--text); }
+
+  h1.page-title { font-family: var(--serif); font-size: 1.5rem; max-width: 1120px; margin: 0 auto 0.5rem; padding: 0 3rem; font-weight: 400; }
+  p.page-sub { max-width: 1120px; margin: 0 auto 3rem; padding: 0 3rem; color: var(--text-muted); font-size: 0.9375rem; }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Hero — current vs proposed</h1>
+<p class="page-sub">Side-by-side mockup. The proposed pattern eliminates duplicated copy, tightens the action zone, and re-positions trust signals where they support the headline rather than competing with the CTA.</p>
+
+<div class="panel hero-current">
+  <span class="panel-tag">Current</span>
+  <span class="eyebrow">GitFoundry</span>
+  <p class="clarifier">Precision-built websites on GitHub Pages. One-time fee. Yours forever.</p>
+  <h1 class="title">Built once.<br><em>Yours forever.</em></h1>
+  <p class="sub">Full source code handover. UK based web design studio supporting local businesses with websites they actually own for a lifetime.</p>
+  <div class="actions">
+    <a href="#" class="btn btn-primary">Get my quote</a>
+    <a href="#" class="btn btn-outline">See pricing — from £149</a>
+  </div>
+  <div class="tags">
+    <span>SEO Optimised</span>
+    <span>GitHub pages</span>
+    <span>zero hosting fees</span>
+    <span>UK-based</span>
+    <span>supporting local Businesses</span>
+  </div>
+  <ul class="annotation">
+    <li><strong>Issue:</strong> "Yours forever" appears in the clarifier line AND the title — punch is pre-spent.</li>
+    <li><strong>Issue:</strong> 5 noisy spec tags below the CTA pull attention back away from the action.</li>
+    <li><strong>Issue:</strong> Secondary button label carries a full sentence with a price string.</li>
+    <li><strong>Issue:</strong> Mixed casing on tags ("Businesses" capitalised, "pages" lowercase).</li>
+  </ul>
+</div>
+
+<div class="panel hero-new">
+  <span class="panel-tag" style="color: var(--accent);">Proposed</span>
+  <div class="tags-eyebrow">
+    <span>Zero hosting fees</span>
+    <span class="dot"></span>
+    <span>UK-based</span>
+    <span class="dot"></span>
+    <span>You own the code</span>
+  </div>
+  <h1 class="title">Built once.<br><em>Yours forever.</em></h1>
+  <p class="sub">Precision-built websites on GitHub Pages. One-time fee — <strong>full source code handover</strong>. Made in the UK for local businesses who deserve a site as precise as their work.</p>
+  <div class="actions">
+    <a href="#" class="btn btn-primary">Get my quote</a>
+    <a href="#" class="btn btn-outline">See pricing</a>
+  </div>
+  <div class="price-line">From <strong>£149</strong> &middot; One-time payment &middot; Live in ~2 weeks</div>
+  <ul class="annotation">
+    <li><strong>Fix:</strong> Three trust signals moved above the headline, separated by middle-dot. Sentence case throughout. Pre-attentive cue, doesn't interrupt the title.</li>
+    <li><strong>Fix:</strong> Headline keeps the "Yours forever" punch — clarifier folded into the sub-paragraph below where it belongs.</li>
+    <li><strong>Fix:</strong> Secondary button is now <em>just</em> "See pricing" — clean target. Price anchor sits beneath both buttons as supporting copy.</li>
+    <li><strong>Fix:</strong> Buttons grow to 48px min-height (Apple HIG touch-target standard).</li>
+    <li><strong>Fix:</strong> Sub gains "Live in ~2 weeks" — a concrete commitment that strengthens decision-confidence.</li>
+  </ul>
+</div>
+
+</body>
+</html>

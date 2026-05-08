@@ -1,29 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services · GitFoundry</title>
-<meta name="description" content="What GitFoundry builds: hand-coded HTML sites with full source code handover. See what's included in every tier.">
+<title>Services - GitFoundry · Precision-built Websites on GitHub Pages</title>
+<meta name="description" content="What GitFoundry builds — precision-built, elegant websites deployed free on GitHub Pages. Permanent ownership, no monthly fees. Supporting local UK businesses.">
 <link rel="canonical" href="https://gitfoundry.co.uk/services.html">
-<meta property="og:title" content="Services · GitFoundry">
-<meta property="og:description" content="Hand-coded websites with full source code handover. See what's included in every tier.">
+<meta property="og:title" content="Services - GitFoundry">
+<meta property="og:description" content="Precision-built websites deployed free on GitHub Pages. Permanent ownership, no monthly fees.">
 <meta property="og:url" content="https://gitfoundry.co.uk/services.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Services · GitFoundry">
-<meta name="twitter:description" content="Hand-coded websites with full source code handover. See what's included in every tier.">
+<meta name="twitter:title" content="Services - GitFoundry">
+<meta name="twitter:description" content="Precision-built websites deployed free on GitHub Pages. Permanent ownership, no monthly fees.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P72JB657');</script>
-<!-- End Google Tag Manager -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,19 +26,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
 <body x-data="site()" :data-theme="theme">
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<script>
+  (function () {
+    const months = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+    const now = new Date();
+    const current = months[now.getMonth()];
+    const next = months[(now.getMonth() + 1) % 12];
+    const el = document.getElementById('gf-booking-months');
+    if (el) el.textContent = current + '–' + next;
+  })();
+</script>
+
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
+<!-- NAV -->
 <nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
     <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
@@ -51,10 +62,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item active">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
-      <span x-text="theme==='night'?'☀':'☾'"></span>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
     </button>
     <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-s" aria-label="Toggle navigation">
       <span x-text="drawerOpen?'✕':'≡'"></span>
@@ -62,39 +74,170 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
+<!-- Mobile drawer -->
 <div id="nav-drawer-s" class="nav-drawer" :class="drawerOpen?'open':''">
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+  <a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
 </div>
 
 <main id="main">
   <div class="content-wrapper">
 
-    <header class="page-header">
+   <header class="page-header">
+      <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+  <!--
+    GitFoundry Vitruvian — Mechanical Schema — v2
+    Proper toothed gear (24 teeth) with internal pitch circle, spokes, and a
+    counter-rotating inner pinion gear (12 teeth). Comet sweeps the rim.
+  -->
+  <style>
+    .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
+    .spin  { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .wheel    { animation-name: spin;     animation-duration: 32s; }
+    .pinion   { animation-name: spin-rev; animation-duration: 16s; }
+    .arc      { animation-name: spin-rev; animation-duration: 24s; }
+    .comet    { animation-name: spin;     animation-duration: 11s; }
+    .satellite { animation-name: spin-rev; animation-duration: 6s; }
+
+    @keyframes spin     { to { transform: rotate(360deg); } }
+    @keyframes spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.008); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .spin { animation: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="comet-g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#f4efe5" stop-opacity="0.05"/>
+      <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <g class="stage">
+    <g stroke="#f4efe5" fill="none">
+
+      <!-- Main toothed gear with rim, pitch circle, spokes — rotate as one -->
+      <g class="spin wheel">
+        <!-- The actual toothed outline -->
+        <path d="M 310.99 90.29 L 318.83 60.74 A 240 240 0 0 1 343.74 64.02 L 343.66 94.59 A 210 210 0 0 1 364.89 100.28 L 380.11 73.77 A 240 240 0 0 1 403.32 83.38 L 395.34 112.89 A 210 210 0 0 1 414.37 123.88 L 435.94 102.21 A 240 240 0 0 1 455.87 117.50 L 440.52 143.94 A 210 210 0 0 1 456.06 159.48 L 482.50 144.13 A 240 240 0 0 1 497.79 164.06 L 476.12 185.63 A 210 210 0 0 1 487.11 204.66 L 516.62 196.68 A 240 240 0 0 1 526.23 219.89 L 499.72 235.11 A 210 210 0 0 1 505.41 256.34 L 535.98 256.26 A 240 240 0 0 1 539.26 281.17 L 509.71 289.01 A 210 210 0 0 1 509.71 310.99 L 539.26 318.83 A 240 240 0 0 1 535.98 343.74 L 505.41 343.66 A 210 210 0 0 1 499.72 364.89 L 526.23 380.11 A 240 240 0 0 1 516.62 403.32 L 487.11 395.34 A 210 210 0 0 1 476.12 414.37 L 497.79 435.94 A 240 240 0 0 1 482.50 455.87 L 456.06 440.52 A 210 210 0 0 1 440.52 456.06 L 455.87 482.50 A 240 240 0 0 1 435.94 497.79 L 414.37 476.12 A 210 210 0 0 1 395.34 487.11 L 403.32 516.62 A 240 240 0 0 1 380.11 526.23 L 364.89 499.72 A 210 210 0 0 1 343.66 505.41 L 343.74 535.98 A 240 240 0 0 1 318.83 539.26 L 310.99 509.71 A 210 210 0 0 1 289.01 509.71 L 281.17 539.26 A 240 240 0 0 1 256.26 535.98 L 256.34 505.41 A 210 210 0 0 1 235.11 499.72 L 219.89 526.23 A 240 240 0 0 1 196.68 516.62 L 204.66 487.11 A 210 210 0 0 1 185.63 476.12 L 164.06 497.79 A 240 240 0 0 1 144.13 482.50 L 159.48 456.06 A 210 210 0 0 1 143.94 440.52 L 117.50 455.87 A 240 240 0 0 1 102.21 435.94 L 123.88 414.37 A 210 210 0 0 1 112.89 395.34 L 83.38 403.32 A 240 240 0 0 1 73.77 380.11 L 100.28 364.89 A 210 210 0 0 1 94.59 343.66 L 64.02 343.74 A 240 240 0 0 1 60.74 318.83 L 90.29 310.99 A 210 210 0 0 1 90.29 289.01 L 60.74 281.17 A 240 240 0 0 1 64.02 256.26 L 94.59 256.34 A 210 210 0 0 1 100.28 235.11 L 73.77 219.89 A 240 240 0 0 1 83.38 196.68 L 112.89 204.66 A 210 210 0 0 1 123.88 185.63 L 102.21 164.06 A 240 240 0 0 1 117.50 144.13 L 143.94 159.48 A 210 210 0 0 1 159.48 143.94 L 144.13 117.50 A 240 240 0 0 1 164.06 102.21 L 185.63 123.88 A 210 210 0 0 1 204.66 112.89 L 196.68 83.38 A 240 240 0 0 1 219.89 73.77 L 235.11 100.28 A 210 210 0 0 1 256.34 94.59 L 256.26 64.02 A 240 240 0 0 1 281.17 60.74 L 289.01 90.29 A 210 210 0 0 1 310.99 90.29 Z" stroke-width="0.8"/>
+
+        <!-- Pitch circle (theoretical mid-line through teeth) -->
+        <circle cx="300" cy="300" r="225" stroke-width="0.35" stroke-dasharray="3 3" opacity="0.5"/>
+
+        <!-- Inner rim that the spokes attach to -->
+        <circle cx="300" cy="300" r="175" stroke-width="0.55"/>
+        <circle cx="300" cy="300" r="170" stroke-width="0.3" opacity="0.6"/>
+
+        <!-- Spokes -->
+        <g stroke-width="0.6">
+          <line x1="300" y1="125" x2="300" y2="475"/>
+          <line x1="148" y1="213" x2="452" y2="387"/>
+          <line x1="148" y1="387" x2="452" y2="213"/>
+        </g>
+        <!-- Double-line spoke detail -->
+        <g stroke-width="0.25" opacity="0.7">
+          <line x1="296" y1="125" x2="296" y2="475"/>
+          <line x1="304" y1="125" x2="304" y2="475"/>
+        </g>
+
+        <!-- Bolt holes near the hub -->
+        <g stroke-width="0.4" opacity="0.7">
+          <circle cx="300" cy="135" r="2.5"/>
+          <circle cx="300" cy="465" r="2.5"/>
+          <circle cx="135" cy="300" r="2.5"/>
+          <circle cx="465" cy="300" r="2.5"/>
+        </g>
+      </g>
+
+      <!-- Inner pinion gear — counter-rotates -->
+      <g class="spin pinion">
+        <path d="M 306.69 236.35 L 312.20 222.96 A 78 78 0 0 1 327.95 227.18 L 326.03 241.53 A 64 64 0 0 1 337.62 248.22 L 349.09 239.38 A 78 78 0 0 1 360.62 250.91 L 351.78 262.38 A 64 64 0 0 1 358.47 273.97 L 372.82 272.05 A 78 78 0 0 1 377.04 287.80 L 363.65 293.31 A 64 64 0 0 1 363.65 306.69 L 377.04 312.20 A 78 78 0 0 1 372.82 327.95 L 358.47 326.03 A 64 64 0 0 1 351.78 337.62 L 360.62 349.09 A 78 78 0 0 1 349.09 360.62 L 337.62 351.78 A 64 64 0 0 1 326.03 358.47 L 327.95 372.82 A 78 78 0 0 1 312.20 377.04 L 306.69 363.65 A 64 64 0 0 1 293.31 363.65 L 287.80 377.04 A 78 78 0 0 1 272.05 372.82 L 273.97 358.47 A 64 64 0 0 1 262.38 351.78 L 250.91 360.62 A 78 78 0 0 1 239.38 349.09 L 248.22 337.62 A 64 64 0 0 1 241.53 326.03 L 227.18 327.95 A 78 78 0 0 1 222.96 312.20 L 236.35 306.69 A 64 64 0 0 1 236.35 293.31 L 222.96 287.80 A 78 78 0 0 1 227.18 272.05 L 241.53 273.97 A 64 64 0 0 1 248.22 262.38 L 239.38 250.91 A 78 78 0 0 1 250.91 239.38 L 262.38 248.22 A 64 64 0 0 1 273.97 241.53 L 272.05 227.18 A 78 78 0 0 1 287.80 222.96 L 293.31 236.35 A 64 64 0 0 1 306.69 236.35 Z" stroke-width="0.55"/>
+        <circle cx="300" cy="300" r="50" stroke-width="0.4"/>
+        <circle cx="300" cy="300" r="22" stroke-width="0.4"/>
+        <line x1="300" y1="265" x2="300" y2="335" stroke-width="0.35"/>
+        <line x1="265" y1="300" x2="335" y2="300" stroke-width="0.35"/>
+      </g>
+
+      <!-- Comet sweep on rim -->
+      <g class="spin comet">
+        <circle cx="300" cy="300" r="240" stroke="url(#comet-g)" stroke-width="2" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="300 700"/>
+        <circle cx="540" cy="300" r="2.4" fill="#f4efe5"/>
+      </g>
+
+      <!-- Dashed measurement arc - counter-rotating -->
+      <g class="spin arc" opacity="0.6">
+        <path d="M 460 300 A 160 160 0 0 0 380 161" stroke-width="0.4" stroke-dasharray="2 2"/>
+      </g>
+
+      <!-- Tiny external satellite -->
+      <g class="spin satellite" opacity="0.7">
+        <circle cx="555" cy="300" r="1.5" fill="#f4efe5"/>
+      </g>
+
+      <!-- Static central axle bearing -->
+      <circle cx="300" cy="300" r="6" stroke-width="1.2" fill="#0a0a0a"/>
+      <circle cx="300" cy="300" r="2.5" fill="#f4efe5"/>
+
+      <!-- Static reference axes -->
+      <g opacity="0.55">
+        <line x1="20"  y1="300" x2="60"  y2="300" stroke-width="0.5"/>
+        <line x1="540" y1="300" x2="580" y2="300" stroke-width="0.5"/>
+        <line x1="300" y1="20"  x2="300" y2="60"  stroke-width="0.5"/>
+        <line x1="300" y1="540" x2="300" y2="580" stroke-width="0.5"/>
+        <line x1="25"  y1="295" x2="25"  y2="305" stroke-width="0.4"/>
+        <line x1="575" y1="295" x2="575" y2="305" stroke-width="0.4"/>
+        <line x1="295" y1="25"  x2="305" y2="25"  stroke-width="0.4"/>
+        <line x1="295" y1="575" x2="305" y2="575" stroke-width="0.4"/>
+      </g>
+
+      <!-- Corner registration marks -->
+      <g stroke-width="1">
+        <line x1="10"  y1="10"  x2="40"  y2="10"/>
+        <line x1="10"  y1="10"  x2="10"  y2="40"/>
+        <line x1="590" y1="10"  x2="560" y2="10"/>
+        <line x1="590" y1="10"  x2="590" y2="40"/>
+        <line x1="10"  y1="590" x2="40"  y2="590"/>
+        <line x1="10"  y1="590" x2="10"  y2="560"/>
+        <line x1="590" y1="590" x2="560" y2="590"/>
+        <line x1="590" y1="590" x2="590" y2="560"/>
+      </g>
+
+    </g>
+  </g>
+</svg>
       <span class="page-header-label">Services</span>
-      <h1 class="page-header-title">What we build</h1>
-      <p class="page-header-desc">Most platforms rent you a website. We build you one you actually own — hand-coded, designed for your goals, and hosted free on GitHub Pages with no expiry date.</p>
+      <h1 class="page-header-title">What we build,<br>how we deliver.</h1>
+      <p class="page-header-desc">Affordable web design for UK small businesses, sole traders, and self-employed professionals — from a one-page site to a full multi-page presence. One flat fee, no monthly subscription, no platform lock-in. Delivered in as few as three working days, yours to keep forever.</p>
     </header>
 
     <!-- Core deliverable -->
     <section aria-labelledby="core-heading">
       <span class="section-label">The core deliverable</span>
-      <h2 class="section-title" id="core-heading">A hand-coded website<br>you permanently own.</h2>
+      <h2 class="section-title" id="core-heading">A precision-built website<br>you permanently own.</h2>
 
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
         <div class="item-row-label">Design</div>
         <div class="item-row-body">
           <strong>Elegant layouts, not templates</strong>
-          We design around your goals — audience, tone, and purpose. Every layout decision is intentional. Nothing is dragged-and-dropped.
+          I design around your goals — audience, tone, and purpose. Every layout decision is intentional. Nothing is dragged-and-dropped.
         </div>
       </div>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Engineering</div>
         <div class="item-row-body">
           <strong>Semantic structure, lean styling, minimal scripts</strong>
-          Built without templates. Accessible, fast, and optimised for search engines. No CMS bloat, no security vulnerabilities from unused plugins.
+          Built with precision. Accessible, fast, and optimised for search engines. No CMS bloat, no security vulnerabilities from unused plugins.
         </div>
       </div>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
@@ -114,8 +257,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Deployment</div>
         <div class="item-row-body">
-          <strong>GitHub Pages — free, indefinitely</strong>
-          Your site stays live as long as GitHub exists. No renewal dates, no hosting invoices, no platform risk.
+          <strong>Free hosting — forever, with no platform risk</strong>
+          Your site lives on GitHub's infrastructure — the same platform used by millions of developers worldwide, owned by Microsoft, and running uninterrupted since 2008. There is no hosting bill. There is no renewal date. Your site stays live indefinitely, at no cost to you.
         </div>
       </div>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
@@ -129,47 +272,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <hr class="section-divider" style="margin:4rem 0">
 
-    <!-- Process -->
-    <section aria-labelledby="process-heading">
-      <span class="section-label">How it works</span>
-      <h2 class="section-title" id="process-heading">From brief to live<br>in under two weeks.</h2>
-      <p class="section-intro">You deal with the same person throughout — the one designing and building your site. No handoffs, no agency layers.</p>
-
-      <div class="process-list" style="margin-top:2rem">
-        <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <span class="process-num">01</span>
-          <div class="process-body">
-            <strong>Brief</strong>
-            <p>You complete our short project brief — goals, audience, tone, any reference sites. No calls required unless you prefer them.</p>
-          </div>
-        </div>
-        <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <span class="process-num">02</span>
-          <div class="process-body">
-            <strong>Design &amp; build</strong>
-            <p>We design and build your site. You receive a preview link, typically within five working days.</p>
-          </div>
-        </div>
-        <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <span class="process-num">03</span>
-          <div class="process-body">
-            <strong>Revisions</strong>
-            <p>You review and request changes. Each package includes a defined number of revision rounds.</p>
-          </div>
-        </div>
-        <div class="process-step a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-          <span class="process-num">04</span>
-          <div class="process-body">
-            <strong>Handover</strong>
-            <p>We deploy to GitHub Pages, connect your domain, and hand over the full source repository. The site is yours.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider" style="margin:4rem 0">
-
-    <!-- Scope -->
+    <!-- What's supported -->
     <section aria-labelledby="scope-heading">
       <span class="section-label">Scope &amp; boundaries</span>
       <h2 class="section-title" id="scope-heading">What GitHub Pages supports — and what it doesn't.</h2>
@@ -178,14 +281,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Supported</div>
         <div class="item-row-body">
-          Local business sites · Portfolio sites · CV &amp; résumé pages · Business landing pages · Research publications · Documentation · Event pages · Non-profit homepages · Professional profiles · Writer sites · Contact forms (via Formspree)
+          Local business sites · Portfolio sites · CV &amp; résumé pages · Business landing pages · Research publications · Documentation · Event pages · Non-profit homepages · Professional profiles · Writer sites · Contact forms (via Formspree or Netlify Forms)
         </div>
       </div>
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Not supported</div>
+        <div class="item-row-label">When you might need something different</div>
         <div class="item-row-body">
-          Server-side databases · User login systems · E-commerce checkout · Real-time feeds · User-generated content
-          <span style="color:var(--text-muted);font-size:0.8125rem;margin-top:0.5rem;display:block">If your project needs any of these, we'll discuss the right approach before quoting.</span>
+          Server-side databases · User login systems · E-commerce checkout · Real-time feeds · User-generated content · CMS-driven content management<br>
+          <span style="color:var(--text-muted);font-size:0.8125rem;margin-top:0.5rem;display:block">If your project needs any of these, I'll discuss the right approach before quoting — no wasted time on either side.</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" style="margin:4rem 0">
+
+    <!-- Optional upsells -->
+    <section aria-labelledby="addons-heading">
+      <span class="section-label">Optional add-ons</span>
+      <h2 class="section-title" id="addons-heading">Extend after launch.</h2>
+      <div class="upsell-grid" style="margin-top:1.5rem">
+        <div class="upsell-item a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <span class="upsell-item-label">Content</span>
+          <div class="upsell-item-name">Content updates</div>
+          <div class="upsell-item-price">from £25 (text) · £50 (structural)</div>
+        </div>
+        <div class="upsell-item a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <span class="upsell-item-label">Search</span>
+          <div class="upsell-item-name">SEO audit report</div>
+          <div class="upsell-item-price">£99 one-time</div>
+        </div>
+        <div class="upsell-item a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+          <span class="upsell-item-label">Domain</span>
+          <div class="upsell-item-name">Domain management</div>
+          <div class="upsell-item-price">£20 / year</div>
         </div>
       </div>
     </section>
@@ -193,31 +321,102 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- CTA -->
     <section class="section" aria-labelledby="cta-s-heading">
       <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <h2 class="section-title" id="cta-s-heading">Seen enough?<br>Let's talk about your project.</h2>
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem">
-          <a href="brief.html" class="btn btn-primary">Submit a brief</a>
+        <h2 class="section-title" id="cta-s-heading">Ready to own your site?</h2>
+        <p class="section-intro" style="margin-bottom:2rem">Tell me about your project. I'll reply within 48 hours with a fixed quote and timeline.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
+          <a href="pricing.html" class="btn btn-outline">See pricing — from £149</a>
         </div>
       </div>
     </section>
 
   </div>
+
+<!-- ── FAQ ── -->
+<section class="section" aria-labelledby="faq-services-heading" id="faq">
+  <div class="content-wrapper">
+    <span class="section-label">Common questions</span>
+    <h2 class="section-title" id="faq-services-heading">Frequently asked</h2>
+
+    <div class="faq-list" x-data="{ open: null }">
+
+      <div class="faq-item">
+        <button class="faq-q" @click="open === 1 ? open = null : open = 1" :aria-expanded="String(open === 1)" aria-controls="faq-a-1">
+          What does "hand-coded" mean for my website?
+        </button>
+        <div class="faq-a" id="faq-a-1" x-show="open === 1" x-collapse>
+          <p>Every GitFoundry website is written line by line in plain HTML, CSS, and JavaScript — no WordPress, no Squarespace, no page builders, no themes. Your site is built specifically for you, from scratch. There is no CMS to update, no plugin vulnerabilities, and no platform that can change its pricing or break your site during an update.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" @click="open === 2 ? open = null : open = 2" :aria-expanded="String(open === 2)" aria-controls="faq-a-2">
+          Why don't you use WordPress or a website builder?
+        </button>
+        <div class="faq-a" id="faq-a-2" x-show="open === 2" x-collapse>
+          <p>WordPress requires ongoing maintenance — security updates, plugin updates, and a paid hosting plan. Website builders like Squarespace and Wix charge a monthly subscription that adds up to hundreds of pounds per year. A hand-coded static site has none of these costs: it is just files, served instantly, from a free host. You pay once and own it forever.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" @click="open === 3 ? open = null : open = 3" :aria-expanded="String(open === 3)" aria-controls="faq-a-3">
+          How long does a website take to build?
+        </button>
+        <div class="faq-a" id="faq-a-3" x-show="open === 3" x-collapse>
+          <p>A Foundry single-page site can be live in as few as 3 working days from receiving your brief. A Precision multi-page site typically takes 7 working days. The exact timeline is agreed and fixed in your quote before any work begins.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" @click="open === 4 ? open = null : open = 4" :aria-expanded="String(open === 4)" aria-controls="faq-a-4">
+          What's included after my site goes live?
+        </button>
+        <div class="faq-a" id="faq-a-4" x-show="open === 4" x-collapse>
+          <p>On delivery, the full source code is transferred to your own GitHub account. That is the end of GitFoundry's involvement — you own the site completely. If you need changes later, you can make them yourself (the code is plain HTML), ask any developer in the world, or commission GitFoundry for a separate update at an agreed rate.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" @click="open === 5 ? open = null : open = 5" :aria-expanded="String(open === 5)" aria-controls="faq-a-5">
+          Can I update the website myself after launch?
+        </button>
+        <div class="faq-a" id="faq-a-5" x-show="open === 5" x-collapse>
+          <p>Yes. The code is plain HTML and CSS — if you are comfortable editing a document, you can edit your site. Changes are made directly in the GitHub repository. No admin panel to learn, no plugin to install, no hosting dashboard to navigate. The file is the website.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" @click="open === 6 ? open = null : open = 6" :aria-expanded="String(open === 6)" aria-controls="faq-a-6">
+          What if I need more pages later?
+        </button>
+        <div class="faq-a" id="faq-a-6" x-show="open === 6" x-collapse>
+          <p>Additional pages can be quoted separately. Because the codebase is yours and the structure is clean, adding a page is straightforward — either for you or for any developer. There is no platform to upgrade, no tier to unlock, and no permission to ask.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 </main>
 
+<!-- FOOTER — standardised across all pages -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="brief.html">Brief</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
 </footer>
 
+<!-- Cookie Banner -->
 <div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
   <div class="cookie-inner">
     <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
@@ -228,24 +427,164 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<script>
-function site() {
-  return {
-    theme: localStorage.getItem('gf-theme') || 'night',
-    drawerOpen: false,
-    cookieVisible: false,
-    init() {
-      document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
-    },
-    toggleTheme() {
-      this.theme = this.theme === 'night' ? 'day' : 'night';
-      localStorage.setItem('gf-theme', this.theme);
-    },
-    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
-    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
-  };
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Services — GitFoundry",
+  "url": "https://gitfoundry.co.uk/services.html",
+  "description": "Web design services for UK small businesses and self-employed professionals. One-time payment, no monthly fees.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://gitfoundry.co.uk/services.html" }
+    ]
+  }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Web Design",
+  "name": "Affordable Website Design for UK Small Businesses",
+  "description": "Custom-built static websites hosted free on GitHub Pages. One-time payment, no monthly fees, full source code ownership. Serving sole traders, tradespeople, freelancers, and small businesses across the UK.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "GBP",
+    "lowPrice": "149",
+    "highPrice": "749",
+    "offerCount": "3"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Foundry — Single-Page Website",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Web Design",
+  "description": "A focused, single-purpose hand-coded website for sole traders and small businesses who need a clean online presence. Delivered in as few as 3 working days, hosted free on GitHub Pages.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "Offer",
+    "price": "149",
+    "priceCurrency": "GBP",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "149",
+      "priceCurrency": "GBP",
+      "description": "One-time payment, no recurring fees"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Precision — Multi-Page Website",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Web Design",
+  "description": "A multi-page hand-coded website with up to 5 pages, a contact form, and a journal section. Typically delivered in 7 working days, hosted free on GitHub Pages.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "Offer",
+    "price": "399",
+    "priceCurrency": "GBP",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "399",
+      "priceCurrency": "GBP",
+      "description": "One-time payment, no recurring fees"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Bespoke — Custom Build",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Web Design",
+  "description": "A fully custom hand-coded website with no scope constraints. Pricing and timeline agreed at brief stage. Full source code ownership on delivery.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "Offer",
+    "price": "749",
+    "priceCurrency": "GBP",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "749",
+      "priceCurrency": "GBP",
+      "description": "Starting price, one-time payment, no recurring fees"
+    }
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does \"hand-coded\" mean for my website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every GitFoundry website is written line by line in plain HTML, CSS, and JavaScript — no WordPress, no Squarespace, no page builders, no themes. Your site is built specifically for you, from scratch. There is no CMS to update, no plugin vulnerabilities, and no platform that can change its pricing or break your site during an update."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why don't you use WordPress or a website builder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WordPress requires ongoing maintenance — security updates, plugin updates, and a paid hosting plan. Website builders like Squarespace and Wix charge a monthly subscription that adds up to hundreds of pounds per year. A hand-coded static site has none of these costs: it is just files, served instantly, from a free host. You pay once and own it forever."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a website take to build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Foundry single-page site can be live in as few as 3 working days from receiving your brief. A Precision multi-page site typically takes 7 working days. The exact timeline is agreed and fixed in your quote before any work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included after my site goes live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On delivery, the full source code is transferred to your own GitHub account. That is the end of GitFoundry's involvement — you own the site completely. If you need changes later, you can make them yourself (the code is plain HTML), ask any developer in the world, or commission GitFoundry for a separate update at an agreed rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I update the website myself after launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The code is plain HTML and CSS — if you are comfortable editing a document, you can edit your site. Changes are made directly in the GitHub repository. No admin panel to learn, no plugin to install, no hosting dashboard to navigate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I need more pages later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Additional pages can be quoted separately. Because the codebase is yours and the structure is clean, adding a page is straightforward — either for you or for any developer. There is no platform to upgrade, no tier to unlock, and no permission to ask."
+      }
+    }
+  ]
+}
+</script>
+
 </body>
 </html>

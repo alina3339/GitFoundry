@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legal - GitFoundry · Privacy, Terms &amp; Cookies</title>
 <meta name="description" content="GitFoundry's privacy policy, terms of service, and cookie policy. A UK studio supporting local businesses.">
@@ -16,14 +17,10 @@
 <meta name="twitter:title" content="Legal - GitFoundry">
 <meta name="twitter:description" content="Privacy policy, terms of service, and cookie policy.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
+<meta name="twitter:image:alt" content="GitFoundry — precision-built websites, zero hosting fees">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P72JB657');</script>
-<!-- End Google Tag Manager -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,15 +28,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
 <body x-data="site()" :data-theme="theme">
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -50,10 +44,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="brief.html"   class="nav-item nav-cta">Get a quote</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
-      <span x-text="theme==='night'?'☀':'☾'"></span>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
     </button>
     <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-l" aria-label="Toggle navigation">
       <span x-text="drawerOpen?'✕':'≡'"></span>
@@ -65,13 +60,120 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="brief.html"   class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+  <a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
 </div>
 
 <main id="main">
   <div class="content-wrapper">
 
     <header class="page-header">
+      <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+  <!--
+    GitFoundry Vitruvian Geometric — Continuous Orbital Motion
+    Concentric circles stay still (rotation invisible on a circle), but the
+    inscribed square + diagonals + tick layers rotate at different speeds.
+    Comet arcs sweep around. Whole composition breathes gently.
+  -->
+  <style>
+    .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
+    .spin  { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .s1 { animation-name: spin;     animation-duration: 18s; }
+    .s2 { animation-name: spin-rev; animation-duration: 26s; }
+    .s3 { animation-name: spin;     animation-duration: 12s; }
+    .s4 { animation-name: spin-rev; animation-duration: 9s;  }
+    .s5 { animation-name: spin;     animation-duration: 40s; }
+
+    @keyframes spin     { to { transform: rotate(360deg); } }
+    @keyframes spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.008); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .spin { animation: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="comet" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#f4efe5" stop-opacity="0.05"/>
+      <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <g class="stage">
+    <g stroke="#f4efe5" fill="none">
+
+      <!-- Static concentric circles (rotation is invisible on a circle) -->
+      <circle cx="300" cy="300" r="285" stroke-width="0.7"/>
+      <circle cx="300" cy="300" r="176" stroke-width="0.55"/>
+      <circle cx="300" cy="300" r="109" stroke-width="0.45"/>
+      <circle cx="300" cy="300" r="67"  stroke-width="0.35"/>
+      <circle cx="300" cy="300" r="41"  stroke-width="0.3"/>
+
+      <!-- Inscribed square + diagonals — slow rotation -->
+      <g class="spin s5">
+        <rect x="87" y="87" width="426" height="426" stroke-width="0.55"/>
+        <line x1="87"  y1="87"  x2="513" y2="513" stroke-width="0.35"/>
+        <line x1="513" y1="87"  x2="87"  y2="513" stroke-width="0.35"/>
+      </g>
+
+      <!-- Tick ring around r=176 — counter-rotating -->
+      <g class="spin s2">
+        <line x1="124" y1="295" x2="124" y2="305" stroke-width="0.6"/>
+        <line x1="176" y1="295" x2="176" y2="305" stroke-width="0.6"/>
+        <line x1="424" y1="295" x2="424" y2="305" stroke-width="0.6"/>
+        <line x1="476" y1="295" x2="476" y2="305" stroke-width="0.6"/>
+        <line x1="295" y1="124" x2="305" y2="124" stroke-width="0.6"/>
+        <line x1="295" y1="176" x2="305" y2="176" stroke-width="0.6"/>
+        <line x1="295" y1="424" x2="305" y2="424" stroke-width="0.6"/>
+        <line x1="295" y1="476" x2="305" y2="476" stroke-width="0.6"/>
+      </g>
+
+      <!-- Principal axes — rotate slowly -->
+      <g class="spin s1" opacity="0.7">
+        <line x1="5"   y1="300" x2="595" y2="300" stroke-width="0.6"/>
+        <line x1="300" y1="5"   x2="300" y2="595" stroke-width="0.6"/>
+      </g>
+
+      <!-- Comet sweep on outer circle -->
+      <g class="spin s3">
+        <circle cx="300" cy="300" r="285" stroke="url(#comet)" stroke-width="2" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="320 680"/>
+        <circle cx="585" cy="300" r="2.4" fill="#f4efe5"/>
+      </g>
+
+      <!-- Faster inner comet on r=176 -->
+      <g class="spin s4">
+        <circle cx="300" cy="300" r="176" stroke="#f4efe5" stroke-width="0.9"
+                pathLength="1000" stroke-dasharray="50 950" stroke-linecap="round" opacity="0.7"/>
+        <circle cx="476" cy="300" r="1.6" fill="#f4efe5"/>
+      </g>
+
+      <!-- Centre crosshair — static, sharp -->
+      <circle cx="300" cy="300" r="4" stroke-width="1.2"/>
+      <line x1="290" y1="300" x2="310" y2="300" stroke-width="1.2"/>
+      <line x1="300" y1="290" x2="300" y2="310" stroke-width="1.2"/>
+
+      <!-- Corner registration marks — static frame of reference -->
+      <g stroke-width="1">
+        <line x1="10"  y1="10"  x2="40"  y2="10"/>
+        <line x1="10"  y1="10"  x2="10"  y2="40"/>
+        <line x1="590" y1="10"  x2="560" y2="10"/>
+        <line x1="590" y1="10"  x2="590" y2="40"/>
+        <line x1="10"  y1="590" x2="40"  y2="590"/>
+        <line x1="10"  y1="590" x2="10"  y2="560"/>
+        <line x1="590" y1="590" x2="560" y2="590"/>
+        <line x1="590" y1="590" x2="590" y2="560"/>
+      </g>
+
+    </g>
+  </g>
+</svg>
       <span class="page-header-label">Legal</span>
       <h1 class="page-header-title">Privacy, terms &amp; cookies.</h1>
       <p class="page-header-desc">The legal documents that govern GitFoundry's services. Written in plain English wherever possible.</p>
@@ -146,16 +248,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+<!-- FOOTER — standardised across all pages -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="brief.html">Brief</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
@@ -171,24 +275,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<script>
-function site() {
-  return {
-    theme: localStorage.getItem('gf-theme') || 'night',
-    drawerOpen: false,
-    cookieVisible: false,
-    init() {
-      document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
-    },
-    toggleTheme() {
-      this.theme = this.theme === 'night' ? 'day' : 'night';
-      localStorage.setItem('gf-theme', this.theme);
-    },
-    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
-    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
-  };
-}
-</script>
+
 </body>
 </html>

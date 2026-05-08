@@ -1,143 +1,431 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GitFoundry — Review Canvas</title>
-<style>
-  html,body { margin:0; padding:0; height:100%; background:#f0eee9; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; }
-  #root { height:100vh; }
+<meta name="robots" content="noindex, nofollow">
+<title>Review canvas — GitFoundry (private)</title>
 
-  /* artboard inner frame wrapper */
-  .ab-frame {
-    width:100%; height:100%;
-    background:#0f0d0b;
-    border-radius:2px;
-    overflow:hidden;
-    position:relative;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap">
+
+<style>
+  /* Tokens kept inline (no styles.css dependency to avoid cascade conflicts
+     with the iframe pages), but values synced to the canonical night palette
+     in styles.css :root. Update both files together if the palette shifts. */
+  :root {
+    --bg: #080f24;
+    --surface: #0d1632;
+    --border: rgba(255,255,255,0.07);
+    --border-strong: rgba(255,255,255,0.14);
+    --text: #ece8df;
+    --text-soft: #b2ac9e;
+    --text-muted: #8a8272;
+    --accent: #c9a84c;
+    --accent-dim: rgba(201,168,76,0.08);
+    --serif: 'Fraunces', 'Georgia', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
   }
-  .ab-frame iframe {
-    width:100%; height:100%;
-    border:0; display:block;
-    background:#0f0d0b;
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    overflow: hidden;
   }
-  /* quick-open link overlay in the corner */
-  .ab-open {
-    position:absolute;
-    top:8px; right:8px;
-    z-index:2;
-    background:rgba(15,13,11,0.78);
-    color:#e8e3dc;
-    font:500 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    padding:6px 9px;
-    border-radius:3px;
-    text-decoration:none;
-    backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,0.08);
-    transition: background .15s, color .15s;
+
+  .review {
+    display: grid;
+    /* 4 rows for 4 children — header, tabs, desc, stage. The stage takes
+       remaining space so the iframe inside (position:absolute) has a
+       non-zero parent to fill. Earlier 3-row template collapsed the stage. */
+    grid-template-rows: auto auto auto 1fr;
+    height: 100vh;
   }
-  .ab-open:hover { background:#c96442; color:#fff; }
+
+  /* ── HEADER ─────────────────────────────── */
+  .review-header {
+    padding: 1.25rem 2rem 1.1rem;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface) 0%, rgba(15,23,48,0) 100%);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .review-brand {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .review-brand-name {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+  .review-brand-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .review-brand-divider {
+    width: 1px;
+    height: 14px;
+    background: var(--border-strong);
+    align-self: center;
+  }
+  .review-brand-tag {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .review-meta {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: right;
+  }
+  .review-meta strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── TABS ─────────────────────────────── */
+  .review-tabs {
+    display: flex;
+    gap: 0;
+    padding: 0 2rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .review-tabs::-webkit-scrollbar { display: none; }
+
+  .review-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 1rem 1.4rem 1.1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.18s, border-color 0.18s, background 0.18s;
+    font-family: inherit;
+    flex: 0 0 auto;
+    min-width: 180px;
+    position: relative;
+  }
+  .review-tab:hover { color: var(--text-soft); background: rgba(255,255,255,0.02); }
+  .review-tab.is-active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
+
+  .review-tab-num {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .review-tab.is-active .review-tab-num { color: var(--accent); }
+
+  .review-tab-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .review-tab-side {
+    margin-left: auto;
+    padding: 1rem 0.5rem 1.1rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 0 0 auto;
+  }
+
+  .review-action {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.55rem 0.9rem;
+    background: transparent;
+    color: var(--text-soft);
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.18s;
+    font-weight: 400;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .review-action:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ── DESCRIPTION STRIP ─────────────────────────────── */
+  .review-desc {
+    padding: 1rem 2rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 64px;
+  }
+  .review-desc-label {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    flex: 0 0 auto;
+  }
+  .review-desc-text {
+    color: var(--text-soft);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    max-width: 92ch;
+  }
+  .review-desc-text strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ── STAGE ─────────────────────────────── */
+  .review-stage {
+    position: relative;
+    background: #0a0f20;
+    overflow: hidden;
+  }
+  .review-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: var(--bg);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .review-frame.is-active { opacity: 1; z-index: 1; }
+  .review-frame.is-loaded { opacity: 1; }
+
+  /* ── LOADER ─────────────────────────────── */
+  .review-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .review-loader-mark {
+    width: 64px;
+    height: 64px;
+    background: url('vitruvian.svg') center/contain no-repeat;
+    opacity: 0.35;
+    animation: spin 12s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── KEYBOARD HINT ─────────────────────────────── */
+  .review-hint {
+    position: fixed;
+    bottom: 14px;
+    right: 16px;
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(8,15,36,0.7);
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    backdrop-filter: blur(8px);
+    z-index: 5;
+    pointer-events: none;
+  }
+  .review-hint kbd {
+    font-family: inherit;
+    background: var(--accent-dim);
+    color: var(--accent);
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin: 0 2px;
+    border: 1px solid rgba(201,168,76,0.25);
+  }
+
+  @media (max-width: 720px) {
+    .review-tab { min-width: 140px; padding: 0.85rem 1rem 1rem; }
+    .review-header { padding: 1rem 1.25rem; }
+    .review-tabs { padding: 0 1.25rem; }
+    .review-desc { padding: 0.85rem 1.25rem; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+    .review-tab-side { display: none; }
+    .review-hint { display: none; }
+  }
 </style>
 </head>
+
 <body>
 
-<div id="root"></div>
+<div class="review">
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
-<script type="text/babel" src="design-canvas.jsx"></script>
-
-<script type="text/babel">
-  const Frame = ({ src }) => (
-    <div className="ab-frame">
-      <a className="ab-open" href={src} target="_blank" rel="noopener">Open ↗</a>
-      <iframe src={src} loading="lazy" title={src}></iframe>
+  <header class="review-header">
+    <div class="review-brand">
+      <span class="review-brand-name">Git<em>Foundry</em></span>
+      <span class="review-brand-divider"></span>
+      <span class="review-brand-tag">Review · Four tracks</span>
     </div>
-  );
+    <div class="review-meta">
+      Round <strong>01</strong> &nbsp;·&nbsp; May 2026
+    </div>
+  </header>
 
-  // Laptop-ish aspect ratios so the site sections read correctly.
-  const W = 1280;
-  const H = 860;
+  <nav class="review-tabs" role="tablist" aria-label="Track selection">
+    <button class="review-tab" role="tab" data-track="t2" aria-selected="false">
+      <span class="review-tab-num">Track 02</span>
+      <span class="review-tab-title">Portfolio — Will4Life case</span>
+    </button>
+    <button class="review-tab" role="tab" data-track="t1" aria-selected="false">
+      <span class="review-tab-num">Track 01</span>
+      <span class="review-tab-title">Home — hero & globe</span>
+    </button>
+    <button class="review-tab" role="tab" data-track="t3" aria-selected="false">
+      <span class="review-tab-num">Track 03</span>
+      <span class="review-tab-title">Type Lab — 18 presets</span>
+    </button>
+    <button class="review-tab" role="tab" data-track="t4" aria-selected="false">
+      <span class="review-tab-num">Track 04</span>
+      <span class="review-tab-title">Vitruvian motif library</span>
+    </button>
+    <button class="review-tab" role="tab" data-track="t5" aria-selected="false">
+      <span class="review-tab-num">Track 05</span>
+      <span class="review-tab-title">Vitruvian — alternate view</span>
+    </button>
 
-  // A taller frame for the "full site" Vitruvian system page.
-  const Hx = 1400;
+    <div class="review-tab-side">
+      <a class="review-action" id="action-open" href="#" target="_blank" rel="noopener">Open in tab ↗</a>
+    </div>
+  </nav>
 
-  // Baseline page for comparison.
-  const Baseline = () => <Frame src="index-original.html" />;
+  <div class="review-desc" id="review-desc">
+    <span class="review-desc-label">◆ Track</span>
+    <p class="review-desc-text" id="review-desc-text">—</p>
+  </div>
 
-  const App = () => (
-    <DesignCanvas>
-      <DCSection
-        id="baseline"
-        title="00 · Baseline"
-        subtitle="The site as it stands today — the starting point for every track below."
-      >
-        <DCArtboard id="home" label="Current home page" width={W} height={H}>
-          <Frame src="index-original.html" />
-        </DCArtboard>
-        <DCArtboard id="portfolio" label="Current portfolio" width={W} height={H}>
-          <Frame src="portfolio-original.html" />
-        </DCArtboard>
-        <DCArtboard id="typelab" label="Current type lab" width={W} height={H}>
-          <Frame src="type-lab-original.html" />
-        </DCArtboard>
-      </DCSection>
+  <div class="review-stage" id="review-stage">
+    <div class="review-loader" aria-hidden="true">
+      <div class="review-loader-mark"></div>
+    </div>
+    <iframe class="review-frame" data-track="t1" src="index.html" loading="lazy" title="Track 01 — Home"></iframe>
+    <iframe class="review-frame" data-track="t2" data-default src="portfolio.html" loading="eager" title="Track 02 — Portfolio"></iframe>
+    <iframe class="review-frame" data-track="t3" src="type-lab.html" loading="lazy" title="Track 03 — Type Lab"></iframe>
+    <iframe class="review-frame" data-track="t4" src="preview.html" loading="lazy" title="Track 04 — Vitruvian motifs"></iframe>
+    <iframe class="review-frame" data-track="t5" src="vitruvian preview.html" loading="lazy" title="Track 05 — Vitruvian alternate view"></iframe>
+  </div>
 
-      <DCSection
-        id="track-01"
-        title="Track 01 · Bigger spinning globe"
-        subtitle="Hero gets a 3× larger Vitruvian globe, bleeding off the right edge. Three placement options."
-      >
-        <DCArtboard id="globe" label="Enlarged globe hero" width={W} height={H}>
-          <Frame src="hero-bigger-globe.html" />
-        </DCArtboard>
-      </DCSection>
+</div>
 
-      <DCSection
-        id="track-02"
-        title="Track 02 · Will4Life case study"
-        subtitle="A full portfolio-detail page in the house style — brief, screens, results, testimonial."
-      >
-        <DCArtboard id="will4life" label="Will4Life — full case study" width={W} height={Hx}>
-          <Frame src="will4life-case-study.html" />
-        </DCArtboard>
-      </DCSection>
+<div class="review-hint">
+  <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><kbd>5</kbd> &nbsp;switch &nbsp;·&nbsp; <kbd>←</kbd><kbd>→</kbd> step
+</div>
 
-      <DCSection
-        id="track-03"
-        title="Track 03 · Type Lab — luxury / premium presets"
-        subtitle="Four new curated typographic pairings aimed at luxury, editorial and premium work."
-      >
-        <DCArtboard id="typelab-premium" label="Type Lab — premium presets" width={W} height={H}>
-          <Frame src="type-lab-premium.html" />
-        </DCArtboard>
-      </DCSection>
+<script>
+  const TRACKS = {
+    t1: {
+      label: 'Track 01 · Home',
+      desc: 'The live <strong>home page</strong> — restructured hero (trust strip above headline, clean CTA pair, price line beneath), audience chip strip linking to sectors, slim pricing bridge to the calculator, embedded testimonial. Spinning Vitruvian globe on the right, desktop-only.',
+      src: 'index.html'
+    },
+    t2: {
+      label: 'Track 02 · Portfolio',
+      desc: 'The live <strong>portfolio</strong> page — Will4Life case as the anchoring testimonial with image, alongside the project grid below. Canonical home for the full client quote.',
+      src: 'portfolio.html'
+    },
+    t3: {
+      label: 'Track 03 · Type Lab',
+      desc: 'The internal <strong>Type Lab</strong> with 18 presets total — six house presets (GitFoundry, Editorial, Brutalist, Monograph, Swiss, Magazine), six functional (Heritage, Manifesto, Boutique, Newsroom, Atelier, Noir), six luxury (Couture, Maison, Concierge, Onyx, Régence, Velour). Export drops straight into styles.css via the typography token contract.',
+      src: 'type-lab.html'
+    },
+    t4: {
+      label: 'Track 04 · Vitruvian',
+      desc: 'The <strong>Vitruvian motif library</strong> — the five geometric studies (orbital, golden, gear, flower, master) animated in continuous orbital motion. One geometric language available for hero placement, dividers, and signature marks.',
+      src: 'preview.html'
+    },
+    t5: {
+      label: 'Track 05 · Vitruvian (alt)',
+      desc: 'The <strong>alternate Vitruvian preview file</strong> — kept alongside Track 04 for backward-compat with existing references. Same composition, separate filename. Useful when you want to compare the same motif library in two contexts side by side.',
+      src: 'vitruvian preview.html'
+    }
+  };
 
-      <DCSection
-        id="track-04"
-        title="Track 04 · Vitruvian system"
-        subtitle="The five Vitruvian studies deployed across the site: dividers, stat-rail watermark, plaque cards, footer signature, page-to-motif legend."
-      >
-        <DCArtboard id="vitruvian" label="Vitruvian system — full page" width={W} height={Hx}>
-          <Frame src="vitruvian-system.html" />
-        </DCArtboard>
-      </DCSection>
+  const order = ['t2', 't1', 't3', 't4', 't5'];
 
-      <DCPostIt top={40} left={40} rotate={-2}>
-        Four tracks, one file each. Drag artboards to reorder; click any artboard header to focus it fullscreen (← / → / Esc).
-      </DCPostIt>
+  const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
-      <DCPostIt top={40} right={40} rotate={1.5} width={200}>
-        Each frame links out with the ↗ button in the corner — open in a fresh tab to poke at it.
-      </DCPostIt>
-    </DesignCanvas>
-  );
+  function activate(id) {
+    if (!TRACKS[id]) return;
+    $$('.review-tab').forEach(t => {
+      const on = t.dataset.track === id;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    $$('.review-frame').forEach(f => {
+      f.classList.toggle('is-active', f.dataset.track === id);
+    });
+    $('#review-desc-text').innerHTML = TRACKS[id].desc;
+    $('#action-open').href = TRACKS[id].src;
+    history.replaceState(null, '', '#' + id);
+  }
 
-  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  $$('.review-tab').forEach(tab => {
+    tab.addEventListener('click', () => activate(tab.dataset.track));
+  });
+
+  // Keyboard: 1–4, ← →
+  document.addEventListener('keydown', (e) => {
+    if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
+    const num = { '1':'t1', '2':'t2', '3':'t3', '4':'t4', '5':'t5' }[e.key];
+    if (num) { activate(num); return; }
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      const cur = $$('.review-tab').find(t => t.classList.contains('is-active'));
+      if (!cur) return;
+      const i = order.indexOf(cur.dataset.track);
+      const next = order[(i + (e.key === 'ArrowRight' ? 1 : -1) + order.length) % order.length];
+      activate(next);
+    }
+  });
+
+  // Initial: hash, else default
+  const fromHash = location.hash.replace('#','');
+  activate(TRACKS[fromHash] ? fromHash : 't2');
 </script>
 
 </body>

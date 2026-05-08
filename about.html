@@ -1,29 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About · GitFoundry</title>
-<meta name="description" content="GitFoundry is a one-person UK web studio. Hand-coded static sites, no ongoing fees, full client ownership.">
+<title>About - GitFoundry · A UK Studio Supporting Local Business</title>
+<meta name="description" content="GitFoundry is a small UK studio helping local businesses get online without monthly fees. Websites built once, owned outright, hosted free forever.">
 <link rel="canonical" href="https://gitfoundry.co.uk/about.html">
-<meta property="og:title" content="About · GitFoundry">
-<meta property="og:description" content="A one-person UK web studio. Hand-coded static sites, no ongoing fees, full client ownership.">
+<meta property="og:title" content="About - GitFoundry">
+<meta property="og:description" content="A small UK studio helping local businesses get online — without the monthly bill.">
 <meta property="og:url" content="https://gitfoundry.co.uk/about.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About · GitFoundry">
-<meta name="twitter:description" content="A one-person UK web studio. Hand-coded static sites, no ongoing fees, full client ownership.">
+<meta name="twitter:title" content="About - GitFoundry">
+<meta name="twitter:description" content="A small UK studio helping local businesses get online — without the monthly bill.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P72JB657');</script>
-<!-- End Google Tag Manager -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,19 +26,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
 <body x-data="site()" :data-theme="theme">
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<script>
+  (function () {
+    const months = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+    const now = new Date();
+    const current = months[now.getMonth()];
+    const next = months[(now.getMonth() + 1) % 12];
+    const el = document.getElementById('gf-booking-months');
+    if (el) el.textContent = current + '–' + next;
+  })();
+</script>
+
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
+<!-- NAV -->
 <nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
     <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
@@ -51,10 +61,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
-      <span x-text="theme==='night'?'☀':'☾'"></span>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
     </button>
     <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-a" aria-label="Toggle navigation">
       <span x-text="drawerOpen?'✕':'≡'"></span>
@@ -62,81 +73,157 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
+<!-- Mobile drawer -->
 <div id="nav-drawer-a" class="nav-drawer" :class="drawerOpen?'open':''">
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+  <a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
 </div>
 
 <main id="main">
   <div class="content-wrapper">
 
-    <header class="page-header">
+   <header class="page-header">
+      <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+  <!--
+    GitFoundry Vitruvian — Flower of Life — Continuous Motion
+    The seed pattern rotates slowly. Hexagram counter-rotates inside.
+    Comet sweeps the boundary. Whole composition breathes.
+  -->
+  <style>
+    .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
+    .spin  { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .seed { animation-name: spin-rev; animation-duration: 50s; }
+    .hex  { animation-name: spin;     animation-duration: 35s; }
+    .star { animation-name: spin-rev; animation-duration: 22s; }
+    .comet1 { animation-name: spin;   animation-duration: 14s; }
+    .comet2 { animation-name: spin-rev; animation-duration: 9s; }
+
+    @keyframes spin     { to { transform: rotate(360deg); } }
+    @keyframes spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.008); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .spin { animation: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="comet-f" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#f4efe5" stop-opacity="0.05"/>
+      <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <g class="stage">
+    <g stroke="#f4efe5" fill="none">
+
+      <!-- Static boundary -->
+      <circle cx="300" cy="300" r="220" stroke-width="0.6"/>
+
+      <!-- Comet sweep on boundary -->
+      <g class="spin comet1">
+        <circle cx="300" cy="300" r="220" stroke="url(#comet-f)" stroke-width="1.8" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="280 720"/>
+        <circle cx="520" cy="300" r="2.2" fill="#f4efe5"/>
+      </g>
+
+      <!-- Seed of Life — 7 circles rotate as one unit -->
+      <g class="spin seed">
+        <circle cx="300" cy="300" r="110" stroke-width="0.5"/>
+        <circle cx="300" cy="190" r="110" stroke-width="0.45"/>
+        <circle cx="395" cy="245" r="110" stroke-width="0.45"/>
+        <circle cx="395" cy="355" r="110" stroke-width="0.45"/>
+        <circle cx="300" cy="410" r="110" stroke-width="0.45"/>
+        <circle cx="205" cy="355" r="110" stroke-width="0.45"/>
+        <circle cx="205" cy="245" r="110" stroke-width="0.45"/>
+        <!-- Hexagon sits in the same frame as the seed -->
+        <path d="M 300 190 L 395 245 L 395 355 L 300 410 L 205 355 L 205 245 Z" stroke-width="0.4"/>
+      </g>
+
+      <!-- Hexagram (star of David) — counter-rotating inside -->
+      <g class="spin star" opacity="0.85">
+        <path d="M 300 190 L 395 355 L 205 355 Z" stroke-width="0.3"/>
+        <path d="M 300 410 L 205 245 L 395 245 Z" stroke-width="0.3"/>
+      </g>
+
+      <!-- Inner comet -->
+      <g class="spin comet2" opacity="0.65">
+        <circle cx="300" cy="300" r="110" stroke="#f4efe5" stroke-width="0.8"
+                pathLength="1000" stroke-dasharray="40 960" stroke-linecap="round"/>
+        <circle cx="410" cy="300" r="1.5" fill="#f4efe5"/>
+      </g>
+
+      <!-- Static axes outside the bloom -->
+      <g class="spin hex" opacity="0.4">
+        <line x1="60"  y1="300" x2="540" y2="300" stroke-width="0.5"/>
+        <line x1="300" y1="60"  x2="300" y2="540" stroke-width="0.5"/>
+      </g>
+
+      <!-- Centre dot -->
+      <circle cx="300" cy="300" r="3" stroke-width="1"/>
+
+      <!-- Corner registration marks (static) -->
+      <g stroke-width="1">
+        <line x1="10"  y1="10"  x2="40"  y2="10"/>
+        <line x1="10"  y1="10"  x2="10"  y2="40"/>
+        <line x1="590" y1="10"  x2="560" y2="10"/>
+        <line x1="590" y1="10"  x2="590" y2="40"/>
+        <line x1="10"  y1="590" x2="40"  y2="590"/>
+        <line x1="10"  y1="590" x2="10"  y2="560"/>
+        <line x1="590" y1="590" x2="560" y2="590"/>
+        <line x1="590" y1="590" x2="590" y2="560"/>
+      </g>
+
+    </g>
+  </g>
+</svg>
       <span class="page-header-label">About</span>
-      <h1 class="page-header-title">The person behind the build.</h1>
-      <p class="page-header-desc">GitFoundry is not an agency. No account managers, no handoffs, no junior teams. Every site built by the same person from brief to handover.</p>
+      <h1 class="page-header-title">A developer in Stoke-on-Trent<br>building websites for local businesses.</h1>
+      <p class="page-header-desc">I'm Azhar — I design and build fast, professional websites for local businesses and independent professionals across the UK. One-time fee, full source code handover, no monthly bills. Ever.</p>
     </header>
 
     <!-- Who -->
     <section aria-labelledby="who-heading">
-      <span class="section-label">Who</span>
-      <h2 class="section-title" id="who-heading">Hi, I'm Azhar.<br>I design websites that you'll<br><em>still own in ten years.</em></h2>
+      <span class="section-label">Who I am</span>
+      <h2 class="section-title" id="who-heading">Hi — I'm Azhar.<br>I build websites for local businesses<br><em>without the monthly bill.</em></h2>
 
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
         <div class="item-row-label">Background</div>
         <div class="item-row-body">
-          Based in Stoke, Staffordshire. My background is in software and digital design, with a focus on quality, performance, and precision.
-          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">GitFoundry grew out of a straightforward frustration: most people building a professional presence online end up paying rent indefinitely for something they never truly own. I wanted to offer a better arrangement — for UK independents who deserve proper craft.</span>
+          I'm a developer and designer based in Stoke-on-Trent, Staffordshire. I've spent years working in software and digital design, and GitFoundry is my studio for applying that experience to the local businesses and independent professionals who need it most. I've built sites for businesses across multiple sectors — from physiotherapy practices and legal professionals to tradespeople and creative studios — and every one is still live, still fast, and still costing its owner nothing to host.
+          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">GitFoundry grew out of a straightforward frustration. Everywhere I looked, the same pattern: shops, trades, consultants, charities — paying Squarespace, Wix, or Webflow every month, often for years, for a website they'd never actually own. Local businesses have enough fixed costs. Their website shouldn't be another one.</span>
         </div>
       </div>
 
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">Why this</div>
         <div class="item-row-body">
-          Squarespace, Wix, Webflow — they all work. But they all charge you monthly, hold the assets, and reserve the right to change pricing or suspend your account.
-          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">What I offer is the alternative: a site designed from scratch, hosted free on GitHub Pages, and handed over to you in full. You own every file. There is no platform to abandon you.</span>
-        </div>
-      </div>
-
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Supporting local</div>
-        <div class="item-row-body">
-          <strong>UK independents, local businesses, and professionals</strong>
-          The UK high street is built on independent shops, studios, trades, and professional practices. They deserve web presences as considered as their work — not rented templates that look identical to everyone else's.
-        </div>
-      </div>
-
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">Location</div>
-        <div class="item-row-body">
-          Stoke, Staffordshire, UK.
-          <span style="display:block;margin-top:0.5rem;color:var(--text-muted);font-size:0.8125rem">I work with clients remotely across the country. The brief process is handled entirely online — no calls required unless you'd prefer one.</span>
+          There's no shortage of ways to build a website. Squarespace, Wix, Webflow — they all work. But they all charge you monthly, they all hold your assets, and they all reserve the right to change pricing, alter features, or suspend your account.
+          <span style="display:block;margin-top:0.75rem;color:var(--text-muted);font-size:0.8125rem">What I offer is the alternative. A site designed from scratch for your business, hosted free on GitHub Pages, and handed over to you in full. You own every file. No platform can abandon you. No monthly bill quietly eating into your margin. That's what supporting local business means to me — not a slogan on a homepage, but a pricing model that respects where your money goes.</span>
         </div>
       </div>
     </section>
 
     <hr class="section-divider" style="margin:4rem 0">
 
-    <!-- How the work is done -->
-    <section aria-labelledby="how-heading">
-      <span class="section-label">How the work is done</span>
-      <h2 class="section-title" id="how-heading">Methodical, not rushed.<br>Every site earns its handover.</h2>
-      <p class="section-intro" style="margin-bottom:2rem">A site isn't shown to a client because a deadline arrived. It's shown because it's ready.</p>
+    <!-- How we work -->
+    <section aria-labelledby="approach-heading" class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+      <span class="section-label">How I work</span>
+      <h2 class="section-title" id="approach-heading">Proper craft. One fair price.<br>A website that belongs to you.</h2>
 
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">The standard</div>
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-top:2rem">
+        <div class="item-row-label">The build</div>
         <div class="item-row-body">
-          <strong>Lighthouse audit on every project</strong>
-          Before any site is shared with a client, it passes a Google Lighthouse audit across all four metrics — performance, accessibility, best practices, and SEO. This is the threshold for handover, not a checkbox.
-        </div>
-      </div>
-
-      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <div class="item-row-label">The approach</div>
-        <div class="item-row-body">
-          <strong>Multiple iterations before you see anything</strong>
-          Layout, typography, contrast, responsiveness, and performance are all reviewed before a client's time is asked for.
+          <strong>Designed for your business, not a template</strong>
+          I start with a short brief, then design and build your site from scratch. No generic themes. No drag-and-drop builders with branded footers. Just a site that reflects what your business actually does, built to load fast on any connection — the slow mobile signal in a rural shop, the laptop in the café, the phone on the train.
         </div>
       </div>
 
@@ -144,44 +231,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="item-row-label">The handover</div>
         <div class="item-row-body">
           <strong>Full source code, not just a live URL</strong>
-          You receive the complete repository — every file, every commit. You can take it to another developer, edit it yourself, or leave it running on GitHub Pages indefinitely. No ongoing dependency on me.
+          You receive the complete repository — every file, every commit. You can take it to another developer, edit it yourself, or simply leave it running on GitHub Pages indefinitely. There is no ongoing dependency on me. That's the point.
         </div>
       </div>
 
       <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <div class="item-row-label">The relationship</div>
         <div class="item-row-body">
-          <strong>You deal with the person building your site</strong>
-          No account managers between us. When you ask a question, the person who answers is the same person designing and building your site.
+          <strong>You deal directly with me — the person designing and building your site</strong>
+          No account managers, no agency layers, no handoffs to a junior. When you ask a question, you get an answer from the person who actually built your site. That keeps decisions fast, communication honest, and quality consistent.
         </div>
       </div>
     </section>
 
     <hr class="section-divider" style="margin:4rem 0">
 
-    <!-- The guarantee -->
+    <!-- Client voice — short pull-quote; full testimonial + image live on portfolio.html -->
+    <section aria-labelledby="voice-heading" class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+      <span class="section-label">Client voice</span>
+      <p style="font-family:var(--serif);font-size:1.375rem;font-style:italic;font-weight:300;line-height:1.5;letter-spacing:-0.01em;color:var(--text);margin:1.5rem 0 1rem;max-width:680px">
+        "Azhar was quick in grasping my ideas and delivered a product much beyond my expectations."
+      </p>
+      <p style="font-family:var(--mono);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin:0">
+        Renjith Reghu &nbsp;·&nbsp; Founder, Will4Life &nbsp;·&nbsp;
+        <a href="portfolio.html" class="text-link">Read the full story →</a>
+      </p>
+    </section>
+
+    <hr class="section-divider" style="margin:4rem 0">
+
+    <!-- The standard -->
     <section aria-labelledby="standard-heading" class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
       <span class="section-label">The guarantee</span>
-      <h2 class="section-title" id="standard-heading">What every GitFoundry site ships with.</h2>
+      <h2 class="section-title" id="standard-heading">What every site<br>I build ships with.</h2>
 
       <div class="stat-strip-inner" style="margin-top:2rem">
-        <div class="stat-item"><span class="stat-num">97+</span><span class="stat-label">Performance</span></div>
-        <div class="stat-item"><span class="stat-num">100</span><span class="stat-label">Accessibility</span></div>
-        <div class="stat-item"><span class="stat-num">100</span><span class="stat-label">Best practices</span></div>
-        <div class="stat-item"><span class="stat-num">95+</span><span class="stat-label">SEO</span></div>
+        <div class="stat-item">
+          <span class="stat-num">97+</span>
+          <span class="stat-label">Performance</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100</span>
+          <span class="stat-label">Accessibility</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100</span>
+          <span class="stat-label">Best practices</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">95+</span>
+          <span class="stat-label">SEO</span>
+        </div>
       </div>
 
       <div class="callout" style="margin-top:1.5rem">
-        Lighthouse scores measured on completed GitFoundry sites, audited on mobile — the stricter standard. Exact scores vary by project complexity, but the standard holds.
+        In plain English: your site loads fast, works on any device, is readable by anyone including users with accessibility needs, and gives Google every reason to rank it. These are the scores I target on every project, measured on mobile — the stricter test. Every build is audited before handover.
       </div>
     </section>
 
     <!-- CTA -->
     <section class="section" aria-labelledby="cta-a-heading">
       <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
-        <h2 class="section-title" id="cta-a-heading">If that sounds like the right fit,<br>let's talk.</h2>
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem">
-          <a href="brief.html" class="btn btn-primary">Submit a brief</a>
+        <h2 class="section-title" id="cta-a-heading">Ready to get started?<br>Tell me about your project.</h2>
+        <p class="section-intro" style="margin-bottom:2rem">Fill in the short project brief and I'll reply within 48 hours with a fixed quote and timeline. No commitment required.</p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+          <a href="brief.html" class="btn btn-primary">Get my quote</a>
+          <a href="pricing.html" class="btn btn-outline">View pricing</a>
         </div>
       </div>
     </section>
@@ -189,21 +304,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+<!-- FOOTER — standardised across all pages -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="brief.html">Brief</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
 </footer>
 
+<!-- Cookie Banner -->
 <div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
   <div class="cookie-inner">
     <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
@@ -214,24 +332,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<script>
-function site() {
-  return {
-    theme: localStorage.getItem('gf-theme') || 'night',
-    drawerOpen: false,
-    cookieVisible: false,
-    init() {
-      document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About — GitFoundry",
+  "url": "https://gitfoundry.co.uk/about.html",
+  "description": "GitFoundry is a web design studio based in Stoke-on-Trent, UK. Founded by Azhar, building affordable websites for local businesses and independent professionals with no monthly fees.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://gitfoundry.co.uk/about.html" }
+    ]
+  },
+  "about": {
+    "@type": "Person",
+    "name": "Azhar",
+    "jobTitle": "Web Designer & Developer",
+    "worksFor": { "@type": "Organization", "name": "GitFoundry" },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Stoke-on-Trent",
+      "addressRegion": "Staffordshire",
+      "addressCountry": "GB"
     },
-    toggleTheme() {
-      this.theme = this.theme === 'night' ? 'day' : 'night';
-      localStorage.setItem('gf-theme', this.theme);
-    },
-    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
-    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
-  };
+    "email": "info@gitfoundry.co.uk",
+    "url": "https://gitfoundry.co.uk/about.html"
+  }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "GitFoundry",
+  "url": "https://gitfoundry.co.uk",
+  "logo": "https://gitfoundry.co.uk/favicon.svg",
+  "description": "UK web design studio building precision hand-coded websites for small businesses, sole traders, and charities. One-time payment from £149, hosted free on GitHub Pages, full source code ownership.",
+  "email": "info@gitfoundry.co.uk",
+  "foundingDate": "2024",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United Kingdom"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Stoke-on-Trent",
+    "addressRegion": "Staffordshire",
+    "addressCountry": "GB"
+  },
+  "sameAs": [
+    "https://github.com/gitfoundry"
+  ]
+}
+</script>
+
 </body>
 </html>

@@ -1,29 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing · GitFoundry</title>
-<meta name="description" content="Three packages: Landing £149, Professional £349, Bespoke £749+. One-time payment. No subscriptions.">
+<title>Pricing - GitFoundry · One-time Payment, Zero Monthly Fees</title>
+<meta name="description" content="Three tiers from £149 to £749+. One-time payment, full source code ownership, hosted free on GitHub Pages forever. Supporting local UK businesses.">
 <link rel="canonical" href="https://gitfoundry.co.uk/pricing.html">
-<meta property="og:title" content="Pricing · GitFoundry">
-<meta property="og:description" content="Three packages: Landing £149, Professional £349, Bespoke £749+. One-time payment. No subscriptions.">
+<meta property="og:title" content="Pricing - GitFoundry">
+<meta property="og:description" content="Three tiers from £149. One-time payment, full source code ownership, free GitHub Pages hosting forever.">
 <meta property="og:url" content="https://gitfoundry.co.uk/pricing.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://gitfoundry.co.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pricing · GitFoundry">
-<meta name="twitter:description" content="Three packages: Landing £149, Professional £349, Bespoke £749+. One-time payment. No subscriptions.">
+<meta name="twitter:title" content="Pricing - GitFoundry">
+<meta name="twitter:description" content="Three tiers from £149. One-time payment, zero monthly fees.">
 <meta name="twitter:image" content="https://gitfoundry.co.uk/og-image.png">
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P72JB657');</script>
-<!-- End Google Tag Manager -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,16 +26,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.14.1/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
 <body x-data="site()" :data-theme="theme">
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- Projects Banner -->
+<div class="construction-banner">
+  <span>Now taking new projects</span> — <strong>limited availability each month.</strong>
+</div>
+
+<script>
+  (function () {
+    const months = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+    const now = new Date();
+    const current = months[now.getMonth()];
+    const next = months[(now.getMonth() + 1) % 12];
+    const el = document.getElementById('gf-booking-months');
+    if (el) el.textContent = current + '–' + next;
+  })();
+</script>
+
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -51,10 +60,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item active">Pricing</a></li>
       <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
-      <li><a href="brief.html"     class="nav-item nav-cta">Get a quote</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
     </ul>
     <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
-      <span x-text="theme==='night'?'☀':'☾'"></span>
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
     </button>
     <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-p" aria-label="Toggle navigation">
       <span x-text="drawerOpen?'✕':'≡'"></span>
@@ -62,26 +72,156 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </nav>
 
+<!-- Mobile drawer -->
 <div id="nav-drawer-p" class="nav-drawer" :class="drawerOpen?'open':''">
   <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
   <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
   <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
-  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get a quote</a>
+  <a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
 </div>
 
 <main id="main">
   <div class="content-wrapper">
 
     <header class="page-header">
+      <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+  <!--
+    GitFoundry Vitruvian — Golden Ratio — v3
+    Mathematically correct φ-rectangle (480 × 480/φ) with properly nested
+    squares and continuous Fibonacci spiral converging on the eye.
+    Spiral and rectangle stay anchored. Comets orbit the figure centre.
+  -->
+  <style>
+    .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
+    .orbit { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .o1 { animation-name: spin;     animation-duration: 14s; }
+    .o2 { animation-name: spin-rev; animation-duration: 22s; }
+    .satellite { transform-origin: 426.69px 361.77px; animation: spin 9s linear infinite; will-change: transform; }
+    .grid-shimmer { animation: shimmer 5s ease-in-out infinite; }
+    .eye-pulse { transform-origin: center; transform-box: fill-box; animation: pulse 3s ease-in-out infinite; }
+    .eye-ring  { transform-origin: center; transform-box: fill-box; animation: ring-pulse 3s ease-in-out infinite; }
+
+    @keyframes spin     { to { transform: rotate(360deg);  } }
+    @keyframes spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1);     }
+      50%      { transform: scale(1.008); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);   opacity: 1;   }
+      50%      { transform: scale(1.6); opacity: 0.4; }
+    }
+    @keyframes ring-pulse {
+      0%, 100% { transform: scale(1);   opacity: 0.7; }
+      50%      { transform: scale(1.3); opacity: 0.2; }
+    }
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.55; }
+      50%      { opacity: 0.25; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .orbit, .satellite, .grid-shimmer, .eye-pulse, .eye-ring { animation: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="comet-gold-a" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#f4efe5" stop-opacity="0.05"/>
+      <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="comet-gold-b" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="80%"  stop-color="#f4efe5" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <g class="stage">
+    <g stroke="#f4efe5" fill="none">
+
+      <!-- Golden rectangle (480 × 480/φ ≈ 297) -->
+      <rect x="60.0" y="151.67" width="480.0" height="296.66" stroke-width="0.55"/>
+
+      <!-- Phi subdivisions — one line per square boundary, shimmering -->
+      <g class="grid-shimmer">
+        <line x1="356.66" y1="151.67" x2="356.66" y2="448.33" stroke-width="0.45"/>
+        <line x1="356.66" y1="335.02" x2="540.00" y2="335.02" stroke-width="0.41"/>
+        <line x1="426.69" y1="335.02" x2="426.69" y2="448.33" stroke-width="0.37"/>
+        <line x1="356.66" y1="378.30" x2="426.69" y2="378.30" stroke-width="0.33"/>
+        <line x1="399.94" y1="335.02" x2="399.94" y2="378.30" stroke-width="0.29"/>
+      </g>
+
+      <!-- Measurement ticks on the golden ratio split (at φ along width) -->
+      <line x1="356.66" y1="448.33" x2="356.66" y2="458.33" stroke-width="0.5"/>
+      <line x1="60.0" y1="454.33" x2="356.66" y2="454.33" stroke-width="0.3"/>
+      <line x1="356.66" y1="454.33" x2="540.0" y2="454.33" stroke-width="0.3"/>
+
+      <!-- Static Fibonacci spiral -->
+      <path d="M 60.00 448.33 A 296.66 296.66 0 0 1 356.66 151.67" stroke-width="0.70"/>
+      <path d="M 356.66 151.67 A 183.34 183.34 0 0 1 540.00 335.02" stroke-width="0.64"/>
+      <path d="M 540.00 335.02 A 113.31 113.31 0 0 1 426.69 448.33" stroke-width="0.58"/>
+      <path d="M 426.69 448.33 A 70.03 70.03 0 0 1 356.66 378.30" stroke-width="0.52"/>
+      <path d="M 356.66 378.30 A 43.28 43.28 0 0 1 399.94 335.02" stroke-width="0.46"/>
+      <path d="M 399.94 335.02 A 26.75 26.75 0 0 1 426.69 361.77" stroke-width="0.40"/>
+
+      <!-- Outer comet -->
+      <g class="orbit o1">
+        <circle cx="300.00" cy="300.00" r="280" stroke="url(#comet-gold-a)" stroke-width="1.8" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="280 720"/>
+        <circle cx="580.00" cy="300.00" r="2.2" fill="#f4efe5"/>
+      </g>
+
+      <!-- Counter-rotating mid comet -->
+      <g class="orbit o2">
+        <circle cx="300.00" cy="300.00" r="245" stroke="url(#comet-gold-b)" stroke-width="1" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="80 920" opacity="0.6"/>
+        <circle cx="545.00" cy="300.00" r="1.5" fill="#f4efe5" opacity="0.8"/>
+      </g>
+
+      <!-- Satellite circling the eye -->
+      <g class="satellite">
+        <circle cx="456.69" cy="361.77" r="1.4" fill="#f4efe5" opacity="0.85"/>
+      </g>
+
+      <!-- The eye — pulses at the spiral's true convergence point -->
+      <circle class="eye-ring"  cx="426.69" cy="361.77" r="8" stroke-width="0.35"/>
+      <circle class="eye-pulse" cx="426.69" cy="361.77" r="2" stroke-width="0.8" fill="#f4efe5"/>
+
+      <!-- Corner registration marks -->
+      <g stroke-width="1">
+        <line x1="10"  y1="10"  x2="40"  y2="10"/>
+        <line x1="10"  y1="10"  x2="10"  y2="40"/>
+        <line x1="590" y1="10"  x2="560" y2="10"/>
+        <line x1="590" y1="10"  x2="590" y2="40"/>
+        <line x1="10"  y1="590" x2="40"  y2="590"/>
+        <line x1="10"  y1="590" x2="10"  y2="560"/>
+        <line x1="590" y1="590" x2="560" y2="590"/>
+        <line x1="590" y1="590" x2="590" y2="560"/>
+      </g>
+
+    </g>
+  </g>
+</svg>
       <span class="page-header-label">Pricing</span>
       <h1 class="page-header-title">One-time payment.<br>No monthly fees, ever.</h1>
-      <p class="page-header-desc">Three tiers to match your project's scope. All include GitHub Pages deployment, full source code, and custom domain setup.</p>
+      <p class="page-header-desc">Precision-built websites on GitHub Pages. One-time fee — full source code handover. Three tiers to match your project's scope, all-inclusive of deployment, source code, and custom domain setup.</p>
     </header>
 
-    <!-- Pricing tiers — canonical source of truth -->
+    <!-- Pricing cards -->
     <section aria-labelledby="tiers-heading">
       <h2 class="section-title" id="tiers-heading" style="margin-bottom:0.5rem">Choose your tier</h2>
       <p class="section-intro">All prices include VAT. No hidden fees, no renewal costs.</p>
+
+      <div class="callout a-reveal" x-intersect:enter.once="$el.classList.add('shown')" style="margin-bottom:2rem">
+        <p style="font-family:var(--mono);font-size:0.6875rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin:0 0 1rem">Not sure which tier fits?</p>
+        <p style="margin:0 0 0.75rem"><strong>Landing Page</strong> — You need one focused page: a portfolio, a CV, a product launch, or a single-service business card. Fastest to build, no bloat.</p>
+        <p style="margin:0 0 0.75rem"><strong>Professional</strong> — You have a real business with multiple services, an about page, and a contact section. This is the tier most local businesses and independent professionals need.</p>
+        <p style="margin:0"><strong>Bespoke</strong> — Your project has specific requirements: a distinctive visual identity, custom interactions, or content that goes beyond 5 pages. I'll scope it with you before quoting.</p>
+      </div>
 
       <div class="pricing-grid">
 
@@ -94,7 +234,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div>
             <div class="pricing-price"><sup>£</sup>149</div>
-            <div class="pricing-note">one-time payment · ~3 working days</div>
+            <div class="pricing-note">one-time payment · includes VAT · ~3 working days</div>
           </div>
           <ul class="pricing-features" aria-label="Landing Page inclusions">
             <li>Single elegantly designed page</li>
@@ -121,7 +261,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div>
             <div class="pricing-price"><sup>£</sup>349</div>
-            <div class="pricing-note">one-time payment · ~7 working days</div>
+            <div class="pricing-note">one-time payment · includes VAT · ~7 working days</div>
           </div>
           <ul class="pricing-features" aria-label="Professional inclusions">
             <li>Up to 5 pages</li>
@@ -148,7 +288,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div>
             <div class="pricing-price"><sup>£</sup>749<span style="font-size:1rem;color:var(--text-muted)">+</span></div>
-            <div class="pricing-note">one-time · timeline agreed per project</div>
+            <div class="pricing-note">one-time · includes VAT · timeline agreed per project</div>
           </div>
           <ul class="pricing-features" aria-label="Bespoke inclusions">
             <li>Unlimited pages</li>
@@ -172,7 +312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <hr class="section-divider" style="margin:4rem 0">
 
-    <!-- Add-ons — canonical source of truth -->
+    <!-- Add-ons -->
     <section aria-labelledby="addons-p-heading">
       <span class="section-label">After launch</span>
       <h2 class="section-title" id="addons-p-heading">Optional add-ons</h2>
@@ -198,8 +338,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <hr class="section-divider" style="margin:4rem 0">
-
-    <!-- Cost comparison -->
+<!-- ── TESTIMONIAL STRIP (between tiers and savings table) ── -->
+<section class="section-sm" aria-label="Client testimonial">
+  <div class="content-wrapper">
+    <div class="callout testimonial-strip a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+      <p class="testimonial-strip-quote">
+        "Azhar takes extra pride in getting the quality as per expectations and has patience in abundance to work with any client group."
+      </p>
+      <p class="testimonial-strip-cite">
+        Renjith Reghu · Founder, Will4Life · <a href="https://will4life.co.uk" target="_blank" rel="noopener">will4life.co.uk</a>
+      </p>
+    </div>
+  </div>
+</section>
+    <!-- Comparison table -->
     <section aria-labelledby="compare-heading">
       <span class="section-label">The cost of renting vs owning</span>
       <h2 class="section-title" id="compare-heading">Three years of Squarespace<br>or one GitFoundry build?</h2>
@@ -214,10 +366,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Squarespace (Business)</td><td>~£16/mo</td><td>~£576</td></tr>
-          <tr><td>Wix (Core)</td><td>~£14/mo</td><td>~£504</td></tr>
-          <tr><td>Webflow (Basic)</td><td>~£23/mo</td><td>~£828</td></tr>
-          <tr><td>WordPress.com (Business)</td><td>~£25/mo</td><td>~£900</td></tr>
+          <tr>
+            <td>Squarespace (Business)</td>
+            <td>~£16/mo</td>
+            <td>~£576</td>
+          </tr>
+          <tr>
+            <td>Wix (Core)</td>
+            <td>~£14/mo</td>
+            <td>~£504</td>
+          </tr>
+          <tr>
+            <td>Webflow (Basic)</td>
+            <td>~£23/mo</td>
+            <td>~£828</td>
+          </tr>
+          <tr>
+            <td>WordPress.com (Business)</td>
+            <td>~£25/mo</td>
+            <td>~£900</td>
+          </tr>
           <tr>
             <td><strong>GitFoundry Professional</strong></td>
             <td><span class="savings-highlight">£0/mo</span></td>
@@ -225,19 +393,125 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </tr>
         </tbody>
       </table>
+<!-- ════════════════════════════════════════════════
+     SAVINGS CALCULATOR MODULE
+     Insert directly AFTER the existing .savings-table
+     on both pricing.html and index.html
+     ════════════════════════════════════════════════ -->
 
+<div class="calc a-reveal" id="calc" x-intersect:enter.once="$el.classList.add('shown')">
+  <div class="calc-header">
+    <h3 class="calc-title">Run the numbers on your own site.</h3>
+    <p class="calc-sub">Move the slider to match what you pay today. The maths below updates as you go.</p>
+  </div>
+
+  <div class="calc-input-row">
+    <div>
+      <label class="calc-label" for="calc-monthly">Your current monthly fee</label>
+      <input
+        type="range"
+        id="calc-monthly"
+        class="calc-slider"
+        min="0"
+        max="60"
+        step="1"
+        value="16"
+        aria-label="Current monthly website cost in pounds"
+      >
+    </div>
+    <div class="calc-value" aria-live="polite">
+      <sup>£</sup><span id="calc-monthly-display">16</span><span style="font-size:0.875rem;color:var(--text-muted);letter-spacing:0.02em;">&nbsp;/mo</span>
+    </div>
+  </div>
+
+  <div class="calc-results">
+    <div class="calc-stat">
+      <span class="calc-stat-label">Break-even</span>
+      <div class="calc-stat-value" id="calc-breakeven">22 mo</div>
+    </div>
+    <div class="calc-stat">
+      <span class="calc-stat-label">Year 1</span>
+      <div class="calc-stat-value" id="calc-y1"><sup>£</sup>-157</div>
+    </div>
+    <div class="calc-stat">
+      <span class="calc-stat-label">Year 2</span>
+      <div class="calc-stat-value" id="calc-y2"><sup>£</sup>35</div>
+    </div>
+    <div class="calc-stat">
+      <span class="calc-stat-label">Year 3</span>
+      <div class="calc-stat-value" id="calc-y3"><sup>£</sup>227</div>
+    </div>
+  </div>
+
+  <p class="calc-footnote">Based on the GitFoundry Professional package at £349 one-time. Year figures are net of the build fee.</p>
+</div>
       <div class="callout" style="margin-top:1.5rem">
-        The platforms also retain rights over your content and can suspend your account. With GitFoundry, the code is yours and the hosting is free. There is no platform to abandon you.
+        The platforms can change their pricing, restrict features, or suspend your account at any time. Your content lives on their infrastructure — not yours. With GitFoundry, the code is yours and the hosting is free. There is no platform to abandon you.
       </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-heading" id="faq">
+      <span class="section-label">Questions</span>
+      <h2 class="section-title" id="faq-heading">Frequently asked</h2>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">No monthly fee?</div>
+        <div class="item-row-body">
+          <strong>Why is there no monthly fee?</strong>
+          Your site is hosted on GitHub Pages — a free, permanent service run by Microsoft. There is no platform charging you rent. You pay once for the design and build; after that, hosting costs nothing. Your site stays live for as long as GitHub Pages exists, which is to say: indefinitely.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Ownership</div>
+        <div class="item-row-body">
+          <strong>Do I own the code?</strong>
+          Yes — completely. When the project is delivered, the full source code is transferred to your own GitHub account. You can hand it to any developer in the world to modify. There is no lock-in, no proprietary format, no ongoing dependency on GitFoundry.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Updates</div>
+        <div class="item-row-body">
+          <strong>Can I update the site myself after launch?</strong>
+          Yes. The code is plain HTML, CSS, and a little JavaScript — no framework to learn. If you are comfortable editing a document, you can edit your site. Alternatively, small updates can be quoted separately.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Reliability</div>
+        <div class="item-row-body">
+          <strong>What happens if GitHub Pages goes down?</strong>
+          GitHub Pages has a 99.9% uptime record. Because your code lives in a standard Git repository, you can move it to any other static host (Netlify, Cloudflare Pages, your own server) in under an hour if you ever need to. You are never dependent on a single provider.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Choosing a tier</div>
+        <div class="item-row-body">
+          <strong>What is the difference between the three tiers?</strong>
+          The Foundry tier (£149) is a focused single-purpose site — ideal for a landing page, a portfolio, or a professional profile. The Precision tier (£399) adds multiple pages, a contact form, and a journal. The Bespoke tier (£749+) is a fully custom build with design system, animations, and no constraints.
+        </div>
+      </div>
+
+      <div class="item-row a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
+        <div class="item-row-label">Location</div>
+        <div class="item-row-body">
+          <strong>Do you work with clients outside the UK?</strong>
+          Yes. All communication and delivery happens online, so location is no barrier. The majority of clients are UK-based, but the work is done entirely remotely regardless of where you are.
+        </div>
+      </div>
+
     </section>
 
     <!-- CTA -->
     <section class="section" aria-labelledby="cta-p-heading">
       <div class="a-reveal" x-intersect:enter.once="$el.classList.add('shown')">
         <h2 class="section-title" id="cta-p-heading">Not sure which tier is right?</h2>
-        <p class="section-intro" style="margin-bottom:2rem">Tell us what you need in the brief and we'll recommend the appropriate tier.</p>
+        <p class="section-intro" style="margin-bottom:2rem">Describe your project in the brief and I'll recommend the right tier.</p>
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
-          <a href="brief.html" class="btn btn-primary">Submit a brief</a>
+          <a href="brief.html" class="btn btn-primary">Get my quote in 48h</a>
+          <a href="mailto:info@gitfoundry.co.uk" class="btn btn-outline">info@gitfoundry.co.uk</a>
         </div>
       </div>
     </section>
@@ -245,21 +519,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </main>
 
+<!-- FOOTER — standardised across all pages -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2026 GitFoundry · Web Design Studio, UK · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="brief.html">Brief</a></li>
       <li><a href="legal.html">Legal</a></li>
     </ul>
   </div>
 </footer>
 
+<!-- Cookie Banner -->
 <div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
   <div class="cookie-inner">
     <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
@@ -270,23 +547,144 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<script>
-function site() {
-  return {
-    theme: localStorage.getItem('gf-theme') || 'night',
-    drawerOpen: false,
-    cookieVisible: false,
-    init() {
-      document.documentElement.setAttribute('data-theme', this.theme);
-      setTimeout(() => { if (!localStorage.getItem('gf-cookies')) this.cookieVisible = true; }, 1800);
+
+  <script src="calculator.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is there no monthly fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your site is hosted on GitHub Pages — a free, permanent service run by Microsoft. There is no platform charging you rent. You pay once for the design and build; after that, hosting costs nothing."
+      }
     },
-    toggleTheme() {
-      this.theme = this.theme === 'night' ? 'day' : 'night';
-      localStorage.setItem('gf-theme', this.theme);
+    {
+      "@type": "Question",
+      "name": "Do I own the code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — completely. When the project is delivered, the full source code is transferred to your own GitHub account. You can hand it to any developer in the world to modify. There is no lock-in, no proprietary format, no ongoing dependency on GitFoundry."
+      }
     },
-    acceptCookies() { localStorage.setItem('gf-cookies', 'accepted'); this.cookieVisible = false; },
-    declineCookies() { localStorage.setItem('gf-cookies', 'declined'); this.cookieVisible = false; }
-  };
+    {
+      "@type": "Question",
+      "name": "Can I update the site myself after launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The code is plain HTML, CSS, and a little JavaScript — no framework to learn. If you are comfortable editing a document, you can edit your site."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if GitHub Pages goes down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GitHub Pages has a 99.9% uptime record. Because your code lives in a standard Git repository, you can move it to any other static host (Netlify, Cloudflare Pages, your own server) in under an hour if you ever need to."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between the three tiers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Foundry tier (£149) is a focused single-purpose site. The Precision tier (£399) adds multiple pages, a contact form, and a journal. The Bespoke tier (£749+) is a fully custom build with no constraints."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with clients outside the UK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All communication and delivery happens online, so location is no barrier. The majority of clients are UK-based, but the work is done entirely remotely regardless of where you are."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Pricing — GitFoundry",
+  "url": "https://gitfoundry.co.uk/pricing.html",
+  "description": "Affordable website pricing from £149. One-time payment, no monthly fees, full source code ownership. UK web design for small businesses.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gitfoundry.co.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://gitfoundry.co.uk/pricing.html" }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Foundry — Single-Page Website",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Web Design",
+  "description": "A focused, single-purpose hand-coded website for sole traders and small businesses who need a clean online presence. Delivered in as few as 3 working days, hosted free on GitHub Pages.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "Offer",
+    "price": "149",
+    "priceCurrency": "GBP",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "149",
+      "priceCurrency": "GBP",
+      "description": "One-time payment, no recurring fees"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Precision — Multi-Page Website",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Web Design",
+  "description": "A multi-page hand-coded website with up to 5 pages, a contact form, and a journal section. Typically delivered in 7 working days, hosted free on GitHub Pages.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "Offer",
+    "price": "399",
+    "priceCurrency": "GBP",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "399",
+      "priceCurrency": "GBP",
+      "description": "One-time payment, no recurring fees"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Bespoke — Custom Build",
+  "provider": { "@type": "Organization", "name": "GitFoundry", "url": "https://gitfoundry.co.uk" },
+  "serviceType": "Web Design",
+  "description": "A fully custom hand-coded website with no scope constraints. Pricing and timeline agreed at brief stage. Full source code ownership on delivery.",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "offers": {
+    "@type": "Offer",
+    "price": "749",
+    "priceCurrency": "GBP",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "749",
+      "priceCurrency": "GBP",
+      "description": "Starting price, one-time payment, no recurring fees"
+    }
+  }
 }
 </script>
 </body>

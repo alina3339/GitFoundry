@@ -1,60 +1,127 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
-  
-  <g stroke="#ffffff" fill="none">
+  <!--
+    GitFoundry Vitruvian — Orbital Schema — Continuous Motion (Globe Loader style)
+    Concentric rings stay still. Tilted ellipses each rotate at different cadences.
+    Comets sweep. Satellites orbit. Core pulses. Whole composition breathes.
+  -->
+  <style>
+    .stage { transform-origin: center; transform-box: view-box; animation: breathe 7s ease-in-out infinite; }
+    .spin  { transform-origin: center; transform-box: view-box; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .o1 { animation-name: spin;     animation-duration: 38s; }
+    .o2 { animation-name: spin-rev; animation-duration: 28s; }
+    .o3 { animation-name: spin;     animation-duration: 20s; }
+    .o4 { animation-name: spin-rev; animation-duration: 50s; }
+    .comet1 { animation-name: spin;     animation-duration: 14s; }
+    .comet2 { animation-name: spin-rev; animation-duration: 9s;  }
+    .sat1 { animation-name: spin;     animation-duration: 7s;  }
+    .sat2 { animation-name: spin-rev; animation-duration: 11s; }
+    .sat3 { animation-name: spin;     animation-duration: 18s; }
+    .sweep { animation-name: spin-rev; animation-duration: 16s; }
+    .core-pulse { transform-origin: center; transform-box: view-box; animation: pulse 4s ease-in-out infinite; }
 
-    
-    <circle cx="300" cy="300" r="275" stroke-width="0.55"></circle>
-    <circle cx="300" cy="300" r="215" stroke-width="0.45"></circle>
-    <circle cx="300" cy="300" r="155" stroke-width="0.4"></circle>
-    <circle cx="300" cy="300" r="95" stroke-width="0.35"></circle>
-    <circle cx="300" cy="300" r="50" stroke-width="0.3"></circle>
+    @keyframes spin     { to { transform: rotate(360deg); } }
+    @keyframes spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.008); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.3); opacity: 0.65; }
+    }
 
-    
-    <ellipse cx="300" cy="300" rx="275" ry="95" stroke-width="0.4"></ellipse>
-    <ellipse cx="300" cy="300" rx="215" ry="75" stroke-width="0.35"></ellipse>
-    <ellipse cx="300" cy="300" rx="155" ry="55" stroke-width="0.3"></ellipse>
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .spin, .core-pulse { animation: none; }
+    }
+  </style>
 
-    
-    <g transform="rotate(30 300 300)">
-      <ellipse cx="300" cy="300" rx="275" ry="85" stroke-width="0.35"></ellipse>
+  <defs>
+    <linearGradient id="comet-o1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#f4efe5" stop-opacity="0.05"/>
+      <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="comet-o2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="80%"  stop-color="#f4efe5" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <g class="stage">
+    <g stroke="#f4efe5" fill="none">
+
+      <!-- Static concentric rings -->
+      <circle cx="300" cy="300" r="275" stroke-width="0.55"/>
+      <circle cx="300" cy="300" r="215" stroke-width="0.45"/>
+      <circle cx="300" cy="300" r="155" stroke-width="0.4"/>
+      <circle cx="300" cy="300" r="95"  stroke-width="0.35"/>
+      <circle cx="300" cy="300" r="50"  stroke-width="0.3"/>
+
+      <!-- Tilted ellipses, each rotating -->
+      <g class="spin o1"><ellipse cx="300" cy="300" rx="275" ry="95"  stroke-width="0.4"/></g>
+      <g class="spin o2"><ellipse cx="300" cy="300" rx="215" ry="75"  stroke-width="0.35"/></g>
+      <g class="spin o3"><ellipse cx="300" cy="300" rx="155" ry="55"  stroke-width="0.3"/></g>
+      <g class="spin o4">
+        <g transform="rotate(30 300 300)">
+          <ellipse cx="300" cy="300" rx="275" ry="85" stroke-width="0.35"/>
+        </g>
+      </g>
+
+      <!-- Static radial sweep lines -->
+      <line x1="300" y1="25"  x2="300" y2="575" stroke-width="0.4" opacity="0.5"/>
+      <line x1="25"  y1="300" x2="575" y2="300" stroke-width="0.4" opacity="0.5"/>
+      <line x1="105" y1="105" x2="495" y2="495" stroke-width="0.3" opacity="0.4"/>
+      <line x1="495" y1="105" x2="105" y2="495" stroke-width="0.3" opacity="0.4"/>
+
+      <!-- Long sweeping comet on outer ring -->
+      <g class="spin comet1">
+        <circle cx="300" cy="300" r="275" stroke="url(#comet-o1)" stroke-width="2" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="320 680"/>
+        <circle cx="575" cy="300" r="2.4" fill="#f4efe5"/>
+      </g>
+
+      <!-- Faster inner comet on r=215 -->
+      <g class="spin comet2">
+        <circle cx="300" cy="300" r="215" stroke="url(#comet-o2)" stroke-width="1.2" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="80 920" opacity="0.7"/>
+        <circle cx="515" cy="300" r="1.8" fill="#f4efe5"/>
+      </g>
+
+      <!-- Orbital nodes — each pair travels along its ring -->
+      <g class="spin sat1" opacity="0.85">
+        <circle cx="455" cy="300" r="2" fill="#f4efe5"/>
+        <circle cx="145" cy="300" r="2" fill="#f4efe5"/>
+      </g>
+      <g class="spin sat2" opacity="0.75">
+        <circle cx="395" cy="300" r="1.6" fill="#f4efe5"/>
+      </g>
+      <g class="spin sat3" opacity="0.7">
+        <circle cx="350" cy="300" r="1.3" fill="#f4efe5"/>
+      </g>
+
+      <!-- Dashed annotation arc — slow counter-rotation -->
+      <g class="spin sweep" opacity="0.5">
+        <path d="M 155 155 A 205 205 0 0 1 445 155" stroke-width="0.3" stroke-dasharray="3 3"/>
+      </g>
+
+      <!-- Core — pulsing -->
+      <circle class="core-pulse" cx="300" cy="300" r="6" stroke-width="1" fill="#f4efe5"/>
+      <circle cx="300" cy="300" r="12" stroke-width="0.5"/>
+
+      <!-- Corner registration marks -->
+      <g stroke-width="1">
+        <line x1="10"  y1="10"  x2="40"  y2="10"/>
+        <line x1="10"  y1="10"  x2="10"  y2="40"/>
+        <line x1="590" y1="10"  x2="560" y2="10"/>
+        <line x1="590" y1="10"  x2="590" y2="40"/>
+        <line x1="10"  y1="590" x2="40"  y2="590"/>
+        <line x1="10"  y1="590" x2="10"  y2="560"/>
+        <line x1="590" y1="590" x2="560" y2="590"/>
+        <line x1="590" y1="590" x2="590" y2="560"/>
+      </g>
+
     </g>
-
-    
-    <line x1="300" y1="25" x2="300" y2="575" stroke-width="0.4"></line>
-    <line x1="25" y1="300" x2="575" y2="300" stroke-width="0.4"></line>
-    <line x1="105" y1="105" x2="495" y2="495" stroke-width="0.3"></line>
-    <line x1="495" y1="105" x2="105" y2="495" stroke-width="0.3"></line>
-
-    
-    
-    <circle cx="575" cy="300" r="3" stroke-width="0.8"></circle>
-    <circle cx="300" cy="25" r="3" stroke-width="0.8"></circle>
-    
-    <circle cx="515" cy="300" r="2.5" stroke-width="0.7"></circle>
-    <circle cx="148" cy="148" r="2.5" stroke-width="0.7"></circle>
-    
-    <circle cx="300" cy="145" r="2" stroke-width="0.6"></circle>
-    <circle cx="455" cy="300" r="2" stroke-width="0.6"></circle>
-    
-    <circle cx="205" cy="300" r="1.8" stroke-width="0.55"></circle>
-    <circle cx="300" cy="395" r="1.8" stroke-width="0.55"></circle>
-
-    
-    <path d="M 155 155 A 205 205 0 0 1 445 155" stroke-width="0.3" stroke-dasharray="3 3"></path>
-
-    
-    <circle cx="300" cy="300" r="6" stroke-width="1"></circle>
-    <circle cx="300" cy="300" r="12" stroke-width="0.5"></circle>
-
-    
-    <line x1="10" y1="10" x2="40" y2="10" stroke-width="1"></line>
-    <line x1="10" y1="10" x2="10" y2="40" stroke-width="1"></line>
-    <line x1="590" y1="10" x2="560" y2="10" stroke-width="1"></line>
-    <line x1="590" y1="10" x2="590" y2="40" stroke-width="1"></line>
-    <line x1="10" y1="590" x2="40" y2="590" stroke-width="1"></line>
-    <line x1="10" y1="590" x2="10" y2="560" stroke-width="1"></line>
-    <line x1="590" y1="590" x2="560" y2="590" stroke-width="1"></line>
-    <line x1="590" y1="590" x2="590" y2="560" stroke-width="1"></line>
-
   </g>
 </svg>

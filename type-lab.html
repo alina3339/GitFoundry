@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Type Lab — GitFoundry (private)</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Serif+Display&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Syne:wght@400;600;800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=Work+Sans:wght@300;400;500;600&family=Manrope:wght@300;400;500;700&family=Archivo:wght@400;500;700&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+
+<link rel="stylesheet" href="styles.css">
+
+<script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")}catch(e){document.documentElement.setAttribute("data-theme","night")}</script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+
+<style>
+.tl-wrap { display: grid; grid-template-columns: 340px 1fr; gap: 2rem; padding: 2rem 0 6rem; align-items: start; }
+@media (max-width: 960px) { .tl-wrap { grid-template-columns: 1fr; } }
+
+.tl-controls { position: sticky; top: 78px; max-height: calc(100vh - 100px); overflow-y: auto; padding-right: 0.5rem; display: flex; flex-direction: column; gap: 1rem; }
+.tl-controls::-webkit-scrollbar { width: 6px; }
+.tl-controls::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+@media (max-width: 960px) { .tl-controls { position: static; max-height: none; } }
+
+.tl-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; background: var(--surface); }
+.tl-card h3 { font-family: var(--mono); font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.85rem; }
+
+.tl-row { display: grid; grid-template-columns: 72px 1fr 52px; align-items: center; gap: 0.5rem; margin-bottom: 0.55rem; }
+.tl-row:last-child { margin-bottom: 0; }
+.tl-row label { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.tl-row .tl-val { font-family: var(--mono); font-size: 0.6875rem; color: var(--text-soft); text-align: right; font-variant-numeric: tabular-nums; }
+
+.tl-row input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; background: transparent; height: 18px; cursor: pointer; }
+.tl-row input[type=range]::-webkit-slider-runnable-track { height: 2px; background: var(--border-strong); border-radius: 1px; }
+.tl-row input[type=range]::-moz-range-track { height: 2px; background: var(--border-strong); border-radius: 1px; }
+.tl-row input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); margin-top: -5px; cursor: grab; border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--accent); }
+.tl-row input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); cursor: grab; border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--accent); }
+
+.tl-seg { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; background: var(--bg); padding: 2px; border: 1px solid var(--border); border-radius: var(--radius); }
+.tl-seg button { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.45rem 0.3rem; border: none; background: transparent; color: var(--text-muted); cursor: pointer; border-radius: 1px; transition: color var(--dur), background var(--dur); }
+.tl-seg button:hover { color: var(--text-soft); }
+.tl-seg button.on { background: var(--accent); color: #080f24; }
+[data-theme="day"] .tl-seg button.on { color: var(--bg); }
+
+.tl-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.tl-chips button { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.06em; padding: 0.4rem 0.65rem; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; border-radius: var(--radius); transition: all var(--dur); }
+.tl-chips button:hover { color: var(--text-soft); border-color: var(--border-strong); }
+.tl-chips button.on { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
+
+.tl-swatches { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
+.tl-swatches button { height: 28px; border-radius: var(--radius); border: 1px solid var(--border); cursor: pointer; padding: 0; transition: transform 0.15s; }
+.tl-swatches button:hover { transform: scale(1.08); }
+.tl-swatches button.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--accent); }
+
+.tl-preview-wrap { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.tl-preview { border: 1px solid var(--border); border-radius: var(--radius); padding: 3.5rem 3rem; min-height: 560px; transition: background var(--dur), color var(--dur); position: relative; overflow: hidden; }
+.tl-preview[data-pv="night"] { background: #080f24; color: #ece8df; }
+.tl-preview[data-pv="day"] { background: #f4efe5; color: #1a1510; }
+.tl-preview[data-pv="paper"] { background: #ffffff; color: #111111; }
+.tl-preview[data-pv="ink"] { background: #131313; color: #f0f0f0; }
+
+.tl-preview::before, .tl-preview::after { content: ''; position: absolute; width: 12px; height: 12px; opacity: 0.2; }
+.tl-preview::before { top: 12px; left: 12px; border-top: 1px solid currentColor; border-left: 1px solid currentColor; }
+.tl-preview::after { bottom: 12px; right: 12px; border-bottom: 1px solid currentColor; border-right: 1px solid currentColor; }
+
+.tl-eyebrow { display: block; text-transform: uppercase; }
+.tl-title em { font-style: italic; }
+.tl-lead { max-width: 52ch; }
+.tl-caption { display: block; opacity: 0.7; }
+.tl-sep { display: block; height: 1px; background: currentColor; opacity: 0.12; margin: 1.5rem 0; }
+
+/* APPLY PANEL */
+.tl-apply { border: 1px solid var(--accent); background: var(--accent-dim); border-radius: var(--radius); padding: 1.5rem 1.75rem; }
+.tl-apply-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; gap: 1rem; flex-wrap: wrap; }
+.tl-apply-head h3 { font-family: var(--mono); font-size: 0.75rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 0; }
+.tl-apply-head .tl-status { font-family: var(--mono); font-size: 0.6875rem; color: var(--text-soft); letter-spacing: 0.05em; }
+
+.tl-apply-steps { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.25rem; }
+.tl-step { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; align-items: start; }
+.tl-step-num { font-family: var(--mono); font-size: 0.6875rem; color: var(--accent); width: 1.75rem; height: 1.75rem; border: 1px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.tl-step-body { font-size: 0.9375rem; color: var(--text-soft); line-height: 1.6; }
+.tl-step-body strong { display: block; color: var(--text); font-weight: 500; margin-bottom: 0.2rem; font-size: 1rem; }
+.tl-step-body code { font-family: var(--mono); font-size: 0.8125rem; background: var(--bg); padding: 0.1rem 0.4rem; border-radius: 2px; border: 1px solid var(--border); color: var(--accent); }
+
+.tl-apply-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.tl-btn { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.75rem 1.25rem; background: transparent; color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--radius); cursor: pointer; transition: all var(--dur); font-weight: 400; display: inline-flex; align-items: center; gap: 0.5rem; }
+.tl-btn:hover { border-color: var(--accent); color: var(--accent); }
+.tl-btn-primary { background: var(--accent); color: #080f24; border-color: var(--accent); font-weight: 500; }
+[data-theme="day"] .tl-btn-primary { color: var(--bg); }
+.tl-btn-primary:hover { filter: brightness(1.1); color: #080f24; }
+[data-theme="day"] .tl-btn-primary:hover { color: var(--bg); }
+.tl-btn-ghost { border: 1px solid var(--border); color: var(--text-soft); }
+
+.tl-code-toggle { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); background: none; border: none; padding: 0; cursor: pointer; margin-top: 1rem; }
+.tl-code-toggle:hover { color: var(--accent); }
+.tl-code-wrap { margin-top: 1rem; display: none; }
+.tl-code-wrap.open { display: block; }
+.tl-code { font-family: var(--mono); font-size: 0.75rem; line-height: 1.7; color: var(--text-soft); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; white-space: pre; overflow-x: auto; max-height: 280px; overflow-y: auto; }
+
+.tl-lab-badge { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 0.25rem 0.6rem; border-radius: var(--radius); border: 1px solid rgba(201,168,76,0.25); margin-left: 0.75rem; }
+
+.tl-toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(120%); background: var(--accent); color: #080f24; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 1.5rem; border-radius: var(--radius); transition: transform 0.3s var(--ease); z-index: 300; font-weight: 500; }
+.tl-toast.show { transform: translateX(-50%) translateY(0); }
+[data-theme="day"] .tl-toast { color: var(--bg); }
+
+/* Preset name badge inside preview — visible on mobile so the user always
+   knows what's selected, even after the preview has been scrolled past. */
+.tl-preset-badge { position: absolute; top: 12px; right: 12px; font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 0.25rem 0.55rem; border-radius: var(--radius); border: 1px solid rgba(201,168,76,0.25); z-index: 2; pointer-events: none; }
+
+/* ── MOBILE LAYOUT ── Sticky preview at top, controls scroll underneath. */
+@media (max-width: 960px) {
+  .tl-wrap { gap: 1rem; padding-top: 1rem; }
+  /* Promote .tl-preview-wrap children to direct grid items so we can order them. */
+  .tl-preview-wrap { display: contents; }
+  /* Sticky portrait preview — feels like glancing at a phone mockup. */
+  .tl-preview {
+    order: 1;
+    position: sticky;
+    top: 70px;                       /* nav (58px) + breathing room */
+    z-index: 5;
+    width: min(280px, 78vw);         /* slim portrait — leaves margin around it */
+    aspect-ratio: 9 / 15;            /* tall, mobile-screen feel */
+    max-height: 58vh;                /* never dominates the viewport */
+    min-height: 360px;               /* fallback for browsers without aspect-ratio (Safari ≤15.3) */
+    margin: 0.5rem auto 0;           /* centered with soft top breathing room */
+    padding: 2.25rem 1.75rem;        /* generous interior — premium feel */
+    overflow-y: auto;                /* internal scroll mimics a real phone screen */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;    /* stops scroll-chaining into the page */
+    background-clip: padding-box;
+    box-shadow: 0 24px 40px -28px rgba(0,0,0,0.55), 0 6px 14px -10px rgba(0,0,0,0.25);
+  }
+  /* Subtle internal scrollbar that doesn't fight the soft aesthetic. */
+  .tl-preview::-webkit-scrollbar { width: 4px; }
+  .tl-preview::-webkit-scrollbar-thumb { background: currentColor; opacity: 0.15; border-radius: 2px; }
+
+  /* Title scaled for the narrow portrait — preserves the chosen weight,
+     family, and tracking while fitting the slim canvas. */
+  .tl-preview .tl-title { font-size: clamp(1.5rem, 8vw, 2.5rem) !important; margin-bottom: 1.25rem !important; }
+  /* Lead and body shrink proportionally so the full content fits comfortably. */
+  .tl-preview .tl-lead    { font-size: 0.9375rem !important; margin-bottom: 1rem !important; }
+  .tl-preview .tl-body    { font-size: 0.8125rem !important; }
+  .tl-preview .tl-caption { font-size: 0.75rem   !important; }
+  .tl-preview .tl-sep     { margin: 1.25rem 0 !important; }
+  /* Eyebrow tightens vertically so the title gets the breathing room. */
+  .tl-preview .tl-eyebrow { margin-bottom: 1rem !important; }
+  .tl-controls { order: 2; }
+  .tl-apply    { order: 3; }
+
+  /* On mobile keep ONLY the preset picker. Sliders and per-axis font/colour
+     pickers are too granular for a small screen — presets give a curated
+     choice without overwhelming. Desktop still gets the full control set. */
+  .tl-controls .tl-card:not(.tl-card-preset) { display: none; }
+
+  /* Bigger, thumb-friendly chips since the preset card is the only one. */
+  .tl-card-preset .tl-chips { gap: 6px; }
+  .tl-card-preset .tl-chips button {
+    font-size: 0.75rem;
+    padding: 0.7rem 0.95rem;
+    flex: 1 0 calc(50% - 6px);
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk <span class="tl-lab-badge">Type Lab</span></a>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+  <div class="content-wrapper">
+
+    <header class="page-header">
+      <span class="page-header-label">Private tooling</span>
+      <h1 class="page-header-title">Type Lab</h1>
+      <p class="page-header-desc">Tweak the fonts. Click apply. Your changes are saved.</p>
+    </header>
+
+    <div class="tl-wrap">
+
+      <aside class="tl-controls" aria-label="Typography controls">
+
+        <div class="tl-card">
+          <h3>Preview surface</h3>
+          <div class="tl-seg" data-group="bg">
+            <button data-v="night" class="on">Night</button>
+            <button data-v="day">Day</button>
+            <button data-v="paper">Paper</button>
+            <button data-v="ink">Ink</button>
+          </div>
+        </div>
+
+        <div class="tl-card tl-card-preset">
+          <h3>Preset</h3>
+          <div class="tl-chips" data-group="preset">
+            <button data-v="gitfoundry" class="on">GitFoundry</button>
+            <button data-v="editorial">Editorial</button>
+            <button data-v="brutalist">Brutalist</button>
+            <button data-v="monograph">Monograph</button>
+            <button data-v="swiss">Swiss</button>
+            <button data-v="magazine">Magazine</button>
+            <button data-v="heritage">Heritage</button>
+            <button data-v="manifesto">Manifesto</button>
+            <button data-v="boutique">Boutique</button>
+            <button data-v="newsroom">Newsroom</button>
+            <button data-v="atelier">Atelier</button>
+            <button data-v="noir">Noir</button>
+            <button data-v="couture">Couture</button>
+            <button data-v="maison">Maison</button>
+            <button data-v="concierge">Concierge</button>
+            <button data-v="onyx">Onyx</button>
+            <button data-v="regence">Régence</button>
+            <button data-v="velour">Velour</button>
+          </div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Heading family</h3>
+          <div class="tl-chips" data-group="headFont">
+            <button data-v="Fraunces" class="on">Fraunces</button>
+            <button data-v="Playfair Display">Playfair</button>
+            <button data-v="DM Serif Display">DM Serif</button>
+            <button data-v="Source Serif 4">Src Serif</button>
+            <button data-v="EB Garamond">Garamond</button>
+            <button data-v="Libre Caslon Text">Caslon</button>
+            <button data-v="Lora">Lora</button>
+            <button data-v="Syne">Syne</button>
+            <button data-v="Space Grotesk">Grotesk</button>
+            <button data-v="Inter">Inter</button>
+          </div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Body family</h3>
+          <div class="tl-chips" data-group="bodyFont">
+            <button data-v="Inter" class="on">Inter</button>
+            <button data-v="IBM Plex Sans">Plex</button>
+            <button data-v="Work Sans">Work</button>
+            <button data-v="Manrope">Manrope</button>
+            <button data-v="Archivo">Archivo</button>
+            <button data-v="Space Grotesk">Grotesk</button>
+            <button data-v="Source Serif 4">Src Srf</button>
+            <button data-v="Lora">Lora</button>
+          </div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Heading</h3>
+          <div class="tl-row"><label>Size</label><input type="range" data-key="hSize" min="48" max="200" value="136" step="1"><span class="tl-val" data-val="hSize">136px</span></div>
+          <div class="tl-row"><label>Weight</label><input type="range" data-key="hWt" min="300" max="800" value="300" step="100"><span class="tl-val" data-val="hWt">300</span></div>
+          <div class="tl-row"><label>Line</label><input type="range" data-key="hLh" min="80" max="160" value="97" step="1"><span class="tl-val" data-val="hLh">0.97</span></div>
+          <div class="tl-row"><label>Letter</label><input type="range" data-key="hLs" min="-80" max="40" value="-35" step="1"><span class="tl-val" data-val="hLs">-0.035</span></div>
+          <div class="tl-row"><label>Italic</label>
+            <div class="tl-seg" data-group="hItalic"><button data-v="roman" class="on">Roman</button><button data-v="italic">Italic</button><button data-v="mixed">Mixed</button></div>
+            <span class="tl-val">&nbsp;</span>
+          </div>
+          <div class="tl-row"><label>Case</label>
+            <div class="tl-seg" data-group="hCase"><button data-v="none" class="on">Normal</button><button data-v="upper">Upper</button><button data-v="small">Small</button></div>
+            <span class="tl-val">&nbsp;</span>
+          </div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Eyebrow label</h3>
+          <div class="tl-row"><label>Family</label>
+            <div class="tl-seg" data-group="eFam"><button data-v="mono" class="on">Mono</button><button data-v="sans">Sans</button></div>
+            <span class="tl-val">&nbsp;</span>
+          </div>
+          <div class="tl-row"><label>Size</label><input type="range" data-key="eSize" min="9" max="18" value="12" step="1"><span class="tl-val" data-val="eSize">12px</span></div>
+          <div class="tl-row"><label>Weight</label><input type="range" data-key="eWt" min="300" max="700" value="400" step="100"><span class="tl-val" data-val="eWt">400</span></div>
+          <div class="tl-row"><label>Tracking</label><input type="range" data-key="eLs" min="0" max="400" value="200" step="10"><span class="tl-val" data-val="eLs">0.20</span></div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Lead paragraph</h3>
+          <div class="tl-row"><label>Size</label><input type="range" data-key="lSize" min="14" max="28" value="17" step="1"><span class="tl-val" data-val="lSize">17px</span></div>
+          <div class="tl-row"><label>Weight</label><input type="range" data-key="lWt" min="300" max="600" value="300" step="100"><span class="tl-val" data-val="lWt">300</span></div>
+          <div class="tl-row"><label>Line</label><input type="range" data-key="lLh" min="120" max="220" value="175" step="1"><span class="tl-val" data-val="lLh">1.75</span></div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Body copy</h3>
+          <div class="tl-row"><label>Size</label><input type="range" data-key="bSize" min="13" max="22" value="16" step="1"><span class="tl-val" data-val="bSize">16px</span></div>
+          <div class="tl-row"><label>Weight</label><input type="range" data-key="bWt" min="300" max="600" value="400" step="100"><span class="tl-val" data-val="bWt">400</span></div>
+          <div class="tl-row"><label>Line</label><input type="range" data-key="bLh" min="120" max="220" value="170" step="1"><span class="tl-val" data-val="bLh">1.70</span></div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Caption</h3>
+          <div class="tl-row"><label>Size</label><input type="range" data-key="cSize" min="10" max="16" value="14" step="1"><span class="tl-val" data-val="cSize">14px</span></div>
+          <div class="tl-row"><label>Weight</label><input type="range" data-key="cWt" min="300" max="600" value="400" step="100"><span class="tl-val" data-val="cWt">400</span></div>
+        </div>
+
+        <div class="tl-card">
+          <h3>Accent colour</h3>
+          <div class="tl-swatches" data-group="accent">
+            <button data-v="#c9a84c" class="on" style="background:#c9a84c" title="Gold"></button>
+            <button data-v="#9a6e1c" style="background:#9a6e1c" title="Bronze"></button>
+            <button data-v="#d85a30" style="background:#d85a30" title="Coral"></button>
+            <button data-v="#378add" style="background:#378add" title="Azure"></button>
+            <button data-v="#1d9e75" style="background:#1d9e75" title="Viridian"></button>
+            <button data-v="#7f77dd" style="background:#7f77dd" title="Amethyst"></button>
+          </div>
+        </div>
+
+      </aside>
+
+      <div class="tl-preview-wrap">
+
+        <div class="tl-preview" id="tl-preview" data-pv="night">
+          <span class="tl-preset-badge" id="pv-preset-badge">GitFoundry</span>
+          <span class="tl-eyebrow" id="pv-eyebrow">01 · Specification</span>
+          <h1 class="tl-title" id="pv-title">Precision in service of <em>beauty</em>.</h1>
+          <p class="tl-lead" id="pv-lead">Every line of code serves a purpose. Every pixel is intentional. This is what a site looks like when the margins have been earned and the letterforms have been chosen, not defaulted to.</p>
+          <p class="tl-body" id="pv-body">A static site is not a limitation — it is a posture. It says the words matter more than the scripts, that readers deserve a page that loads in the time it takes them to blink. Typography is the first promise a page makes: that somebody cared before you arrived.</p>
+          <span class="tl-sep"></span>
+          <span class="tl-caption" id="pv-caption">— Caption text · technical annotation · footnote voice.</span>
+        </div>
+
+        <div class="tl-apply">
+          <div class="tl-apply-head">
+            <h3>Ready to apply?</h3>
+            <span class="tl-status" id="tl-status">No changes from GitFoundry default</span>
+          </div>
+
+          <div class="tl-apply-steps">
+            <div class="tl-step">
+              <div class="tl-step-num">1</div>
+              <div class="tl-step-body">
+                <strong>Download the updated stylesheet</strong>
+                Click the button below. A new <code>styles.css</code> downloads with your changes baked in.
+              </div>
+            </div>
+            <div class="tl-step">
+              <div class="tl-step-num">2</div>
+              <div class="tl-step-body">
+                <strong>Replace the file in your repo</strong>
+                Drag the downloaded file into your GitFoundry folder. Overwrite the existing <code>styles.css</code>.
+              </div>
+            </div>
+            <div class="tl-step">
+              <div class="tl-step-num">3</div>
+              <div class="tl-step-body">
+                <strong>Commit and push</strong>
+                <code>git add styles.css</code> · <code>git commit -m "type update"</code> · <code>git push</code>. Live in a minute.
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-apply-actions">
+            <button class="tl-btn tl-btn-primary" id="btn-download">↓ Download updated styles.css</button>
+            <button class="tl-btn" id="btn-copy-patch">Copy patch instead</button>
+            <button class="tl-btn tl-btn-ghost" id="btn-reset">Reset</button>
+          </div>
+
+          <button class="tl-code-toggle" id="btn-toggle-code"><span id="toggle-label">Show the CSS</span></button>
+          <div class="tl-code-wrap" id="code-wrap">
+            <pre class="tl-code" id="tl-code-out"></pre>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<div class="tl-toast" id="tl-toast">Downloaded</div>
+
+<script>
+function site() {
+  const safeGet = (k, d) => { try { return localStorage.getItem(k) || d; } catch (e) { return d; } };
+  const safeSet = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+  return {
+    theme: safeGet('gf-theme', 'night'),
+    init() { document.documentElement.setAttribute('data-theme', this.theme); },
+    toggleTheme() {
+      this.theme = this.theme === 'night' ? 'day' : 'night';
+      safeSet('gf-theme', this.theme);
+    }
+  };
+}
+
+(function () {
+  const LS_KEY = 'gf-typelab-state';
+
+  const defaults = {
+    bg: 'night', preset: 'gitfoundry',
+    headFont: 'Fraunces', bodyFont: 'Inter',
+    hSize: 136, hWt: 300, hLh: 97, hLs: -35,   /* 136 = 8.5rem peak — matches styles.css --gf-fs-hero default */
+    hItalic: 'mixed', hCase: 'none',
+    eFam: 'mono', eSize: 12, eWt: 400, eLs: 200,
+    lSize: 17, lWt: 300, lLh: 175,
+    bSize: 16, bWt: 400, bLh: 170,
+    cSize: 14, cWt: 400,
+    accent: '#c9a84c'
+  };
+
+  const presets = {
+    gitfoundry: { headFont:'Fraunces', bodyFont:'Inter', hSize:136, hWt:300, hLh:97, hLs:-35, hItalic:'mixed', hCase:'none', eFam:'mono', eSize:12, eWt:400, eLs:200, lSize:17, lWt:300, lLh:175, bSize:16, bWt:400, bLh:170, cSize:14, cWt:400, accent:'#c9a84c', bg:'night' },
+    editorial:  { headFont:'Playfair Display', bodyFont:'Lora', hSize:96, hWt:400, hLh:100, hLs:-20, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:11, eWt:500, eLs:240, lSize:19, lWt:400, lLh:180, bSize:17, bWt:400, bLh:180, cSize:13, cWt:400, accent:'#9a6e1c', bg:'day' },
+    brutalist:  { headFont:'Space Grotesk', bodyFont:'Space Grotesk', hSize:120, hWt:700, hLh:90, hLs:-50, hItalic:'roman', hCase:'upper', eFam:'mono', eSize:12, eWt:500, eLs:100, lSize:18, lWt:400, lLh:150, bSize:16, bWt:400, bLh:160, cSize:12, cWt:500, accent:'#d85a30', bg:'paper' },
+    monograph:  { headFont:'EB Garamond', bodyFont:'EB Garamond', hSize:72, hWt:400, hLh:110, hLs:-15, hItalic:'roman', hCase:'none', eFam:'sans', eSize:11, eWt:400, eLs:300, lSize:18, lWt:400, lLh:185, bSize:18, bWt:400, bLh:180, cSize:14, cWt:400, accent:'#7f77dd', bg:'day' },
+    swiss:      { headFont:'Inter', bodyFont:'Inter', hSize:80, hWt:500, hLh:95, hLs:-30, hItalic:'roman', hCase:'none', eFam:'sans', eSize:11, eWt:500, eLs:150, lSize:16, lWt:400, lLh:155, bSize:15, bWt:400, bLh:160, cSize:13, cWt:400, accent:'#378add', bg:'paper' },
+    magazine:   { headFont:'DM Serif Display', bodyFont:'Work Sans', hSize:104, hWt:400, hLh:93, hLs:-30, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:12, eWt:500, eLs:260, lSize:18, lWt:300, lLh:175, bSize:16, bWt:400, bLh:175, cSize:13, cWt:500, accent:'#d85a30', bg:'day' },
+    heritage:   { headFont:'Source Serif 4', bodyFont:'EB Garamond', hSize:78, hWt:600, hLh:105, hLs:-25, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:11, eWt:500, eLs:280, lSize:19, lWt:400, lLh:175, bSize:18, bWt:400, bLh:178, cSize:13, cWt:400, accent:'#7a2335', bg:'day' },
+    manifesto:  { headFont:'Syne', bodyFont:'Manrope', hSize:112, hWt:800, hLh:88, hLs:-40, hItalic:'roman', hCase:'none', eFam:'sans', eSize:11, eWt:700, eLs:200, lSize:18, lWt:500, lLh:155, bSize:16, bWt:400, bLh:165, cSize:12, cWt:500, accent:'#2e5fff', bg:'paper' },
+    boutique:   { headFont:'Libre Caslon Text', bodyFont:'IBM Plex Sans', hSize:72, hWt:400, hLh:108, hLs:-10, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:10, eWt:500, eLs:340, lSize:17, lWt:400, lLh:175, bSize:15, bWt:400, bLh:175, cSize:12, cWt:500, accent:'#a8743a', bg:'day' },
+    newsroom:   { headFont:'Lora', bodyFont:'IBM Plex Sans', hSize:84, hWt:600, hLh:98, hLs:-20, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:11, eWt:600, eLs:180, lSize:18, lWt:400, lLh:170, bSize:16, bWt:400, bLh:172, cSize:13, cWt:500, accent:'#a02c2c', bg:'day' },
+    atelier:    { headFont:'Fraunces', bodyFont:'Work Sans', hSize:96, hWt:300, hLh:95, hLs:-30, hItalic:'mixed', hCase:'none', eFam:'mono', eSize:11, eWt:400, eLs:240, lSize:17, lWt:300, lLh:178, bSize:16, bWt:400, bLh:172, cSize:13, cWt:400, accent:'#5a7a4a', bg:'paper' },
+    noir:       { headFont:'Space Grotesk', bodyFont:'Archivo', hSize:100, hWt:500, hLh:92, hLs:-35, hItalic:'roman', hCase:'none', eFam:'mono', eSize:11, eWt:500, eLs:200, lSize:17, lWt:400, lLh:160, bSize:15, bWt:400, bLh:165, cSize:12, cWt:500, accent:'#5ad6e0', bg:'ink' },
+    couture:    { headFont:'Playfair Display', bodyFont:'Inter', hSize:128, hWt:400, hLh:90, hLs:-30, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:10, eWt:400, eLs:380, lSize:17, lWt:300, lLh:175, bSize:15, bWt:300, bLh:175, cSize:11, cWt:400, accent:'#d4af37', bg:'ink' },
+    maison:     { headFont:'EB Garamond', bodyFont:'Source Serif 4', hSize:84, hWt:400, hLh:105, hLs:-15, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:10, eWt:500, eLs:320, lSize:18, lWt:400, lLh:178, bSize:17, bWt:400, bLh:180, cSize:12, cWt:400, accent:'#1e3a5f', bg:'day' },
+    concierge:  { headFont:'Fraunces', bodyFont:'Manrope', hSize:90, hWt:300, hLh:100, hLs:-25, hItalic:'italic', hCase:'none', eFam:'sans', eSize:10, eWt:400, eLs:350, lSize:18, lWt:300, lLh:178, bSize:16, bWt:400, bLh:175, cSize:12, cWt:400, accent:'#a86a3a', bg:'paper' },
+    onyx:       { headFont:'DM Serif Display', bodyFont:'Inter', hSize:108, hWt:400, hLh:92, hLs:-25, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:10, eWt:500, eLs:400, lSize:17, lWt:300, lLh:170, bSize:15, bWt:300, bLh:172, cSize:11, cWt:400, accent:'#c8c5b8', bg:'ink' },
+    regence:    { headFont:'Libre Caslon Text', bodyFont:'EB Garamond', hSize:80, hWt:400, hLh:108, hLs:-10, hItalic:'mixed', hCase:'small', eFam:'sans', eSize:10, eWt:400, eLs:360, lSize:18, lWt:400, lLh:180, bSize:17, bWt:400, bLh:180, cSize:12, cWt:400, accent:'#8a6d2e', bg:'day' },
+    velour:     { headFont:'Lora', bodyFont:'Manrope', hSize:88, hWt:400, hLh:100, hLs:-20, hItalic:'mixed', hCase:'none', eFam:'sans', eSize:10, eWt:400, eLs:300, lSize:17, lWt:300, lLh:175, bSize:16, bWt:300, bLh:172, cSize:12, cWt:400, accent:'#a55a5f', bg:'night' }
+  };
+
+  let state = Object.assign({}, defaults);
+  try { const saved = localStorage.getItem(LS_KEY); if (saved) state = Object.assign({}, defaults, JSON.parse(saved)); } catch (e) {}
+
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+  const SERIF_FONTS = ['Fraunces','Playfair Display','DM Serif Display','Source Serif 4','EB Garamond','Libre Caslon Text','Lora'];
+
+  function fontStack(name) {
+    const isSerif = SERIF_FONTS.indexOf(name) !== -1;
+    return "'" + name + "', " + (isSerif ? 'Georgia, serif' : "-apple-system, BlinkMacSystemFont, sans-serif");
+  }
+  function labelStack(fam) {
+    return fam === 'mono' ? "'JetBrains Mono', 'Fira Code', 'Courier New', monospace" : "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+  }
+  function pxToRem(px) { return (px / 16).toFixed(4).replace(/\.?0+$/, '') + 'rem'; }
+  function hexToRgb(hex) { const m = hex.replace('#','').match(/.{2}/g); return m.map(h => parseInt(h, 16)); }
+  function accentDim(hex) { const [r,g,b] = hexToRgb(hex); return 'rgba(' + r + ',' + g + ',' + b + ',0.08)'; }
+
+  function diffFromDefault() {
+    let changes = 0;
+    Object.keys(defaults).forEach(k => {
+      if (k === 'bg' || k === 'preset') return;
+      if (state[k] !== defaults[k]) changes++;
+    });
+    return changes;
+  }
+
+  // Pretty labels for the preset badge (matches the chip text in the UI).
+  const PRESET_LABELS = {
+    gitfoundry:'GitFoundry', editorial:'Editorial', brutalist:'Brutalist',
+    monograph:'Monograph', swiss:'Swiss', magazine:'Magazine',
+    heritage:'Heritage', manifesto:'Manifesto', boutique:'Boutique',
+    newsroom:'Newsroom', atelier:'Atelier', noir:'Noir',
+    couture:'Couture', maison:'Maison', concierge:'Concierge',
+    onyx:'Onyx', regence:'Régence', velour:'Velour'
+  };
+
+  function render() {
+    const pv = $('#tl-preview');
+    pv.setAttribute('data-pv', state.bg);
+
+    const badge = $('#pv-preset-badge');
+    if (badge) {
+      /* state.preset is cleared to '' the moment the user touches any
+         non-preset control, so this resolves to 'Custom' accurately. */
+      badge.textContent = PRESET_LABELS[state.preset] || 'Custom';
+      badge.style.color = state.accent;
+    }
+
+    const eb = $('#pv-eyebrow');
+    eb.style.fontFamily = labelStack(state.eFam);
+    eb.style.fontSize = state.eSize + 'px';
+    eb.style.fontWeight = state.eWt;
+    eb.style.letterSpacing = (state.eLs / 1000) + 'em';
+    eb.style.color = state.accent;
+    eb.style.marginBottom = '2rem';
+
+    const t = $('#pv-title');
+    t.style.fontFamily = fontStack(state.headFont);
+    t.style.fontSize = state.hSize + 'px';
+    t.style.fontWeight = state.hWt;
+    t.style.lineHeight = (state.hLh / 100);
+    t.style.letterSpacing = (state.hLs / 1000) + 'em';
+    t.style.fontStyle = state.hItalic === 'italic' ? 'italic' : 'normal';
+    t.style.textTransform = state.hCase === 'upper' ? 'uppercase' : 'none';
+    t.style.fontVariant = state.hCase === 'small' ? 'small-caps' : 'normal';
+    t.style.marginBottom = '2rem';
+    const em = t.querySelector('em');
+    if (em) {
+      em.style.fontStyle = state.hItalic === 'roman' ? 'normal' : 'italic';
+      em.style.color = state.accent;
+      em.style.fontWeight = 'inherit';
+    }
+
+    const l = $('#pv-lead');
+    l.style.fontFamily = fontStack(state.bodyFont);
+    l.style.fontSize = state.lSize + 'px';
+    l.style.fontWeight = state.lWt;
+    l.style.lineHeight = (state.lLh / 100);
+    l.style.marginBottom = '1.5rem';
+
+    const b = $('#pv-body');
+    b.style.fontFamily = fontStack(state.bodyFont);
+    b.style.fontSize = state.bSize + 'px';
+    b.style.fontWeight = state.bWt;
+    b.style.lineHeight = (state.bLh / 100);
+
+    const c = $('#pv-caption');
+    c.style.fontFamily = labelStack(state.eFam);
+    c.style.fontSize = state.cSize + 'px';
+    c.style.fontWeight = state.cWt;
+    c.style.lineHeight = 1.65;
+
+    updateLabels();
+    updateStatus();
+    updateCode();
+    persist();
+  }
+
+  function updateLabels() {
+    const fmt = {
+      hSize: v => v + 'px', hWt: v => v, hLh: v => (v/100).toFixed(2), hLs: v => (v/1000).toFixed(3),
+      eSize: v => v + 'px', eWt: v => v, eLs: v => (v/1000).toFixed(2),
+      lSize: v => v + 'px', lWt: v => v, lLh: v => (v/100).toFixed(2),
+      bSize: v => v + 'px', bWt: v => v, bLh: v => (v/100).toFixed(2),
+      cSize: v => v + 'px', cWt: v => v
+    };
+    Object.keys(fmt).forEach(k => {
+      const el = $('[data-val="' + k + '"]');
+      if (el) el.textContent = fmt[k](state[k]);
+    });
+  }
+
+  function updateStatus() {
+    const n = diffFromDefault();
+    const el = $('#tl-status');
+    if (n === 0) {
+      el.textContent = 'No changes from GitFoundry default';
+      el.style.color = 'var(--text-muted)';
+    } else {
+      el.textContent = n + ' change' + (n === 1 ? '' : 's') + ' ready to apply';
+      el.style.color = 'var(--accent)';
+    }
+  }
+
+  function generatePatch() {
+    const headStack = fontStack(state.headFont);
+    const bodyStack = fontStack(state.bodyFont);
+    const lblStack  = labelStack(state.eFam);
+
+    // Heading sizes are clamp() expressions derived from the configured peak.
+    // The hero is the peak; page-header is 80% of peak; section is 60% of peak.
+    // Min and viewport coefficients mirror the styles.css defaults.
+    function headingClamp(peakPx, ratio) {
+      const max = Math.round(peakPx * ratio);
+      const min = Math.round(max * 0.41);          // ~3.5rem when peak=8.5rem
+      const vw  = (max * 0.078).toFixed(2);        // ~11vw when max=136
+      return 'clamp(' + pxToRem(min) + ', ' + vw + 'vw, ' + pxToRem(max) + ')';
+    }
+
+    const lines = [
+      '/* ════════════════════════════════════════════════',
+      '   TYPE LAB EXPORT — ' + new Date().toISOString().slice(0,10),
+      '   Preset: ' + state.preset + '   |   Accent: ' + state.accent,
+      '   ',
+      '   Drop-in safe. This block ONLY sets --gf-* tokens',
+      '   declared in the typography contract at the top of',
+      '   styles.css. It does not redefine any component',
+      '   rules, so no existing selector can be broken.',
+      '   ',
+      '   Paste at the very bottom of styles.css.',
+      '   To undo: delete this block.',
+      '   ════════════════════════════════════════════════ */',
+      '',
+      ':root {',
+      '  /* Families */',
+      '  --gf-font-display: ' + headStack + ';',
+      '  --gf-font-text:    ' + bodyStack + ';',
+      '  --gf-font-label:   ' + lblStack  + ';',
+      '',
+      '  /* Sizes */',
+      '  --gf-fs-hero:    ' + headingClamp(state.hSize, 1.00) + ';',
+      '  --gf-fs-page:    ' + headingClamp(state.hSize, 0.80) + ';',
+      '  --gf-fs-section: ' + headingClamp(state.hSize, 0.60) + ';',
+      '  --gf-fs-lead:    ' + pxToRem(state.lSize) + ';',
+      '  --gf-fs-body:    ' + pxToRem(state.bSize) + ';',
+      '  --gf-fs-caption: ' + pxToRem(state.cSize) + ';',
+      '  --gf-fs-label:   ' + pxToRem(state.eSize) + ';',
+      '',
+      '  /* Weights */',
+      '  --gf-fw-display: ' + state.hWt + ';',
+      '  --gf-fw-body:    ' + state.bWt + ';',
+      '  --gf-fw-lead:    ' + state.lWt + ';',
+      '  --gf-fw-caption: ' + state.cWt + ';',
+      '  --gf-fw-label:   ' + state.eWt + ';',
+      '',
+      '  /* Line heights */',
+      '  --gf-lh-display: ' + (state.hLh / 100).toFixed(2) + ';',
+      '  --gf-lh-section: ' + Math.max((state.hLh / 100), 1.0).toFixed(2) + ';',
+      '  --gf-lh-body:    ' + (state.bLh / 100).toFixed(2) + ';',
+      '  --gf-lh-lead:    ' + (state.lLh / 100).toFixed(2) + ';',
+      '  --gf-lh-caption: ' + (state.bLh / 100).toFixed(2) + ';',
+      '',
+      '  /* Letter spacing */',
+      '  --gf-ls-display: ' + (state.hLs / 1000).toFixed(3) + 'em;',
+      '  --gf-ls-section: ' + (state.hLs / 1000).toFixed(3) + 'em;',
+      '  --gf-ls-label:   ' + (state.eLs / 1000).toFixed(3) + 'em;',
+      '',
+      '  /* Accent */',
+      '  --accent:     ' + state.accent + ';',
+      '  --accent-dim: ' + accentDim(state.accent) + ';',
+      '}',
+      '',
+      '[data-theme="day"] {',
+      '  --accent:     ' + state.accent + ';',
+      '  --accent-dim: ' + accentDim(state.accent) + ';',
+      '}'
+    ];
+
+    return lines.join('\n');
+  }
+
+  function updateCode() { $('#tl-code-out').textContent = generatePatch(); }
+
+  function persist() {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function syncUI() {
+    $$('input[type=range][data-key]').forEach(r => { r.value = state[r.dataset.key]; });
+    $$('[data-group]').forEach(group => {
+      const key = group.dataset.group;
+      $$('button[data-v]', group).forEach(btn => {
+        btn.classList.toggle('on', String(btn.dataset.v) === String(state[key]));
+      });
+    });
+  }
+
+  async function downloadUpdatedStyles() {
+    try {
+      const res = await fetch('styles.css');
+      if (!res.ok) throw new Error('fetch failed');
+      const original = await res.text();
+
+      // Strip any previous Type Lab block so successive exports don't stack.
+      // Matches both the legacy "TYPE LAB OVERRIDES" header and the new
+      // "TYPE LAB EXPORT" header introduced with the token-contract refactor.
+      let cleaned = original;
+      const markers = [
+        '/* ════════════════════════════════════════════════\n   TYPE LAB EXPORT',
+        '/* ════════════════════════════════════════════════\n   TYPE LAB OVERRIDES'
+      ];
+      for (const m of markers) {
+        const idx = cleaned.indexOf(m);
+        if (idx !== -1) { cleaned = cleaned.substring(0, idx).trimEnd(); break; }
+      }
+
+      const patched = cleaned + '\n\n' + generatePatch() + '\n';
+
+      const blob = new Blob([patched], { type: 'text/css' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'styles.css';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Downloaded — now replace styles.css in your repo');
+    } catch (e) {
+      const blob = new Blob([generatePatch()], { type: 'text/css' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'type-lab-patch.css';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Patch downloaded — append to styles.css');
+    }
+  }
+
+  function showToast(msg) {
+    const t = $('#tl-toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  // Event wiring
+  $$('input[type=range][data-key]').forEach(r => {
+    r.addEventListener('input', e => {
+      state[r.dataset.key] = Number(e.target.value);
+      state.preset = '';   /* sliders diverge state from any named preset */
+      render();
+    });
+  });
+
+  $$('[data-group]').forEach(group => {
+    const key = group.dataset.group;
+    $$('button[data-v]', group).forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.v;
+        if (key === 'preset') {
+          Object.assign(state, presets[v]);
+          state.preset = v;
+          syncUI();
+        } else {
+          /* Any non-preset chip change (font, bg, accent) means we're no
+             longer cleanly on a named preset — clear the preset label. */
+          state.preset = '';
+          state[key] = v;
+          $$('button[data-v]', group).forEach(b => b.classList.toggle('on', b === btn));
+        }
+        render();
+      });
+    });
+  });
+
+  $('#btn-download').addEventListener('click', downloadUpdatedStyles);
+  $('#btn-copy-patch').addEventListener('click', () => {
+    navigator.clipboard.writeText(generatePatch());
+    showToast('CSS patch copied');
+  });
+  $('#btn-reset').addEventListener('click', () => {
+    state = Object.assign({}, defaults);
+    syncUI();
+    render();
+    showToast('Reset to default');
+  });
+  $('#btn-toggle-code').addEventListener('click', () => {
+    const w = $('#code-wrap');
+    w.classList.toggle('open');
+    $('#toggle-label').textContent = w.classList.contains('open') ? 'Hide the CSS' : 'Show the CSS';
+  });
+
+  syncUI();
+  render();
+})();
+</script>
+
+</body>
+</html>

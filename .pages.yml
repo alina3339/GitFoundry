@@ -1,0 +1,153 @@
+# ============================================================
+#  Pages CMS configuration for GitFoundry
+#  Edits HTML files directly via a code editor in the browser.
+#  https://pagescms.org/docs/configuration/
+# ============================================================
+
+# Where images uploaded through the CMS will be saved.
+# The CMS will also let you browse and reuse existing images here.
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+
+  # ----------------------------------------------------------
+  #  PAGES — each HTML file on the site is editable as code
+  # ----------------------------------------------------------
+
+  - name: home
+    label: Homepage
+    path: index.html
+    type: file
+    fields:
+      - name: body
+        label: Homepage HTML
+        type: code
+        options:
+          language: html
+
+  - name: about
+    label: About page
+    path: about.html
+    type: file
+    fields:
+      - name: body
+        label: About HTML
+        type: code
+        options:
+          language: html
+
+  - name: services
+    label: Services page
+    path: services.html
+    type: file
+    fields:
+      - name: body
+        label: Services HTML
+        type: code
+        options:
+          language: html
+
+  - name: pricing
+    label: Pricing page
+    path: pricing.html
+    type: file
+    fields:
+      - name: body
+        label: Pricing HTML
+        type: code
+        options:
+          language: html
+
+  - name: portfolio
+    label: Portfolio page
+    path: portfolio.html
+    type: file
+    fields:
+      - name: body
+        label: Portfolio HTML
+        type: code
+        options:
+          language: html
+
+  - name: sectors
+    label: Sectors page
+    path: sectors.html
+    type: file
+    fields:
+      - name: body
+        label: Sectors HTML
+        type: code
+        options:
+          language: html
+
+  - name: contact
+    label: Contact page
+    path: contact.html
+    type: file
+    fields:
+      - name: body
+        label: Contact HTML
+        type: code
+        options:
+          language: html
+
+  - name: brief
+    label: Brief page
+    path: brief.html
+    type: file
+    fields:
+      - name: body
+        label: Brief HTML
+        type: code
+        options:
+          language: html
+
+  - name: legal
+    label: Legal page
+    path: legal.html
+    type: file
+    fields:
+      - name: body
+        label: Legal HTML
+        type: code
+        options:
+          language: html
+
+  - name: success
+    label: Success page
+    path: success.html
+    type: file
+    fields:
+      - name: body
+        label: Success HTML
+        type: code
+        options:
+          language: html
+
+  # ----------------------------------------------------------
+  #  STYLES — sometimes the quickest way to tweak the site
+  # ----------------------------------------------------------
+
+  - name: styles
+    label: Stylesheet (styles.css)
+    path: styles.css
+    type: file
+    fields:
+      - name: body
+        label: CSS
+        type: code
+        options:
+          language: css
+
+  - name: calculator
+    label: Calculator script (calculator.js)
+    path: calculator.js
+    type: file
+    fields:
+      - name: body
+        label: JavaScript
+        type: code
+        options:
+          language: javascript

@@ -1,86 +1,129 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
-  
-  <g stroke="#ffffff" fill="none">
+  <!--
+    GitFoundry Vitruvian — Mechanical Schema — v2
+    Proper toothed gear (24 teeth) with internal pitch circle, spokes, and a
+    counter-rotating inner pinion gear (12 teeth). Comet sweeps the rim.
+  -->
+  <style>
+    .stage { transform-origin: center; transform-box: view-box; animation: breathe 7s ease-in-out infinite; }
+    .spin  { transform-origin: center; transform-box: view-box; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+    .wheel    { animation-name: spin;     animation-duration: 32s; }
+    .pinion   { animation-name: spin-rev; animation-duration: 16s; }
+    .arc      { animation-name: spin-rev; animation-duration: 24s; }
+    .comet    { animation-name: spin;     animation-duration: 11s; }
+    .satellite { animation-name: spin-rev; animation-duration: 6s; }
 
-    
-    <circle cx="300" cy="300" r="240" stroke-width="0.65"></circle>
-    <circle cx="300" cy="300" r="230" stroke-width="0.4"></circle>
+    @keyframes spin     { to { transform: rotate(360deg); } }
+    @keyframes spin-rev { to { transform: rotate(-360deg); } }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.008); }
+    }
 
-    
-    <g stroke-width="0.5">
-      <line x1="300" y1="60" x2="300" y2="80"></line>
-      <line x1="362" y1="76" x2="357" y2="95"></line>
-      <line x1="420" y1="120" x2="405" y2="135"></line>
-      <line x1="464" y1="178" x2="445" y2="183"></line>
-      <line x1="480" y1="240" x2="460" y2="237"></line>
-      <line x1="480" y1="300" x2="460" y2="300"></line>
-      <line x1="480" y1="360" x2="460" y2="363"></line>
-      <line x1="464" y1="422" x2="445" y2="417"></line>
-      <line x1="420" y1="480" x2="405" y2="465"></line>
-      <line x1="362" y1="524" x2="357" y2="505"></line>
-      <line x1="300" y1="540" x2="300" y2="520"></line>
-      <line x1="238" y1="524" x2="243" y2="505"></line>
-      <line x1="180" y1="480" x2="195" y2="465"></line>
-      <line x1="136" y1="422" x2="155" y2="417"></line>
-      <line x1="120" y1="360" x2="140" y2="363"></line>
-      <line x1="120" y1="300" x2="140" y2="300"></line>
-      <line x1="120" y1="240" x2="140" y2="237"></line>
-      <line x1="136" y1="178" x2="155" y2="183"></line>
-      <line x1="180" y1="120" x2="195" y2="135"></line>
-      <line x1="238" y1="76" x2="243" y2="95"></line>
+    @media (prefers-reduced-motion: reduce) {
+      .stage, .spin { animation: none; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="comet-g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+      <stop offset="60%"  stop-color="#f4efe5" stop-opacity="0.05"/>
+      <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <g class="stage">
+    <g stroke="#f4efe5" fill="none">
+
+      <!-- Main toothed gear with rim, pitch circle, spokes — rotate as one -->
+      <g class="spin wheel">
+        <!-- The actual toothed outline -->
+        <path d="M 310.99 90.29 L 318.83 60.74 A 240 240 0 0 1 343.74 64.02 L 343.66 94.59 A 210 210 0 0 1 364.89 100.28 L 380.11 73.77 A 240 240 0 0 1 403.32 83.38 L 395.34 112.89 A 210 210 0 0 1 414.37 123.88 L 435.94 102.21 A 240 240 0 0 1 455.87 117.50 L 440.52 143.94 A 210 210 0 0 1 456.06 159.48 L 482.50 144.13 A 240 240 0 0 1 497.79 164.06 L 476.12 185.63 A 210 210 0 0 1 487.11 204.66 L 516.62 196.68 A 240 240 0 0 1 526.23 219.89 L 499.72 235.11 A 210 210 0 0 1 505.41 256.34 L 535.98 256.26 A 240 240 0 0 1 539.26 281.17 L 509.71 289.01 A 210 210 0 0 1 509.71 310.99 L 539.26 318.83 A 240 240 0 0 1 535.98 343.74 L 505.41 343.66 A 210 210 0 0 1 499.72 364.89 L 526.23 380.11 A 240 240 0 0 1 516.62 403.32 L 487.11 395.34 A 210 210 0 0 1 476.12 414.37 L 497.79 435.94 A 240 240 0 0 1 482.50 455.87 L 456.06 440.52 A 210 210 0 0 1 440.52 456.06 L 455.87 482.50 A 240 240 0 0 1 435.94 497.79 L 414.37 476.12 A 210 210 0 0 1 395.34 487.11 L 403.32 516.62 A 240 240 0 0 1 380.11 526.23 L 364.89 499.72 A 210 210 0 0 1 343.66 505.41 L 343.74 535.98 A 240 240 0 0 1 318.83 539.26 L 310.99 509.71 A 210 210 0 0 1 289.01 509.71 L 281.17 539.26 A 240 240 0 0 1 256.26 535.98 L 256.34 505.41 A 210 210 0 0 1 235.11 499.72 L 219.89 526.23 A 240 240 0 0 1 196.68 516.62 L 204.66 487.11 A 210 210 0 0 1 185.63 476.12 L 164.06 497.79 A 240 240 0 0 1 144.13 482.50 L 159.48 456.06 A 210 210 0 0 1 143.94 440.52 L 117.50 455.87 A 240 240 0 0 1 102.21 435.94 L 123.88 414.37 A 210 210 0 0 1 112.89 395.34 L 83.38 403.32 A 240 240 0 0 1 73.77 380.11 L 100.28 364.89 A 210 210 0 0 1 94.59 343.66 L 64.02 343.74 A 240 240 0 0 1 60.74 318.83 L 90.29 310.99 A 210 210 0 0 1 90.29 289.01 L 60.74 281.17 A 240 240 0 0 1 64.02 256.26 L 94.59 256.34 A 210 210 0 0 1 100.28 235.11 L 73.77 219.89 A 240 240 0 0 1 83.38 196.68 L 112.89 204.66 A 210 210 0 0 1 123.88 185.63 L 102.21 164.06 A 240 240 0 0 1 117.50 144.13 L 143.94 159.48 A 210 210 0 0 1 159.48 143.94 L 144.13 117.50 A 240 240 0 0 1 164.06 102.21 L 185.63 123.88 A 210 210 0 0 1 204.66 112.89 L 196.68 83.38 A 240 240 0 0 1 219.89 73.77 L 235.11 100.28 A 210 210 0 0 1 256.34 94.59 L 256.26 64.02 A 240 240 0 0 1 281.17 60.74 L 289.01 90.29 A 210 210 0 0 1 310.99 90.29 Z" stroke-width="0.8"/>
+
+        <!-- Pitch circle (theoretical mid-line through teeth) -->
+        <circle cx="300" cy="300" r="225" stroke-width="0.35" stroke-dasharray="3 3" opacity="0.5"/>
+
+        <!-- Inner rim that the spokes attach to -->
+        <circle cx="300" cy="300" r="175" stroke-width="0.55"/>
+        <circle cx="300" cy="300" r="170" stroke-width="0.3" opacity="0.6"/>
+
+        <!-- Spokes -->
+        <g stroke-width="0.6">
+          <line x1="300" y1="125" x2="300" y2="475"/>
+          <line x1="148" y1="213" x2="452" y2="387"/>
+          <line x1="148" y1="387" x2="452" y2="213"/>
+        </g>
+        <!-- Double-line spoke detail -->
+        <g stroke-width="0.25" opacity="0.7">
+          <line x1="296" y1="125" x2="296" y2="475"/>
+          <line x1="304" y1="125" x2="304" y2="475"/>
+        </g>
+
+        <!-- Bolt holes near the hub -->
+        <g stroke-width="0.4" opacity="0.7">
+          <circle cx="300" cy="135" r="2.5"/>
+          <circle cx="300" cy="465" r="2.5"/>
+          <circle cx="135" cy="300" r="2.5"/>
+          <circle cx="465" cy="300" r="2.5"/>
+        </g>
+      </g>
+
+      <!-- Inner pinion gear — counter-rotates -->
+      <g class="spin pinion">
+        <path d="M 306.69 236.35 L 312.20 222.96 A 78 78 0 0 1 327.95 227.18 L 326.03 241.53 A 64 64 0 0 1 337.62 248.22 L 349.09 239.38 A 78 78 0 0 1 360.62 250.91 L 351.78 262.38 A 64 64 0 0 1 358.47 273.97 L 372.82 272.05 A 78 78 0 0 1 377.04 287.80 L 363.65 293.31 A 64 64 0 0 1 363.65 306.69 L 377.04 312.20 A 78 78 0 0 1 372.82 327.95 L 358.47 326.03 A 64 64 0 0 1 351.78 337.62 L 360.62 349.09 A 78 78 0 0 1 349.09 360.62 L 337.62 351.78 A 64 64 0 0 1 326.03 358.47 L 327.95 372.82 A 78 78 0 0 1 312.20 377.04 L 306.69 363.65 A 64 64 0 0 1 293.31 363.65 L 287.80 377.04 A 78 78 0 0 1 272.05 372.82 L 273.97 358.47 A 64 64 0 0 1 262.38 351.78 L 250.91 360.62 A 78 78 0 0 1 239.38 349.09 L 248.22 337.62 A 64 64 0 0 1 241.53 326.03 L 227.18 327.95 A 78 78 0 0 1 222.96 312.20 L 236.35 306.69 A 64 64 0 0 1 236.35 293.31 L 222.96 287.80 A 78 78 0 0 1 227.18 272.05 L 241.53 273.97 A 64 64 0 0 1 248.22 262.38 L 239.38 250.91 A 78 78 0 0 1 250.91 239.38 L 262.38 248.22 A 64 64 0 0 1 273.97 241.53 L 272.05 227.18 A 78 78 0 0 1 287.80 222.96 L 293.31 236.35 A 64 64 0 0 1 306.69 236.35 Z" stroke-width="0.55"/>
+        <circle cx="300" cy="300" r="50" stroke-width="0.4"/>
+        <circle cx="300" cy="300" r="22" stroke-width="0.4"/>
+        <line x1="300" y1="265" x2="300" y2="335" stroke-width="0.35"/>
+        <line x1="265" y1="300" x2="335" y2="300" stroke-width="0.35"/>
+      </g>
+
+      <!-- Comet sweep on rim -->
+      <g class="spin comet">
+        <circle cx="300" cy="300" r="240" stroke="url(#comet-g)" stroke-width="2" stroke-linecap="round"
+                pathLength="1000" stroke-dasharray="300 700"/>
+        <circle cx="540" cy="300" r="2.4" fill="#f4efe5"/>
+      </g>
+
+      <!-- Dashed measurement arc - counter-rotating -->
+      <g class="spin arc" opacity="0.6">
+        <path d="M 460 300 A 160 160 0 0 0 380 161" stroke-width="0.4" stroke-dasharray="2 2"/>
+      </g>
+
+      <!-- Tiny external satellite -->
+      <g class="spin satellite" opacity="0.7">
+        <circle cx="555" cy="300" r="1.5" fill="#f4efe5"/>
+      </g>
+
+      <!-- Static central axle bearing -->
+      <circle cx="300" cy="300" r="6" stroke-width="1.2" fill="#0a0a0a"/>
+      <circle cx="300" cy="300" r="2.5" fill="#f4efe5"/>
+
+      <!-- Static reference axes -->
+      <g opacity="0.55">
+        <line x1="20"  y1="300" x2="60"  y2="300" stroke-width="0.5"/>
+        <line x1="540" y1="300" x2="580" y2="300" stroke-width="0.5"/>
+        <line x1="300" y1="20"  x2="300" y2="60"  stroke-width="0.5"/>
+        <line x1="300" y1="540" x2="300" y2="580" stroke-width="0.5"/>
+        <line x1="25"  y1="295" x2="25"  y2="305" stroke-width="0.4"/>
+        <line x1="575" y1="295" x2="575" y2="305" stroke-width="0.4"/>
+        <line x1="295" y1="25"  x2="305" y2="25"  stroke-width="0.4"/>
+        <line x1="295" y1="575" x2="305" y2="575" stroke-width="0.4"/>
+      </g>
+
+      <!-- Corner registration marks -->
+      <g stroke-width="1">
+        <line x1="10"  y1="10"  x2="40"  y2="10"/>
+        <line x1="10"  y1="10"  x2="10"  y2="40"/>
+        <line x1="590" y1="10"  x2="560" y2="10"/>
+        <line x1="590" y1="10"  x2="590" y2="40"/>
+        <line x1="10"  y1="590" x2="40"  y2="590"/>
+        <line x1="10"  y1="590" x2="10"  y2="560"/>
+        <line x1="590" y1="590" x2="560" y2="590"/>
+        <line x1="590" y1="590" x2="590" y2="560"/>
+      </g>
+
     </g>
-
-    
-    <circle cx="300" cy="300" r="150" stroke-width="0.5"></circle>
-    <circle cx="300" cy="300" r="75" stroke-width="0.45"></circle>
-    <circle cx="300" cy="300" r="30" stroke-width="0.4"></circle>
-
-    
-    <g stroke-width="0.5">
-      <line x1="300" y1="150" x2="300" y2="450"></line>
-      <line x1="170" y1="225" x2="430" y2="375"></line>
-      <line x1="170" y1="375" x2="430" y2="225"></line>
-    </g>
-
-    
-    <g stroke-width="0.25">
-      <line x1="296" y1="150" x2="296" y2="450"></line>
-      <line x1="304" y1="150" x2="304" y2="450"></line>
-    </g>
-
-    
-    <path d="M 450 300 A 150 150 0 0 0 375 170" stroke-width="0.4" stroke-dasharray="2 2"></path>
-
-    
-    <line x1="300" y1="300" x2="540" y2="180" stroke-width="0.3"></line>
-    <line x1="300" y1="300" x2="540" y2="420" stroke-width="0.3"></line>
-
-    
-    <line x1="20" y1="300" x2="60" y2="300" stroke-width="0.5"></line>
-    <line x1="540" y1="300" x2="580" y2="300" stroke-width="0.5"></line>
-    <line x1="300" y1="20" x2="300" y2="60" stroke-width="0.5"></line>
-    <line x1="300" y1="540" x2="300" y2="580" stroke-width="0.5"></line>
-
-    
-    <line x1="25" y1="295" x2="25" y2="305" stroke-width="0.4"></line>
-    <line x1="575" y1="295" x2="575" y2="305" stroke-width="0.4"></line>
-    <line x1="295" y1="25" x2="305" y2="25" stroke-width="0.4"></line>
-    <line x1="295" y1="575" x2="305" y2="575" stroke-width="0.4"></line>
-
-    
-    <circle cx="300" cy="300" r="5" stroke-width="1.2"></circle>
-    <line x1="290" y1="300" x2="310" y2="300" stroke-width="0.8"></line>
-    <line x1="300" y1="290" x2="300" y2="310" stroke-width="0.8"></line>
-
-    
-    <line x1="10" y1="10" x2="40" y2="10" stroke-width="1"></line>
-    <line x1="10" y1="10" x2="10" y2="40" stroke-width="1"></line>
-    <line x1="590" y1="10" x2="560" y2="10" stroke-width="1"></line>
-    <line x1="590" y1="10" x2="590" y2="40" stroke-width="1"></line>
-    <line x1="10" y1="590" x2="40" y2="590" stroke-width="1"></line>
-    <line x1="10" y1="590" x2="10" y2="560" stroke-width="1"></line>
-    <line x1="590" y1="590" x2="560" y2="590" stroke-width="1"></line>
-    <line x1="590" y1="590" x2="590" y2="560" stroke-width="1"></line>
-
   </g>
 </svg>

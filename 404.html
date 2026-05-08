@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — GitFoundry</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap"></noscript>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.setAttribute("data-theme",localStorage.getItem("gf-theme")||"night")</script>
+<script defer src="site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="site()" :data-theme="theme">
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <ul class="nav-links" role="list">
+      <li><a href="services.html"  class="nav-item">Services</a></li>
+      <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
+      <li><a href="portfolio.html" class="nav-item">Portfolio</a></li>
+      <li><a href="/journal/"      class="nav-item">Journal</a></li>
+      <li><a href="brief.html"     class="nav-item nav-cta">Get my quote</a></li>
+    </ul>
+    <button class="nav-theme" @click="toggleTheme()" :aria-label="theme==='night'?'Switch to day mode':'Switch to night mode'">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
+    </button>
+    <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-404" aria-label="Toggle navigation">
+      <span x-text="drawerOpen?'✕':'≡'"></span>
+    </button>
+  </div>
+</nav>
+
+<div id="nav-drawer-404" class="nav-drawer" :class="drawerOpen?'open':''">
+  <a href="services.html"  class="nav-item" @click="drawerOpen=false">Services</a>
+  <a href="pricing.html"   class="nav-item" @click="drawerOpen=false">Pricing</a>
+  <a href="portfolio.html" class="nav-item" @click="drawerOpen=false">Portfolio</a>
+  <a href="/journal/"      class="nav-item" @click="drawerOpen=false">Journal</a>
+  <a href="brief.html"     class="nav-item nav-cta" @click="drawerOpen=false">Get my quote</a>
+</div>
+
+<main id="main">
+  <div class="content-wrapper">
+    <header class="page-header">
+      <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+        <style>
+          .stage { transform-origin: 300px 300px; animation: breathe 7s ease-in-out infinite; }
+          .spin  { transform-origin: 300px 300px; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+          .s1 { animation-name: spin;     animation-duration: 18s; }
+          .s3 { animation-name: spin;     animation-duration: 12s; }
+          .s5 { animation-name: spin;     animation-duration: 40s; }
+          @keyframes spin     { to { transform: rotate(360deg); } }
+          @keyframes breathe  { 0%,100% { transform: scale(1); } 50% { transform: scale(1.008); } }
+          @media (prefers-reduced-motion: reduce) { .stage, .spin { animation: none; } }
+        </style>
+        <defs>
+          <linearGradient id="comet-404" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stop-color="#f4efe5" stop-opacity="0"/>
+            <stop offset="92%"  stop-color="#f4efe5" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#f4efe5" stop-opacity="1"/>
+          </linearGradient>
+        </defs>
+        <g class="stage">
+          <g stroke="#f4efe5" fill="none">
+            <circle cx="300" cy="300" r="285" stroke-width="0.7"/>
+            <circle cx="300" cy="300" r="176" stroke-width="0.55"/>
+            <circle cx="300" cy="300" r="109" stroke-width="0.45"/>
+            <g class="spin s5">
+              <rect x="87" y="87" width="426" height="426" stroke-width="0.55"/>
+              <line x1="87" y1="87" x2="513" y2="513" stroke-width="0.35"/>
+              <line x1="513" y1="87" x2="87" y2="513" stroke-width="0.35"/>
+            </g>
+            <g class="spin s1" opacity="0.7">
+              <line x1="5" y1="300" x2="595" y2="300" stroke-width="0.6"/>
+              <line x1="300" y1="5" x2="300" y2="595" stroke-width="0.6"/>
+            </g>
+            <g class="spin s3">
+              <circle cx="300" cy="300" r="285" stroke="url(#comet-404)" stroke-width="2" stroke-linecap="round" pathLength="1000" stroke-dasharray="320 680"/>
+              <circle cx="585" cy="300" r="2.4" fill="#f4efe5"/>
+            </g>
+            <circle cx="300" cy="300" r="4" stroke-width="1.2"/>
+            <line x1="290" y1="300" x2="310" y2="300" stroke-width="1.2"/>
+            <line x1="300" y1="290" x2="300" y2="310" stroke-width="1.2"/>
+            <g stroke-width="1">
+              <line x1="10" y1="10" x2="40" y2="10"/><line x1="10" y1="10" x2="10" y2="40"/>
+              <line x1="590" y1="10" x2="560" y2="10"/><line x1="590" y1="10" x2="590" y2="40"/>
+              <line x1="10" y1="590" x2="40" y2="590"/><line x1="10" y1="590" x2="10" y2="560"/>
+              <line x1="590" y1="590" x2="560" y2="590"/><line x1="590" y1="590" x2="590" y2="560"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <span class="page-header-label">404</span>
+      <h1 class="page-header-title">Page not found.</h1>
+      <p class="page-header-desc">The page you're looking for doesn't exist or has moved. Use the links below to find your way back.</p>
+    </header>
+
+    <section aria-label="Navigation options">
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:3rem">
+        <a href="/" class="btn btn-primary">Go to homepage</a>
+        <a href="brief.html" class="btn btn-outline">Get a quote</a>
+      </div>
+
+      <div class="item-row" style="margin-top:0">
+        <div class="item-row-label">Services</div>
+        <div class="item-row-body"><a href="services.html" class="text-link">What we build →</a></div>
+      </div>
+      <div class="item-row">
+        <div class="item-row-label">Pricing</div>
+        <div class="item-row-body"><a href="pricing.html" class="text-link">From £149, one-time →</a></div>
+      </div>
+      <div class="item-row">
+        <div class="item-row-label">Portfolio</div>
+        <div class="item-row-body"><a href="portfolio.html" class="text-link">Recent work →</a></div>
+      </div>
+      <div class="item-row">
+        <div class="item-row-label">Journal</div>
+        <div class="item-row-body"><a href="/journal/" class="text-link">The working notebook →</a></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <ul class="footer-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="brief.html">Brief</a></li>
+      <li><a href="legal.html">Legal</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
+  <div class="cookie-inner">
+    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

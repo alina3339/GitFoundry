@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  const BUILD_COST = 349; // Professional tier, one-time
+  const BUILD_COST = 399; // Precision tier, one-time
 
   const slider   = document.getElementById('calc-monthly');
   if (!slider) return; // module not present on this page — exit silently
@@ -22,10 +22,13 @@
    * Format a signed integer as £123 or £-123
    * Negative = user is still in the red after the one-time build fee.
    */
-  function fmtMoney(n) {
+  function renderMoney(el, n) {
     const rounded = Math.round(n);
     const sign = rounded < 0 ? '-' : '';
-    return `<sup>£</sup>${sign}${Math.abs(rounded)}`;
+    el.replaceChildren(
+      Object.assign(document.createElement('sup'), { textContent: '£' }),
+      document.createTextNode(`${sign}${Math.abs(rounded)}`)
+    );
   }
 
   /**
@@ -60,9 +63,9 @@
     const y2 = (monthly * 24)  - BUILD_COST;
     const y3 = (monthly * 36)  - BUILD_COST;
 
-    y1El.innerHTML = fmtMoney(y1); setState(y1El, y1);
-    y2El.innerHTML = fmtMoney(y2); setState(y2El, y2);
-    y3El.innerHTML = fmtMoney(y3); setState(y3El, y3);
+    renderMoney(y1El, y1); setState(y1El, y1);
+    renderMoney(y2El, y2); setState(y2El, y2);
+    renderMoney(y3El, y3); setState(y3El, y3);
   }
 
   // Listen for both input (live drag) and change (keyboard arrows)

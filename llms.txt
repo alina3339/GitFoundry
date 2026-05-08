@@ -1,0 +1,48 @@
+# GitFoundry
+
+> GitFoundry is a UK web design studio that builds precision hand-coded static websites for small businesses, sole traders, freelancers, and charities. Websites are hosted free on GitHub Pages. Clients pay once and own the source code outright — no monthly fees, no platform lock-in, ever.
+
+GitFoundry is based in Stoke-on-Trent, Staffordshire, and works with clients across the United Kingdom. Every site is written from scratch in plain HTML, CSS, and JavaScript — no WordPress, no Squarespace, no page builders. Sites are optimised to score 90+ on Google Lighthouse.
+
+## Services
+
+- **Foundry** (£149) — A focused, single-purpose website. Ideal for sole traders who need a clean online presence quickly. Live in as few as 3 working days.
+- **Precision** (£399) — A multi-page website with up to 5 pages, a contact form, and a journal section. Typical delivery: 7 working days.
+- **Bespoke** (£749+) — A fully custom build with no scope constraints. Pricing and timeline agreed at brief stage.
+
+All prices include UK VAT. One-time payment. No monthly fees. No recurring charges.
+
+## Key differentiators
+
+- **Hand-coded** — every site built from scratch, no templates or CMS
+- **No monthly fees** — GitHub Pages hosting is free, permanent, and provided by Microsoft
+- **Source code ownership** — full repository transferred to client on delivery
+- **UK-based** — Stoke-on-Trent, Staffordshire; works with clients nationwide
+- **Fast** — Foundry sites live in 3 days; Precision in 7 working days
+- **Performance** — 90+ Lighthouse scores as standard
+
+## Sectors served
+
+GitFoundry has published case studies on building websites for the following professions:
+
+- [Tradesperson / self-employed builder](https://gitfoundry.co.uk/journal/journal-003-the-tradesperson.html)
+- [Solicitor / legal professional](https://gitfoundry.co.uk/journal/journal-004-the-solicitor.html)
+- [Physiotherapist / sports therapist](https://gitfoundry.co.uk/journal/journal-005-the-physiotherapist.html)
+- [Photographer](https://gitfoundry.co.uk/journal/journal-006-the-photographer.html)
+- [Private tutor](https://gitfoundry.co.uk/journal/journal-007-the-tutor.html)
+- [Accountant / bookkeeper](https://gitfoundry.co.uk/journal/journal-008-the-accountant.html)
+- [Personal trainer / fitness coach](https://gitfoundry.co.uk/journal/journal-009-the-personal-trainer.html)
+- [Counsellor / therapist](https://gitfoundry.co.uk/journal/journal-010-the-counsellor.html)
+- [Florist](https://gitfoundry.co.uk/journal/journal-011-the-florist.html)
+- [Architect](https://gitfoundry.co.uk/journal/journal-012-the-architect.html)
+- [Driving instructor](https://gitfoundry.co.uk/journal/journal-013-the-driving-instructor.html)
+
+## Get started
+
+Submit a project brief at [gitfoundry.co.uk/brief.html](https://gitfoundry.co.uk/brief.html). GitFoundry responds within 48 hours with a fixed quote and timeline.
+
+## Contact
+
+- Email: info@gitfoundry.co.uk
+- Web: https://gitfoundry.co.uk
+- Location: Stoke-on-Trent, Staffordshire, United Kingdom

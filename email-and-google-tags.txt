@@ -1,0 +1,39 @@
+Email
+
+tickets@gitfoundry.p.tawk.email
+
+
+default._domainkey
+
+
+v=DKIM1;k=rsa;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxuLaz/hQBX2oNlRBfAG6biNHm7QmJheOgE3Ld4WNmshhoSc1XgUaxulLy13bjrjeFWdurcMC8E/Q1yEJcGISyFEgg6XkmZ6+gszlzfaE1FmbThPz3PLL8QkVgFXYG9SRes2POhnaPxdC+yjuFJnGA9w4CNTh7UwFN46/3ozfGndSmRf4YgxZWUC5wplsg/45Mh3tbhbezvB7aBlRZsp/Tdo2IBP+iCxgIPKhZl0kouK1WgT3LGZJpVOQLiVrFOa/VMKA2C4kZS4mi0ow4bgNVDbWIJDv+RKTw/WDtyAj+Fja3UtmaP9eEFSjBRUoSHXr+K0EoeWsaA/8kYs0YIZmkwIDAQAB
+
+
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxuLaz/hQBX2oNlRBfAG6
+biNHm7QmJheOgE3Ld4WNmshhoSc1XgUaxulLy13bjrjeFWdurcMC8E/Q1yEJcGIS
+yFEgg6XkmZ6+gszlzfaE1FmbThPz3PLL8QkVgFXYG9SRes2POhnaPxdC+yjuFJnG
+A9w4CNTh7UwFN46/3ozfGndSmRf4YgxZWUC5wplsg/45Mh3tbhbezvB7aBlRZsp/
+Tdo2IBP+iCxgIPKhZl0kouK1WgT3LGZJpVOQLiVrFOa/VMKA2C4kZS4mi0ow4bgN
+VDbWIJDv+RKTw/WDtyAj+Fja3UtmaP9eEFSjBRUoSHXr+K0EoeWsaA/8kYs0YIZm
+kwIDAQAB
+-----END PUBLIC KEY-----
+
+
+SEO
+
+1. Paste this code as high in the <head> of the page as possible:
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P72JB657');</script>
+<!-- End Google Tag Manager -->
+
+2. Paste this code immediately after the opening <body> tag:
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P72JB657"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+

@@ -1,4 +1,4 @@
-/* ════════════════════════════════════════════════
+﻿/* ════════════════════════════════════════════════
    GitFoundry — Fluid Monolith Framework
    styles.css · Da Vinci Edition v2
    Precision in service of elegance.
@@ -18,14 +18,74 @@
   --accent:        #c9a84c;
   --accent-dim:    rgba(201,168,76,0.08);
 
+  /* Article token aliases — consumed by .post-* rules */
+  --fg:            var(--text);
+  --fg-muted:      var(--text-muted);
+  --fg-soft:       var(--text-soft);
+  --rule:          var(--border);
+  --halo:          var(--accent-dim);
+
   /* Engineering grid */
   --grid-major:    rgba(255,255,255,0.045);
   --grid-minor:    rgba(255,255,255,0.018);
 
-  /* Type */
-  --serif: 'Fraunces', 'Georgia', serif;
-  --sans:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono:  'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  /* ────────────────────────────────────────────────────────
+     TYPOGRAPHY CONTRACT — Type Lab compatible
+     ────────────────────────────────────────────────────────
+     These --gf-* tokens are the single source of truth for
+     every typographic decision on the site. Type Lab exports
+     ONLY into these tokens (no component-level overrides),
+     so any export drops in safely without breaking layout.
+
+     RULES for future work:
+       1. New heading/body component? Read from these tokens —
+          do NOT hardcode font-family, font-size, font-weight,
+          line-height or letter-spacing.
+       2. Need a new role? Add a token here first, then use it.
+          Don't bypass the system.
+       3. The --serif / --sans / --mono names below are legacy
+          aliases — kept so old rules still work. New code
+          should use --gf-font-display / --gf-font-text /
+          --gf-font-label directly.
+     ──────────────────────────────────────────────────────── */
+
+  /* Families — display = headings, text = body/UI, label = eyebrows/captions */
+  --gf-font-display: 'Fraunces', 'Georgia', serif;
+  --gf-font-text:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --gf-font-label:   'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Sizes — fluid clamp() for headings, fixed rem for body tier */
+  --gf-fs-hero:    clamp(3.5rem, 11vw, 8.5rem);
+  --gf-fs-page:    clamp(3rem, 9vw, 7rem);
+  --gf-fs-section: clamp(2rem, 5vw, 3.75rem);
+  --gf-fs-lead:    1.0625rem;
+  --gf-fs-body:    1rem;
+  --gf-fs-caption: 0.875rem;
+  --gf-fs-label:   0.75rem;
+
+  /* Weights */
+  --gf-fw-display: 300;
+  --gf-fw-body:    400;
+  --gf-fw-lead:    300;
+  --gf-fw-caption: 400;
+  --gf-fw-label:   400;
+
+  /* Line heights (unitless multipliers) */
+  --gf-lh-display: 1.0;
+  --gf-lh-section: 1.08;
+  --gf-lh-body:    1.7;
+  --gf-lh-lead:    1.75;
+  --gf-lh-caption: 1.65;
+
+  /* Letter spacing */
+  --gf-ls-display: -0.035em;
+  --gf-ls-section: -0.03em;
+  --gf-ls-label:   0.14em;
+
+  /* Legacy aliases — do not use in new code */
+  --serif: var(--gf-font-display);
+  --sans:  var(--gf-font-text);
+  --mono:  var(--gf-font-label);
 
   /* Layout */
   --max:    1120px;
@@ -33,8 +93,10 @@
   --radius: 2px;
 
   /* Motion */
-  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --dur:  0.35s;
+  --ease:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --dur:      0.35s;
+  --dur-fast: 0.15s;
+  --dur-slow: 0.6s;
 }
 
 /* Day theme — ink on parchment */
@@ -44,7 +106,7 @@
   --surface-2:     #e2dcd0;
   --text:          #1a1510;
   --text-soft:     #484038;
-  --text-muted:    #6a6054;
+  --text-muted:    #5e5448;   /* darkened from #6a6054 — now ≈4.9:1 contrast on day --bg (WCAG AA) */
   --border:        rgba(0,0,0,0.08);
   --border-strong: rgba(0,0,0,0.16);
   --accent:        #9a6e1c;
@@ -58,11 +120,12 @@
 html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
-  font-family: var(--sans);
+  font-family: var(--gf-font-text);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
-  font-size: 1rem;
+  line-height: var(--gf-lh-body);
+  font-size: var(--gf-fs-body);
+  font-weight: var(--gf-fw-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -161,7 +224,7 @@ body::before {
 
 /* ── NAV ── */
 .site-nav {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky; top: 0; z-index: 300;
   border-bottom: 1px solid var(--border);
   background: rgba(8,15,36,0.93);
   backdrop-filter: blur(14px);
@@ -224,12 +287,24 @@ body::before {
 
 .nav-theme {
   background: none; border: none; cursor: pointer;
-  color: var(--text-muted); font-size: 1rem;
-  padding: 0.35rem; border-radius: var(--radius);
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem; border-radius: var(--radius);
   transition: color var(--dur), background var(--dur);
   line-height: 1;
+  /* WCAG 2.5.5 touch target — 44×44 minimum. Inline-flex centres the icon. */
+  min-width: 44px; min-height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
 }
 .nav-theme:hover { color: var(--text); background: var(--border); }
+/* Stronger focus ring than the global default — the button sits on the nav
+   chrome and may overlap accent backgrounds; 2px + 4px offset is reliably
+   visible in both themes. */
+.nav-theme:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.nav-burger:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
 .nav-burger {
   display: none;
@@ -237,36 +312,100 @@ body::before {
   color: var(--text-muted); padding: 0.35rem;
   font-family: var(--mono); font-size: 1.125rem;
   border-radius: var(--radius);
+  /* Touch target — promoted to flex inside the mobile media query below. */
+  min-width: 44px; min-height: 44px;
+  align-items: center; justify-content: center;
   transition: color var(--dur);
 }
 .nav-burger:hover { color: var(--text); }
 
 .nav-drawer {
-  display: none;
-  position: fixed; top: 58px; left: 0; right: 0; bottom: 0;
-  background: var(--bg);
-  z-index: 200;
-  padding: 2rem var(--gutter);
+  /* Always in DOM — revealed via opacity/visibility for smooth animation */
+  display: flex;
   flex-direction: column;
   gap: 0;
-  border-top: 1px solid var(--border);
+  position: fixed; top: 58px; left: 0; right: 0; bottom: 0;
+  background: var(--surface);
+  z-index: 200;
+  padding: 2.5rem var(--gutter) 3rem;
+  border-top: 2px solid var(--accent);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  /* Closed state */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0s linear 0.25s;
 }
-.nav-drawer.open { display: flex; }
+.nav-drawer.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0s linear 0s;
+}
+
+/* Stagger entrance for each link */
+@keyframes drawerItem {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.nav-drawer.open .nav-item:nth-child(1) { animation: drawerItem 0.28s var(--ease) 0.04s both; }
+.nav-drawer.open .nav-item:nth-child(2) { animation: drawerItem 0.28s var(--ease) 0.09s both; }
+.nav-drawer.open .nav-item:nth-child(3) { animation: drawerItem 0.28s var(--ease) 0.14s both; }
+.nav-drawer.open .nav-item:nth-child(4) { animation: drawerItem 0.28s var(--ease) 0.19s both; }
+.nav-drawer.open .nav-item:nth-child(5) { animation: drawerItem 0.28s var(--ease) 0.24s both; }
+
 .nav-drawer .nav-item {
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  padding: 1.1rem 0;
+  font-family: var(--gf-font-label);
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  padding: 1.25rem 0;
   border-bottom: 1px solid var(--border);
+  border-top: none;
+  border-left: none;
+  border-right: none;
   border-radius: 0;
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
+  background: none;
+  margin-left: 0;
+  transition: color var(--dur), padding-left 0.2s var(--ease);
+}
+.nav-drawer .nav-item:hover,
+.nav-drawer .nav-item.active {
+  color: var(--accent);
+  background: none;
+  padding-left: 0.75rem;
+}
+
+/* CTA in drawer — standalone button, not a list item */
+.nav-drawer .nav-item.nav-cta {
+  margin-top: 2rem;
+  padding: 1.1rem 1.5rem;
+  border: 1px solid rgba(201,168,76,0.5);
+  border-radius: var(--radius);
+  color: var(--accent);
+  justify-content: center;
+  letter-spacing: 0.12em;
+  font-size: 0.875rem;
+  transition: background var(--dur), color var(--dur), border-color var(--dur);
+}
+.nav-drawer .nav-item.nav-cta:hover {
+  background: var(--accent);
+  color: #080f24;
+  border-color: var(--accent);
+  padding-left: 1.5rem;
 }
 
 @media (max-width: 720px) {
   .nav-links { display: none; }
-  .nav-burger { display: block; }
+  .nav-burger { display: inline-flex; }   /* inline-flex so min-w/h + centring take effect */
 }
 
 /* ── BUTTONS ── */
@@ -331,23 +470,26 @@ body::before {
 .section-sm { padding: 4rem 0; }
 
 .section-label {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-family: var(--gf-font-label);
+  font-size: var(--gf-fs-label);
+  font-weight: var(--gf-fw-label);
+  letter-spacing: var(--gf-ls-label);
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   display: block;
-  opacity: 0.9;
+  opacity: 0.75;
 }
 
 .section-title {
-  font-family: var(--serif);
-  font-size: clamp(2.5rem, 6.5vw, 5.25rem);
-  font-weight: 300;
-  line-height: 1.0;
+  font-family: var(--gf-font-display);
+  font-size: var(--gf-fs-section);
+  font-weight: var(--gf-fw-display);
+  line-height: var(--gf-lh-section);
   color: var(--text);
-  letter-spacing: -0.03em;
+  letter-spacing: var(--gf-ls-section);
+  font-optical-sizing: auto;
+  overflow-wrap: break-word;
   margin-bottom: 1.75rem;
 }
 .section-title em {
@@ -357,11 +499,11 @@ body::before {
 }
 
 .section-intro {
-  font-size: 1.0625rem;
-  font-weight: 300;
+  font-size: var(--gf-fs-lead);
+  font-weight: var(--gf-fw-lead);
   color: var(--text-soft);
-  max-width: 520px;
-  line-height: 1.8;
+  max-width: 480px;
+  line-height: 1.8;          /* deliberate outlier — section intros breathe more than other lead text */
   letter-spacing: 0.01em;
 }
 
@@ -387,7 +529,7 @@ body::before {
   transform: translate(-50%, -50%);
   font-family: var(--mono);
   font-size: 0.5625rem;
-  color: var(--accent);
+  color: var(--text-muted);
   background: var(--bg);
   padding: 0 0.6rem;
   opacity: 0.55;
@@ -453,85 +595,84 @@ body::before {
 
 /* ──────────────────────────────────────────────
    Vitruvian geometric — the Da Vinci signature
-   Shared pseudo-element for .hero AND .page-header
-   Per-page motif controlled by data-motif attribute
+   Inline <svg class="page-motif"> markup directly
+   in each page so animations run reliably across
+   desktop and mobile (iframe/object SVG animations
+   are unreliable on mobile Safari and Chrome).
    ────────────────────────────────────────────── */
 
-/* Ensure page-header can contain the pseudo-element */
-.page-header {
+/* Page-header and hero need positioning context for the absolute motif */
+.page-header,
+.hero {
   position: relative;
   overflow: hidden;
 }
 
-/* Shared base rules for both hero and page-header */
-.hero::after,
-.page-header::after {
-  content: '';
+/* The motif itself — base rules apply to all viewports */
+.page-motif {
   position: absolute;
   top: 50%;
-  right: -8%;
-  transform: translateY(-52%);
-  width: min(70vw, 820px);
-  height: min(70vw, 820px);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.088;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Page-header uses a smaller, right-aligned motif */
-.page-header::after {
-  width: min(55vw, 620px);
-  height: min(55vw, 620px);
   right: -6%;
   transform: translateY(-50%);
-  opacity: 0.088;
+  width: min(55vw, 620px);
+  height: min(55vw, 620px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  display: block;
 }
 
-/* Day theme — invert white strokes to dark, slightly boost opacity */
-[data-theme="day"] .hero::after,
-[data-theme="day"] .page-header::after {
+/* Hero variant — larger motif, sits behind hero content */
+.hero .page-motif {
+  width: min(70vw, 820px);
+  height: min(70vw, 820px);
+  right: -8%;
+  transform: translateY(-52%);
+}
+
+/* Day theme — invert cream strokes to dark, slightly lower opacity */
+[data-theme="day"] .page-motif {
   filter: invert(1);
-  opacity: 0.05;
-}
-[data-theme="day"] .page-header::after {
-  opacity: 0.042;
+  opacity: 0.10;
 }
 
-/* ── Per-page motif selection ── */
-.hero[data-motif="classic"]::after,
-.page-header[data-motif="classic"]::after {
-  background-image: url('/vitruvian.svg');
-}
-.hero[data-motif="golden"]::after,
-.page-header[data-motif="golden"]::after {
-  background-image: url('/vitruvian-golden.svg');
-}
-.hero[data-motif="flower"]::after,
-.page-header[data-motif="flower"]::after {
-  background-image: url('/vitruvian-flower.svg');
-}
-.hero[data-motif="orbital"]::after,
-.page-header[data-motif="orbital"]::after {
-  background-image: url('/vitruvian-orbital.svg');
-}
-.hero[data-motif="gear"]::after,
-.page-header[data-motif="gear"]::after {
-  background-image: url('/vitruvian-gear.svg');
+/* Mobile: scale up so the motif reads on small screens */
+@media (max-width: 720px) {
+  .page-motif {
+    width: min(85vw, 480px);
+    height: min(85vw, 480px);
+    right: -12%;
+    opacity: 0.20;
+  }
+  [data-theme="day"] .page-motif {
+    opacity: 0.11;
+  }
 }
 
-/* Fallback — if no data-motif is set, use classic */
-.hero::after,
-.page-header::after {
-  background-image: url('/vitruvian.svg');
+/* Desktop hero — sit beneath the globe in the lower-right */
+@media (min-width: 960px) {
+  .hero .page-motif {
+    top: 50%;
+    bottom: auto;
+    right: -10%;
+    transform: none;
+    width: min(60vw, 700px);
+    height: min(60vw, 700px);
+  }
+}
+
+/* Make sure hero/page-header text content sits above the motif */
+.hero > *:not(.page-motif),
+.page-header > *:not(.page-motif) {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-eyebrow {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-family: var(--gf-font-label);
+  font-size: var(--gf-fs-label);
+  font-weight: var(--gf-fw-label);
+  letter-spacing: var(--gf-ls-label);
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.75rem;
@@ -546,18 +687,20 @@ body::before {
   font-weight: 300;
   letter-spacing: 0.005em;
   margin-bottom: 1.75rem;
-  max-width: 520px;
+  max-width: 480px;
   line-height: 1.55;
   position: relative;
   z-index: 1;
 }
 
 .hero-title {
-  font-family: var(--serif);
-  font-size: clamp(3.5rem, 11vw, 8.5rem);
-  font-weight: 300;
-  line-height: 0.97;
-  letter-spacing: -0.035em;
+  font-family: var(--gf-font-display);
+  font-size: var(--gf-fs-hero);
+  font-weight: var(--gf-fw-display);
+  line-height: var(--gf-lh-display);
+  letter-spacing: var(--gf-ls-display);
+  font-optical-sizing: auto;
+  overflow-wrap: break-word;
   color: var(--text);
   max-width: 900px;
   margin-bottom: 2rem;
@@ -570,11 +713,11 @@ body::before {
 }
 
 .hero-sub {
-  font-size: 1.0625rem;
-  font-weight: 300;
+  font-size: var(--gf-fs-lead);
+  font-weight: var(--gf-fw-lead);
   color: var(--text-soft);
   max-width: 500px;
-  line-height: 1.75;
+  line-height: var(--gf-lh-lead);
   letter-spacing: 0.005em;
   margin-bottom: 2.5rem;
   position: relative; z-index: 1;
@@ -585,14 +728,113 @@ body::before {
 }
 
 .hero-actions {
-  display: flex; gap: 0.75rem; flex-wrap: wrap;
+  display: flex; gap: 0.875rem; flex-wrap: wrap;
   position: relative; z-index: 1;
+  margin-bottom: 0.875rem;
+}
+/* Hero CTAs grow to a comfortable touch target (48px min) without breaking
+   the existing .btn styling on other pages. */
+.hero-actions .btn {
+  min-height: 48px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
+/* Trust strip — three credentials in eyebrow position, separated by middle-dots.
+   Replaces the tag soup that previously sat below the CTA. */
+.hero-trust {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 0.875rem;
+  font-family: var(--gf-font-label);
+  font-size: var(--gf-fs-label);
+  font-weight: var(--gf-fw-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.95;
+  margin-bottom: 1.25rem;
+  position: relative; z-index: 1;
+}
+.hero-trust-dot {
+  width: 3px; height: 3px;
+  background: currentColor;
+  border-radius: 50%;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* Tagline below the CTAs — anchors the price without overloading the button. */
+.hero-price-line {
+  font-family: var(--gf-font-label);
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  position: relative; z-index: 1;
+}
+.hero-price-line strong {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Legacy: kept so portfolio.html .spec-tag still renders. .hero-tags container
+   is no longer used on the homepage — rule retained as a no-op safety net. */
 .hero-tags {
   display: flex; flex-wrap: wrap; gap: 0.5rem;
   margin-top: 3rem;
   position: relative; z-index: 1;
+}
+
+/* ── SECTOR CHIPS ── Slim audience strip on the homepage that links into the
+   canonical sectors.html page where each segment is described in full. */
+.sector-chips {
+  display: flex; flex-wrap: wrap; gap: 0.6rem;
+  margin-top: 2rem;
+}
+.sector-chip {
+  display: inline-flex; align-items: center;
+  font-family: var(--gf-font-label);
+  font-size: var(--gf-fs-label);
+  font-weight: var(--gf-fw-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  text-decoration: none;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: transparent;
+  transition: color var(--dur), border-color var(--dur), background var(--dur);
+}
+.sector-chip:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* ── INLINE TEXT LINK ── Small accented link used in summary paragraphs that
+   point to the canonical version of a deduplicated section. */
+.text-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur);
+}
+.text-link:hover { border-bottom-color: var(--accent); }
+
+/* ── PRICING BRIDGE ── One-line summary that replaces the full comparison
+   table on the homepage; routes the curious to the calculator on pricing.html. */
+.pricing-bridge {
+  margin-top: 3rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  font-size: var(--gf-fs-lead);
+  color: var(--text-soft);
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ── PAGE HEADER ── */
@@ -603,9 +845,10 @@ body::before {
 }
 
 .page-header-label {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-family: var(--gf-font-label);
+  font-size: var(--gf-fs-label);
+  font-weight: var(--gf-fw-label);
+  letter-spacing: var(--gf-ls-label);
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 1.5rem;
@@ -614,21 +857,23 @@ body::before {
 }
 
 .page-header-title {
-  font-family: var(--serif);
-  font-size: clamp(3rem, 9vw, 7rem);
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  line-height: 0.97;
+  font-family: var(--gf-font-display);
+  font-size: var(--gf-fs-page);
+  font-weight: var(--gf-fw-display);
+  letter-spacing: var(--gf-ls-display);
+  line-height: var(--gf-lh-display);
+  font-optical-sizing: auto;
+  overflow-wrap: break-word;
   color: var(--text);
   margin-bottom: 1.5rem;
 }
 
 .page-header-desc {
-  font-size: 1.0625rem;
-  font-weight: 300;
+  font-size: var(--gf-fs-lead);
+  font-weight: var(--gf-fw-lead);
   color: var(--text-soft);
   max-width: 480px;
-  line-height: 1.75;
+  line-height: var(--gf-lh-lead);
   letter-spacing: 0.005em;
 }
 
@@ -651,7 +896,7 @@ body::before {
   font-family: var(--mono);
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 400;
-  color: var(--accent);
+  color: var(--text);
   letter-spacing: -0.03em;
   display: block;
 }
@@ -681,7 +926,7 @@ body::before {
   font-family: var(--mono);
   font-size: 0.6875rem;
   letter-spacing: 0.02em;
-  color: var(--accent);
+  color: var(--text-muted);
   width: 2.25rem;
   height: 2.25rem;
   border: 1px solid var(--border-strong);
@@ -708,9 +953,10 @@ body::before {
   line-height: 1.3;
 }
 .process-body p {
-  font-size: 0.875rem;
+  font-size: var(--gf-fs-caption);
+  font-weight: var(--gf-fw-caption);
   color: var(--text-muted);
-  line-height: 1.75;
+  line-height: var(--gf-lh-lead);
 }
 
 /* ── PRICING CARDS ── */
@@ -798,9 +1044,10 @@ body::before {
   line-height: 1.2;
 }
 .pricing-tagline {
-  font-size: 0.875rem;
+  font-size: var(--gf-fs-caption);
+  font-weight: var(--gf-fw-caption);
   color: var(--text-muted);
-  line-height: 1.65;
+  line-height: var(--gf-lh-caption);
   margin-top: 0.25rem;
 }
 
@@ -847,7 +1094,8 @@ body::before {
   flex: 1;
 }
 .pricing-features li {
-  font-size: 0.875rem;
+  font-size: var(--gf-fs-caption);
+  font-weight: var(--gf-fw-caption);
   color: var(--text-soft);
   display: flex;
   align-items: flex-start;
@@ -1076,6 +1324,9 @@ body::before {
   padding: 2rem 0;
   margin-top: 5rem;
 }
+/* ─────────────────────────────────────────────
+   FOOTER FIX — force single row
+   ───────────────────────────────────────────── */
 .footer-inner {
   max-width: var(--max);
   margin: 0 auto;
@@ -1083,56 +1334,93 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
 }
 .footer-left {
   font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.15em;
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
   color: var(--text-muted);
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
 }
 .footer-links {
-  display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
 }
 .footer-links a {
-  font-family: var(--mono); font-size: 0.6875rem;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--text-muted); text-decoration: none;
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
   transition: color var(--dur);
+  white-space: nowrap;
 }
 .footer-links a:hover { color: var(--accent); }
 
+/* Tablet: compress link gap so copyright text is not squeezed at mid-viewport */
+@media (max-width: 960px) {
+  .footer-links { gap: 0.5rem; }
+}
+/* Mobile: re-stack below 720px so the single row never crushes */
+@media (max-width: 720px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+  }
+  .footer-left { white-space: normal; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
 /* ── COOKIE BANNER ── */
 .cookie-banner {
-  position: fixed; bottom: 1.5rem; left: 0; right: 0;
-  padding: 0 var(--gutter); z-index: 500;
+  /* Compact corner card instead of full-width bar — less intrusive,
+     doesn't break the user's reading flow when it appears. */
+  position: fixed; bottom: 1.5rem; right: 1.5rem; left: auto;
+  max-width: calc(100vw - 2rem);
+  z-index: 500;
   transform: translateY(calc(100% + 2rem));
   transition: transform 0.5s var(--ease);
 }
 .cookie-banner.visible { transform: translateY(0); }
 .cookie-inner {
-  max-width: 640px; margin: 0 auto;
+  width: 360px;
+  max-width: 100%;
   background: var(--surface-2);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
-  padding: 1rem 1.5rem;
-  display: flex; align-items: center;
-  justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 18px 36px -18px rgba(0,0,0,0.5), 0 4px 10px -6px rgba(0,0,0,0.25);
+  display: flex; flex-direction: column;
+  gap: 1rem;
 }
 .cookie-text {
   font-size: 0.875rem; color: var(--text-muted);
   flex: 1; min-width: 200px; line-height: 1.6;
 }
 .cookie-text a { color: var(--accent); text-decoration: none; }
-.cookie-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+.cookie-actions { display: flex; gap: 0.5rem; flex-shrink: 0; justify-content: flex-end; }
 .cookie-btn {
   font-family: var(--mono); font-size: 0.6875rem;
   letter-spacing: 0.07em; text-transform: uppercase;
-  padding: 0.45rem 1rem; border-radius: var(--radius);
+  padding: 0.7rem 1.1rem; border-radius: var(--radius);
   cursor: pointer; border: 1px solid var(--border-strong);
   transition: all var(--dur);
+  min-height: 44px;            /* touch-target minimum */
+  display: inline-flex; align-items: center;
 }
 .cookie-btn-accept { background: var(--accent); color: #080f24; border-color: var(--accent); font-weight: 500; }
 .cookie-btn-decline { background: transparent; color: var(--text-soft); }
@@ -1348,9 +1636,9 @@ iframe[src*="googletagmanager"] { display: none !important; visibility: hidden !
 @media (min-width: 960px) {
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 2.5rem;
-    align-items: center;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
   }
   .hero-text { min-width: 0; }
   .hero-globe {
@@ -1358,15 +1646,8 @@ iframe[src*="googletagmanager"] { display: none !important; visibility: hidden !
     min-width: 0;
     justify-self: end;
     width: 100%;
-    max-width: 720px;
-  }
-  .hero::after {
-    top: auto;
-    bottom: -45%;
-    right: -15%;
-    transform: none;
-    width: min(60vw, 700px);
-    height: min(60vw, 700px);
+    max-width: 860px;
+    padding-top: 2.5rem;
   }
 }
 
@@ -1575,67 +1856,578 @@ body[data-theme="day"] .hero-globe {
   text-align: center;
   line-height: 1.6;
 }
+/* ─────────────────────────────────────────────
+   JOURNAL — listing page
+   ───────────────────────────────────────────── */
+.journal-list {
+  margin: 4rem 0 6rem;
+  border-top: 1px solid var(--border);
+}
+
+.journal-entry {
+  border-bottom: 1px solid var(--border);
+}
+
+.journal-entry-link {
+  display: block;
+  padding: 2.5rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left var(--dur) var(--ease);
+}
+
+.journal-entry-link:hover {
+  padding-left: 1rem;
+}
+
+.journal-entry-link:hover .journal-entry-title {
+  color: var(--accent);
+}
+
+.journal-entry-meta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.journal-entry-num {
+  color: var(--accent);
+}
+
+.journal-entry-date,
+.journal-entry-read {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.journal-entry-date::before,
+.journal-entry-read::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.journal-entry-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  transition: color var(--dur) var(--ease);
+}
+
+.journal-entry-summary {
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+  margin: 0;
+  max-width: 60ch;
+}
+
+@media (max-width: 600px) {
+  .journal-entry-link { padding: 2rem 0; }
+  .journal-entry-link:hover { padding-left: 0; }
+  .journal-entry-meta { gap: 1rem; flex-wrap: wrap; }
+  .journal-entry-date,
+  .journal-entry-read { padding-left: 0; }
+  .journal-entry-date::before,
+  .journal-entry-read::before { display: none; }
+}
+
+/* GEO: Why GitFoundry quotable block */
+.why-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.why-list li {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding-left: 1.25rem;
+  position: relative;
+  line-height: 1.6;
+}
+.why-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* GEO: FAQ accordion (services.html) */
+.faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
+.faq-item { border-top: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
+.faq-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.25rem 0;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.faq-q[aria-expanded="true"]::after { transform: rotate(45deg); }
+.faq-a { padding-bottom: 1.25rem; }
+.faq-a p { font-size: 0.875rem; color: var(--text-soft); line-height: 1.75; margin: 0; }
+
+/* ── GEO: Post quick answer + FAQ ── */
+.post-quick-answer {
+  background: var(--surface-2, rgba(255,255,255,0.04));
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.25rem;
+  margin: 0 0 2.5rem;
+  border-radius: 0 4px 4px 0;
+}
+.post-quick-answer p {
+  font-size: 0.9rem;
+  color: var(--fg-soft);
+  line-height: 1.7;
+  margin: 0;
+}
+.post-faq { margin: 3rem 0 2rem; border-top: 1px solid var(--rule); padding-top: 2rem; }
+.post-faq-heading {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 0 0 1.5rem;
+  color: var(--fg);
+}
+.post-faq-list { margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+.post-faq-item dt {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--fg);
+  margin: 0 0 0.5rem;
+}
+.post-faq-item dd {
+  font-size: 0.875rem;
+  color: var(--fg-soft);
+  line-height: 1.75;
+  margin: 0;
+}
 
 /* ════════════════════════════════════════════════
-   EDITORIAL TYPOGRAPHY LAYER
-   Inspired by Rands in Repose — readability, breathing room.
-   Scoped to prose only. No global rem changes; UI elements untouched.
-   To remove: delete this block.
+   GLASSMORPHISM SYSTEM — Da Vinci Edition v2
+   Multi-layered precision glass. Each surface
+   carries three depth cues: frosted fill, dual
+   highlight (lens refraction), and ambient glow.
+   Symmetrical atmospheric orbs add spatial depth.
    ════════════════════════════════════════════════ */
 
+/* ── THEME ICON TOGGLE (SVG sun / moon) ──
+   html[data-theme] is set synchronously before
+   first paint — no FOUC. Both SVGs are in the DOM;
+   CSS hides the inactive one. */
+html[data-theme="night"] .icon-moon,
+html:not([data-theme]) .icon-moon { display: none; }
+html[data-theme="day"]   .icon-sun  { display: none; }
+
+.nav-theme .icon-sun,
+.nav-theme .icon-moon {
+  display: block;
+  flex-shrink: 0;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+
+/* ── GLASS DESIGN TOKENS ── */
 :root {
-  --read-width: 640px;       /* was 480–520px on prose blocks */
-  --read-line: 1.75;
-  --prose-size: 1.1875rem;   /* 19px — body prose */
-  --intro-size: 1.25rem;     /* 20px — leading paragraph / lede */
+  --glass-bg:        rgba(13, 22, 50, 0.58);
+  --glass-bg-light:  rgba(22, 32, 64, 0.42);
+  --glass-bg-gold:   rgba(30, 20, 6, 0.64);
+  --glass-edge:      rgba(255, 255, 255, 0.09);
+  --glass-edge-gold: rgba(201, 168, 76, 0.20);
+  --glass-blur:      22px;
+  --glass-sat:       175%;
+  --glass-drop:
+    0 1px 0 inset rgba(255, 255, 255, 0.08),
+    0 -1px 0 inset rgba(0, 0, 0, 0.20),
+    0 20px 64px rgba(0, 0, 0, 0.40),
+    0 6px 20px rgba(0, 0, 0, 0.22);
 }
 
-/* Lede / intro paragraphs — slightly larger to set the reading rhythm. */
-.section-intro,
-.hero-sub,
-.page-header-desc {
-  font-size: var(--intro-size);
-  line-height: var(--read-line);
-  max-width: var(--read-width);
-  letter-spacing: 0.003em;
+[data-theme="day"] {
+  --glass-bg:        rgba(255, 255, 255, 0.54);
+  --glass-bg-light:  rgba(248, 243, 234, 0.48);
+  --glass-bg-gold:   rgba(255, 252, 240, 0.64);
+  --glass-edge:      rgba(255, 255, 255, 0.72);
+  --glass-edge-gold: rgba(154, 110, 28, 0.22);
+  --glass-drop:
+    0 1px 0 inset rgba(255, 255, 255, 0.82),
+    0 -1px 0 inset rgba(0, 0, 0, 0.04),
+    0 20px 64px rgba(0, 0, 0, 0.10),
+    0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* Body prose — the workhorse paragraph size across content blocks. */
-.process-body p,
-.about-body p,
-.about-body li,
-.legal-body p,
-.legal-body li,
-.section-body p,
-.prose p,
-.prose li {
-  font-size: var(--prose-size);
-  line-height: var(--read-line);
-  max-width: var(--read-width);
+/* ── REUSABLE GLASS CARD ──
+   Apply .glass-card to any container for the full
+   frosted-glass treatment with dual-highlight shimmer. */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-drop);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
 }
 
-/* Vertical rhythm — give paragraphs room to breathe. */
-.process-body p + p,
-.about-body p + p,
-.legal-body p + p,
-.section-body p + p,
-.prose p + p {
-  margin-top: 1.25rem;
+/* Dual-highlight lens shimmer — primary top-left, echo bottom-right */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse 68% 34% at 26% 10%,
+      rgba(255, 255, 255, 0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 20% at 76% 88%,
+      rgba(255, 255, 255, 0.03) 0%, transparent 65%);
 }
 
-/* Mobile: drop one notch so it doesn't overflow narrow screens. */
-@media (max-width: 640px) {
-  :root {
-    --prose-size: 1.0625rem;   /* 17px on mobile */
-    --intro-size: 1.125rem;    /* 18px on mobile */
+[data-theme="day"] .glass-card::after {
+  background:
+    radial-gradient(ellipse 68% 34% at 26% 10%,
+      rgba(255, 255, 255, 0.52) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 20% at 76% 88%,
+      rgba(255, 255, 255, 0.22) 0%, transparent 65%);
+}
+
+/* ── GLASS ACCENT ── Gold-tinted variant for featured surfaces */
+.glass-accent {
+  background: linear-gradient(
+    150deg,
+    var(--glass-bg-gold) 0%,
+    var(--glass-bg) 100%
+  );
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border: 1px solid var(--glass-edge-gold);
+  box-shadow: var(--glass-drop), 0 0 80px rgba(201, 168, 76, 0.05);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+[data-theme="day"] .glass-accent {
+  box-shadow: var(--glass-drop), 0 0 80px rgba(154, 110, 28, 0.06);
+}
+
+/* ── HERO ATMOSPHERIC ORBS ──
+   Warm gold orb (left) + cool indigo echo (right) —
+   symmetric pair creates natural depth and colour
+   temperature contrast without visible shapes. */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -5%;
+  left: -18%;
+  width: 68vw;
+  max-width: 780px;
+  height: 68vw;
+  max-height: 780px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(201, 168, 76, 0.048) 0%,
+    rgba(201, 168, 76, 0.016) 36%,
+    transparent 68%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(52px);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -8%;
+  right: -14%;
+  width: 52vw;
+  max-width: 620px;
+  height: 52vw;
+  max-height: 620px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(100, 130, 225, 0.030) 0%,
+    rgba(100, 130, 225, 0.010) 36%,
+    transparent 68%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+[data-theme="day"] .hero::before {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(201, 168, 76, 0.062) 0%,
+    rgba(201, 168, 76, 0.022) 36%,
+    transparent 68%
+  );
+}
+
+[data-theme="day"] .hero::after {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(80, 100, 185, 0.024) 0%,
+    transparent 68%
+  );
+}
+
+/* ── ENHANCED NAV GLASS ──
+   Deeper frost + downward shadow for lift-off effect. */
+.site-nav {
+  background: rgba(6, 12, 28, 0.82);
+  backdrop-filter: blur(24px) saturate(185%);
+  -webkit-backdrop-filter: blur(24px) saturate(185%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05),
+    0 2px 28px rgba(0, 0, 0, 0.30);
+}
+
+[data-theme="day"] .site-nav {
+  background: rgba(248, 243, 234, 0.82);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.62),
+    0 2px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* ── NAV DRAWER — GLASS ── */
+.nav-drawer {
+  background: rgba(8, 15, 36, 0.92);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+}
+
+[data-theme="day"] .nav-drawer {
+  background: rgba(244, 239, 229, 0.92);
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+}
+
+/* ── PRICING CARD FEATURED — FULL GLASS UPGRADE ── */
+.pricing-card.featured {
+  background: linear-gradient(
+    152deg,
+    rgba(30, 22, 8, 0.66) 0%,
+    rgba(13, 22, 50, 0.55) 52%,
+    rgba(18, 28, 58, 0.62) 100%
+  );
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border-color: rgba(201, 168, 76, 0.24);
+  box-shadow:
+    0 1px 0 inset rgba(201, 168, 76, 0.12),
+    0 -1px 0 inset rgba(0, 0, 0, 0.25),
+    0 24px 72px rgba(0, 0, 0, 0.46),
+    0 8px 24px rgba(0, 0, 0, 0.26),
+    0 0 100px rgba(201, 168, 76, 0.06);
+}
+
+[data-theme="day"] .pricing-card.featured {
+  background: linear-gradient(
+    152deg,
+    rgba(255, 252, 238, 0.74) 0%,
+    rgba(255, 255, 255, 0.56) 52%,
+    rgba(248, 244, 230, 0.64) 100%
+  );
+  backdrop-filter: blur(var(--glass-blur)) saturate(145%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(145%);
+  border-color: rgba(154, 110, 28, 0.26);
+  box-shadow:
+    0 1px 0 inset rgba(255, 255, 255, 0.88),
+    0 -1px 0 inset rgba(0, 0, 0, 0.04),
+    0 24px 72px rgba(0, 0, 0, 0.12),
+    0 0 100px rgba(154, 110, 28, 0.07);
+}
+
+/* Gold dual-highlight shimmer on featured card */
+.pricing-card.featured::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 72% 36% at 24% 10%,
+      rgba(201, 168, 76, 0.09) 0%, transparent 65%),
+    radial-gradient(ellipse 44% 22% at 78% 88%,
+      rgba(201, 168, 76, 0.05) 0%, transparent 65%),
+    radial-gradient(ellipse 100% 50% at 50% 0%,
+      rgba(255, 255, 255, 0.04) 0%, transparent 55%);
+  z-index: 1;
+}
+
+[data-theme="day"] .pricing-card.featured::after {
+  background:
+    radial-gradient(ellipse 72% 36% at 24% 10%,
+      rgba(255, 255, 255, 0.56) 0%, transparent 65%),
+    radial-gradient(ellipse 44% 22% at 78% 88%,
+      rgba(201, 168, 76, 0.10) 0%, transparent 65%);
+}
+
+.pricing-card.featured:hover {
+  box-shadow:
+    0 1px 0 inset rgba(201, 168, 76, 0.16),
+    0 -1px 0 inset rgba(0, 0, 0, 0.28),
+    0 28px 80px rgba(0, 0, 0, 0.52),
+    0 8px 28px rgba(0, 0, 0, 0.30),
+    0 0 120px rgba(201, 168, 76, 0.08);
+}
+
+/* ── STAT STRIP — SUBTLE GLASS WASH ── */
+.stat-strip {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.018) 0%,
+    transparent 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[data-theme="day"] .stat-strip {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    transparent 100%
+  );
+}
+
+/* ── PRICING BRIDGE — GLASS PANEL ── */
+.pricing-bridge {
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px dashed var(--glass-edge);
+}
+
+[data-theme="day"] .pricing-bridge {
+  background: var(--glass-bg-light);
+  border-color: var(--glass-edge);
+}
+
+/* ── CALLOUT — GLASS PANEL ── */
+.callout {
+  background: linear-gradient(
+    135deg,
+    var(--glass-bg-light) 0%,
+    var(--accent-dim) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-edge);
+  border-left-width: 2px;
+  border-left-color: rgba(201, 168, 76, 0.55);
+}
+
+[data-theme="day"] .callout {
+  border-left-color: rgba(154, 110, 28, 0.55);
+}
+
+/* ── PORTFOLIO CARD — GLASS ON HOVER ── */
+.portfolio-card {
+  transition:
+    border-color var(--dur),
+    transform 0.25s var(--ease),
+    box-shadow 0.30s var(--ease),
+    background 0.30s var(--ease);
+}
+
+.portfolio-card:hover {
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(14px) saturate(155%);
+  -webkit-backdrop-filter: blur(14px) saturate(155%);
+  box-shadow:
+    0 1px 0 inset rgba(255, 255, 255, 0.055),
+    0 16px 52px rgba(0, 0, 0, 0.34),
+    0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="day"] .portfolio-card:hover {
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(14px) saturate(145%);
+  -webkit-backdrop-filter: blur(14px) saturate(145%);
+  box-shadow:
+    0 1px 0 inset rgba(255, 255, 255, 0.78),
+    0 16px 52px rgba(0, 0, 0, 0.10);
+}
+
+/* ── PROCESS NUMBER — GLASS HOVER ── */
+.process-step:hover .process-num {
+  background: linear-gradient(
+    135deg,
+    rgba(201, 168, 76, 0.14) 0%,
+    var(--accent-dim) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-color: rgba(201, 168, 76, 0.48);
+  box-shadow: 0 0 18px rgba(201, 168, 76, 0.10);
+}
+
+/* ── POST QUICK ANSWER — GLASS ── */
+.post-quick-answer {
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-left-color: rgba(201, 168, 76, 0.60);
+}
+
+[data-theme="day"] .post-quick-answer {
+  background: var(--glass-bg-light);
+}
+
+/* ── SMOOTH TRANSITIONS FOR GLASS ELEMENTS ── */
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav {
+    transition:
+      background var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease),
+      backdrop-filter var(--dur) var(--ease);
   }
-  .section-intro,
-  .hero-sub,
-  .page-header-desc {
-    max-width: 100%;
-  }
 }
 
-/* ════════════════════════════════════════════════
-   END EDITORIAL TYPOGRAPHY LAYER
-   ════════════════════════════════════════════════ */
+/* ── INTRICATE SECTION ORNAMENT ──
+   Horizontal rule with centred diamond glyph gains
+   a subtle shimmer blur at the crossing point. */
+.section-divider::after {
+  background: var(--bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 2px;
+  padding: 0.05rem 0.7rem;
+}
