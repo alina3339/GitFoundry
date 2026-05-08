@@ -2273,29 +2273,6 @@ html[data-theme="day"]   .icon-sun  { display: none; }
     0 24px 72px rgba(0, 0, 0, 0.12);
 }
 
-/* Gold dual-highlight shimmer on featured card */
-.pricing-card.featured::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 72% 36% at 24% 10%,
-      rgba(201, 168, 76, 0.09) 0%, transparent 65%),
-    radial-gradient(ellipse 44% 22% at 78% 88%,
-      rgba(201, 168, 76, 0.05) 0%, transparent 65%),
-    radial-gradient(ellipse 100% 50% at 50% 0%,
-      rgba(255, 255, 255, 0.04) 0%, transparent 55%);
-  z-index: 1;
-}
-
-[data-theme="day"] .pricing-card.featured::after {
-  background:
-    radial-gradient(ellipse 72% 36% at 24% 10%,
-      rgba(255, 255, 255, 0.56) 0%, transparent 65%),
-    radial-gradient(ellipse 44% 22% at 78% 88%,
-      rgba(201, 168, 76, 0.10) 0%, transparent 65%);
-}
 
 .pricing-card.featured:hover {
   box-shadow:
