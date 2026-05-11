@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Type Lab — GitFoundry (private)</title>
+<title>Type Lab; GitFoundry (private)</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -254,9 +254,9 @@
           <span class="tl-eyebrow" id="pv-eyebrow">01 · Specification</span>
           <h1 class="tl-title" id="pv-title">Precision in service of <em>beauty</em>.</h1>
           <p class="tl-lead" id="pv-lead">Every line of code serves a purpose. Every pixel is intentional. This is what a site looks like when the margins have been earned and the letterforms have been chosen, not defaulted to.</p>
-          <p class="tl-body" id="pv-body">A static site is not a limitation — it is a posture. It says the words matter more than the scripts, that readers deserve a page that loads in the time it takes them to blink. Typography is the first promise a page makes: that somebody cared before you arrived.</p>
+          <p class="tl-body" id="pv-body">A static site is not a limitation; it is a posture. It says the words matter more than the scripts, that readers deserve a page that loads in the time it takes them to blink. Typography is the first promise a page makes: that somebody cared before you arrived.</p>
           <span class="tl-sep"></span>
-          <span class="tl-caption" id="pv-caption">— Caption text · technical annotation · footnote voice.</span>
+          <span class="tl-caption" id="pv-caption">Caption text; technical annotation; footnote voice.</span>
         </div>
 
         <div class="tl-apply">
@@ -460,7 +460,7 @@ function site() {
 
     const lines = [
       '/* ════════════════════════════════════════════════',
-      '   TYPE LAB OVERRIDES — ' + new Date().toISOString().slice(0,10),
+      '   TYPE LAB OVERRIDES; ' + new Date().toISOString().slice(0,10),
       '   Paste this block at the VERY BOTTOM of styles.css',
       '   To undo: delete this block.',
       '   ════════════════════════════════════════════════ */',
@@ -565,7 +565,7 @@ function site() {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showToast('Downloaded — now replace styles.css in your repo');
+      showToast('Downloaded; now replace styles.css in your repo');
     } catch (e) {
       const blob = new Blob([generatePatch()], { type: 'text/css' });
       const url = URL.createObjectURL(blob);
@@ -576,7 +576,7 @@ function site() {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showToast('Patch downloaded — append to styles.css');
+      showToast('Patch downloaded; append to styles.css');
     }
   }
 

@@ -5,7 +5,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Type Lab — GitFoundry (private)</title>
+<title>Type Lab; GitFoundry (private)</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,7 +109,7 @@
 .tl-toast.show { transform: translateX(-50%) translateY(0); }
 [data-theme="day"] .tl-toast { color: var(--bg); }
 
-/* Preset name badge inside preview — visible on mobile so the user always
+/* Preset name badge inside preview; visible on mobile so the user always
    knows what's selected, even after the preview has been scrolled past. */
 .tl-preset-badge { position: absolute; top: 12px; right: 12px; font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 0.25rem 0.55rem; border-radius: var(--radius); border: 1px solid rgba(201,168,76,0.25); z-index: 2; pointer-events: none; }
 
@@ -118,18 +118,18 @@
   .tl-wrap { gap: 1rem; padding-top: 1rem; }
   /* Promote .tl-preview-wrap children to direct grid items so we can order them. */
   .tl-preview-wrap { display: contents; }
-  /* Sticky portrait preview — feels like glancing at a phone mockup. */
+  /* Sticky portrait preview; feels like glancing at a phone mockup. */
   .tl-preview {
     order: 1;
     position: sticky;
     top: 70px;                       /* nav (58px) + breathing room */
     z-index: 5;
-    width: min(280px, 78vw);         /* slim portrait — leaves margin around it */
+    width: min(280px, 78vw);         /* slim portrait; leaves margin around it */
     aspect-ratio: 9 / 15;            /* tall, mobile-screen feel */
     max-height: 58vh;                /* never dominates the viewport */
     min-height: 360px;               /* fallback for browsers without aspect-ratio (Safari ≤15.3) */
     margin: 0.5rem auto 0;           /* centered with soft top breathing room */
-    padding: 2.25rem 1.75rem;        /* generous interior — premium feel */
+    padding: 2.25rem 1.75rem;        /* generous interior; premium feel */
     overflow-y: auto;                /* internal scroll mimics a real phone screen */
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;    /* stops scroll-chaining into the page */
@@ -140,7 +140,7 @@
   .tl-preview::-webkit-scrollbar { width: 4px; }
   .tl-preview::-webkit-scrollbar-thumb { background: currentColor; opacity: 0.15; border-radius: 2px; }
 
-  /* Title scaled for the narrow portrait — preserves the chosen weight,
+  /* Title scaled for the narrow portrait; preserves the chosen weight,
      family, and tracking while fitting the slim canvas. */
   .tl-preview .tl-title { font-size: clamp(1.5rem, 8vw, 2.5rem) !important; margin-bottom: 1.25rem !important; }
   /* Lead and body shrink proportionally so the full content fits comfortably. */
@@ -154,7 +154,7 @@
   .tl-apply    { order: 3; }
 
   /* On mobile keep ONLY the preset picker. Sliders and per-axis font/colour
-     pickers are too granular for a small screen — presets give a curated
+     pickers are too granular for a small screen; presets give a curated
      choice without overwhelming. Desktop still gets the full control set. */
   .tl-controls .tl-card:not(.tl-card-preset) { display: none; }
 
@@ -328,9 +328,9 @@
           <span class="tl-eyebrow" id="pv-eyebrow">01 · Specification</span>
           <h1 class="tl-title" id="pv-title">Precision in service of <em>beauty</em>.</h1>
           <p class="tl-lead" id="pv-lead">Every line of code serves a purpose. Every pixel is intentional. This is what a site looks like when the margins have been earned and the letterforms have been chosen, not defaulted to.</p>
-          <p class="tl-body" id="pv-body">A static site is not a limitation — it is a posture. It says the words matter more than the scripts, that readers deserve a page that loads in the time it takes them to blink. Typography is the first promise a page makes: that somebody cared before you arrived.</p>
+          <p class="tl-body" id="pv-body">A static site is not a limitation; it is a posture. It says the words matter more than the scripts, that readers deserve a page that loads in the time it takes them to blink. Typography is the first promise a page makes: that somebody cared before you arrived.</p>
           <span class="tl-sep"></span>
-          <span class="tl-caption" id="pv-caption">— Caption text · technical annotation · footnote voice.</span>
+          <span class="tl-caption" id="pv-caption">Caption text; technical annotation; footnote voice.</span>
         </div>
 
         <div class="tl-apply">
@@ -403,7 +403,7 @@ function site() {
   const defaults = {
     bg: 'night', preset: 'gitfoundry',
     headFont: 'Fraunces', bodyFont: 'Inter',
-    hSize: 136, hWt: 300, hLh: 97, hLs: -35,   /* 136 = 8.5rem peak — matches styles.css --gf-fs-hero default */
+    hSize: 136, hWt: 300, hLh: 97, hLs: -35,   /* 136 = 8.5rem peak; matches styles.css --gf-fs-hero default */
     hItalic: 'mixed', hCase: 'none',
     eFam: 'mono', eSize: 12, eWt: 400, eLs: 200,
     lSize: 17, lWt: 300, lLh: 175,
@@ -576,7 +576,7 @@ function site() {
 
     const lines = [
       '/* ════════════════════════════════════════════════',
-      '   TYPE LAB EXPORT — ' + new Date().toISOString().slice(0,10),
+      '   TYPE LAB EXPORT; ' + new Date().toISOString().slice(0,10),
       '   Preset: ' + state.preset + '   |   Accent: ' + state.accent,
       '   ',
       '   Drop-in safe. This block ONLY sets --gf-* tokens',
@@ -682,7 +682,7 @@ function site() {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showToast('Downloaded — now replace styles.css in your repo');
+      showToast('Downloaded; now replace styles.css in your repo');
     } catch (e) {
       const blob = new Blob([generatePatch()], { type: 'text/css' });
       const url = URL.createObjectURL(blob);
@@ -693,7 +693,7 @@ function site() {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showToast('Patch downloaded — append to styles.css');
+      showToast('Patch downloaded; append to styles.css');
     }
   }
 
@@ -724,7 +724,7 @@ function site() {
           syncUI();
         } else {
           /* Any non-preset chip change (font, bg, accent) means we're no
-             longer cleanly on a named preset — clear the preset label. */
+             longer cleanly on a named preset; clear the preset label. */
           state.preset = '';
           state[key] = v;
           $$('button[data-v]', group).forEach(b => b.classList.toggle('on', b === btn));

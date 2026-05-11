@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Page Not Found — GitFoundry</title>
+<title>Page Not Found; GitFoundry</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
       <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.5"/><line x1="9" y1="1.25" x2="9" y2="3"/><line x1="9" y1="15" x2="9" y2="16.75"/><line x1="1.25" y1="9" x2="3" y2="9"/><line x1="15" y1="9" x2="16.75" y2="9"/><line x1="3.2" y1="3.2" x2="4.5" y2="4.5"/><line x1="13.5" y1="13.5" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="13.5" y2="4.5"/><line x1="4.5" y1="13.5" x2="3.2" y2="14.8"/></svg><svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M15.75 9.59A6.75 6.75 0 1 1 8.41 2.25 5.25 5.25 0 0 0 15.75 9.59z"/></svg>
     </button>
     <button class="nav-burger" @click="drawerOpen=!drawerOpen" :aria-expanded="drawerOpen" aria-controls="nav-drawer-404" aria-label="Toggle navigation">
-      <span x-text="drawerOpen?'✕':'≡'"></span>
+      <span x-text="drawerOpen?'×':'≡'"></span>
     </button>
   </div>
 </nav>
@@ -99,8 +99,8 @@
         </g>
       </svg>
       <span class="page-header-label">404</span>
-      <h1 class="page-header-title">Page not found.</h1>
-      <p class="page-header-desc">The page you're looking for doesn't exist or has moved. Use the links below to find your way back.</p>
+      <h1 class="page-header-title">This page does not seem to exist.</h1>
+      <p class="page-header-desc">The address you have arrived at is either misspelled, or describes a page which has been moved, or was never quite written in the first place. A few possible routes back into the site are gathered below.</p>
     </header>
 
     <section aria-label="Navigation options">
@@ -135,7 +135,7 @@
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <span class="footer-left">© 2026 GitFoundry · Supporting local UK businesses · All prices include VAT</span>
+    <span class="footer-left">© 2026 GitFoundry; built in Stoke-on-Trent, supporting local UK businesses; all prices include VAT</span>
     <ul class="footer-links" role="list">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -151,13 +151,7 @@
 
 <div class="cookie-banner" :class="cookieVisible?'visible':''" role="region" aria-label="Cookie notice">
   <div class="cookie-inner">
-    <p class="cookie-text">We use Google Analytics to understand how visitors use this site. No personal data is sold. <a href="legal.html">Privacy policy</a>.</p>
+    <p class="cookie-text">A small amount of Google Analytics is used to understand how visitors arrive at, and read, this site. No personal data is sold. The <a href="legal.html">privacy policy</a> sets the matter out in full.</p>
     <div class="cookie-actions">
       <button class="cookie-btn cookie-btn-decline" @click="declineCookies()">Decline</button>
-      <button class="cookie-btn cookie-btn-accept" @click="acceptCookies()">Accept</button>
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
+      <button

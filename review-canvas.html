@@ -5,7 +5,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Review canvas — GitFoundry (private)</title>
+<title>Review canvas; GitFoundry (private)</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
 
   .review {
     display: grid;
-    /* 4 rows for 4 children — header, tabs, desc, stage. The stage takes
+    /* 4 rows for 4 children; header, tabs, desc, stage. The stage takes
        remaining space so the iframe inside (position:absolute) has a
        non-zero parent to fill. Earlier 3-row template collapsed the stage. */
     grid-template-rows: auto auto auto 1fr;
@@ -310,15 +310,15 @@
   <nav class="review-tabs" role="tablist" aria-label="Track selection">
     <button class="review-tab" role="tab" data-track="t2" aria-selected="false">
       <span class="review-tab-num">Track 02</span>
-      <span class="review-tab-title">Portfolio — Will4Life case</span>
+      <span class="review-tab-title">Portfolio; Will4Life case</span>
     </button>
     <button class="review-tab" role="tab" data-track="t1" aria-selected="false">
       <span class="review-tab-num">Track 01</span>
-      <span class="review-tab-title">Home — hero & globe</span>
+      <span class="review-tab-title">Home; hero & globe</span>
     </button>
     <button class="review-tab" role="tab" data-track="t3" aria-selected="false">
       <span class="review-tab-num">Track 03</span>
-      <span class="review-tab-title">Type Lab — 18 presets</span>
+      <span class="review-tab-title">Type Lab; 18 presets</span>
     </button>
     <button class="review-tab" role="tab" data-track="t4" aria-selected="false">
       <span class="review-tab-num">Track 04</span>
@@ -326,7 +326,7 @@
     </button>
     <button class="review-tab" role="tab" data-track="t5" aria-selected="false">
       <span class="review-tab-num">Track 05</span>
-      <span class="review-tab-title">Vitruvian — alternate view</span>
+      <span class="review-tab-title">Vitruvian; alternate view</span>
     </button>
 
     <div class="review-tab-side">
@@ -336,18 +336,18 @@
 
   <div class="review-desc" id="review-desc">
     <span class="review-desc-label">◆ Track</span>
-    <p class="review-desc-text" id="review-desc-text">—</p>
+    <p class="review-desc-text" id="review-desc-text"></p>
   </div>
 
   <div class="review-stage" id="review-stage">
     <div class="review-loader" aria-hidden="true">
       <div class="review-loader-mark"></div>
     </div>
-    <iframe class="review-frame" data-track="t1" src="index.html" loading="lazy" title="Track 01 — Home"></iframe>
-    <iframe class="review-frame" data-track="t2" data-default src="portfolio.html" loading="eager" title="Track 02 — Portfolio"></iframe>
-    <iframe class="review-frame" data-track="t3" src="type-lab.html" loading="lazy" title="Track 03 — Type Lab"></iframe>
-    <iframe class="review-frame" data-track="t4" src="preview.html" loading="lazy" title="Track 04 — Vitruvian motifs"></iframe>
-    <iframe class="review-frame" data-track="t5" src="vitruvian preview.html" loading="lazy" title="Track 05 — Vitruvian alternate view"></iframe>
+    <iframe class="review-frame" data-track="t1" src="index.html" loading="lazy" title="Track 01; Home"></iframe>
+    <iframe class="review-frame" data-track="t2" data-default src="portfolio.html" loading="eager" title="Track 02; Portfolio"></iframe>
+    <iframe class="review-frame" data-track="t3" src="type-lab.html" loading="lazy" title="Track 03; Type Lab"></iframe>
+    <iframe class="review-frame" data-track="t4" src="preview.html" loading="lazy" title="Track 04; Vitruvian motifs"></iframe>
+    <iframe class="review-frame" data-track="t5" src="vitruvian preview.html" loading="lazy" title="Track 05; Vitruvian alternate view"></iframe>
   </div>
 
 </div>
@@ -360,27 +360,27 @@
   const TRACKS = {
     t1: {
       label: 'Track 01 · Home',
-      desc: 'The live <strong>home page</strong> — restructured hero (trust strip above headline, clean CTA pair, price line beneath), audience chip strip linking to sectors, slim pricing bridge to the calculator, embedded testimonial. Spinning Vitruvian globe on the right, desktop-only.',
+      desc: 'The live <strong>home page</strong>; restructured hero (trust strip above headline, clean CTA pair, price line beneath), audience chip strip linking to sectors, slim pricing bridge to the calculator, embedded testimonial. Spinning Vitruvian globe on the right, desktop-only.',
       src: 'index.html'
     },
     t2: {
       label: 'Track 02 · Portfolio',
-      desc: 'The live <strong>portfolio</strong> page — Will4Life case as the anchoring testimonial with image, alongside the project grid below. Canonical home for the full client quote.',
+      desc: 'The live <strong>portfolio</strong> page; Will4Life case as the anchoring testimonial with image, alongside the project grid below. Canonical home for the full client quote.',
       src: 'portfolio.html'
     },
     t3: {
       label: 'Track 03 · Type Lab',
-      desc: 'The internal <strong>Type Lab</strong> with 18 presets total — six house presets (GitFoundry, Editorial, Brutalist, Monograph, Swiss, Magazine), six functional (Heritage, Manifesto, Boutique, Newsroom, Atelier, Noir), six luxury (Couture, Maison, Concierge, Onyx, Régence, Velour). Export drops straight into styles.css via the typography token contract.',
+      desc: 'The internal <strong>Type Lab</strong> with 18 presets total; six house presets (GitFoundry, Editorial, Brutalist, Monograph, Swiss, Magazine), six functional (Heritage, Manifesto, Boutique, Newsroom, Atelier, Noir), six luxury (Couture, Maison, Concierge, Onyx, Régence, Velour). Export drops straight into styles.css via the typography token contract.',
       src: 'type-lab.html'
     },
     t4: {
       label: 'Track 04 · Vitruvian',
-      desc: 'The <strong>Vitruvian motif library</strong> — the five geometric studies (orbital, golden, gear, flower, master) animated in continuous orbital motion. One geometric language available for hero placement, dividers, and signature marks.',
+      desc: 'The <strong>Vitruvian motif library</strong>; the five geometric studies (orbital, golden, gear, flower, master) animated in continuous orbital motion. One geometric language available for hero placement, dividers, and signature marks.',
       src: 'preview.html'
     },
     t5: {
       label: 'Track 05 · Vitruvian (alt)',
-      desc: 'The <strong>alternate Vitruvian preview file</strong> — kept alongside Track 04 for backward-compat with existing references. Same composition, separate filename. Useful when you want to compare the same motif library in two contexts side by side.',
+      desc: 'The <strong>alternate Vitruvian preview file</strong>; kept alongside Track 04 for backward-compat with existing references. Same composition, separate filename. Useful when you want to compare the same motif library in two contexts side by side.',
       src: 'vitruvian preview.html'
     }
   };
@@ -409,7 +409,7 @@
     tab.addEventListener('click', () => activate(tab.dataset.track));
   });
 
-  // Keyboard: 1–4, ← →
+  // Keyboard: 1 to 4, ← →
   document.addEventListener('keydown', (e) => {
     if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
     const num = { '1':'t1', '2':'t2', '3':'t3', '4':'t4', '5':'t5' }[e.key];
