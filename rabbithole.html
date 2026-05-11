@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Rabbithole; GitFoundry</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"></noscript>
+
+<style>
+/* ── Tokens ─────────────────────────────────────────────────── */
+:root {
+  --bg:           #080f24;
+  --surface:      #0d1632;
+  --surface-alt:  #101c3a;
+  --border:       rgba(255,255,255,0.07);
+  --border-strong:rgba(255,255,255,0.14);
+  --text:         #ece8df;
+  --text-soft:    #b2ac9e;
+  --text-muted:   #8a8272;
+  --accent:       #c9a84c;
+  --accent-dim:   rgba(201,168,76,0.08);
+  --accent-ring:  rgba(201,168,76,0.25);
+  --serif:        'Fraunces', 'Georgia', serif;
+  --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:         'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --radius:       3px;
+  --dur:          0.18s;
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+  --max:          1100px;
+  --gutter:       clamp(1.25rem, 5vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.65;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Grid noise overlay ─────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    repeating-linear-gradient(0deg,   transparent, transparent 39px, rgba(255,255,255,0.018) 40px),
+    repeating-linear-gradient(90deg,  transparent, transparent 39px, rgba(255,255,255,0.018) 40px);
+  background-size: 40px 40px;
+}
+
+/* ── Layout shell ───────────────────────────────────────────── */
+.rh-shell {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) var(--gutter) clamp(4rem, 10vw, 8rem);
+}
+
+/* ── Back link ──────────────────────────────────────────────── */
+.rh-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 4rem;
+  transition: color var(--dur);
+}
+.rh-back:hover { color: var(--text-soft); }
+.rh-back::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--dur);
+}
+.rh-back:hover::before { width: 26px; }
+
+/* ── Header ─────────────────────────────────────────────────── */
+.rh-header { margin-bottom: 5rem; max-width: 640px; }
+
+.rh-eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.rh-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.rh-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.rh-lead {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--text-soft);
+  max-width: 52ch;
+}
+
+/* ── Divider ────────────────────────────────────────────────── */
+.rh-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.rh-rule::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+/* ── Section label ──────────────────────────────────────────── */
+.rh-section-label {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rh-section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Cards grid ─────────────────────────────────────────────── */
+.rh-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 5rem;
+}
+
+/* ── Card ───────────────────────────────────────────────────── */
+.rh-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem 2rem;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color var(--dur) var(--ease),
+    background   var(--dur) var(--ease),
+    transform    0.22s      var(--ease);
+}
+
+.rh-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 55% at 50% -10%, var(--accent-dim) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.rh-card:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-alt);
+  transform: translateY(-2px);
+}
+
+.rh-card:hover::before { opacity: 1; }
+
+/* Corner registration marks */
+.rh-card::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid var(--border-strong);
+  border-right: 1px solid var(--border-strong);
+  opacity: 0;
+  transition: opacity var(--dur);
+}
+.rh-card:hover::after { opacity: 1; }
+
+.rh-card-index {
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rh-card-index::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.rh-card-title {
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.65rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.rh-card-title em { font-style: italic; color: var(--accent); }
+
+.rh-card-desc {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--text-soft);
+  margin-bottom: 1.5rem;
+}
+
+.rh-card-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity  var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.rh-card-cue::after {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+}
+
+.rh-card:hover .rh-card-cue {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Footer note ────────────────────────────────────────────── */
+.rh-footnote {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.rh-footnote p {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  max-width: 480px;
+  line-height: 1.8;
+}
+
+.rh-footnote p strong {
+  color: var(--text-soft);
+  font-weight: 400;
+}
+
+.rh-footnote-mark {
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--border-strong);
+  white-space: nowrap;
+}
+
+/* ── Reduce motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .rh-card { transition: border-color var(--dur), background var(--dur); }
+  .rh-card:hover { transform: none; }
+}
+</style>
+</head>
+
+<body>
+<div class="rh-shell">
+
+  <a href="index.html" class="rh-back">Back to site</a>
+
+  <header class="rh-header">
+    <span class="rh-eyebrow">GitFoundry &middot; Rabbithole</span>
+    <h1 class="rh-title">The <em>workshop</em> floor.</h1>
+    <p class="rh-lead">
+      These pages are not part of the public site. They are the test benches,
+      type explorations, design proofs, and internal tools that preceded it.
+      Each one reflects a decision made; a question asked before the answer
+      was settled.
+    </p>
+  </header>
+
+  <div class="rh-rule"></div>
+
+  <p class="rh-section-label">Showcase &middot; Five entries</p>
+
+  <nav class="rh-grid" aria-label="Rabbithole navigation">
+
+    <!-- Type Lab -->
+    <a href="type-lab.html" class="rh-card">
+      <span class="rh-card-index">01 &mdash; typography</span>
+      <h2 class="rh-card-title">Type <em>Lab</em></h2>
+      <p class="rh-card-desc">
+        Eighteen typographic presets explored in a live canvas. Font pairs, optical
+        size, leading, measure, and accent colour: all adjustable, all visible at once.
+        The tool used to settle the site's heading and body choices.
+      </p>
+      <span class="rh-card-cue" aria-hidden="true">Enter</span>
+    </a>
+
+    <!-- Review Canvas -->
+    <a href="review-canvas.html" class="rh-card">
+      <span class="rh-card-index">02 &middot; process</span>
+      <h2 class="rh-card-title">Review <em>Canvas</em></h2>
+      <p class="rh-card-desc">
+        The client-facing review interface. Tabbed, full-viewport, with a
+        description pane for each frame. This is the environment in which
+        clients are shown work in progress before a single revision note is written.
+      </p>
+      <span class="rh-card-cue" aria-hidden="true">Enter</span>
+    </a>
+
+    <!-- Vitruvian System -->
+    <a href="vitruvian-system.html" class="rh-card">
+      <span class="rh-card-index">03 &middot; identity</span>
+      <h2 class="rh-card-title">Vitruvian <em>System</em></h2>
+      <p class="rh-card-desc">
+        The studio mark in its full context: section dividers, stat-rail watermarks,
+        corner plaques, and footer centrepieces. Five motif variants and the logic
+        for choosing between them.
+      </p>
+      <span class="rh-card-cue" aria-hidden="true">Enter</span>
+    </a>
+
+    <!-- Vitruvian Preview -->
+    <a href="preview.html" class="rh-card">
+      <span class="rh-card-index">04 &middot; motion</span>
+      <h2 class="rh-card-title">Vitruvian <em>in Motion</em></h2>
+      <p class="rh-card-desc">
+        Five orbital variants rendered in continuous motion. Concentric geometry,
+        counter-rotating layers, and a slow breath cycle that the eye takes a moment
+        to locate. The mark doing what it was made for.
+      </p>
+      <span class="rh-card-cue" aria-hidden="true">Enter</span>
+    </a>
+
+    <!-- UX Mockup -->
+    <a href="ux-mockup-hero.html" class="rh-card">
+      <span class="rh-card-index">05 &middot; layout</span>
+      <h2 class="rh-card-title">Hero <em>Explorations</em></h2>
+      <p class="rh-card-desc">
+        Three hero configurations considered before the current layout was chosen.
+        The decisions recorded here are as instructive as the outcome: what was
+        tried, what was discarded, and why.
+      </p>
+      <span class="rh-card-cue" aria-hidden="true">Enter</span>
+    </a>
+
+  </nav>
+
+  <footer class="rh-footnote">
+    <p>
+      <strong>These pages carry noindex, nofollow directives.</strong>
+      They will not appear in search results and are not linked from the public
+      navigation. Access is by direct URL or by knowing where to look.
+    </p>
+    <span class="rh-footnote-mark">GitFoundry &middot; Private &middot; 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>

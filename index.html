@@ -28,6 +28,25 @@
 
 <!-- New v2 component styles, scoped and additive (no overrides) -->
 <style>
+  /* ── Rabbithole trigger dot ────────────────────────────────────────────
+     Sits immediately after the nav logo. At 0.12 opacity it is present
+     for anyone who reads carefully; invisible to a casual glance.
+     Hover lifts it to 0.65 so the careful reader is rewarded.
+     tabindex="-1" keeps it out of keyboard tab order intentionally.
+  ────────────────────────────────────────────────────────────────────── */
+  .nav-rh {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    opacity: 0.12;
+    margin-left: 0.2rem;
+    vertical-align: middle;
+    line-height: 1;
+    transition: opacity 0.3s;
+    user-select: none;
+  }
+  .nav-rh:hover { opacity: 0.65; color: var(--accent); }
   /* Handover packet showcase */
   .handover-grid {
     display: grid;
@@ -227,7 +246,7 @@
 <!-- NAV -->
 <nav class="site-nav" aria-label="Primary navigation">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a>
+    <a href="/" class="nav-logo">Git<span>Foundry</span>.co.uk</a><a href="rabbithole.html" class="nav-rh" aria-label="Rabbithole" tabindex="-1">&middot;</a>
     <ul class="nav-links" role="list">
       <li><a href="services.html"  class="nav-item">Services</a></li>
       <li><a href="pricing.html"   class="nav-item">Pricing</a></li>
