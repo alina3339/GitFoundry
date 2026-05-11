@@ -369,8 +369,8 @@
                 <label class="form-label" for="tier">Tier of interest</label>
                 <select class="form-select" id="tier" name="tier">
                   <option value="">Not sure yet</option>
-                  <option value="landing">Landing Page — £149</option>
-                  <option value="professional">Professional — £349</option>
+                  <option value="foundation">Foundation — £149</option>
+                  <option value="working">Working Site — £399</option>
                   <option value="bespoke">Bespoke — £749+</option>
                 </select>
               </div>
@@ -417,7 +417,11 @@
         </div>
         <div class="brief-sidebar-block">
           <h3>Pricing guide</h3>
-          <p>Landing Page — £149<br>Professional — £349<br>Bespoke — from £749<br><br><a href="pricing.html">Full pricing breakdown →</a></p>
+          <p>Foundation — £149<br>Working Site — £399<br>Bespoke — from £749<br><br><a href="pricing.html">Full pricing breakdown →</a></p>
+        </div>
+        <div class="brief-sidebar-block">
+          <h3>What you receive</h3>
+          <p>Every tier ships with the full handover packet: live site, repository transferred to your account, owner's manual, walkthrough recording, emergency runbook, migration playbook, and a 90-day support window.</p>
         </div>
         <div class="brief-sidebar-block">
           <h3>Prefer email or a call?</h3>
@@ -485,6 +489,21 @@ document.addEventListener('DOMContentLoaded', function() {
     toggle.setAttribute('aria-expanded', isOpen);
     toggle.textContent = isOpen ? '− Hide optional details' : '+ Add more details (optional)';
   });
+
+  // Pre-select tier and auto-open optional fields when arriving from a pricing CTA
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const tier = params.get('tier');
+    const tierMap = { foundation: 'foundation', working: 'working', bespoke: 'bespoke',
+                      landing: 'foundation', professional: 'working' };
+    if (tier && tierMap[tier]) {
+      const sel = document.getElementById('tier');
+      if (sel) sel.value = tierMap[tier];
+      fields.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = '− Hide optional details';
+    }
+  } catch (e) { /* URL parsing not critical */ }
 });
 
 // Live progress meter — updates as required fields fill, transitions to a

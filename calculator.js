@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  const BUILD_COST = 399; // Precision tier, one-time
+  const BUILD_COST = 399; // Working Site tier, one-time
 
   const slider   = document.getElementById('calc-monthly');
   if (!slider) return; // module not present on this page — exit silently

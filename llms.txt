@@ -1,25 +1,27 @@
 # GitFoundry
 
-> GitFoundry is a UK web design studio that builds precision hand-coded static websites for small businesses, sole traders, freelancers, and charities. Websites are hosted free on GitHub Pages. Clients pay once and own the source code outright — no monthly fees, no platform lock-in, ever.
+> GitFoundry is a UK web design studio that builds precision hand-coded static websites for sole traders, small consultancies, freelancers, and charities. Websites are hosted free on GitHub Pages. Clients pay once and own the source code outright — no monthly fees, no platform lock-in, ever. Every build includes a handover packet (owner's manual, walkthrough recording, runbook, migration playbook, 90-day support) so clients can operate the site themselves after delivery.
 
-GitFoundry is based in Stoke-on-Trent, Staffordshire, and works with clients across the United Kingdom. Every site is written from scratch in plain HTML, CSS, and JavaScript — no WordPress, no Squarespace, no page builders. Sites are optimised to score 90+ on Google Lighthouse.
+GitFoundry is based in Trentham, Stoke-on-Trent, Staffordshire, and works with clients across the United Kingdom. Every site is written from scratch in plain HTML, CSS, and JavaScript — no WordPress, no Squarespace, no page builders. Sites are optimised to score 90+ on Google Lighthouse.
 
 ## Services
 
-- **Foundry** (£149) — A focused, single-purpose website. Ideal for sole traders who need a clean online presence quickly. Live in as few as 3 working days.
-- **Precision** (£399) — A multi-page website with up to 5 pages, a contact form, and a journal section. Typical delivery: 7 working days.
-- **Bespoke** (£749+) — A fully custom build with no scope constraints. Pricing and timeline agreed at brief stage.
+- **Foundation** (£149) — A focused, single-page website for UK sole traders who need a credible online presence. Live in 3–5 working days. Full handover packet included.
+- **Working Site** (£399) — A multi-page website (up to 5 pages) for freelancers and consultancies that need to win work. SEO fundamentals, schema markup, analytics, performance optimisation. Typical delivery: 7 working days. Full handover packet included.
+- **Bespoke** (£749+) — A fully custom build with no scope constraints, up to 12 pages with more by quote. Custom design, advanced SEO, extended 6-month support window. Pricing and timeline agreed at brief stage.
 
-All prices include UK VAT. One-time payment. No monthly fees. No recurring charges.
+All prices include UK VAT. One-time payment. No monthly fees. No recurring charges. The only ongoing cost is the client's own domain renewal (around £12/year), paid directly to a registrar like Namecheap or Porkbun — not to GitFoundry.
 
 ## Key differentiators
 
+- **The handover packet** — every build ships with the live site, the Git repository transferred to the client's account, a plain-English owner's manual specific to their site, a 30-minute walkthrough recording, a one-page emergency runbook, a migration playbook (for moving to another host in under an hour), and a 90-day post-launch support window
 - **Hand-coded** — every site built from scratch, no templates or CMS
 - **No monthly fees** — GitHub Pages hosting is free, permanent, and provided by Microsoft
 - **Source code ownership** — full repository transferred to client on delivery
-- **UK-based** — Stoke-on-Trent, Staffordshire; works with clients nationwide
-- **Fast** — Foundry sites live in 3 days; Precision in 7 working days
+- **UK-based** — Trentham, Stoke-on-Trent, Staffordshire; works with clients nationwide
+- **Fast** — Foundation sites live in 3–5 days; Working Site in 7 working days
 - **Performance** — 90+ Lighthouse scores as standard
+- **Portable** — sites can be redeployed to Cloudflare Pages, Netlify, GitLab Pages, or any other static host in under an hour
 
 ## Sectors served
 
