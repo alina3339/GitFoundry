@@ -988,4 +988,51 @@ async function initGlobe() {
 
   let countries = null;
   try {
-    const res = await fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_c
+    const res = await fetch('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson');
+    countries = await res.json();
+  } catch (e) {
+    console.warn('Globe: country data failed to load', e);
+    return;
+  }
+
+  const countryEls = countries.features.map(f => {
+    const el = document.createElementNS(NS, 'path');
+    el.setAttribute('fill', ink(0.35));
+    el.setAttribute('stroke', ink(0.55));
+    el.setAttribute('stroke-width', '0.45');
+    el.setAttribute('stroke-linejoin', 'round');
+    countriesG.appendChild(el);
+    return { el, feature: f };
+  });
+
+  function arcPath(radius, startDeg, sweepDeg) {
+    const s = (startDeg-90)*Math.PI/180;
+    const e = (startDeg+sweepDeg-90)*Math.PI/180;
+    const x1 = cx+radius*Math.cos(s), y1 = cy+radius*Math.sin(s);
+    const x2 = cx+radius*Math.cos(e), y2 = cy+radius*Math.sin(e);
+    const large = sweepDeg>180 ? 1 : 0;
+    return `M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${radius} ${radius} 0 ${large} 1 ${x2.toFixed(2)} ${y2.toFixed(2)}`;
+  }
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const t0 = performance.now();
+
+  function tick(now) {
+    const dt = (now-t0)/1000;
+    projection.rotate([(dt*22)%360, -15, 0]);
+    gratEl.setAttribute('d', path(graticule) || '');
+    equatorEl.setAttribute('d', path(equator) || '');
+    countryEls.forEach(c => c.el.setAttribute('d', path(c.feature) || ''));
+    whirlArcs.forEach(a => a.el.setAttribute('d', arcPath(a.radius, a.start+dt*a.speed, a.sweep)));
+    dots.forEach(d => {
+      const ang = (d.start+dt*d.speed-90)*Math.PI/180;
+      d.el.setAttribute('cx', (cx+d.radius*Math.cos(ang)).toFixed(2));
+      d.el.setAttribute('cy', (cy+d.radius*Math.sin(ang)).toFixed(2));
+    });
+    if (!reduce) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>
